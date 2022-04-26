@@ -81,3 +81,18 @@ This category is used to label the backlog items that are currently being worked
 
 This category is used to label the backlog items that are finished and waiting to be reviewed.
 
+## 4. Git workflow
+
+1. Open a task from the **Open** issues of the Scrum board.
+2. Assign yourself to the chosen task.
+3. Create a *Draft* merge request using the **Create merge request** button,
+select **Create merge request and branch** from the drop menu, and adjust the
+target branch to be the **week** branch for that workweek.
+4. Add yourself as an *Assignee* on the merge request page.
+5. Adjust the Milestone for the merge request to match the Sprint number.
+6. *(Preferably)* Select 'Delete source branch when merge request is accepted.'
+checkbox in the **Merge options** section.
+7. Click the **Create merge request** button.
+
+Notes:
+- For any conflicts in the merge request, the author should resolve the conflicts locally and then push the changes to the target branch.
