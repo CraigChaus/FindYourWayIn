@@ -27,9 +27,9 @@ The goal of this project is to address these issues by creating a personalized e
 
 ## Project objectives
 
-* Develop a Webapp for smartphones with GPS that works with data on Wahlstraat by June 26, 2022
+* Develop a Webapp for smartphones with GPS that works with data on Walstraat by June 26, 2022
 * This App  will help local businesses digitize their current offerings, make them visible to this app by the end of June 2022.
-* Until May 29, 2022, the Application should provide the ability to build a route from the user's current location to a selected point on WalStreet.
+* Until May 29, 2022, the Application should provide the ability to build a route from the user's current location to a selected point on Walstraat.
 * Until June 12, 2022, the application user can register an account and log in to his personal account
 * Until June 26, 2022,The application should provide an easy way to search for organizations and save a plan to visit places.
 * Until June 26, 2022, the application must provide service to more than 100 clients at the same time.
