@@ -27,11 +27,10 @@ The goal of this project is to address these issues by creating a personalized e
 
 ## Project objectives
 
-The ultimate goal of this project is to develop an application for use on a smartphone that helps the user to search for the organizations he needs, get the latest information about discounts or special offers for the current date, get the shortest route to a destination, and organize a schedule for visiting different places.
-
 * Develop a Webapp for smartphones with GPS that works with data on Wahlstraat by the end of June 2022
 * This App  will help local businesses digitize their current offerings, make them visible to this app by the end of June 2022.
-* Until the end of June 2022, the Application should provide the ability to build a route from the user's current location to a selected point on WalStreet.
+* Until May 15, 2022, the Application should provide the ability to build a route from the user's current location to a selected point on WalStreet.
+* Until May 29, 2022, the application user can register an account
 * Until the end of June 2022,The application should provide an easy way to search for organizations and save a plan to visit places.
 * Until the end of June 2022, the application must provide service to more than 100 clients at the same time.
 ## Technologies Used
