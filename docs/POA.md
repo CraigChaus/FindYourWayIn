@@ -43,7 +43,7 @@ The ultimate goal of this project is to develop an application for use on a smar
 ### Backend 
 * __Node.js__:  By using Node.js, we will be able to use the same programming language, Javascript, across the stack. Also, with Node.js we will also have access to the npm software library which might be useful in the future.
 
-*__Express.js__: Express is a web-app framework which provides various features such as middleware, creating HTTP requests and routing.  
+* __Express.js__: Express is a web-app framework which provides various features such as middleware, creating HTTP requests and routing.  
 
 * __Geolocation__: The Geolocation API allows the user to provide their real-time location via the web application they are using. We are using this API to constantly access the users location in order to display it on the map component later on.
 
