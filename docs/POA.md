@@ -26,8 +26,14 @@ The goal of this project is to address these issues by creating a personalized e
  - **Walstraat shops** - as client said, some organizations and entrepreneurs agreed to be a part of testing environment. We can use the information of their facilities and depict it in our web app.
 
 
-## Technologies used
- - Frontend: React.js + Tailwind
- - Backend: Node.js server
- - Geolocation: HTML5 W3C location
+## Technologies Used
+### Frontend
+* __React__: React is a fast, component based Javascript framework which is used for developing SPAs. This makes it great for creating data visualization tools like GPS systems since it prevents the need to reload the page every time there will be a change in the map, for instance.  
+
+* __Tailwind CSS__: For CSS we are using Tailwind. Tailwind is utility based CSS framework which provides functionality to create highly customizable styling.
+
+### Backend 
+* __Node.js__:  By using Node.js, we will be able to use the same programming language, Javascript, across the stack. Also, with Node.js we will also have access to the npm software library which might be useful in the future.
+
+* __Geolocation__: The Geolocation API allows the user to provide their real-time location via the web application they are using. We are using this API to constantly access the users location in order to display it on the map component later on.
 
