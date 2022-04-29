@@ -27,12 +27,12 @@ The goal of this project is to address these issues by creating a personalized e
 
 ## Project objectives
 
-* Develop a Webapp for smartphones with GPS that works with data on Wahlstraat by the end of June 2022
+* Develop a Webapp for smartphones with GPS that works with data on Wahlstraat by June 26, 2022
 * This App  will help local businesses digitize their current offerings, make them visible to this app by the end of June 2022.
-* Until May 15, 2022, the Application should provide the ability to build a route from the user's current location to a selected point on WalStreet.
-* Until May 29, 2022, the application user can register an account
-* Until the end of June 2022,The application should provide an easy way to search for organizations and save a plan to visit places.
-* Until the end of June 2022, the application must provide service to more than 100 clients at the same time.
+* Until May 29, 2022, the Application should provide the ability to build a route from the user's current location to a selected point on WalStreet.
+* Until June 12, 2022, the application user can register an account and log in to his personal account
+* Until June 26, 2022,The application should provide an easy way to search for organizations and save a plan to visit places.
+* Until June 26, 2022, the application must provide service to more than 100 clients at the same time.
 ## Technologies Used
 ### Frontend
 * __React__: React is a fast, component based Javascript framework which is used for developing SPAs. This makes it great for creating data visualization tools like GPS systems since it prevents the need to reload the page every time there will be a change in the map, for instance.  
