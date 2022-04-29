@@ -28,9 +28,20 @@ The goal of this project is to address these issues by creating a personalized e
 ## Project objectives
 
 The ultimate goal of this project is to develop an application for use on a smartphone that helps the user to search for the organizations he needs, get the latest information about discounts or special offers for the current date, get the shortest route to a destination, and organize a schedule for visiting different places.
- 
+
 * Develop a Webapp for smartphones with GPS that works with data on Wahlstraat by the end of June 2022
 * This App  will help local businesses digitize their current offerings, make them visible to this app by the end of June 2022.
 * Until the end of June 2022, the Application should provide the ability to build a route from the user's current location to a selected point on WalStreet.
 * Until the end of June 2022,The application should provide an easy way to search for organizations and save a plan to visit places.
 * Until the end of June 2022, the application must provide service to more than 100 clients at the same time.
+## Technologies Used
+### Frontend
+* __React__: React is a fast, component based Javascript framework which is used for developing SPAs. This makes it great for creating data visualization tools like GPS systems since it prevents the need to reload the page every time there will be a change in the map, for instance.  
+
+* __Tailwind CSS__: For CSS we are using Tailwind. Tailwind is utility based CSS framework which provides functionality to create highly customizable styling.
+
+### Backend 
+* __Node.js__:  By using Node.js, we will be able to use the same programming language, Javascript, across the stack. Also, with Node.js we will also have access to the npm software library which might be useful in the future.
+
+* __Geolocation__: The Geolocation API allows the user to provide their real-time location via the web application they are using. We are using this API to constantly access the users location in order to display it on the map component later on.
+
