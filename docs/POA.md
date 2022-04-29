@@ -26,3 +26,8 @@ The goal of this project is to address these issues by creating a personalized e
  - **Walstraat shops** - as client said, some organizations and entrepreneurs agreed to be a part of testing environment. We can use the information of their facilities and depict it in our web app.
 
 
+## Technologies used
+ - Frontend: React.js + Tailwind
+ - Backend: Node.js server
+ - Geolocation: HTML5 W3C location
+
