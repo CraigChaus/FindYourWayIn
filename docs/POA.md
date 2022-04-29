@@ -31,3 +31,16 @@ The goal of this project is to address these issues by creating a personalized e
  - Backend: Node.js server
  - Geolocation: HTML5 W3C location
 
+## Global Timeline
+| Date | Deadlines | Deliverables |
+|------|-------|-------|
+| **15-05-2022** | **Sprint 0** | **<ul><li>Plan of Approach</li></ul>** |
+| **29-05-2022** | **Sprint 1** | **<ul><li>Retrospective report Sprint 1</li><li>All produced material</li><li>Sprint 2 plan</li><li>Timesheet version 1</li><li>Account of individual contribution version 1 </li></ul>** |
+| **12-06-2022** | **Sprint 2** | **<ul><li>Retrospective report Sprint 2</li><li>All produced material</li><li>Timesheet version 2</li><li>Account of individual contribution version 2</li><li>Sprint 3 plan</li></ul>** |
+| **26-06-2022** | **Sprint 3** | **<ul><li>Retrospective report Sprint 3</li><li>All produced material</li><li>Timesheet version 3</li><li>Account of individual contribution version 3</li></ul>** |
+
+
+
+
+
+
