@@ -56,6 +56,37 @@ The goal of this project is to address these issues by creating a personalized e
 | **12-06-2022** | **Sprint 2** | **<ul><li>Retrospective report Sprint 2</li><li>All produced material</li><li>Timesheet version 2</li><li>Account of individual contribution version 2</li><li>Sprint 3 plan</li></ul>** |
 | **26-06-2022** | **Sprint 3** | **<ul><li>Retrospective report Sprint 3</li><li>All produced material</li><li>Timesheet version 3</li><li>Account of individual contribution version 3</li></ul>** |
 
+## Sprint objectives 
+### Sprint 0
+For sprint 0, our team focuses on writing the Plan of Approach and forming requirements for the project. We will define the project's scope, goals, the global timeline and deliverables, as well as the objectives for each sprint of the project.
+
+### Sprint 1
+For sprint 1, we will focus on making the core functionalities related to navigation system of the application. 
+We plan to finish those user stories in this sprint:
+- **Cu01**: As a consumer user, I want to see the map of Walstraat so that I can be able to navigate around the area. 
+- **Cu02**: As a consumer user, I want to read a brief description about the selected location so that I know a bit more about the location of interest. 
+- **Cu04**: As a consumer user, I want to see a direct route to my location of interest so that I can navigate towards it. 
+### Sprint 2
+For sprint 2, we finalize the core functionalities of the application, which are the user authentication, personal account management, and information provision on different events and locations.
+The user stories we are planning to implement in this sprint are:
+- **Cu02**: As a consumer user, I want to read a brief description about the selected location so that I know a bit more about the location of interest. 
+- **Cu03**: As a consumer user, I want to view a list of destinations that is have promotions and discounts in Walstraat so that I can easily select the one I wish to visit and use the promotion. 
+- **Cu04**: As a consumer user, I want to see a direct route to my location of interest so that I can navigate towards it. 
+- **Cu05**: As a consumer user, I want to see all organisations that have a promotion on offer so that I can go to the place to utilise the promotion. 
+- **Cu06**: As a consumer user, I want to see all the upcoming events in Walstraat so that I can plan on what to do and when. 
+- **Cu07**: As a consumer user, I want to see all the upcoming events in Walstraat so that I can plan on what to do and when. 
+- **Cu09**: As a consumer user, I want to be able to search for a specific location based on my preferences so that I can go and visit the place. 
+- **Cu11**: As a consumer user, I want the web application to plan a route for me based on my preferences so that I do not have to worry about where to go next from one location. 
+
+### Sprint 3
+For sprint 3, we will focus on improving the exist codebase, polishing up the user interface and the user experience of the application and prepare for the final delivery to production stage. We also wrap up the documentation and the deliverables for the project, with a plan for future development of this project.
+
+The user stories we are planning to implement in this sprint are:
+- **Cu08**: As a consumer user, I want to use the web application in the language I prefer so that I can understand and use the web application. 
+- **Cu10**: As a consumer user, I want to see which organisation is very popular today so that I can go and visit that popular organisation. 
+- **Cu11**: As a consumer user, I want the web application to plan a route for me based on my preferences so that I do not have to worry about where to go next from one location. 
+- **Cu12**: As a consumer user, I want the web application to give me contact details about a specific organisation/location so that I can call the organisation/location. 
+
 
 addition: Kickoff meeting section; Research documentation for technologies, wireframes, etc.; 
 
