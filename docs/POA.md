@@ -13,7 +13,7 @@
  
 The goal of this project is to address these issues by creating a personalized experience for locals and tourists via a mapping application that creates user preference based routes which relies on the products they are searching or local events they might want to attend to. Alongside, the app aims to give the user an insight of the local business/event by providing descriptions of the places which will help them to determine if the business/event is what they are looking for.
 
-# Parties involved
+# Stakeholders
 
  - **Client** - Nils, our client, person who has a vision of the project and who makes all decisions regarding product's form and idea. He is the contact point in case we have doubts or question regarding app's core functionality or other important topics.
 
@@ -26,6 +26,7 @@ The goal of this project is to address these issues by creating a personalized e
  - **Walstraat shops** - as client said, some organizations and entrepreneurs agreed to be a part of testing environment. We can use the information of their facilities and depict it in our web app.
 
 ## Project objectives
+(Define what are we going to solve, 2nd bullet point)
 
 * Develop a Webapp for smartphones with GPS that works with data on Walstraat by June 26, 2022
 * This App  will help local businesses digitize their current offerings, make them visible to this app by the end of June 2022.
@@ -34,6 +35,7 @@ The goal of this project is to address these issues by creating a personalized e
 * Until June 26, 2022,The application should provide an easy way to search for organizations and save a plan to visit places.
 * Until June 26, 2022, the application must provide service to more than 100 clients at the same time.
 ## Technologies Used
+(Saying we will perform multi-criteria analysis for the most important technical decision, referencing to research/technical documentation)
 ### Frontend
 * __React__: React is a fast, component based Javascript framework which is used for developing SPAs. This makes it great for creating data visualization tools like GPS systems since it prevents the need to reload the page every time there will be a change in the map, for instance.  
 
@@ -55,7 +57,11 @@ The goal of this project is to address these issues by creating a personalized e
 | **26-06-2022** | **Sprint 3** | **<ul><li>Retrospective report Sprint 3</li><li>All produced material</li><li>Timesheet version 3</li><li>Account of individual contribution version 3</li></ul>** |
 
 
+addition: Kickoff meeting section; Research documentation for technologies, wireframes, etc.; 
 
+(React/Vue/Angular, integration with map APIs)
+
+Answer the main questions from the client => put in the research
 
 
 
