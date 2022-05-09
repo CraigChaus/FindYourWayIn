@@ -26,7 +26,7 @@ These emphasise the priority of the user requirement: MUST being the greatest fo
 |-----|---------------------------------------------------------------------------------------------------------------|:----:|----------------|:------------:|
 | 1.  | User wants to be able to view the navigation map                                                              |  M   | Client meeting |     Cu01     |
 | 2.  | User wants to be able to read a description about the destination                                             |  M   | Client meeting |     Cu02     |
-| 3.  | User wants to be able to see a list of destinations with promotions and discounts they can visit in Walstraat |  M   | Client meeting |     Cu03     |
+| 3.  | User wants to be able to see a list of destinations with promotions and discounts they can visit in Walstraat?|  M   | Client meeting |     Cu03     |
 | 4.  | User wants to be able to get a route to the selected destination                                              |  M   | Client meeting |     Cu04     |
 | 5.  | User wants to be able to see promotions offered by the shop or restaurant                                     |  M   | Client meeting |     Cu05     |
 | 6.  | User wants to be able to view the overall agenda of Walstraat with all upcoming events                        |  M   | Client meeting |     Cu06     |
