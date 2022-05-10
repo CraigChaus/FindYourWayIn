@@ -13,8 +13,8 @@ eslint:
   stage: lint
   script:
     - cd src/backend/
-    - npm i eslint eslint-config-airbnb
+    - npm install
     - npm run lint
     - cd ../fywi-frontend/
-    - npm i eslint eslint-config-airbnb
+    - npm install
     - npm run lint
