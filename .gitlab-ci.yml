@@ -1,0 +1,20 @@
+image: node
+
+stage:
+ - lint
+# Lets name our Job eslint, because that's what it's doing.
+
+cache: 
+  path: 
+    - src/backend/node_modules/
+    - src/fwyi-frontend/node_modules/
+
+eslint:
+  stage: lint
+  script:
+    - cd src/backend/
+    - npm i eslint eslint-config-airbnb
+    - npm run lint
+    - cd ../fywi-frontend/
+    - npm i eslint eslint-config-airbnb
+    - npm run lint
