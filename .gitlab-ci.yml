@@ -5,7 +5,7 @@ stage:
 # Lets name our Job eslint, because that's what it's doing.
 
 cache: 
-  path: 
+  paths: 
     - src/backend/node_modules/
     - src/fwyi-frontend/node_modules/
 
