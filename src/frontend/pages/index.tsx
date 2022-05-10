@@ -1,8 +1,16 @@
+import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import GMap from './gmaps/gmap';
 
-export default function Home() {
+const Home: NextPage = () => {
+
+  const render = (status: Status) => {
+    return <h1>{status}</h1>;
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -11,14 +19,20 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      
+      
+      <Wrapper apiKey={"AIzaSyD2Zs61dN0v-Rv871JYZR6GzVy_intXtv8"} render={render}>
+        <GMap></GMap>
+      </Wrapper>
+
       <main className={styles.main}>
-        <h1 className="text3xl font-bold underline">
+        <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
           Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+          <code className={styles.code}>pages/index.tsx</code>
         </p>
 
         <div className={styles.grid}>
@@ -67,3 +81,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
