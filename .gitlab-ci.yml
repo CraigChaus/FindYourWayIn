@@ -1,6 +1,6 @@
 image: node
 
-stage:
+stages:
  - lint
 # Lets name our Job eslint, because that's what it's doing.
 
