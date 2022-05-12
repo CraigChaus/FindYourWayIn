@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -6,6 +7,13 @@ import { Wrapper, Status } from "@googlemaps/react-wrapper";
 import GMap from './gmaps/gmap';
 
 const Home: NextPage = () => {
+
+  const [clicks, setClicks] = React.useState<google.maps.LatLng[]>([]);
+  const [zoom, setZoom] = React.useState(3); // initial zoom
+  const [center, setCenter] = React.useState<google.maps.LatLngLiteral>({
+    lat: 10,
+    lng: 10,
+  });
 
   const render = (status: Status) => {
     return <h1>{status}</h1>;
@@ -21,63 +29,16 @@ const Home: NextPage = () => {
 
       
       
-      <Wrapper apiKey={"AIzaSyD2Zs61dN0v-Rv871JYZR6GzVy_intXtv8"} render={render}>
-        <GMap></GMap>
-      </Wrapper>
+      
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
-        </p>
+        <Wrapper apiKey={"AIzaSyD2Zs61dN0v-Rv871JYZR6GzVy_intXtv8"} render={render}>
+          <GMap center={center} zoom={zoom}></GMap>
+        </Wrapper>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+    
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
