@@ -8,3 +8,7 @@ install wrapper to integrate react and google maps
 install custom google types for typescript
   `npm i -D @types/google.maps`
 
+google maps api for react
+  `npm i -S @react-google-maps/api`
+
+'npm install @googlemaps/typescript-guards'
