@@ -1,5 +1,5 @@
 import React from "react";
-import { createCustomEqual } from "fast-equals";
+//import { createCustomEqual } from "fast-equals";
 import { isLatLngLiteral } from "@googlemaps/typescript-guards";
 
 interface MapProps extends google.maps.MapOptions {
@@ -23,46 +23,46 @@ const GMap: React.FC<MapProps> = ({
     }
   }, [ref, map]);
 
-  function useDeepCompareMemoize(value: any) {
-    const ref = React.useRef();
+  // function useDeepCompareMemoize(value: any) {
+  //   const ref = React.useRef();
   
-    if (!deepCompareEqualsForMaps(value, ref.current)) {
-      ref.current = value;
-    }
+  //   if (!deepCompareEqualsForMaps(value, ref.current)) {
+  //     ref.current = value;
+  //   }
   
-    return ref.current;
-  }
+  //   return ref.current;
+  // }
   
-  function useDeepCompareEffectForMaps(
-    callback: React.EffectCallback,
-    dependencies: any[]
-  ) {
-    React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
-  }
+  // function useDeepCompareEffectForMaps(
+  //   callback: React.EffectCallback,
+  //   dependencies: any[]
+  // ) {
+  //   React.useEffect(callback, dependencies.map(useDeepCompareMemoize));
+  // }
 
-  const deepCompareEqualsForMaps = createCustomEqual(
-    (deepEqual) => (a: any, b: any) => {
-      if (
-        isLatLngLiteral(a) ||
-        a instanceof google.maps.LatLng ||
-        isLatLngLiteral(b) ||
-        b instanceof google.maps.LatLng
-      ) {
-        return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
-      }
+  // const deepCompareEqualsForMaps = createCustomEqual(
+  //   (deepEqual) => (a: any, b: any) => {
+  //     if (
+  //       isLatLngLiteral(a) ||
+  //       a instanceof google.maps.LatLng ||
+  //       isLatLngLiteral(b) ||
+  //       b instanceof google.maps.LatLng
+  //     ) {
+  //       return new google.maps.LatLng(a).equals(new google.maps.LatLng(b));
+  //     }
   
-      // TODO extend to other types
+  //     // TODO extend to other types
   
-      // use fast-equals for other objects
-      return deepEqual(a, b);
-    }
-  );
+  //     // use fast-equals for other objects
+  //     return deepEqual(a, b);
+  //   }
+  // );
 
-  useDeepCompareEffectForMaps(() => {
-    if (map) {
-      map.setOptions(options);
-    }
-  }, [map, options]);
+  // useDeepCompareEffectForMaps(() => {
+  //   if (map) {
+  //     map.setOptions(options);
+  //   }
+  // }, [map, options]);
 
   React.useEffect(() => {
     if (map) {
