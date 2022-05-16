@@ -1,0 +1,20 @@
+image: node:latest-alpine
+
+stages:
+ - lint
+# Lets name our Job eslint, because that's what it's doing.
+
+cache: 
+  paths: 
+    - src/backend/node_modules/
+    - src/fwyi-frontend/node_modules/
+
+eslint:
+  stage: lint
+  script:
+    - cd src/backend/
+    - npm install
+    - npm run lint
+    - cd ../fywi-frontend/
+    - npm install
+    - npm run lint
