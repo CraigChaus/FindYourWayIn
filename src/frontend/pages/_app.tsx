@@ -6,7 +6,7 @@ export default function MyApp({ Component, pageProps}: AppProps) {
         <Wrapper
             apiKey={"AIzaSyAu53ClDbYWFVWX60wEfEQ5Ed4R-9lYU8E"}
             libraries={['places', 'geometry']}
-            language={'ro'}
+            language={'en'}
         >
             <Component {...pageProps}/>
         </Wrapper>
