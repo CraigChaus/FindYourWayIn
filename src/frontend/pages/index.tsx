@@ -5,14 +5,14 @@ import GoogleMarker from "../components/GoogleMaps/GoogleMarker";
 
 const HomePage = () => {
     const [ mounted, setMounted ] = React.useState(false);
-    const [ lat, setLat ] = React.useState(44.4268414);
-    const [ lng, setLng ] = React.useState(26.1030725);
-    const [ zoom, setZoom ] = React.useState(12);
+    // Default value set to Deventer in the case that geolocation doesnt work
+    const [ lat, setLat ] = React.useState(52.2661);
+    const [ lng, setLng ] = React.useState(6.1552);
+    const [ zoom, setZoom ] = React.useState(12);   
 
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder;
     const [ country, setCountry ] = React.useState< string >();
-    const [ county, setCounty ] = React.useState< string >();
     const [ city, setCity ] = React.useState< string >();
     const [ sector, setSector ] = React.useState< string >();
     const [ neighborhood, setNeighborhood ] = React.useState< string >();
@@ -35,12 +35,6 @@ const HomePage = () => {
 
     React.useEffect(() => {
         if(!mounted) return;
-        setCountry('');
-        setCounty('');
-        setCity('');
-        setSector('');
-        setNeighborhood('');
-        setAddress('');
         geocoder
             .geocode({ location: {lat, lng}})
             .then(res => {
@@ -65,10 +59,7 @@ const HomePage = () => {
 
     console.log(`
         Country: ${country}\n
-        County: ${county}\n
         City: ${city}\n
-        Sector: ${sector}\n
-        Neighborhood: ${neighborhood}\n
         Address: ${address}
     `);
 
@@ -110,7 +101,6 @@ const HomePage = () => {
                 <h1>Display reverse geocoding data</h1>
                 <ul>
                     <li>Country: {country}</li>
-                    <li>County: {county}</li>
                     <li>City: {city}</li>
                     <li>Area: {sector}</li>
                     <li>Neighborhood: {neighborhood}</li>
