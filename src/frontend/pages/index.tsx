@@ -48,13 +48,6 @@ const HomePage = () => {
                     res.results[0].address_components.reverse().filter((object) => {
                         object.types.filter((type) => {
                             if(type === 'country') setCountry(object.long_name);
-                            if(type === 'administrative_area_level_1') {
-                                if(object.long_name === 'București'){
-                                    setCounty('Ilfov');
-                                }else{
-                                    setCounty(object.long_name);
-                                };
-                            };
                             if(type === 'locality') setCity(object.long_name);
                             if(type === 'sublocality_level_1') setSector(object.long_name);
                             if(type === 'route') setAddress(s=>s+object.long_name);
