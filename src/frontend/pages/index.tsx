@@ -1,103 +1,113 @@
-import type { NextPage } from 'next'
-import React from 'react'
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
-import GMap from '../components/gmaps/gmap';
+import React from "react";
+import GoogleAutocomplete from "../components/GoogleMaps/GoogleAutocomplete";
+import GoogleMap from "../components/GoogleMaps/GoogleMap";
+import GoogleMarker from "../components/GoogleMaps/GoogleMarker";
 
-const render = (status: Status) => {
-  return <h1>{status}</h1>;
+const HomePage = () => {
+    const [ mounted, setMounted ] = React.useState(false);
+    // Default value set to Deventer in the case that geolocation doesnt work
+    const [ lat, setLat ] = React.useState(52.2661);
+    const [ lng, setLng ] = React.useState(6.1552);
+    const [ zoom, setZoom ] = React.useState(12);   
+
+    // Reverse geocode marker position
+    const geocoder = new google.maps.Geocoder;
+    const [ country, setCountry ] = React.useState< string >();
+    const [ city, setCity ] = React.useState< string >();
+    const [ sector, setSector ] = React.useState< string >();
+    const [ neighborhood, setNeighborhood ] = React.useState< string >();
+    const [ address, setAddress ] = React.useState< string >('');
+
+    React.useEffect(() => {
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const position = pos.coords;
+                    if(position){
+                        setLat(position.latitude);
+                        setLng(position.longitude);
+                    }
+                }
+            );
+        };
+        setMounted(true);
+    }, []);
+
+    React.useEffect(() => {
+        if(!mounted) return;
+        geocoder
+            .geocode({ location: {lat, lng}})
+            .then(res => {
+                if(res.results[0]){
+                    res.results[0].address_components.reverse().filter((object) => {
+                        object.types.filter((type) => {
+                            if(type === 'country') setCountry(object.long_name);
+                            if(type === 'locality') setCity(object.long_name);
+                            if(type === 'sublocality_level_1') setSector(object.long_name);
+                            if(type === 'route') setAddress(s=>s+object.long_name);
+                            if(type === 'street_number') setAddress(s=>s+' '+object.long_name);
+                        });
+                    })
+                }
+                res.results.map(object => {
+                    object.types.filter(type => {
+                        if(type === 'neighborhood') setNeighborhood(object.formatted_address.split(',')[0]);
+                    });
+                });
+            });
+    }, [lat]);
+
+    console.log(`
+        Country: ${country}\n
+        City: ${city}\n
+        Address: ${address}
+    `);
+
+    return(
+        <div>
+            <GoogleAutocomplete
+                setLat={setLat}
+                setLng={setLng}
+                setAddress={setAddress}
+            />
+            <input
+                disabled
+                value={address}
+                style={{
+                    margin: '20px 0 20px 0',
+                    width: '100%'
+                }}
+            />
+            <GoogleMap 
+                center={{lat, lng}}
+                zoom={zoom}
+                setZoom={setZoom}
+                style={{width: '100%', height: '500px'}}
+                disableDefaultUI
+                clickableIcons={false}
+                mapId="9c7cb3e171b411ff"
+            >
+                <GoogleMarker
+                    position={{lat, lng}}
+                    draggable
+                    setLat={setLat}
+                    setLng={setLng}
+                    setAddress={setAddress}
+                />
+            </GoogleMap>
+            <section style={{
+                margin: '20px 0 20px 0'
+            }}>
+                <h1>Display reverse geocoding data</h1>
+                <ul>
+                    <li>Country: {country}</li>
+                    <li>City: {city}</li>
+                    <li>Area: {sector}</li>
+                    <li>Neighborhood: {neighborhood}</li>
+                    <li>Address: {address}</li>
+                </ul>
+            </section>
+        </div>
+    );
 };
-
-
-
-const Home: NextPage = () => {
-  
-  
-  const [clicks, setClicks] = React.useState<google.maps.LatLng[]>([]);
-  const [zoom, setZoom] = React.useState(3); // initial zoom
-  const [center, setCenter] = React.useState<google.maps.LatLngLiteral>({
-    lat: 10,
-    lng: 10,
-  });
-
-  const onClick = (e: google.maps.MapMouseEvent) => {
-    // avoid directly mutating state
-    setClicks([...clicks, e.latLng!]);
-  };
-  
-  const onIdle = (m: google.maps.Map) => {
-    console.log("onIdle");
-    setZoom(m.getZoom()!);
-    setCenter(m.getCenter()!.toJSON());
-  };
-  
-  const form = (
-    <div
-      style={{
-        padding: "1rem",
-        flexBasis: "250px",
-        height: "100%",
-        overflow: "auto",
-      }}
-    >
-      <label htmlFor="zoom">Zoom</label>
-      <input
-        type="number"
-        id="zoom"
-        name="zoom"
-        value={zoom}
-        onChange={(event) => setZoom(Number(event.target.value))}
-      />
-      <br />
-      <label htmlFor="lat">Latitude</label>
-      <input
-        type="number"
-        id="lat"
-        name="lat"
-        value={center.lat}
-        onChange={(event) =>
-          setCenter({ ...center, lat: Number(event.target.value) })
-        }
-      />
-      <br />
-      <label htmlFor="lng">Longitude</label>
-      <input
-        type="number"
-        id="lng"
-        name="lng"
-        value={center.lng}
-        onChange={(event) =>
-          setCenter({ ...center, lng: Number(event.target.value) })
-        }
-      />
-      <h3>{clicks.length === 0 ? "Click on map to add markers" : "Clicks"}</h3>
-      {clicks.map((latLng, i) => (
-        <pre key={i}>{JSON.stringify(latLng.toJSON(), null, 2)}</pre>
-      ))}
-      <button onClick={() => setClicks([])}>Clear</button>
-    </div>
-  );
-
-  return (
-    <div className={styles.container} style={{display: "flex", height:"100%"}}>
-      <Head>
-        <title>Create Next App</title>
-        
-      </Head>
-
-      <Wrapper apiKey={"AIzaSyD2Zs61dN0v-Rv871JYZR6GzVy_intXtv8"} render={render}>
-        <GMap 
-          center={center} 
-          zoom={zoom}
-          onIdle={onIdle}
-          onClick={onClick}
-          style={{ flexGrow: "1", height: "100%"}}
-        ></GMap>
-      </Wrapper>
-      {form}
-    </div>
-  )
-}
-
-export default Home
+export default HomePage;
