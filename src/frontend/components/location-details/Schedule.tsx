@@ -1,7 +1,7 @@
 export const Schedule = () => {
   return (
     <>
-     <table className="table-auto w-auto border-2">
+     <table className="table-auto border-2 h-auto w-full ml-2 text-sm">
         <thead>
             <tr>
                 <th>Day</th>

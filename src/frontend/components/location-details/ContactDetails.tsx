@@ -4,7 +4,7 @@ let emailAddress = "email";
 
 export const ContactDetails = () => {
   return (
-    <div className="border-2 w-auto">
+    <div className="border-2 w-full text-xs pl-5">
         <h2>Contact</h2>
         <form className="flex flex-col">
             <label>Phone Number</label>
