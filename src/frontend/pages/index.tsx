@@ -102,7 +102,7 @@ const HomePage = () => {
             {/* TODO: Ask for help on this part cause it only works once */}
 
             {/* This is for the button that enables the user to focus the map back to their current position */}
-            <button onClick={() => {setIsLocation(true)} } className="absolute text-blue-800 z-10 bottom-20 right-5 p-0.5 border-2 border-blue-800 font-bold" >Get Device Location</button>
+            <button onClick={() => {setIsLocation(!isLocation)} } className="absolute text-blue-800 z-10 bottom-20 right-5 p-0.5 border-2 border-blue-800 font-bold" >Get Device Location</button>
 
             <section style={{
                 margin: '20px 0 20px 0'
