@@ -1,5 +1,5 @@
-let phoneNumber = "number";
-let emailAddress = "email";
+const phoneNumber = "number";
+const emailAddress = "email";
 
 
 export const ContactDetails = () => {
