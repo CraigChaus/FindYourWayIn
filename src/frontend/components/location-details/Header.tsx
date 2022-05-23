@@ -1,4 +1,4 @@
-let locationName = "location name here it should be long enough to occupy the phone";
+const locationName = "location name here it should be long enough to occupy the phone";
 
 export const Header = () => {
   return (

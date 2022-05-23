@@ -1,7 +1,9 @@
 export const SectionForMap = () => {
     return (
-        <div id="main" className="h-full text-white bg-black">
-            MAP
+        <div  className="bg-zinc-200 text-black    h-full w-full pt-20 absolute">
+
+            <p>MAP</p>
+
         </div>
     )
 }
