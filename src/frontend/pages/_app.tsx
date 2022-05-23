@@ -1,3 +1,4 @@
+import '../styles/globals.css'
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { AppProps } from "next/app";
 
