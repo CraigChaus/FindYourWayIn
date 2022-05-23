@@ -9,13 +9,18 @@
     "lint": "npx eslint pages/** components/**"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "@googlemaps/react-wrapper": "^1.1.33",
     "@googlemaps/typescript-guards": "^1.0.15",
     "@react-google-maps/api": "^2.10.2",
     "fast-equals": "^3.0.2",
     "next": "^12.1.6",
     "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react-dom": "^18.1.0",
+    "react-fontawesome": "^1.7.1"
   },
   "devDependencies": {
     "@types/google.maps": "^3.48.8",
