@@ -2,7 +2,6 @@ import React from "react";
 import GoogleAutocomplete from "../components/GoogleMaps/GoogleAutocomplete";
 import GoogleMap from "../components/GoogleMaps/GoogleMap";
 import GoogleMarker from "../components/GoogleMaps/GoogleMarker";
-import DeviceLocation from "../components/GoogleMaps/GoogleGeolocator";
 
 const HomePage = () => {
     const [ mounted, setMounted ] = React.useState(false);
