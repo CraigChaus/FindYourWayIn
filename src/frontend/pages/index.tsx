@@ -18,20 +18,22 @@ const HomePage = () => {
     const [ neighborhood, setNeighborhood ] = React.useState< string >();
     const [ address, setAddress ] = React.useState< string >('');
 
-    React.useEffect(() => {
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(
-                (pos) => {
-                    const position = pos.coords;
-                    if(position){
-                        setLat(position.latitude);
-                        setLng(position.longitude);
+    const [isLocation, setIsLocation] = React.useState(false);
+
+        React.useEffect(() => {
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(
+                    (pos) => {
+                        const position = pos.coords;
+                        if(position){
+                            setLat(position.latitude);
+                            setLng(position.longitude);
+                        }
                     }
-                }
-            );
-        };
-        setMounted(true);
-    }, []);
+                );
+            };
+            setMounted(true);
+        }, [isLocation]);
 
     React.useEffect(() => {
         if(!mounted) return;
@@ -95,6 +97,12 @@ const HomePage = () => {
                     setAddress={setAddress}
                 />
             </GoogleMap>
+
+            {/* TODO: Ask for help on this part cause it only works once */}
+
+            {/* This is for the button that enables the user to focus the map back to their current position */}
+            <button onClick={() => {setIsLocation(!isLocation)} } className="absolute text-blue-800 z-10 bottom-20 right-5 p-0.5 border-2 border-blue-800 font-bold" >Get Device Location</button>
+
             <section style={{
                 margin: '20px 0 20px 0'
             }}>
