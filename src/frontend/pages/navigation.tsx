@@ -3,7 +3,6 @@ import { Fragment } from "react";
 import type { NextPage } from 'next'
 
 import Header from "../components/navigation/Header";
-import Categories from "../components/navigation/Categories";
 import SectionForMap from "../components/navigation/SectionForMap";
 
 
