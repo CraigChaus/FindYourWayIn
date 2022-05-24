@@ -10,12 +10,12 @@ export default function Sidebar (){
     const [isOpen, setIsOpen] = useState(false);
 
     const [categories, setCategories] = useState([
-        { iconeName:faCartShopping, nameOfCategory:'Grocery' },
-        { iconeName:faSquareParking, nameOfCategory:'Car parking' },
-        { iconeName:faRestroom, nameOfCategory:'Restroom' },
-        { iconeName:faUtensils, nameOfCategory:'Restaurants' },
-        { iconeName:faBicycle, nameOfCategory:'Bike parking' },
-        { iconeName:faBuildingColumns, nameOfCategory:'Museums/Culture' }
+        { iconName:faCartShopping, nameOfCategory:'Grocery' },
+        { iconName:faSquareParking, nameOfCategory:'Car parking' },
+        { iconName:faRestroom, nameOfCategory:'Restroom' },
+        { iconName:faUtensils, nameOfCategory:'Restaurants' },
+        { iconName:faBicycle, nameOfCategory:'Bike parking' },
+        { iconName:faBuildingColumns, nameOfCategory:'Museums/Culture' }
     ])
 
 
@@ -23,10 +23,10 @@ export default function Sidebar (){
         <>
 
             {!isOpen?(
-                <div className=" flex justify-center ">
+                <div className="flex justify-center ">
                     <button onClick={()=>setIsOpen(!isOpen)}
-                            className=" flex justify-center bg-green-500   h-5 w-12  hover:bg-cyan-500 text-white font-bold  rounded-b-full"
-                    >  <FontAwesomeIcon  icon={faAnglesDown} size="sm"  className=" text-white flex justify-center mt-1 "/>
+                            className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full  hover:bg-cyan-500"
+                    >  <FontAwesomeIcon  icon={faAnglesDown} size="sm"  className="flex justify-center mt-1 text-white "/>
                     </button>
 
                 </div>
@@ -35,10 +35,10 @@ export default function Sidebar (){
                         <Categories categories={categories} />
                     </div>
 
-                        <div className=" flex justify-center ">
+                        <div className="flex justify-center ">
                             <button onClick={()=>setIsOpen(!isOpen)}
-                                    className=" flex justify-center bg-green-500   h-5 w-12  hover:bg-cyan-500 text-white font-bold  rounded-b-full"
-                            ><FontAwesomeIcon  icon={faAnglesUp} size="sm"  className=" text-white flex justify-center mt-1 "/>
+                                    className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full  hover:bg-cyan-500"
+                            ><FontAwesomeIcon  icon={faAnglesUp} size="sm"  className="flex justify-center mt-1 text-white "/>
 
                             </button>
                         </div>
