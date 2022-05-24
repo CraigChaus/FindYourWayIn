@@ -1,17 +1,10 @@
 
 import MenuBar from "../MenuBar";
 import SearchInputForm from "../SearchInputForm";
-
 import Sidebar from "./Sidebar";
-
 import { FontAwesomeIcon,
 } from '@fortawesome/react-fontawesome'
-
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-import {
-    faUser
-} from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 export const Header = () => {
     return (
@@ -19,7 +12,7 @@ export const Header = () => {
 
             <div id="header" className="flex justify-start h-18 bg-zinc-100 bg-green-500 z-10 ">
 
-                 <MenuBar/>
+                <MenuBar/>
                 <SearchInputForm/>
 
                 <button  className="justify-center h-11 w-12   bg-green-400 hover:bg-green-600 text-white    rounded-full m-3 "
