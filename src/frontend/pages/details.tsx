@@ -9,7 +9,7 @@ import { Fragment } from "react";
 export const details = () => {
   return (
     <>
-    <div className="flex flex-col justify-center mb-1 border-3 h-full w-full space-y-4 ">
+    <div className="flex flex-col justify-center w-full h-full mb-1 space-y-4 border-3 ">
         <div className="w-auto p-2 space-y-3 ">
         <Fragment>
             <LocationImages />
@@ -17,7 +17,7 @@ export const details = () => {
             <Paragraph/>
         </Fragment>
         </div>
-        <div className = "flex justify-center space-x-1 w-auto h-auto">
+        <div className = "flex justify-center w-auto h-auto space-x-1">
         <Fragment>
             <Schedule />
             <ContactDetails/>
