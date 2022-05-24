@@ -4,7 +4,7 @@ interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
-    children?: React.ReactElement;
+    children?: React.ReactElement | React.ReactElement[];
     setZoom: React.Dispatch<SetStateAction<number>>;
 }
 

@@ -3,6 +3,7 @@ import React from "react";
 import GoogleAutocomplete from "../components/GoogleMaps/GoogleAutocomplete";
 import GoogleMap from "../components/GoogleMaps/GoogleMap";
 import GoogleMarker from "../components/GoogleMaps/GoogleMarker";
+import UserLocationMarker from "@components/GoogleMaps/userLocationMarker";
 
 const HomePage = () => {
     const [ mounted, setMounted ] = React.useState(false);
@@ -25,20 +26,20 @@ const HomePage = () => {
         setIsLocation(!isLocation);
     }
 
-        React.useEffect(() => {
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(
-                    (pos) => {
-                        const position = pos.coords;
-                        if(position){
-                            setLat(position.latitude);
-                            setLng(position.longitude);
-                        }
+    React.useEffect(() => {
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(
+                (pos) => {
+                    const position = pos.coords;
+                    if(position){
+                        setLat(position.latitude);
+                        setLng(position.longitude);
                     }
-                );
-            };
-            setMounted(true);
-        }, [isLocation]);
+                }
+            );
+        };
+        setMounted(true);
+    }, [isLocation]);
 
     React.useEffect(() => {
         if(!mounted) return;
@@ -77,30 +78,28 @@ const HomePage = () => {
                 setLng={setLng}
                 setAddress={setAddress}
             />
-            <input
-                disabled
-                value={address}
-                style={{
-                    margin: '20px 0 20px 0',
-                    width: '100%'
-                }}
-            />
+            
             <GoogleMap 
                 center={{lat, lng}}
                 zoom={zoom}
                 setZoom={setZoom}
-                style={{width: '100%', height: '500px'}}
+                style={{width: '100%', height: '800px'}}
                 disableDefaultUI
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
             >
-                <GoogleMarker
+                <UserLocationMarker />
+                
+                {/* <GoogleMarker
                     position={{lat, lng}}
                     draggable
                     setLat={setLat}
                     setLng={setLng}
                     setAddress={setAddress}
-                />
+                /> */}
+
+                
+
             </GoogleMap>
 
             {/* TODO: Ask for help on this part cause it only works once */}
