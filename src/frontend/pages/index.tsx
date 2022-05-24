@@ -1,3 +1,4 @@
+import LocationMarker from "@components/LocationMarker";
 import React from "react";
 import GoogleAutocomplete from "../components/GoogleMaps/GoogleAutocomplete";
 import GoogleMap from "../components/GoogleMaps/GoogleMap";
@@ -19,6 +20,10 @@ const HomePage = () => {
     const [ address, setAddress ] = React.useState< string >('');
 
     const [isLocation, setIsLocation] = React.useState(false);
+
+    function handleSetLocation() {
+        setIsLocation(!isLocation);
+    }
 
         React.useEffect(() => {
             if(navigator.geolocation){
@@ -101,7 +106,8 @@ const HomePage = () => {
             {/* TODO: Ask for help on this part cause it only works once */}
 
             {/* This is for the button that enables the user to focus the map back to their current position */}
-            <button onClick={() => {setIsLocation(!isLocation)} } className="absolute text-blue-800 z-10 bottom-20 right-5 p-0.5 border-2 border-blue-800 font-bold" >Get Device Location</button>
+
+            <LocationMarker isLocation={isLocation} setIsLocation={handleSetLocation} />
 
             <section style={{
                 margin: '20px 0 20px 0'
