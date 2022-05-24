@@ -1,5 +1,5 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBicycle, faBuildingColumns, faSquareParking, faToilet, faUtensils} from "@fortawesome/free-solid-svg-icons";
+import {faBicycle, faBuildingColumns, faSquareParking, faToilet, faUtensils, faCartShopping} from "@fortawesome/free-solid-svg-icons";
 
 export const Categories = () => {
     return (
@@ -8,11 +8,7 @@ export const Categories = () => {
 
                 <div className=" flex justify-center h-3/5 ">
                     <button  className="flex justify-center h-12 w-12 mx-2   hover:bg-zinc-300 rounded ">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-800" fill="none"
-                             viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
-                        </svg></button>
+                        <FontAwesomeIcon  icon={faCartShopping} size="2x"  className=" text-green-800 flex justify-center mt-2 "/></button>
                 </div>
                 <div className=" flex justify-center  h-2/5  " >
                     <p className=" font-bold text-sm ">Shops</p>
