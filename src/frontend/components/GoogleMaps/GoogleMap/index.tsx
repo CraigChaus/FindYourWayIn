@@ -46,18 +46,24 @@ const GoogleMap: React.FC<MapProps> = ({
     let destinationPoints:any[] = [];
     
     function getDestCoordinates(): void { 
-    // TODO: Get the info from API
-  let nextDest: destinationPoint = {
+    // TODO: Get the actual info from API
+
+     // Empty the markers array 
+        destinationPoints = [];
+
+    //The following object is static and set to Deventer for testing purposes
+  const nextDest: destinationPoint = {
       destLat: 52.2661,
       destLng:6.1552,
-      locationCategory: "deventer"
+      locationCategory: "Station"
   }
    destinationPoints.push(nextDest);
 
 }
 
     function addMarkers(): void { 
-    // TODO: here the actual map is put on the map
+    // TODO: here the actual markers are put on the map
+
     for (const dest of destinationPoints) {
         const marker = new google.maps.Marker({
         position: { lat: dest.destLat, lng: dest.destLng },
@@ -67,10 +73,7 @@ const GoogleMap: React.FC<MapProps> = ({
 }
     getDestCoordinates();
     addMarkers();
- 
-
-  
-
+    
     return(
         <>
             <div ref={mapRef} style={style}/>
