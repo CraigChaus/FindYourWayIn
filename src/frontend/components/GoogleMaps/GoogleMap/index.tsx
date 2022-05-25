@@ -4,9 +4,10 @@ interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
-    children?: React.ReactElement;
+    children?: React.ReactElement | React.ReactElement[];
     setZoom: React.Dispatch<SetStateAction<number>>;
 }
+
 
 const GoogleMap: React.FC<MapProps> = ({
     onClick,
@@ -33,6 +34,23 @@ const GoogleMap: React.FC<MapProps> = ({
         }
 
     }, [map, options]);
+
+
+    const markers = [];
+    
+    function getBusinessCoordinates(): void { 
+    // TODO: Get the info from API
+}
+
+    function addMarker(): void { 
+    // TODO: here the actual map is put on the map
+}
+
+    // ADDS A STATIC MARKER
+        const marker = new google.maps.Marker({
+        position: { lat: -34.397, lng: 150.644 },
+        map: map,
+  });
 
     return(
         <>
