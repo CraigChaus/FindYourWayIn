@@ -23,7 +23,7 @@ const GoogleMarker: React.FC<MarkerProps> = ({
     const [ marker, setMarker ] = React.useState<google.maps.Marker>();
     const [ dragging, setDragging ] = React.useState<boolean>(false);
     const [ directions, setDirections ] = React.useState<DirectionsResult>();
-
+    
     React.useEffect(() => {
         if (!marker) {
             setMarker(new google.maps.Marker());
@@ -35,10 +35,7 @@ const GoogleMarker: React.FC<MarkerProps> = ({
             };
         };
     }, [marker]);
-
-    const [deviceLocation, setDeviceLocation] = React.useState<latLngLiteral>();
-    const [markerPlace, setMarkerPlace] = React.useState<latLngLiteral>();
-
+    
     const fetchDirections = (markerPos: latLngLiteral, currentPos: latLngLiteral) => {
         if(!currentPos) return;
 
@@ -56,25 +53,27 @@ const GoogleMarker: React.FC<MarkerProps> = ({
         }
       )
     }
-
     
     React.useEffect(() => {
         if (marker) {
+            
             marker.setOptions(options);
             marker.addListener('drag', () => setDragging(true));
             marker.addListener('dragend', () => {
                 if(!dragging){
                     const lat = marker.getPosition()?.lat();
                     const lng = marker.getPosition()?.lng();
-                    if(lat && lng){
-                        setLat(lat);
-                        setLng(lng);
-                    };
-                };
-                setDragging(false);
+                    const latPos = options.position?.lat;
+                    const lngPos = options.position?.lng;
+                    marker.addListener('click', () => {
+                        if(lat && lng){
+                            setLat(lat);
+                            setLng(lng);
+                        };
+                    });
+                setDragging(false)
+                }
             })
-            marker.addListener('click', () => {fetchDirections(markerPlace,deviceLocation);
-            });
         };
     }, [marker, options]);
   
