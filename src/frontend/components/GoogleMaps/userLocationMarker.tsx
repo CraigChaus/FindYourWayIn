@@ -23,7 +23,6 @@ const UserLocationMarker : React.FC = () => {
         navigator.geolocation.watchPosition((pos) => {
             setLat(pos.coords.latitude)
             setLng(pos.coords.longitude)
-
         })
 
     })
@@ -40,20 +39,34 @@ const UserLocationMarker : React.FC = () => {
                 strokeWeight: 2,
                 fillColor: '#5384ED',
                 strokeColor: '#ffffff',}}
-                ));
-        };
+                ))
+        }
   
         return () => {
             if (userMarker) {
-                userMarker.setMap(null);
+                userMarker.setMap(null)
             }
         }
-    }, [userMarker]);
+    }, [userMarker])
 
+    React.useEffect(() => {
+        setUserMarker(new google.maps.Marker({
+            position: {lat, lng},
+            icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 10,
+            fillOpacity: 1,
+            strokeWeight: 2,
+            fillColor: '#5384ED',
+            strokeColor: '#ffffff',}}
+            ))
 
-    
-
-  
+            return () => {
+                if (userMarker) {
+                    userMarker.setMap(null)
+                }
+            }
+    }, [lat, lng])
     return null
 }
 
