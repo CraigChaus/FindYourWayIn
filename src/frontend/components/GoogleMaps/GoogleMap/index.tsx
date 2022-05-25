@@ -1,3 +1,4 @@
+import { type } from "os";
 import React, { SetStateAction } from "react";
 
 interface MapProps extends google.maps.MapOptions {
@@ -34,23 +35,41 @@ const GoogleMap: React.FC<MapProps> = ({
         }
 
     }, [map, options]);
-
-
-    const markers = [];
     
-    function getBusinessCoordinates(): void { 
+    type destinationPoint = {
+        destLat: number;
+        destLng: number;
+        locationCategory: string;
+    }
+
+
+    let destinationPoints:any[] = [];
+    
+    function getDestCoordinates(): void { 
     // TODO: Get the info from API
+  let nextDest: destinationPoint = {
+      destLat: 52.2661,
+      destLng:6.1552,
+      locationCategory: "deventer"
+  }
+   destinationPoints.push(nextDest);
+
 }
 
-    function addMarker(): void { 
+    function addMarkers(): void { 
     // TODO: here the actual map is put on the map
-}
-
-    // ADDS A STATIC MARKER
+    for (const dest of destinationPoints) {
         const marker = new google.maps.Marker({
-        position: { lat: -34.397, lng: 150.644 },
+        position: { lat: dest.destLat, lng: dest.destLng },
         map: map,
   });
+    }  
+}
+    getDestCoordinates();
+    addMarkers();
+ 
+
+  
 
     return(
         <>
