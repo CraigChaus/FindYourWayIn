@@ -1,37 +1,50 @@
+import { Marker } from "@react-google-maps/api";
 import React, { SetStateAction } from "react";
 
 
 const UserLocationMarker : React.FC = () => {
     const [ userMarker, setUserMarker ] = React.useState<google.maps.Marker>()
-    const [ lat, setLat ] = React.useState(0)
-    const [ lng, setLng ] = React.useState(0)
+    const [ userLat, setUserLat ] = React.useState(0)
+    const [ userLng, setUserLng ] = React.useState(0)
 
 
 
     React.useEffect(() => {
         if(navigator.geolocation){
+            console.log("NAVIGATOR CALLED")
             navigator.geolocation.getCurrentPosition(
                 (pos) => {
                     const position = pos.coords;
                     if(position){
-                        setLat(position.latitude);
-                        setLng(position.longitude);
+                        console.log(position.latitude, "states updated")
+                        setUserLat(position.latitude);
+                        setUserLng(position.longitude);
                     }
                 }
             )
+            console.log("NAVIGATOR geolocation recieved")
+            navigator.geolocation.watchPosition((pos) => {
+                const position = pos.coords;
+                    if(position){
+                        console.log("CHANGE OF POSITION!")
+                        setUserLat(position.latitude);
+                        setUserLng(position.longitude);
+                    }
+            })
         }
-        navigator.geolocation.watchPosition((pos) => {
-            setLat(pos.coords.latitude)
-            setLng(pos.coords.longitude)
-        })
+        
 
     })
 
 
     React.useEffect(() => {
-        if (!userMarker) {
+        
+        if (!userMarker && userLat > 0) {
+            console.log("useeffect", userLat, userLng)
+            console.log("!USER MARKER")
+            console.log("assigning" ,userLat, userLng)
             setUserMarker(new google.maps.Marker({
-                position: {lat, lng},
+                position: {lat:userLat, lng:userLng},
                 icon: {
                 path: google.maps.SymbolPath.CIRCLE,
                 scale: 10,
@@ -42,31 +55,19 @@ const UserLocationMarker : React.FC = () => {
                 ))
         }
   
-        return () => {
-            if (userMarker) {
-                userMarker.setMap(null)
-            }
-        }
-    }, [userMarker])
+        // return () => {
+        //     if (userMarker) {
+        //         userMarker.setMap(null)
+        //     }
+        // }
+    }, [userMarker, userLat])
 
     React.useEffect(() => {
-        setUserMarker(new google.maps.Marker({
-            position: {lat, lng},
-            icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 10,
-            fillOpacity: 1,
-            strokeWeight: 2,
-            fillColor: '#5384ED',
-            strokeColor: '#ffffff',}}
-            ))
-
-            return () => {
-                if (userMarker) {
-                    userMarker.setMap(null)
-                }
-            }
-    }, [lat, lng])
+        if(userMarker){
+            console.log("setpos ", userLat, userLng)
+            userMarker.setPosition({lat: userLat, lng: userLng})
+        }
+    }, [userMarker, userLat, userLng])
     return null
 }
 

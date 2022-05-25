@@ -12,6 +12,7 @@ const HomePage = () => {
     const [ lng, setLng ] = React.useState(6.1552);
     const [ zoom, setZoom ] = React.useState(12);   
 
+
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder;
     const [ country, setCountry ] = React.useState< string >();
