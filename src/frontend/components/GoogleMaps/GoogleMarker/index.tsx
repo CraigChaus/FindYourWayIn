@@ -23,7 +23,7 @@ const GoogleMarker: React.FC<MarkerProps> = ({
     const [ marker, setMarker ] = React.useState<google.maps.Marker | null>();
     const [ dragging, setDragging ] = React.useState<boolean>(false);
     const [ directions, setDirections ] = React.useState<DirectionsResult>();
-
+    
     React.useEffect(() => {
         if (!marker) {
             setMarker(new google.maps.Marker());
@@ -37,30 +37,46 @@ const GoogleMarker: React.FC<MarkerProps> = ({
     }, [marker]);
 
 
-    const fetchDirections = (markerPos: latLngLiteral, currentPos: latLngLiteral) => {
-        if(!currentPos) return;
+    // const fetchDirections = (markerPos: latLngLiteral, currentPos: latLngLiteral) => {
+    //     if(!currentPos) return;
 
-        const service = new google.maps.DirectionsService();
-        service.route(
-            {
-                origin: markerPos,
-                destination: currentPos,
-                travelMode: google.maps.TravelMode.WALKING
-        },
-        (result, status) => {
-            if(status === "OK" && result){
-                setDirections(result);
-            }
-        }
-      )
-    }
-
+    //     const service = new google.maps.DirectionsService();
+    //     service.route(
+    //         {
+    //             origin: markerPos,
+    //             destination: currentPos,
+    //             travelMode: google.maps.TravelMode.WALKING
+    //     },
+    //     (result, status) => {
+    //         if(status === "OK" && result){
+    //             setDirections(result);
+    //         }
+    //     }
+    //   )
+    // }
     
-    React.useEffect(() => {
-        if (marker) {
-            marker.setOptions(options);
-        };
-    }, [marker, options]);
+    // React.useEffect(() => {
+    //     if (marker) {
+            
+    //         marker.setOptions(options);
+    //         marker.addListener('drag', () => setDragging(true));
+    //         marker.addListener('dragend', () => {
+    //             if(!dragging){
+    //                 const lat = marker.getPosition()?.lat();
+    //                 const lng = marker.getPosition()?.lng();
+    //                 const latPos = options.position?.lat;
+    //                 const lngPos = options.position?.lng;
+    //                 marker.addListener('click', () => {
+    //                     if(lat && lng){
+    //                         setLat(lat);
+    //                         setLng(lng);
+    //                     };
+    //                 });
+    //             setDragging(false)
+    //             }
+    //         })
+    //     };
+    // }, [marker, options]);
   
     return <>
             {directions && <DirectionsRenderer/>}
