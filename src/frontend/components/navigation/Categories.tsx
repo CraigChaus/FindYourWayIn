@@ -1,8 +1,29 @@
-export const Categories = () => {
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBicycle, faBuildingColumns, faSquareParking, faToilet, faUtensils, faCartShopping} from "@fortawesome/free-solid-svg-icons";
+
+export const Categories = (props: any) => {
+    const categories = props.categories;
+    const iconName = props.iconName;
+    const nameOfCategory = props.nameOfCategory;
+    
+
     return (
-        <div className="absolute z-10 flex justify-center w-full top-16 "><button  className="relative flex justify-center w-12 h-6 font-bold text-black rounded-b-full bg-cyan-400 hover:bg-cyan-500">
-            <svg className="relative w-6 h-6 " fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M15.707 4.293a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 011.414-1.414L10 8.586l4.293-4.293a1 1 0 011.414 0zm0 6a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 111.414-1.414L10 14.586l4.293-4.293a1 1 0 011.414 0z" clipRule="evenodd" /></svg> </button>
-        </div>
+        <>
+            {categories.map((category: any, index: number)=>(
+                <div key={index + 1} className="flex flex-col">
+                    <div className="flex justify-center h-3/5">
+                        <button  className="flex justify-center w-12 h-12 mx-2 rounded hover:bg-zinc-300 ">
+                            <FontAwesomeIcon  icon={category.iconName} size="2x"  className="flex justify-center mt-2 text-green-800 "/>
+                        </button>
+                    </div>
+                    <div className="flex justify-center h-2/5" >
+                        <p className="text-sm font-bold ">{category.nameOfCategory}</p>
+                    </div>
+                </div>  
+            ))}
+
+        </>
+
     )
 }
 
