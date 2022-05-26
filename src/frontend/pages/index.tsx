@@ -73,11 +73,11 @@ const HomePage = () => {
     console.log("WWWWWWWWWWWWW")
     // useEffect (()=>{
     async function getAllLocations() {
-        const response = await fetch("https://app.thefeedfactory.nl/api", {
+        const response = await fetch("https://app.thefeedfactory.nl/api/locations", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer $0eebe5c7-cf95-4519-899b-59e1a78768c1`
+                    Authorization: `Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1`
                 },
             }
         )
