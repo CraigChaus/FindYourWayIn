@@ -32,3 +32,5 @@ For the scrum retrospective meeting, we follow the 4Ls: Liked, Lacked, Learned, 
 - Maintain a good communication and collaboration with the team and the client.
 - Sharing more time together to get to know more about each other.
   
+### 2.5. Plan of action
+- Meeting time has been changed to make sure everyone can be presented (Vedat and Andrei commute to work by public transportation, and sometimes they didn't present on time because of the travelling schedule). From next Sprint, if a team member comes late for the meeting more than 2 times/week, that member will be given a strike.

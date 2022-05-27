@@ -1,5 +1,7 @@
 import { type } from "os";
 import React, { SetStateAction } from "react";
+import GoogleMarker from "../GoogleMarker";
+import { useRef } from "react";
 
 interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
@@ -19,9 +21,14 @@ const GoogleMap: React.FC<MapProps> = ({
     ...options
 }) => {
     const mapRef = React.useRef<HTMLDivElement>(null);
+    const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker);
     const [ map, setMap ] = React.useState<google.maps.Map>();
     // const [ configMap, setConfigMap ] = React.useState<boolean>(false);
     const [destpoints, setDestpoints] = React.useState<[]>();
+
+    function clearMarker(marker: google.maps.Marker) {
+        marker.setMap(null);
+    }
 
     React.useEffect(() => {
         if( mapRef.current && !map ){
@@ -51,8 +58,20 @@ const GoogleMap: React.FC<MapProps> = ({
     function getDestCoordinates(): void { 
     // TODO: Get the actual info from API
 
+<<<<<<< HEAD
      // Empty the markers array 
         destinationPoints = [];
+=======
+    }, [map, options, setZoom]);
+
+    map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
+        clearMarker(markerRef.current);
+        markerRef.current = new google.maps.Marker({
+            position: mapsMouseEvent.latLng,
+            map: map
+        });
+    });
+>>>>>>> 28a663be725f6822e843aada287f22f6b678b88e
 
     //The following object is static and set to Deventer for testing purposes
   const nextDest: destinationPoint = {
