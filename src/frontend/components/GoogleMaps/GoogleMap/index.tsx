@@ -34,8 +34,12 @@ const GoogleMap: React.FC<MapProps> = ({
 
     }, [map, options])
 
-    console.log("WWWWWWWWWWWWW")
-    // useEffect (()=>{
+
+
+    console.log("DRAFT")
+    var filterforSopsh: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[]= [];
+    var filterforCulture= [];
+
     async function getAllLocations() {
         var res = new Object();
         const response = await fetch("https://app.thefeedfactory.nl/api/locations", {
@@ -60,8 +64,7 @@ const GoogleMap: React.FC<MapProps> = ({
                for(var i=0;i<res.size;i++){  //need to change 20 on length of JSON object
                    console.log(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label)}
 
-                var filterforSopsh= [];
-                var filterforCulture= [];
+
 
                 for (let i = 0; i < res.size; i++) {  //need to change 20 on length of JSON object
                   if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Overige winkels'){
@@ -88,16 +91,15 @@ const GoogleMap: React.FC<MapProps> = ({
                         filterforCulture.push(newObj);
                     }
                 }
-                console.log(filterforSopsh);
-                console.log(filterforCulture.length);
-
-
 
 
             })
             .catch(e => {
                 console.log('There has been a problem with your fetch operation: ' + e.message);
             });
+
+        console.log(filterforSopsh);
+        console.log(filterforCulture.length);
 
     }
 
