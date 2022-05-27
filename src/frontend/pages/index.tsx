@@ -1,127 +1,32 @@
-import LocationMarker from "@components/LocationMarker";
-import React from "react";
-import GoogleAutocomplete from "../components/GoogleMaps/GoogleAutocomplete";
-import GoogleMap from "../components/GoogleMaps/GoogleMap";
-import GoogleMarker from "../components/GoogleMaps/GoogleMarker";
+import type { NextPage } from 'next'
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-const HomePage = () => {
-    const [ mounted, setMounted ] = React.useState(false);
-    // Default value set to Deventer in the case that geolocation doesnt work
-    const [ lat, setLat ] = React.useState(52.2661);
-    const [ lng, setLng ] = React.useState(6.1552);
-    const [ zoom, setZoom ] = React.useState(12);   
 
-    // Reverse geocode marker position
-    const geocoder = new google.maps.Geocoder;
-    const [ country, setCountry ] = React.useState< string >();
-    const [ city, setCity ] = React.useState< string >();
-    const [ sector, setSector ] = React.useState< string >();
-    const [ neighborhood, setNeighborhood ] = React.useState< string >();
-    const [ address, setAddress ] = React.useState< string >('');
+const LandingPage: NextPage = () => {
+    const router = useRouter();
+    
+    return (
+        <div className="block h-screen bg-cover bg-landing-page">
+            <div className="flex flex-col items-center justify-center h-screen bg-gray-600 opacity-70">
+                <h1 className="text-6xl text-center text-white">FYWI <br></br> Walstraat</h1>
+                <div className='flex flex-col items-center w-4/5 mt-12 justify-evenly h-2/5'>
+                    <div className="w-full">
+                        <button type="button" onClick={() => router.push('/login')} className="w-full py-3 mb-4 text-sm font-medium leading-snug text-green-700 uppercase transition duration-150 ease-in-out bg-gray-100 border-2 border-green-700 rounded-lg shadow-md winline-block px-7 hover:bg-gray-200 hover:shadow-lg focus:bg-gray-200 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-300 active:shadow-lg">
+                            Login
+                        </button>     
+                        <button type="button" onClick={() => router.push('/signup')} className="inline-block w-full py-3 mt-4 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out bg-green-600 rounded-lg shadow-md px-7 hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg">
+                            Sign up
+                        </button>
+                    </div>    
 
-    const [isLocation, setIsLocation] = React.useState(false);
-
-    function handleSetLocation() {
-        setIsLocation(!isLocation);
-    }
-
-        React.useEffect(() => {
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(
-                    (pos) => {
-                        const position = pos.coords;
-                        if(position){
-                            setLat(position.latitude);
-                            setLng(position.longitude);
-                        }
-                    }
-                );
-            };
-            setMounted(true);
-        }, [isLocation]);
-
-    React.useEffect(() => {
-        if(!mounted) return;
-        geocoder
-            .geocode({ location: {lat, lng}})
-            .then(res => {
-                if(res.results[0]){
-                    res.results[0].address_components.reverse().filter((object) => {
-                        object.types.filter((type) => {
-                            if(type === 'country') setCountry(object.long_name);
-                            if(type === 'locality') setCity(object.long_name);
-                            if(type === 'sublocality_level_1') setSector(object.long_name);
-                            if(type === 'route') setAddress(s=>s+object.long_name);
-                            if(type === 'street_number') setAddress(s=>s+' '+object.long_name);
-                        });
-                    })
-                }
-                res.results.map(object => {
-                    object.types.filter(type => {
-                        if(type === 'neighborhood') setNeighborhood(object.formatted_address.split(',')[0]);
-                    });
-                });
-            });
-    }, [lat]);
-
-    console.log(`
-        Country: ${country}\n
-        City: ${city}\n
-        Address: ${address}
-    `);
-
-    return(
-        <div>
-            <GoogleAutocomplete
-                setLat={setLat}
-                setLng={setLng}
-                setAddress={setAddress}
-            />
-            <input
-                disabled
-                value={address}
-                style={{
-                    margin: '20px 0 20px 0',
-                    width: '100%'
-                }}
-            />
-            <GoogleMap 
-                center={{lat, lng}}
-                zoom={zoom}
-                setZoom={setZoom}
-                style={{width: '100%', height: '500px'}}
-                disableDefaultUI
-                clickableIcons={false}
-                mapId="9c7cb3e171b411ff"
-            >
-                <GoogleMarker
-                    position={{lat, lng}}
-                    draggable
-                    setLat={setLat}
-                    setLng={setLng}
-                    setAddress={setAddress}
-                />
-            </GoogleMap>
-
-            {/* TODO: Ask for help on this part cause it only works once */}
-
-            {/* This is for the button that enables the user to focus the map back to their current position */}
-
-            <LocationMarker isLocation={isLocation} setIsLocation={handleSetLocation} />
-
-            <section style={{
-                margin: '20px 0 20px 0'
-            }}>
-                <h1>Display reverse geocoding data</h1>
-                <ul>
-                    <li>Country: {country}</li>
-                    <li>City: {city}</li>
-                    <li>Area: {sector}</li>
-                    <li>Neighborhood: {neighborhood}</li>
-                    <li>Address: {address}</li>
-                </ul>
-            </section>
+                    <Link href="/home">
+                        <a className="text-base font-medium text-gray-300">Continue without log in</a>
+                    </Link>
+                </div>
+            </div>
         </div>
-    );
-};
-export default HomePage;
+    )
+}
+
+export default LandingPage;
