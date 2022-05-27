@@ -34,29 +34,40 @@ const GoogleMap: React.FC<MapProps> = ({
 
     }, [map, options])
 
-   //  console.log("WWWWWWWWWWWWW")
-   //  // useEffect (()=>{
-   //  async function getAllLocations() {
-   //      const res = await fetch("https://app.thefeedfactory.nl/api/locations/", {
-   //              method: 'GET',
-   //              headers: {
-   //                  'Content-Type': 'application/json',
-   //                  Authorization: `Bearer $0eebe5c7-cf95-4519-899b-59e1a78768c1`
-   //              },
-   //          }
-   //      )
-   //          .then(response => response.json())
-   //          .then(res => console.log(res))
-   //          .catch(err => console.error(err));
-   // }
-   //  // if (res.ok) {
-   //  //     return res.json();
-   //  // } else {
-   //  //     throw new Error(await res.text());
-   //  // }
-   //
-   //
-   //  console.log("FFFF")
+    console.log("WWWWWWWWWWWWW")
+    // useEffect (()=>{
+    async function getAllLocations() {
+        var res = new Object();
+        const response = await fetch("https://app.thefeedfactory.nl/api/locations", {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1`
+                },
+            }
+        )
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                } else {
+                    res=response.clone();
+                    //console.log( res);
+                    return response.json();
+                }
+            })
+            .then(res => {console.log(res.results[0].trcItemCategories.categories[0].categoryTranslations[0].label)})   //test to get data of the shop, which first in the list
+            .catch(e => {
+                console.log('There has been a problem with your fetch operation: ' + e.message);
+            });
+
+    }
+
+
+    getAllLocations().then(data =>{
+            return data;
+
+    });
+
 
     return(
         <>

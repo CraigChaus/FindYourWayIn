@@ -70,42 +70,6 @@ const HomePage = () => {
         Address: ${address}
     `);
 
-    console.log("WWWWWWWWWWWWW")
-    // useEffect (()=>{
-    async function getAllLocations() {
-        const response = await fetch("https://app.thefeedfactory.nl/api/locations", {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1`
-                },
-            }
-        )
-       // const locations = await response.json();
-        // return locations;
-        if (response.ok) {
-            const locations = await response.json();
-
-            return locations;
-        } else {
-            throw new Error(await response.text());
-        }
-    }
-
-    getAllLocations().then(locations =>{
-        locations;
-        console.log(locations);
-        });
-    console.log("FFFF")
-
-    // async function fetchMoviesJSON() {
-    //     const response = await fetch('/movies');
-    //     const movies = await response.json();
-    //     return movies;
-    // }
-    // fetchMoviesJSON().then(movies => {
-    //     movies; // fetched movies
-    // });
 
     return(
         <div>
