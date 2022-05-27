@@ -103,10 +103,6 @@ const HomePage = () => {
                 />
             </GoogleMap>
 
-            {/* TODO: Ask for help on this part cause it only works once */}
-
-            {/* This is for the button that enables the user to focus the map back to their current position */}
-
             <LocationMarker isLocation={isLocation} setIsLocation={handleSetLocation} />
 
             <section style={{

@@ -47,7 +47,6 @@ const UserLocationMarker : React.FC<MarkerProps> = ({
 
     React.useEffect(
         () => {
-            
             if (!userMarker) {
             setUserMarker(new google.maps.Marker({
                 icon: {
@@ -65,7 +64,7 @@ const UserLocationMarker : React.FC<MarkerProps> = ({
             return () => {
                 if (userMarker) userMarker.setMap(null);
             }
-        },[]
+        }, []
     )
 
     React.useEffect(
