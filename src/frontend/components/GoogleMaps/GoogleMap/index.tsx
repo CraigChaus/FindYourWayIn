@@ -6,7 +6,7 @@ interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
-    children?: React.ReactElement;
+    children?: React.ReactElement | React.ReactElement[];
     setZoom: React.Dispatch<SetStateAction<number>>;
 }
 
@@ -19,7 +19,7 @@ const GoogleMap: React.FC<MapProps> = ({
     ...options
 }) => {
     const mapRef = React.useRef<HTMLDivElement>(null);
-    const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker);
+    const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker)
     const [ map, setMap ] = React.useState<google.maps.Map>();
     const [ configMap, setConfigMap ] = React.useState<boolean>(false);
 
@@ -53,6 +53,7 @@ const GoogleMap: React.FC<MapProps> = ({
         <>
             <div ref={mapRef} style={style}/>
             {React.Children.map(children, (child) => {
+                
                 if (React.isValidElement(child)) {
                     return React.cloneElement(child, { map });
                 }
