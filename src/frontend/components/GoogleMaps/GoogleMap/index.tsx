@@ -37,11 +37,11 @@ const GoogleMap: React.FC<MapProps> = ({
 
 
     console.log("DRAFT")
-    var filterforSopsh: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[]= [];
-    var filterforCulture= [];
+    const filterforShops: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[]= [];
+    const filterforCulture= [];
 
     async function getAllLocations() {
-        var res = new Object();
+        let res = new Object();
         const response = await fetch("https://app.thefeedfactory.nl/api/locations", {
                 method: 'GET',
                 headers: {
@@ -54,14 +54,14 @@ const GoogleMap: React.FC<MapProps> = ({
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 } else {
-                    res=response.clone();
+                    res=response.clone(); // made it to avoid problems with dowble consuming object
                     //console.log( res);
                     return response.json();
                 }
             })
             .then(res => {
                 //console.log(res.results[3].trcItemCategories.categories[0].categoryTranslations[0].label)})   //types test to get data of the shop, which first in the list
-               for(var i=0;i<res.size;i++){  //need to change 20 on length of JSON object
+               for(let i=0;i<res.size;i++){  //need to change 20 on length of JSON object
                    console.log(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label)}
 
 
@@ -69,19 +69,19 @@ const GoogleMap: React.FC<MapProps> = ({
                 for (let i = 0; i < res.size; i++) {  //need to change 20 on length of JSON object
                   if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Overige winkels'){
                      // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                      let newObj = {
+                      const newObj = {
                           "country": res.results[i].location.address.country,
                           "city": res.results[i].location.address.city,
                           "street": res.results[i].location.address.street,
                           "houseNumber": res.results[i].location.address.housenr,
                           "zipcode":res.results[i].location.address.zipcode
                       }
-                      filterforSopsh.push(newObj);
+                      filterforShops.push(newObj);
                   }
 
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Bezienswaardigheid'){
                         // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        let newObj = {
+                        const newObj = {
                             "country": res.results[i].location.address.country,
                             "city": res.results[i].location.address.city,
                             "street": res.results[i].location.address.street,
@@ -98,7 +98,7 @@ const GoogleMap: React.FC<MapProps> = ({
                 console.log('There has been a problem with your fetch operation: ' + e.message);
             });
 
-        console.log(filterforSopsh);
+        console.log(filterforShops);
         console.log(filterforCulture.length);
 
     }
