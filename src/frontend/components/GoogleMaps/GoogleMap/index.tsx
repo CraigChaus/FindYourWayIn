@@ -57,17 +57,15 @@ const GoogleMap: React.FC<MapProps> = ({
             })
             .then(res => {
                 //console.log(res.results[3].trcItemCategories.categories[0].categoryTranslations[0].label)})   //types test to get data of the shop, which first in the list
-               for(var i=0;i<20;i++){
+               for(var i=0;i<res.size;i++){  //need to change 20 on length of JSON object
                    console.log(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label)}
 
-
                 var filterforSopsh= [];
-                for (let i = 0; i < 20; i++) {
-                  if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Overige weinkls'){
+                var filterforCulture= [];
+
+                for (let i = 0; i < res.size; i++) {  //need to change 20 on length of JSON object
+                  if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Overige winkels'){
                      // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-
-
-
                       let newObj = {
                           "country": res.results[i].location.address.country,
                           "city": res.results[i].location.address.city,
@@ -75,12 +73,23 @@ const GoogleMap: React.FC<MapProps> = ({
                           "houseNumber": res.results[i].location.address.housenr,
                           "zipcode":res.results[i].location.address.zipcode
                       }
-
                       filterforSopsh.push(newObj);
-
                   }
+
+                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Bezienswaardigheid'){
+                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
+                        let newObj = {
+                            "country": res.results[i].location.address.country,
+                            "city": res.results[i].location.address.city,
+                            "street": res.results[i].location.address.street,
+                            "houseNumber": res.results[i].location.address.housenr,
+                            "zipcode":res.results[i].location.address.zipcode
+                        }
+                        filterforCulture.push(newObj);
+                    }
                 }
-                console.log(filterforSopsh.length);
+                console.log(filterforSopsh);
+                console.log(filterforCulture.length);
 
 
 
