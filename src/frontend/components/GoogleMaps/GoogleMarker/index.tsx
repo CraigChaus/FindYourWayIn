@@ -11,7 +11,16 @@ interface MarkerProps extends google.maps.MarkerOptions{
 }
 
 type DirectionsResult = google.maps.DirectionsResult;
-type latLngLiteral = google.maps.LatLngLiteral;
+type latLng = google.maps.LatLng;
+type latLngLiteral = google.maps.LatLngLiteral
+
+
+
+
+const destination: latLngLiteral =  {
+    lat: 52.2661,
+    lng: 6.1552
+}
 
 
 const GoogleMarker: React.FC<MarkerProps> = ({
@@ -21,7 +30,6 @@ const GoogleMarker: React.FC<MarkerProps> = ({
     ...options
 }) => {
     const [ marker, setMarker ] = React.useState<google.maps.Marker | null>();
-    const [ dragging, setDragging ] = React.useState<boolean>(false);
     const [ directions, setDirections ] = React.useState<DirectionsResult>();
     
     React.useEffect(() => {
@@ -37,46 +45,37 @@ const GoogleMarker: React.FC<MarkerProps> = ({
     }, [marker]);
 
 
-    // const fetchDirections = (markerPos: latLngLiteral, currentPos: latLngLiteral) => {
-    //     if(!currentPos) return;
+    const fetchDirections = (markerPos: latLngLiteral, currentPos: latLngLiteral | undefined | string) => {
+        if(!currentPos) return;
 
-    //     const service = new google.maps.DirectionsService();
-    //     service.route(
-    //         {
-    //             origin: markerPos,
-    //             destination: currentPos,
-    //             travelMode: google.maps.TravelMode.WALKING
-    //     },
-    //     (result, status) => {
-    //         if(status === "OK" && result){
-    //             setDirections(result);
-    //         }
-    //     }
-    //   )
-    // }
+        const service = new google.maps.DirectionsService();
+        service.route(
+            {
+                origin: currentPos,
+                destination: markerPos,
+                travelMode: google.maps.TravelMode.WALKING
+        },
+        (result, status) => {
+            if(status === "OK" && result){
+                setDirections(result);
+            }
+        }
+      )
+    }
     
-    // React.useEffect(() => {
-    //     if (marker) {
-            
-    //         marker.setOptions(options);
-    //         marker.addListener('drag', () => setDragging(true));
-    //         marker.addListener('dragend', () => {
-    //             if(!dragging){
-    //                 const lat = marker.getPosition()?.lat();
-    //                 const lng = marker.getPosition()?.lng();
-    //                 const latPos = options.position?.lat;
-    //                 const lngPos = options.position?.lng;
-    //                 marker.addListener('click', () => {
-    //                     if(lat && lng){
-    //                         setLat(lat);
-    //                         setLng(lng);
-    //                     };
-    //                 });
-    //             setDragging(false)
-    //             }
-    //         })
-    //     };
-    // }, [marker, options]);
+    React.useEffect(() => {
+        if (marker instanceof google.maps.Marker) {
+            marker.setOptions(options);
+            marker.addListener('dragend', () => {
+                if (marker) {
+                    setLat(marker.getPosition()!.lat());
+                    setLng(marker.getPosition()!.lng());
+                    setAddress(marker.getPosition()!.toUrlValue());
+                    fetchDirections(destination, marker.getPosition()?.toString());
+                }
+            });
+        }
+    }, [marker, options]);
   
     return <>
             {directions && <DirectionsRenderer/>}
