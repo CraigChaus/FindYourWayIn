@@ -55,7 +55,13 @@ const GoogleMap: React.FC<MapProps> = ({
                     return response.json();
                 }
             })
-            .then(res => {console.log(res.results[0].trcItemCategories.categories[0].categoryTranslations[0].label)})   //test to get data of the shop, which first in the list
+            .then(res => {
+                //console.log(res.results[3].trcItemCategories.categories[0].categoryTranslations[0].label)})   //types test to get data of the shop, which first in the list
+               for(var i=0;i<20;i++){
+                   console.log(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label)}
+
+
+            })
             .catch(e => {
                 console.log('There has been a problem with your fetch operation: ' + e.message);
             });
