@@ -19,7 +19,7 @@ const GoogleMap: React.FC<MapProps> = ({
     ...options
 }) => {
     const mapRef = React.useRef<HTMLDivElement>(null);
-    const userMarker = React.useRef<google.maps.Marker>(new google.maps.Marker)
+    const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker)
     const [ map, setMap ] = React.useState<google.maps.Map>();
     const [ configMap, setConfigMap ] = React.useState<boolean>(false);
 
