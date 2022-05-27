@@ -39,19 +39,11 @@ const GoogleMap: React.FC<MapProps> = ({
         }
     }, [map, options]);
 
-
-    
-    
     type destinationPoint = {
         destLat: number;
         destLng: number;
         locationCategory: string;
     }
-
-
-    }, [map, options, setZoom])
-
-
 
     console.log("DRAFT")
     const filterforShops: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[]= [];
@@ -79,22 +71,22 @@ const GoogleMap: React.FC<MapProps> = ({
             .then(res => {
                 //console.log(res.results[3].trcItemCategories.categories[0].categoryTranslations[0].label)})   //types test to get data of the shop, which first in the list
                for(let i=0;i<res.size;i++){  //need to change 20 on length of JSON object
-                   console.log(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label)}
+                console.log(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label)}
 
 
 
                 for (let i = 0; i < res.size; i++) {  //need to change 20 on length of JSON object
-                  if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Overige winkels'){
-                     // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                      const newObj = {
-                          "country": res.results[i].location.address.country,
-                          "city": res.results[i].location.address.city,
-                          "street": res.results[i].location.address.street,
-                          "houseNumber": res.results[i].location.address.housenr,
-                          "zipcode":res.results[i].location.address.zipcode
-                      }
-                      filterforShops.push(newObj);
-                  }
+                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Overige winkels'){
+                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
+                        const newObj = {
+                            "country": res.results[i].location.address.country,
+                            "city": res.results[i].location.address.city,
+                            "street": res.results[i].location.address.street,
+                            "houseNumber": res.results[i].location.address.housenr,
+                            "zipcode":res.results[i].location.address.zipcode
+                        }
+                        filterforShops.push(newObj);
+                    }
 
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Bezienswaardigheid'){
                         // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
@@ -135,6 +127,20 @@ const GoogleMap: React.FC<MapProps> = ({
         });
     });
 
+    const destinationPoints:any[] = [];
+    
+    function getDestCoordinates(): void { 
+    // TODO: Get the actual info from API
+
+    map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
+        clearMarker(markerRef.current);
+        markerRef.current = new google.maps.Marker({
+            position: mapsMouseEvent.latLng,
+            map: map
+        });
+    });
+
+
     //The following object is static and set to Deventer for testing purposes
   const nextDest: destinationPoint = {
       destLat: 52.2661,
@@ -150,9 +156,9 @@ const GoogleMap: React.FC<MapProps> = ({
 
     for (const dest of destinationPoints) {
         const marker = new google.maps.Marker({
-        position: { lat: dest.destLat, lng: dest.destLng },
-        map: map,
-  });
+            position: { lat: dest.destLat, lng: dest.destLng },
+            map: map,
+        });
     }  
 }
     getDestCoordinates();
