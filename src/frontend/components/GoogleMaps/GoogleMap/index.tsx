@@ -53,7 +53,7 @@ const GoogleMap: React.FC<MapProps> = ({
     }
 
 
-    let destinationPoints:any[] = [];
+    const destinationPoints:any[] = [];
     
     function getDestCoordinates(): void { 
     // TODO: Get the actual info from API
