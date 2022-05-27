@@ -84,12 +84,16 @@ const HomePage = () => {
                 center={{lat, lng}}
                 zoom={zoom}
                 setZoom={setZoom}
-                style={{width: '100%', height: '800px'}}
+                style={{width: '100%', height: '100vh'}}
                 disableDefaultUI
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
             >
-                <UserLocationMarker />
+                <UserLocationMarker 
+                position={{lat,lng}}
+                setLat={setLat}
+                setLng={setLng}
+                setAddress={setAddress}/>
                 
                 {/* <GoogleMarker
                     position={{lat, lng}}
