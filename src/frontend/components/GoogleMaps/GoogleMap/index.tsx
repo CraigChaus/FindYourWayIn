@@ -1,3 +1,4 @@
+import { type } from "os";
 import React, { SetStateAction } from "react";
 import { useRef } from "react";
 
@@ -8,6 +9,7 @@ interface MapProps extends google.maps.MapOptions {
     children?: React.ReactElement | React.ReactElement[];
     setZoom: React.Dispatch<SetStateAction<number>>;
 }
+
 
 const GoogleMap: React.FC<MapProps> = ({
     onClick,
@@ -35,8 +37,22 @@ const GoogleMap: React.FC<MapProps> = ({
         if (map) {
             map.setOptions(options);
         }
-
     }, [map, options]);
+
+
+    
+    
+    type destinationPoint = {
+        destLat: number;
+        destLng: number;
+        locationCategory: string;
+    }
+
+
+    const destinationPoints:any[] = [];
+    
+    function getDestCoordinates(): void { 
+    // TODO: Get the actual info from API
 
     map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);
@@ -46,6 +62,29 @@ const GoogleMap: React.FC<MapProps> = ({
         });
     });
 
+    //The following object is static and set to Deventer for testing purposes
+  const nextDest: destinationPoint = {
+      destLat: 52.2661,
+      destLng:6.1552,
+      locationCategory: "Station"
+  }
+   destinationPoints.push(nextDest);
+
+}
+
+    function addMarkers(): void { 
+    // TODO: here the actual markers are put on the map
+
+    for (const dest of destinationPoints) {
+        const marker = new google.maps.Marker({
+        position: { lat: dest.destLat, lng: dest.destLng },
+        map: map,
+  });
+    }  
+}
+    getDestCoordinates();
+    addMarkers();
+    
     return(
         <>
             <div ref={mapRef} style={style}/>
