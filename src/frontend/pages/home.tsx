@@ -1,8 +1,8 @@
+import UserLocationMarker from "@components/GoogleMaps/userLocationMarker";
 import LocationMarker from "@components/LocationMarker";
 import React from "react";
 import GoogleAutocomplete from "../components/GoogleMaps/GoogleAutocomplete";
 import GoogleMap from "../components/GoogleMaps/GoogleMap";
-import GoogleMarker from "../components/GoogleMaps/GoogleMarker";
 
 const HomePage = () => {
     const [ mounted, setMounted ] = React.useState(false);
@@ -94,7 +94,7 @@ const HomePage = () => {
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
             >
-                <GoogleMarker
+                <UserLocationMarker
                     position={{lat, lng}}
                     draggable
                     setLat={setLat}
