@@ -1,6 +1,5 @@
-
-import React, { SetStateAction , useEffect } from "react";
-import GoogleMarker from "../GoogleMarker";
+import { type } from "os";
+import React, { SetStateAction } from "react";
 import { useRef } from "react";
 
 interface MapProps extends google.maps.MapOptions {
@@ -10,6 +9,7 @@ interface MapProps extends google.maps.MapOptions {
     children?: React.ReactElement | React.ReactElement[];
     setZoom: React.Dispatch<SetStateAction<number>>;
 }
+
 
 const GoogleMap: React.FC<MapProps> = ({
     onClick,
@@ -22,7 +22,6 @@ const GoogleMap: React.FC<MapProps> = ({
     const mapRef = React.useRef<HTMLDivElement>(null);
     const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker)
     const [ map, setMap ] = React.useState<google.maps.Map>();
-    const [ configMap, setConfigMap ] = React.useState<boolean>(false);
 
     function clearMarker(marker: google.maps.Marker) {
         marker.setMap(null);
@@ -37,8 +36,18 @@ const GoogleMap: React.FC<MapProps> = ({
     React.useEffect(() => {
         if (map) {
             map.setOptions(options);
-            map.addListener('zoom_changed', () => setZoom(map.getZoom() as number))
         }
+    }, [map, options]);
+
+
+    
+    
+    type destinationPoint = {
+        destLat: number;
+        destLng: number;
+        locationCategory: string;
+    }
+
 
     }, [map, options, setZoom])
 
@@ -126,6 +135,29 @@ const GoogleMap: React.FC<MapProps> = ({
         });
     });
 
+    //The following object is static and set to Deventer for testing purposes
+  const nextDest: destinationPoint = {
+      destLat: 52.2661,
+      destLng:6.1552,
+      locationCategory: "Station"
+  }
+   destinationPoints.push(nextDest);
+
+}
+
+    function addMarkers(): void { 
+    // TODO: here the actual markers are put on the map
+
+    for (const dest of destinationPoints) {
+        const marker = new google.maps.Marker({
+        position: { lat: dest.destLat, lng: dest.destLng },
+        map: map,
+  });
+    }  
+}
+    getDestCoordinates();
+    addMarkers();
+    
     return(
         <>
             <div ref={mapRef} style={style}/>
