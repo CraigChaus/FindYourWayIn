@@ -1,10 +1,13 @@
-import React, { SetStateAction, useEffect } from "react";
+
+import React, { SetStateAction , useEffect } from "react";
+import GoogleMarker from "../GoogleMarker";
+import { useRef } from "react";
 
 interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
-    children?: React.ReactElement;
+    children?: React.ReactElement | React.ReactElement[];
     setZoom: React.Dispatch<SetStateAction<number>>;
 }
 
@@ -17,8 +20,13 @@ const GoogleMap: React.FC<MapProps> = ({
     ...options
 }) => {
     const mapRef = React.useRef<HTMLDivElement>(null);
-    const [map, setMap] = React.useState<google.maps.Map>();
-    const [configMap, setConfigMap] = React.useState<boolean>(false);
+    const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker)
+    const [ map, setMap ] = React.useState<google.maps.Map>();
+    const [ configMap, setConfigMap ] = React.useState<boolean>(false);
+
+    function clearMarker(marker: google.maps.Marker) {
+        marker.setMap(null);
+    }
 
     React.useEffect(() => {
         if (mapRef.current && !map) {
@@ -32,7 +40,7 @@ const GoogleMap: React.FC<MapProps> = ({
             map.addListener('zoom_changed', () => setZoom(map.getZoom() as number))
         }
 
-    }, [map, options])
+    }, [map, options, setZoom])
 
 
 
@@ -110,10 +118,19 @@ const GoogleMap: React.FC<MapProps> = ({
     });
 
 
+    map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
+        clearMarker(markerRef.current);
+        markerRef.current = new google.maps.Marker({
+            position: mapsMouseEvent.latLng,
+            map: map
+        });
+    });
+
     return(
         <>
             <div ref={mapRef} style={style}/>
             {React.Children.map(children, (child) => {
+                
                 if (React.isValidElement(child)) {
                     return React.cloneElement(child, { map });
                     <div><p></p></div>
