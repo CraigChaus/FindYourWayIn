@@ -20,7 +20,8 @@ const GoogleMap: React.FC<MapProps> = ({
 }) => {
     const mapRef = React.useRef<HTMLDivElement>(null);
     const [ map, setMap ] = React.useState<google.maps.Map>();
-    const [ configMap, setConfigMap ] = React.useState<boolean>(false);
+    // const [ configMap, setConfigMap ] = React.useState<boolean>(false);
+    const [destpoints, setDestpoints] = React.useState<[]>();
 
     React.useEffect(() => {
         if( mapRef.current && !map ){
@@ -31,10 +32,12 @@ const GoogleMap: React.FC<MapProps> = ({
     React.useEffect(() => {
         if (map) {
             map.setOptions(options);
-            map.addListener('zoom_changed', () => setZoom(map.getZoom() as number))
+            // map.addListener('zoom_changed', () => setZoom(map.getZoom() as number))
         }
+    }, [map]);
 
-    }, [map, options]);
+
+    
     
     type destinationPoint = {
         destLat: number;
