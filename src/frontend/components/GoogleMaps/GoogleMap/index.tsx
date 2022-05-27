@@ -61,6 +61,30 @@ const GoogleMap: React.FC<MapProps> = ({
                    console.log(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label)}
 
 
+                var filterforSopsh= [];
+                for (let i = 0; i < 20; i++) {
+                  if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Overige weinkls'){
+                     // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
+
+
+
+                      let newObj = {
+                          "country": res.results[i].location.address.country,
+                          "city": res.results[i].location.address.city,
+                          "street": res.results[i].location.address.street,
+                          "houseNumber": res.results[i].location.address.housenr,
+                          "zipcode":res.results[i].location.address.zipcode
+                      }
+
+                      filterforSopsh.push(newObj);
+
+                  }
+                }
+                console.log(filterforSopsh.length);
+
+
+
+
             })
             .catch(e => {
                 console.log('There has been a problem with your fetch operation: ' + e.message);
