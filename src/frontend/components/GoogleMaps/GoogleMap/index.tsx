@@ -41,7 +41,7 @@ const GoogleMap: React.FC<MapProps> = ({
             map.setOptions(options);
             // map.addListener('zoom_changed', () => setZoom(map.getZoom() as number))
         }
-    }, [map]);
+    }, [map, options]);
 
 
     
@@ -58,12 +58,6 @@ const GoogleMap: React.FC<MapProps> = ({
     function getDestCoordinates(): void { 
     // TODO: Get the actual info from API
 
-<<<<<<< HEAD
-     // Empty the markers array 
-        destinationPoints = [];
-=======
-    }, [map, options, setZoom]);
-
     map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);
         markerRef.current = new google.maps.Marker({
@@ -71,7 +65,6 @@ const GoogleMap: React.FC<MapProps> = ({
             map: map
         });
     });
->>>>>>> 28a663be725f6822e843aada287f22f6b678b88e
 
     //The following object is static and set to Deventer for testing purposes
   const nextDest: destinationPoint = {
