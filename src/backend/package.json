@@ -15,7 +15,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "lint": "npx eslint ./*.js",
-    "lint:fix": "npx eslint --fix ./*.js"
+    "lint-fix": "npx eslint --fix ./*.js"
   },
   "author": "",
   "license": "ISC",

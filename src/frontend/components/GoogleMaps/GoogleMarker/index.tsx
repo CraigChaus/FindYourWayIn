@@ -1,4 +1,8 @@
+import { DirectionsRenderer, Marker } from '@react-google-maps/api';
+import { getSortedRoutes } from 'next/dist/shared/lib/router/utils';
+import { posix } from 'path';
 import React, { SetStateAction } from 'react';
+import LocationMarker from '../../LocationMarker';
 
 interface MarkerProps extends google.maps.MarkerOptions{
     setLat: React.Dispatch<SetStateAction<number>>
@@ -6,15 +10,28 @@ interface MarkerProps extends google.maps.MarkerOptions{
     setAddress: React.Dispatch<SetStateAction<string>>
 }
 
+type DirectionsResult = google.maps.DirectionsResult;
+type latLng = google.maps.LatLng;
+type latLngLiteral = google.maps.LatLngLiteral
+
+
+
+
+const destination: latLngLiteral =  {
+    lat: 52.2661,
+    lng: 6.1552
+}
+
+
 const GoogleMarker: React.FC<MarkerProps> = ({
     setLat,
     setLng,
     setAddress,
     ...options
 }) => {
-    const [ marker, setMarker ] = React.useState<google.maps.Marker>();
-    const [ dragging, setDragging ] = React.useState<boolean>(false);
-
+    const [ marker, setMarker ] = React.useState<google.maps.Marker | null>();
+    const [ directions, setDirections ] = React.useState<DirectionsResult>();
+    
     React.useEffect(() => {
         if (!marker) {
             setMarker(new google.maps.Marker());
@@ -26,25 +43,42 @@ const GoogleMarker: React.FC<MarkerProps> = ({
             };
         };
     }, [marker]);
+
+
+    const fetchDirections = (markerPos: latLngLiteral, currentPos: latLngLiteral | undefined | string) => {
+        if(!currentPos) return;
+
+        const service = new google.maps.DirectionsService();
+        service.route(
+            {
+                origin: currentPos,
+                destination: markerPos,
+                travelMode: google.maps.TravelMode.WALKING
+        },
+        (result, status) => {
+            if(status === "OK" && result){
+                setDirections(result);
+            }
+        }
+      )
+    }
     
     React.useEffect(() => {
-        if (marker) {
+        if (marker instanceof google.maps.Marker) {
             marker.setOptions(options);
-            marker.addListener('drag', () => setDragging(true));
             marker.addListener('dragend', () => {
-                if(!dragging){
-                    const lat = marker.getPosition()?.lat();
-                    const lng = marker.getPosition()?.lng();
-                    if(lat && lng){
-                        setLat(lat);
-                        setLng(lng);
-                    };
-                };
-                setDragging(false);
-            })
-        };
+                if (marker) {
+                    setLat(marker.getPosition()!.lat());
+                    setLng(marker.getPosition()!.lng());
+                    setAddress(marker.getPosition()!.toUrlValue());
+                    fetchDirections(destination, marker.getPosition()?.toString());
+                }
+            });
+        }
     }, [marker, options]);
   
-    return null;
+    return <>
+            {directions && <DirectionsRenderer/>}
+            </>
 };
 export default GoogleMarker;

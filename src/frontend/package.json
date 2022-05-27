@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "npx eslint pages/** components/**"
+    "lint": "npx eslint pages/** components/**",
+    "lint-fix": "npx eslint pages/** components/** --fix"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
@@ -23,6 +24,7 @@
     "react-fontawesome": "^1.7.1"
   },
   "devDependencies": {
+    "@svgr/webpack": "^6.2.1",
     "@types/google.maps": "^3.48.8",
     "@types/node": "17.0.31",
     "@types/react": "18.0.9",
