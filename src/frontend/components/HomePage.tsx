@@ -71,7 +71,7 @@ const HomePage = () => {
     `);
 
     return(
-        <div className="w-full h-full">
+        <div className="absolute w-full h-full mt-20">
             <GoogleAutocomplete
                 setLat={setLat}
                 setLng={setLng}
