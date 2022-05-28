@@ -1,17 +1,15 @@
-
-import { Fragment } from "react";
 import type { NextPage } from 'next'
 
-import Header from "../components/navigation/Header";
-import SectionForMap from "../components/navigation/SectionForMap";
+import Navbar from "../components/navigation/Navbar";
+import HomePage from "./home";
 
 
 const Navigation: NextPage = () => {
 
     return (
-        <div  className="flex  flex-col h-screen ">
-            <Header/>
-            <SectionForMap/>
+        <div  className="flex flex-col h-screen ">
+            <Navbar/>
+            <HomePage/>
         </div>
     )
 }

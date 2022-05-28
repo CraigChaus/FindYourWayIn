@@ -77,14 +77,7 @@ const HomePage = () => {
                 setLng={setLng}
                 setAddress={setAddress}
             />
-            <input
-                disabled
-                value={address}
-                style={{
-                    margin: '20px 0 20px 0',
-                    width: '100%'
-                }}
-            />
+            
             <GoogleMap 
                 center={{lat, lng}}
                 zoom={zoom}
@@ -103,24 +96,7 @@ const HomePage = () => {
                 />
             </GoogleMap>
 
-            {/* TODO: Ask for help on this part cause it only works once */}
-
-            {/* This is for the button that enables the user to focus the map back to their current position */}
-
             <LocationMarker isLocation={isLocation} setIsLocation={handleSetLocation} />
-
-            <section style={{
-                margin: '20px 0 20px 0'
-            }}>
-                <h1>Display reverse geocoding data</h1>
-                <ul>
-                    <li>Country: {country}</li>
-                    <li>City: {city}</li>
-                    <li>Area: {sector}</li>
-                    <li>Neighborhood: {neighborhood}</li>
-                    <li>Address: {address}</li>
-                </ul>
-            </section>
         </div>
     );
 };
