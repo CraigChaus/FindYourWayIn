@@ -31,7 +31,7 @@ export default function SliderMenu (){
 
                 </div>
             ):(<>
-                    <div className={` p-4 h-auto bg-zinc-100 grid grid grid-cols-3 gap-6 p-4 z-10 rounded-b-2xl ${isOpen? 'translate-y-0':'translate-y-full'} ease-in-out duration-400 `} >
+                    <div className={` p-4 h-auto bg-zinc-100 grid grid grid-cols-3 gap-6 p-4 rounded-b-2xl ${isOpen? 'translate-y-0':'translate-y-full'} ease-in-out duration-400 `} >
                         <Categories categories={categories} />
                     </div>
 
