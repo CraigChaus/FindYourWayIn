@@ -71,7 +71,7 @@ const HomePage = () => {
     `);
 
     return(
-        <div>
+        <div className="w-full h-full">
             <GoogleAutocomplete
                 setLat={setLat}
                 setLng={setLng}
@@ -82,7 +82,7 @@ const HomePage = () => {
                 center={{lat, lng}}
                 zoom={zoom}
                 setZoom={setZoom}
-                style={{width: '100%', height: '500px'}}
+                style={{width: '100%', height: '100%'}}
                 disableDefaultUI
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
