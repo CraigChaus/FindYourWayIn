@@ -27,7 +27,9 @@
       - [8.8.1. Definition of done](#881-definition-of-done)
       - [8.8.2 Testing plan](#882-testing-plan)
       - [8.8.3. Reviewing plan](#883-reviewing-plan)
-  - [9. Global Timeline](#9-global-timeline)
+  - [9. Timeline](#9-timeline)
+    - [9.1. Deliverables timeline](#91-deliverables-timeline)
+    - [9.2. Global timeline](#92-global-timeline)
   - [10. Sprint objectives](#10-sprint-objectives)
     - [10.1 Sprint 0](#101-sprint-0)
     - [10.2. Sprint 1](#102-sprint-1)
@@ -40,6 +42,8 @@
     - [11.4. Health issue](#114-health-issue)
   - [12. HBO-i competence levels](#12-hbo-i-competence-levels)
     - [12.1. Selected competence levels](#121-selected-competence-levels)
+  - [13. Project Deliverables](#13-project-deliverables)
+  - [14. Appendix & References](#14-appendix--references)
 
  
 ## 1. Introduction 
@@ -87,6 +91,8 @@ In order to achieve the main goal of the project, it was divided into several pe
 
 ## 4. Explanation of work process
 
+The all information below related with Scrum was taken from The Scrum Guide (Schwaber, Sutherland ,2020).
+
 In order to quickly achieve the goals of the project and work effectively in a team, it was decided to use the Scrum project management methodology. Thus, all team members were distributed according to roles, namely Scrum master (every Sprint different), Scrum development team (all team members), Product owner (Andrei Lidzhiev).
 And the whole project was divided into clearly regulated time intervals (Sprints, 2 weeks each sprint), overall 4 Sprints: Sprint-0(plan and research) and Sprints-1,2,3 (implementation of WebApp). After each Sprint the product increment should be released and presented to the Client in form of documentation, presentation(for Sprints: 0,1,2,3) and Demo (for Sprints: 1,2,3).
 
@@ -109,10 +115,14 @@ And the whole project was divided into clearly regulated time intervals (Sprints
 
 Figure 1. Scrum process for entire project:
    ![img_2.png](assets/img_2.png)
+   The Scrum Framework Poster (Scrum.org,2020)
+
 
 
 Figure 2. Scrum process for every Sprint:
 ![img_3.png](assets/img_3.png)
+Scrum process (commons.wikimedia.org ,2008)
+
 
 ## 5. Research methodology
 
@@ -353,3 +363,21 @@ This project is also served as an indication for the competence levels of the te
 | Minh Pham       | Design, Realisation, Manage + Control |
 | Daria Grigoruk  | Realisation, Design, Advise           |
 
+## 13. Project Deliverables
+At the end of the project the following is planned to be delivered:
+
+A how-to-use document that guides the reader through the application
+Source code
+Documentation of the system and the project that includes test logs
+Admin credentials will given to the client
+
+## 14. Appendix & References
+
+Schwaber, K. and Sutherland, J. (2020). The 2020 Scrum GuideTM.
+Retrieved from: https://scrumguides.org/scrum-guide.html
+
+Scrum.org(2020). The Scrum Framework Poster.
+Retrieved from: https://www.scrum.org/resources/scrum-framework-poster
+
+commons.wikimedia.org(2008).Scrum process.
+Retrieved from: https://commons.wikimedia.org/wiki/File:Scrum_process.svg
