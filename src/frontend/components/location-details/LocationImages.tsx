@@ -1,7 +1,14 @@
-export const LocationImages = () => {
+import Image from 'next/image';
+
+export const LocationImages = (props: any) => {
   return (
-    <div className="border-2 p-2 h-auto mt-6 ">
-        <img src = " https://hddesktopwallpapers.in/wp-content/uploads/2015/09/goose-images.jpg" alt = " image goes here "></img>
+    <div className="h-auto p-2 mt-6">
+        <Image 
+          src={props.src} 
+          alt={props.alt} 
+          width={300}
+          height={300}
+        />
     </div>
   )
 }

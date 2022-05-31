@@ -1,11 +1,10 @@
-
-import SideBar from "../Sidebar";
+import SideBar from "./Sidebar";
 import SearchBar from "../SearchInputForm";
-import { FontAwesomeIcon,
-} from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import SliderMenu from "./SliderMenu";
 import React from "react";
+import UserButton from "./UserButton";
 
 export const Navbar = () => {
     
@@ -19,9 +18,7 @@ export const Navbar = () => {
 
                 <SearchBar/>
 
-                <button className="justify-center w-12 m-3 text-white bg-green-400 rounded-full h-11 hover:bg-green-600 "
-                > <FontAwesomeIcon  icon={faUser} size="lg"  className="justify-center "/>
-                </button>
+                <UserButton/>
 
             </div>
 
