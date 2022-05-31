@@ -2,7 +2,7 @@ import { DirectionsRenderer, Marker } from '@react-google-maps/api';
 import { getSortedRoutes } from 'next/dist/shared/lib/router/utils';
 import { posix } from 'path';
 import React, { SetStateAction } from 'react';
-import LocationMarker from '../../LocationMarker';
+import LocationMarker from '../../homepage/LocationMarker';
 
 interface MarkerProps extends google.maps.MarkerOptions{
     setLat: React.Dispatch<SetStateAction<number>>

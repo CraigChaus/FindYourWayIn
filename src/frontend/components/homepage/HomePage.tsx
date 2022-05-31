@@ -1,8 +1,8 @@
 import UserLocationMarker from "@components/GoogleMaps/userLocationMarker";
-import LocationMarker from "@components/LocationMarker";
+import LocationMarker from "@components/homepage/LocationMarker";
 import React from "react";
-import GoogleAutocomplete from "./GoogleMaps/GoogleAutocomplete";
-import GoogleMap from "./GoogleMaps/GoogleMap";
+import GoogleAutocomplete from "../GoogleMaps/GoogleAutocomplete";
+import GoogleMap from "../GoogleMaps/GoogleMap";
 
 const HomePage = () => {
     const [ mounted, setMounted ] = React.useState(false);
