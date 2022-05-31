@@ -41,32 +41,6 @@ export default function Sidebar()  {
                 </div>
             </div>
         </>
-        
-        // <>
-        //     {props.showSidebar ? (
-        //         <button
-        //             className="z-50 flex items-center justify-center text-4xl text-white cursor-pointer"
-        //             onClick={() => props.setShowSidebar(!props.showSidebar)}
-        //         >
-        //         x
-        //         </button>
-        //     ) : (
-                // <button onClick={() => props.setShowSidebar(!props.showSidebar)} className="w-16 m-2 font-bold text-white border-black rounded h-14 hover:bg-green-600"> 
-                //     <svg className="w-16 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-                // </button>
-        //     )}
-
-        //     <div
-        //         className={`top-0 right-full w-[35vw] bg-green-500  p-10 pr-20 text-white fixed h-full z-40 ease-in-out duration-300 ${
-        //             props.showSidebar ? "block" : "hidden"
-        //         }`}
-        //     >
-        //         <h3 className="mt-20 text-4xl font-semibold text-white">
-        //             sidebar
-        //         </h3>
-        //     </div>
-        // </>
-        
     )
 }
 

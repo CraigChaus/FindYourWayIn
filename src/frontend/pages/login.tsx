@@ -38,7 +38,7 @@ export default function Login() {
                         <input className="w-full p-3 mt-3 bg-gray-200 rounded-xl"  placeholder='Password' onChange={(event)=>{
                             setLoginPassword(event.target.value)}}>
                         </input>
-                    </div>                    
+                    </div>                       
                     <button className="inline-block w-5/6 py-3 mb-4 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out bg-green-600 shadow-md rounded-xl px-7 hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg" onClick={login}>Login</button>
                     <p className="mb-4 text-sm">Don&apos;t have an account? Sign up <Link href="/signup"><a className="text-green-700 underline hover:text-green-600">here</a></Link></p>
                 </div>

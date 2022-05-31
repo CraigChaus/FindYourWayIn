@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 
-import Navbar from "../components/navigation/Navbar";
+import Navbar from "../components/navigation/NavigationNavbar";
 import HomePage from "../components/HomePage";
 
 

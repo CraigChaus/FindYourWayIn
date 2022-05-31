@@ -1,9 +1,12 @@
-const locationName = "location name here it should be long enough to occupy the phone";
+import LocationImages from "./LocationImages";
+import demoImage from "../../public/images/IMG_2431.jpg";
 
-export const Header = () => {
+
+export const Header = (props: any) => {
   return (
-    <div className="border-2 h-auto text-xl text-center">
-     <h1>({locationName})</h1>
+    <div className="h-auto text-xl text-center">
+      <h1 className="text-4xl font-bold">{props.name}</h1>
+      <LocationImages src={demoImage} alt="Demo" />
     </div>
   )
 }

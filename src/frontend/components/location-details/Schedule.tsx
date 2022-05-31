@@ -1,7 +1,7 @@
-export const Schedule = () => {
+export const Schedule = (props: any) => {
   return (
     <>
-     <table className="table-auto border-2 h-auto w-full ml-2 text-sm">
+     <table className="w-full h-auto ml-2 text-sm text-center table-auto">
         <thead>
             <tr>
                 <th>Day</th>
