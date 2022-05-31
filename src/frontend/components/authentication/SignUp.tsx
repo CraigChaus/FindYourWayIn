@@ -4,8 +4,11 @@ import HeaderAuthForm from './HeaderAuthForm';
 import Input from './Input';
 import {createUserWithEmailAndPassword} from "firebase/auth"
 import { auth } from 'firebase_config';
+import { db } from 'firebase_config';
+import { doc, setDoc } from "firebase/firestore"; 
 import AuthButton from './Button';
 import NavigationLink from './NavigationLink';
+
 
 export default function SignUp() {
     // States for sign-up credentials
@@ -18,6 +21,13 @@ export default function SignUp() {
             // Takes in auth from firebase object and credentials
             const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
             console.log(user)
+            // Add a new document in collection "users"
+            await setDoc(doc(db, "users", user.user.uid), {
+                  favorite_locations: [""],
+            });
+
+            console.log("New user added to database.")
+                    
         } catch (error) {
             console.log(error)
         }
