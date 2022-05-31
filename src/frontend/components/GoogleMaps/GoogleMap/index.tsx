@@ -46,8 +46,8 @@ const GoogleMap: React.FC<MapProps> = ({
     }
 
     console.log("DRAFT")
-    const filterforShops: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[]= [];
-    const filterforCulture= [];
+    const filteredArray: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[]= [];
+
 
     async function getAllLocations() {
         let res = new Object();
@@ -75,30 +75,51 @@ const GoogleMap: React.FC<MapProps> = ({
 
 
 
-                for (let i = 0; i < res.size; i++) {  //need to change 20 on length of JSON object
-                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Overige winkels'){
+                for (let i = 0; i < res.size; i++) {
+                    if(res.results[i].trcItemCategories.types[0].catid==='4.6.10'||
+                        res.results[i].trcItemCategories.types[0].catid==='4.6.22'||
+                        res.results[i].trcItemCategories.types[0].catid==='2.1.2'){
                         // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
                         const newObj = {
+                            "category":"shop",
                             "country": res.results[i].location.address.country,
                             "city": res.results[i].location.address.city,
                             "street": res.results[i].location.address.street,
                             "houseNumber": res.results[i].location.address.housenr,
                             "zipcode":res.results[i].location.address.zipcode
                         }
-                        filterforShops.push(newObj);
+                        filteredArray.push(newObj);
+                    }
+                    if(res.results[i].trcItemCategories.types[0].catid==='3.2.6'||
+                        res.results[i].trcItemCategories.types[0].catid==='2.11.10'||
+                        res.results[i].trcItemCategories.types[0].catid==='4.6.15'){
+                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
+                        const newObj = {
+                            "category":"cafe",
+                            "country": res.results[i].location.address.country,
+                            "city": res.results[i].location.address.city,
+                            "street": res.results[i].location.address.street,
+                            "houseNumber": res.results[i].location.address.housenr,
+                            "zipcode":res.results[i].location.address.zipcode
+                        }
+                        filteredArray.push(newObj);
                     }
 
-                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Bezienswaardigheid'){
+                    if(res.results[i].trcItemCategories.types[0].catid==='2.1.1'||
+                        res.results[i].trcItemCategories.types[0].catid==='2.11.11'||
+                        res.results[i].trcItemCategories.types[0].catid==='2.2.19'){
                         // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
                         const newObj = {
+                            "category":"culture",
                             "country": res.results[i].location.address.country,
                             "city": res.results[i].location.address.city,
                             "street": res.results[i].location.address.street,
                             "houseNumber": res.results[i].location.address.housenr,
                             "zipcode":res.results[i].location.address.zipcode
                         }
-                        filterforCulture.push(newObj);
+                        filteredArray.push(newObj);
                     }
+
                 }
 
 
@@ -107,8 +128,7 @@ const GoogleMap: React.FC<MapProps> = ({
                 console.log('There has been a problem with your fetch operation: ' + e.message);
             });
 
-        console.log(filterforShops);
-        console.log(filterforCulture.length);
+        console.log(filteredArray);
 
     }
 
