@@ -86,6 +86,7 @@ const HomePage = () => {
                 disableDefaultUI
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
+                gestureHandling={"cooperative"}
             >
                 <UserLocationMarker
                     position={{lat, lng}}
