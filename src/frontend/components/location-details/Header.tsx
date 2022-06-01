@@ -1,5 +1,5 @@
 import LocationImages from "./LocationImages";
-import demoImage from "../../public/images/IMG_2431.jpg";
+import demoImage from "../../public/images/background.jpg";
 
 
 export const Header = (props: any) => {
