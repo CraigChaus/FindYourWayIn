@@ -96,11 +96,15 @@ export const Schedule = (props: any) => {
                 </thead>
                 <tbody>
                     { schedule.length > 0 && (
-                            <tr>
-                                <td>{schedule[0].date}</td>
-                                <td>{schedule[0].time.start} - {schedule[0].time.end}</td>
-                            </tr>
-                        )
+                         (schedule.map(day => {
+                             return (
+                                <tr>
+                                    <td>{day.date}</td>
+                                    <td>{day.time.start} - {day.time.end}</td>
+                                </tr>
+                             )
+                        }))
+                    )
                     }       
                 </tbody>
             </table>
