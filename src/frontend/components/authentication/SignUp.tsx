@@ -22,13 +22,20 @@ export default function SignUp() {
             // Takes in auth from firebase object and credentials
             const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
             console.log(user)
-            // Add a new document in collection "users"
+        
+            // Check if user exists
+            if (user) {
+             // Add a new document in collection "users"
             await setDoc(doc(db, "users", user.user.uid), {
                   favorite_locations: [""],
             });
-
             console.log("New user added to database.")
+            // Route user to home page after signup
             Router.push("/home")
+            } else {
+                console.log("Could not sign up!")
+            }
+         
         } catch (error) {
             console.log(error)
         }

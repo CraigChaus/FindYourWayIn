@@ -4,6 +4,7 @@ import HeaderAuthForm from './HeaderAuthForm';
 import Input from './Input';
 import {signInWithEmailAndPassword} from "firebase/auth"
 import { auth } from 'firebase_config';
+import { onAuthStateChanged } from 'firebase/auth';
 import AuthButton from './Button';
 import NavigationLink from './NavigationLink';
 
