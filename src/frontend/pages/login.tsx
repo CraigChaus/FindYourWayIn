@@ -1,7 +1,11 @@
 import React from 'react';
+import Login from '@components/authentication/Login';
 
-export default function Login() {
+
+
+export default function LoginPage() {
     return (
-        <h1>TBD..</h1>
+        <Login />
     )
+    
 }

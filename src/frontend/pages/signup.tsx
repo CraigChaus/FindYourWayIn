@@ -1,7 +1,9 @@
 import React from 'react';
+import SignUp from '@components/authentication/SignUp';
 
-export default function SignUp() {
+export default function SignUpPage() {
     return (
-        <h1>TBD..</h1>
+        <SignUp />
     )
+
 }
