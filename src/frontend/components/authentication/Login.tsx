@@ -7,6 +7,7 @@ import { auth } from 'firebase_config';
 import { onAuthStateChanged } from 'firebase/auth';
 import AuthButton from './Button';
 import NavigationLink from './NavigationLink';
+import Router from 'next/router';
 
 export default function SignUp() {
     const [loginEmail, setLoginEmail] = useState("");
@@ -16,8 +17,13 @@ export default function SignUp() {
         try {
             // Takes in auth from firebase object and login credentials
             const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
+            if(user){
             console.log(`${user} has logged in!`)
+            console.log("CURRENTLY LOGGED IN: "+auth.currentUser?.email)
+            Router.push("/home")
+            }
         } catch (error) {
+            console.log("COULD NOT SIGN IN.")
             console.log(error)
         }
     }
@@ -39,7 +45,7 @@ export default function SignUp() {
                         onChange={(event: React.FormEvent<HTMLInputElement>) => { setLoginPassword(event.currentTarget.value) }}
                     />
                 </div>
-                <AuthButton 
+                <AuthButton     
                     action={login}
                     text="Login"
                 />
