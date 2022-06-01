@@ -145,6 +145,7 @@ const GoogleMap: React.FC<MapProps> = ({
         markerRef.current = new google.maps.Marker({
             position: mapsMouseEvent.latLng,
             map: map
+            
         });
     });
 
