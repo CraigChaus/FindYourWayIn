@@ -89,7 +89,6 @@ const HomePage = () => {
             >
                 <UserLocationMarker
                     position={{lat, lng}}
-                    draggable
                     setLat={setLat}
                     setLng={setLng}
                     setAddress={setAddress}
