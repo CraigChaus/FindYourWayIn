@@ -8,6 +8,7 @@ import { db } from 'firebase_config';
 import { doc, setDoc } from "firebase/firestore"; 
 import AuthButton from './Button';
 import NavigationLink from './NavigationLink';
+import Router from 'next/router';
 
 
 export default function SignUp() {
@@ -27,7 +28,7 @@ export default function SignUp() {
             });
 
             console.log("New user added to database.")
-                    
+            Router.push("/home")
         } catch (error) {
             console.log(error)
         }
