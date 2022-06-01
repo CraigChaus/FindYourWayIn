@@ -13,6 +13,7 @@ export default function SignUp() {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const [user, setUser] = useState<any>({});
+    const [loginFail, setLoginFail] = useState(false);
 
     const login = async () => {
        
@@ -24,12 +25,14 @@ export default function SignUp() {
             if(user){
              onAuthStateChanged(auth,(currentUser)=> {
             setUser(currentUser);
+            console.log("Currently logged in user:" + auth.currentUser?.email)
             Router.push("/home")
           });
             }
         } catch (error) {
             console.log("COULD NOT SIGN IN.")
             console.log(error)
+            setLoginFail(true);
         }
     }
     return (
@@ -54,6 +57,14 @@ export default function SignUp() {
                     action={login}
                     text="Login"
                 />
+                {loginFail &&
+                // TODO: Temporary display. Refactor to look better.
+                <h4>
+                    FAILED LOGIN. 
+                </h4>
+                
+                }
+
                 <NavigationLink 
                     link="signup"
                 />

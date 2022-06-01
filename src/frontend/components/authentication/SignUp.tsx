@@ -15,6 +15,8 @@ export default function SignUp() {
     // States for sign-up credentials
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
+    const [signupFail, setSignupFail] = useState(false);
+
 
     
     const register = async () => {
@@ -38,6 +40,7 @@ export default function SignUp() {
          
         } catch (error) {
             console.log(error)
+            setSignupFail(true);
         }
     }
     return (
@@ -61,6 +64,11 @@ export default function SignUp() {
                 action={register}
                 text="Sign up"
             />
+            {
+                signupFail &&
+                // TODO: This is temporary display. Refactor make it look better.
+                <h3>Sign up failed</h3>
+            }
             <NavigationLink 
                 link="login"
             />
