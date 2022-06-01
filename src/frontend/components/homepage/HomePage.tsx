@@ -25,20 +25,21 @@ const HomePage = () => {
         setIsLocation(!isLocation);
     }
 
-        React.useEffect(() => {
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(
-                    (pos) => {
-                        const position = pos.coords;
-                        if(position){
-                            setLat(position.latitude);
-                            setLng(position.longitude);
-                        }
-                    }
-                );
-            };
-            setMounted(true);
-        }, [isLocation]);
+        // React.useEffect(() => {
+
+        //     if(navigator.geolocation){
+        //         navigator.geolocation.getCurrentPosition(
+        //             (pos) => {
+        //                 const position = pos.coords;
+        //                 if(position){
+        //                     setLat(position.latitude);
+        //                     setLng(position.longitude);
+        //                 }
+        //             }
+        //         );
+        //     };
+        //     setMounted(true);
+        // }, [isLocation]);
 
     React.useEffect(() => {
         if(!mounted) return;
