@@ -1,8 +1,11 @@
 import UserLocationMarker from "@components/GoogleMaps/userLocationMarker";
 import LocationMarker from "@components/homepage/LocationMarker";
+import { DirectionsRenderer, Marker } from "@react-google-maps/api";
 import React from "react";
 import GoogleAutocomplete from "../GoogleMaps/GoogleAutocomplete";
 import GoogleMap from "../GoogleMaps/GoogleMap";
+
+type LatLngLiteral = google.maps.LatLngLiteral;
 
 const HomePage = () => {
     const [ mounted, setMounted ] = React.useState(false);
@@ -10,7 +13,10 @@ const HomePage = () => {
     const [ lat, setLat ] = React.useState(52.2661);
     const [ lng, setLng ] = React.useState(6.1552);
     const [ zoom, setZoom ] = React.useState(12);   
+    
+    const endpoint : LatLngLiteral = {lat: 52.252619, lng: 6.163348};
 
+    
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder;
     const [ country, setCountry ] = React.useState< string >();
@@ -20,6 +26,25 @@ const HomePage = () => {
     const [ address, setAddress ] = React.useState< string >('');
 
     const [isLocation, setIsLocation] = React.useState(false);
+    const [directions, setDirections] = React.useState<google.maps.DirectionsResult>();
+
+    const fetchDirections = (start: LatLngLiteral, end: LatLngLiteral) => {
+
+    
+        const service = new google.maps.DirectionsService();
+        service.route(
+          {
+            origin: start,
+            destination: end,
+            travelMode: google.maps.TravelMode.WALKING,
+          },
+          (result, status) => {
+            if (status === "OK" && result) {
+              setDirections(result);
+            }
+          }
+        );
+      };
 
     function handleSetLocation() {
         setIsLocation(!isLocation);
@@ -86,7 +111,18 @@ const HomePage = () => {
                 disableDefaultUI
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
-            >
+            >   
+
+                <DirectionsRenderer
+                    directions={directions}
+                    options={{
+                    polylineOptions: {
+                        zIndex: 50,
+                        strokeColor: "#1976D2",
+                        strokeWeight: 5,
+                    },
+                    }}
+                />
                 <UserLocationMarker
                     position={{lat, lng}}
                     draggable
@@ -94,6 +130,15 @@ const HomePage = () => {
                     setLng={setLng}
                     setAddress={setAddress}
                 />
+
+                <Marker 
+                position={endpoint}
+                onClick={()=>{
+                    fetchDirections({lat, lng}, endpoint);
+                }}
+                >
+
+                </Marker>
             </GoogleMap>
 
             <LocationMarker isLocation={isLocation} setIsLocation={handleSetLocation} />

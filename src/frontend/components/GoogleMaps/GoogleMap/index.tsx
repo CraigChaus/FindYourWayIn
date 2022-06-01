@@ -1,3 +1,4 @@
+import { Marker } from "@react-google-maps/api";
 import { type } from "os";
 import React, { SetStateAction } from "react";
 import { useRef } from "react";
