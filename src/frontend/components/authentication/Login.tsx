@@ -4,20 +4,35 @@ import HeaderAuthForm from './HeaderAuthForm';
 import Input from './Input';
 import {signInWithEmailAndPassword} from "firebase/auth"
 import { auth } from 'firebase_config';
+import { onAuthStateChanged } from 'firebase/auth';
 import AuthButton from './Button';
 import NavigationLink from './NavigationLink';
+import Router from 'next/router';
 
 export default function SignUp() {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    const [user, setUser] = useState<any>({});
+    const [loginFail, setLoginFail] = useState(false);
 
     const login = async () => {
+       
+
+
         try {
             // Takes in auth from firebase object and login credentials
             const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
-            console.log(`${user} has logged in!`)
+            if(user){
+             onAuthStateChanged(auth,(currentUser)=> {
+            setUser(currentUser);
+            console.log("Currently logged in user:" + auth.currentUser?.email)
+            Router.push("/home")
+          });
+            }
         } catch (error) {
+            console.log("COULD NOT SIGN IN.")
             console.log(error)
+            setLoginFail(true);
         }
     }
     return (
@@ -38,10 +53,18 @@ export default function SignUp() {
                         onChange={(event: React.FormEvent<HTMLInputElement>) => { setLoginPassword(event.currentTarget.value) }}
                     />
                 </div>
-                <AuthButton 
+                <AuthButton     
                     action={login}
                     text="Login"
                 />
+                {loginFail &&
+                // TODO: Temporary display. Refactor to look better.
+                <h4>
+                    FAILED LOGIN. 
+                </h4>
+                
+                }
+
                 <NavigationLink 
                     link="signup"
                 />
