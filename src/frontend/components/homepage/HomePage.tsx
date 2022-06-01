@@ -9,7 +9,7 @@ const HomePage = () => {
     // Default value set to Deventer in the case that geolocation doesnt work
     const [ lat, setLat ] = React.useState(52.2661);
     const [ lng, setLng ] = React.useState(6.1552);
-    const [ zoom, setZoom ] = React.useState(12);   
+    const [ zoom, setZoom ] = React.useState(20);   
 
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder;
