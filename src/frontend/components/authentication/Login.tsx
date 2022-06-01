@@ -12,15 +12,20 @@ import Router from 'next/router';
 export default function SignUp() {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    const [user, setUser] = useState<any>({});
 
     const login = async () => {
+       
+
+
         try {
             // Takes in auth from firebase object and login credentials
             const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
             if(user){
-            console.log(`${user} has logged in!`)
-            console.log("CURRENTLY LOGGED IN: "+auth.currentUser?.email)
+             onAuthStateChanged(auth,(currentUser)=> {
+            setUser(currentUser);
             Router.push("/home")
+          });
             }
         } catch (error) {
             console.log("COULD NOT SIGN IN.")
