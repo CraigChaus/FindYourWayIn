@@ -64,97 +64,30 @@ const GoogleMap: React.FC<MapProps> = ({
                     throw new Error(`HTTP error! status: ${response.status}`);
                 } else {
                     res=response.clone(); // made it to avoid problems with dowble consuming object
-                    //console.log( res);
                     return response.json();
                 }
             })
             .then(res => {
-                //console.log(res.results[3].trcItemCategories.categories[0].categoryTranslations[0].label)})   //types test to get data of the shop, which first in the list
-               for(let i=0;i<res.size;i++){  //need to change 20 on length of JSON object
-                console.log(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label)}
-
-
 
                 for (let i = 0; i < res.size; i++) {
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Shop'){
-                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        // const newObj = {
-                        //     "category":{
-                        //        "category0":"shop"
-                        //     },
-                        //     "country": res.results[i].location.address.country,
-                        //     "city": res.results[i].location.address.city,
-                        //     "street": res.results[i].location.address.street,
-                        //     "houseNumber": res.results[i].location.address.housenr,
-                        //     "zipcode":res.results[i].location.address.zipcode
-                        // }
-                        // filteredArray.push(newObj);
-                        fuctionname(i,res,filteredArray,"shop","null");
+                      fuctionname(i,res,filteredArray,"shop","null");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Eat/Drink'){
-                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        // const newObj = {
-                        //     "category":{
-                        //         "category0":"cafe"
-                        //     },
-                        //     "country": res.results[i].location.address.country,
-                        //     "city": res.results[i].location.address.city,
-                        //     "street": res.results[i].location.address.street,
-                        //     "houseNumber": res.results[i].location.address.housenr,
-                        //     "zipcode":res.results[i].location.address.zipcode
-                        // }
-                        // filteredArray.push(newObj);
-                        fuctionname(i,res,filteredArray,"cafe","null");
+                      fuctionname(i,res,filteredArray,"cafe","null");
                     }
-
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Culture'){
-                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        // const newObj = {
-                        //     "category":{
-                        //         "category0":"culture"
-                        //     },
-                        //     "country": res.results[i].location.address.country,
-                        //     "city": res.results[i].location.address.city,
-                        //     "street": res.results[i].location.address.street,
-                        //     "houseNumber": res.results[i].location.address.housenr,
-                        //     "zipcode":res.results[i].location.address.zipcode
-                        // }
-                        // filteredArray.push(newObj);
-                        fuctionname(i,res,filteredArray,"culture","null");
+                      fuctionname(i,res,filteredArray,"culture","null");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Shop Eat/Drink'){
-                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        // const newObj = {
-                        //     "category":{
-                        //         "category0":"shop",
-                        //         "category1":"cafe"
-                        //     },
-                        //     "country": res.results[i].location.address.country,
-                        //     "city": res.results[i].location.address.city,
-                        //     "street": res.results[i].location.address.street,
-                        //     "houseNumber": res.results[i].location.address.housenr,
-                        //     "zipcode":res.results[i].location.address.zipcode
-                        // }
-                        // filteredArray.push(newObj);
-                        fuctionname(i,res,filteredArray,"shop","cafe");
+                      fuctionname(i,res,filteredArray,"shop","cafe");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Sport'){
-                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        // const newObj = {
-                        //     "category":{
-                        //         "category0":"sport"
-                        //     },
-                        //     "country": res.results[i].location.address.country,
-                        //     "city": res.results[i].location.address.city,
-                        //     "street": res.results[i].location.address.street,
-                        //     "houseNumber": res.results[i].location.address.housenr,
-                        //     "zipcode":res.results[i].location.address.zipcode
-                        // }
-                        // filteredArray.push(newObj);
-                        fuctionname(i,res,filteredArray,"sport","null");
+                      fuctionname(i,res,filteredArray,"sport","null");
                     }
 
                 }
+
                 function fuctionname(i: number, res: { results: { [x: string]: { location: { address: { zipcode: string; }; }; }; }; }, filteredArray: { country: string; city: string; street: string; houseNumber: string; zipcode: string; }[], categoryName: string,categoryName1:string) {
                     const newObj = {
                     "category":{
