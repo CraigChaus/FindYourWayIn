@@ -73,23 +73,27 @@ const GoogleMap: React.FC<MapProps> = ({
 
                 for (let i = 0; i < res.size; i++) {
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Shop'){
-                        filter(i,res,filteredArray,"shop","null");
+                        createObjectAddToList(i,res,filteredArray,"shop","null");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Eat/Drink'){
-                        filter(i,res,filteredArray,"cafe","null");
+                        createObjectAddToList(i,res,filteredArray,"cafe","null");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Culture'){
-                        filter(i,res,filteredArray,"culture","null");
+                        createObjectAddToList(i,res,filteredArray,"culture","null");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Shop Eat/Drink'){
-                        filter(i,res,filteredArray,"shop","cafe");
+                        createObjectAddToList(i,res,filteredArray,"shop","cafe");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Sport'){
-                        filter(i,res,filteredArray,"sport","null");
+                        createObjectAddToList(i,res,filteredArray,"sport","null");
+                    }
+
+                    switch(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label){
+                        case "Shop":
                     }
                 }
 
-                function filter(i: number, res: any, filteredArray:any, categoryName: string,categoryName1:string) {
+                function createObjectAddToList(i: number, res: any, filteredArray:any, categoryName: string,categoryName1:string) {
                     const newObj = {
                     "category":{
                         "category0":categoryName,
@@ -104,7 +108,18 @@ const GoogleMap: React.FC<MapProps> = ({
                     "ycoordinate":res.results[i].location.address.gisCoordinates[0].ycoordinate
                 }
                     filteredArray.push(newObj);
-                    return filteredArray}
+
+                    
+                    // TODO: Continute refactoring here.
+                    function getByCategory(categoryName:string){
+                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label===categoryName){
+
+                    }
+                }
+                    return filteredArray
+                }
+
+                
 
 
             })
