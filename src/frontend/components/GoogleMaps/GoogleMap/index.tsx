@@ -23,6 +23,7 @@ const GoogleMap: React.FC<MapProps> = ({
     const mapRef = React.useRef<HTMLDivElement>(null);
     const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker)
     const [ map, setMap ] = React.useState<google.maps.Map>();
+    const [filteredLocations, setFilteredLocations] = React.useState([]);
 
     function clearMarker(marker: google.maps.Marker) {
         marker.setMap(null);
