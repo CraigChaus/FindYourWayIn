@@ -53,7 +53,7 @@ const GoogleMap: React.FC<MapProps> = ({
 
     async function getAllLocations() {
         let res = new Object();
-        const response = await fetch("https://app.thefeedfactory.nl/api/locations", {
+         await fetch("https://app.thefeedfactory.nl/api/locations", {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -72,56 +72,33 @@ const GoogleMap: React.FC<MapProps> = ({
             .then(res => {
 
                 for (let i = 0; i < res.size; i++) {
-                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Shop'){
-                        createObjectAddToList(i,res,filteredArray,"shop","null");
-                    }
-                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Eat/Drink'){
-                        createObjectAddToList(i,res,filteredArray,"cafe","null");
-                    }
-                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Culture'){
-                        createObjectAddToList(i,res,filteredArray,"culture","null");
-                    }
-                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Shop Eat/Drink'){
-                        createObjectAddToList(i,res,filteredArray,"shop","cafe");
-                    }
-                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Sport'){
-                        createObjectAddToList(i,res,filteredArray,"sport","null");
-                    }
+              
+                    let location:any;
 
                     switch(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label){
-                        case "Shop":
+                     case "Shop":
+                     location = createNewLocation(res,i,"shop",null)
+                     break;
+
+                     case "Eat/Drink":
+                     location = createNewLocation(res,i,"cafe",null)    
+                     break;
+
+                     case "Culture":
+                     location =  createNewLocation(res,i,"cafe",null)    
+                     break;
+
+                     case "Shop Eat/Drink":
+                     location = createNewLocation(res,i,"shop","cafe")    
+                     break;
+
+                     case "Sport":
+                     location =  createNewLocation(res,i,"sport",null)    
+                     break;
                     }
-                }
-
-                function createObjectAddToList(i: number, res: any, filteredArray:any, categoryName: string,categoryName1:string) {
-                    const newObj = {
-                    "category":{
-                        "category0":categoryName,
-                        "category1":categoryName1
-                    },
-                    "country": res.results[i].location.address.country,
-                    "city": res.results[i].location.address.city,
-                    "street": res.results[i].location.address.street,
-                    "houseNumber": res.results[i].location.address.housenr,
-                    "zipcode":res.results[i].location.address.zipcode,
-                    "xcoordinate":res.results[i].location.address.gisCoordinates[0].xcoordinate,
-                    "ycoordinate":res.results[i].location.address.gisCoordinates[0].ycoordinate
-                }
-                    filteredArray.push(newObj);
-
                     
-                    // TODO: Continute refactoring here.
-                    function getByCategory(categoryName:string){
-                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label===categoryName){
-
-                    }
+                    filteredArray.push(location);
                 }
-                    return filteredArray
-                }
-
-                
-
-
             })
             .catch(e => {
                 console.log('There has been a problem with your fetch operation: ' + e.message);
@@ -132,10 +109,37 @@ const GoogleMap: React.FC<MapProps> = ({
     }
 
 
+
+        function createNewLocation(res:any,i:any,label1:string, label2:any){
+                     const newLocation = {
+                       "category":{
+                        "category1":label1,
+                        "category2":label2
+                    },
+                    "country": res.results[i].location.address.country,
+                    "city": res.results[i].location.address.city,
+                    "street": res.results[i].location.address.street,
+                    "houseNumber": res.results[i].location.address.housenr,
+                    "zipcode":res.results[i].location.address.zipcode,
+                    "xcoordinate":res.results[i].location.address.gisCoordinates[0].xcoordinate,
+                    "ycoordinate":res.results[i].location.address.gisCoordinates[0].ycoordinate
+                }
+                return newLocation
+       }
+
+
     getAllLocations().then(data =>{
             return data;
 
     });
+
+
+
+ 
+          
+
+
+
 
 
     map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
