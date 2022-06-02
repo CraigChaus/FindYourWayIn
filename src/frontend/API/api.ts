@@ -1,9 +1,6 @@
 function createNewLocation(res:any,i:any,label1:string, label2:any){
                      const newLocation = {
-                       "category":{
-                        "category1":label1,
-                        "category2":label2
-                    },
+                    "category":[label1,label2],
                     "country": res.results[i].location.address.country,
                     "city": res.results[i].location.address.city,
                     "street": res.results[i].location.address.street,
@@ -65,6 +62,7 @@ async function getAllLocations(filteredList:any[]) {
                     
                     filteredList.push(location);
                 }
+                console.log(filteredList[0].category[0])
             })
             .catch(e => {
                 console.log('There has been a problem with your fetch operation: ' + e.message);
