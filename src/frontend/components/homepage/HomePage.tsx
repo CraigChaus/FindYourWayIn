@@ -9,7 +9,7 @@ const HomePage = () => {
     // Default value set to Deventer in the case that geolocation doesnt work
     const [ lat, setLat ] = React.useState(52.2661);
     const [ lng, setLng ] = React.useState(6.1552);
-    const [ zoom, setZoom ] = React.useState(12);   
+    const [ zoom, setZoom ] = React.useState(20);   
 
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder;
@@ -25,20 +25,21 @@ const HomePage = () => {
         setIsLocation(!isLocation);
     }
 
-        React.useEffect(() => {
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(
-                    (pos) => {
-                        const position = pos.coords;
-                        if(position){
-                            setLat(position.latitude);
-                            setLng(position.longitude);
-                        }
-                    }
-                );
-            };
-            setMounted(true);
-        }, [isLocation]);
+        // React.useEffect(() => {
+
+        //     if(navigator.geolocation){
+        //         navigator.geolocation.getCurrentPosition(
+        //             (pos) => {
+        //                 const position = pos.coords;
+        //                 if(position){
+        //                     setLat(position.latitude);
+        //                     setLng(position.longitude);
+        //                 }
+        //             }
+        //         );
+        //     };
+        //     setMounted(true);
+        // }, [isLocation]);
 
     React.useEffect(() => {
         if(!mounted) return;
@@ -86,10 +87,10 @@ const HomePage = () => {
                 disableDefaultUI
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
+                gestureHandling={"cooperative"}
             >
                 <UserLocationMarker
                     position={{lat, lng}}
-                    draggable
                     setLat={setLat}
                     setLng={setLng}
                     setAddress={setAddress}
