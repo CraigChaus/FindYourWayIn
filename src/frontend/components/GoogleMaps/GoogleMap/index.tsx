@@ -2,7 +2,7 @@ import { type } from "os";
 import React, { SetStateAction } from "react";
 import { useRef } from "react";
 import { ObjectMarker } from "../objectMarker";
-import { getAllLocations } from "../../../API/api"
+import { getAllLocations, filterByCategory } from "../../../API/api"
 
 
 interface MapProps extends google.maps.MapOptions {
@@ -46,11 +46,11 @@ const GoogleMap: React.FC<MapProps> = ({
 
     getAllLocations(filteredList).then(data =>{
             return data;
-
     });
 
     console.log("New refactored list");
     console.log(filteredList);
+
 
     map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);

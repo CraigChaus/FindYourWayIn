@@ -71,6 +71,14 @@ async function getAllLocations(filteredList:any[]) {
             });
 
     }
-    export { getAllLocations }
+
+    function filterByCategory(listOfLocations:any[],searchedCategory:string){
+        return listOfLocations.filter(function (currentElement){
+            return currentElement.category.category1 === searchedCategory || currentElement.category.category2 === searchedCategory
+        })
+        
+    }
+
+    export { getAllLocations, filterByCategory }
 
   
