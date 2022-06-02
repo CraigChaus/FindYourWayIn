@@ -76,51 +76,99 @@ const GoogleMap: React.FC<MapProps> = ({
 
 
                 for (let i = 0; i < res.size; i++) {
-                    if(res.results[i].trcItemCategories.types[0].catid==='4.6.10'||
-                        res.results[i].trcItemCategories.types[0].catid==='4.6.22'||
-                        res.results[i].trcItemCategories.types[0].catid==='2.1.2'){
+                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Shop'){
                         // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        const newObj = {
-                            "category":"shop",
-                            "country": res.results[i].location.address.country,
-                            "city": res.results[i].location.address.city,
-                            "street": res.results[i].location.address.street,
-                            "houseNumber": res.results[i].location.address.housenr,
-                            "zipcode":res.results[i].location.address.zipcode
-                        }
-                        filteredArray.push(newObj);
+                        // const newObj = {
+                        //     "category":{
+                        //        "category0":"shop"
+                        //     },
+                        //     "country": res.results[i].location.address.country,
+                        //     "city": res.results[i].location.address.city,
+                        //     "street": res.results[i].location.address.street,
+                        //     "houseNumber": res.results[i].location.address.housenr,
+                        //     "zipcode":res.results[i].location.address.zipcode
+                        // }
+                        // filteredArray.push(newObj);
+                        fuctionname(i,res,filteredArray,"shop","null");
                     }
-                    if(res.results[i].trcItemCategories.types[0].catid==='3.2.6'||
-                        res.results[i].trcItemCategories.types[0].catid==='2.11.10'||
-                        res.results[i].trcItemCategories.types[0].catid==='4.6.15'){
+                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Eat/Drink'){
                         // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        const newObj = {
-                            "category":"cafe",
-                            "country": res.results[i].location.address.country,
-                            "city": res.results[i].location.address.city,
-                            "street": res.results[i].location.address.street,
-                            "houseNumber": res.results[i].location.address.housenr,
-                            "zipcode":res.results[i].location.address.zipcode
-                        }
-                        filteredArray.push(newObj);
+                        // const newObj = {
+                        //     "category":{
+                        //         "category0":"cafe"
+                        //     },
+                        //     "country": res.results[i].location.address.country,
+                        //     "city": res.results[i].location.address.city,
+                        //     "street": res.results[i].location.address.street,
+                        //     "houseNumber": res.results[i].location.address.housenr,
+                        //     "zipcode":res.results[i].location.address.zipcode
+                        // }
+                        // filteredArray.push(newObj);
+                        fuctionname(i,res,filteredArray,"cafe","null");
                     }
 
-                    if(res.results[i].trcItemCategories.types[0].catid==='2.1.1'||
-                        res.results[i].trcItemCategories.types[0].catid==='2.11.11'||
-                        res.results[i].trcItemCategories.types[0].catid==='2.2.19'){
+                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Culture'){
                         // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
-                        const newObj = {
-                            "category":"culture",
-                            "country": res.results[i].location.address.country,
-                            "city": res.results[i].location.address.city,
-                            "street": res.results[i].location.address.street,
-                            "houseNumber": res.results[i].location.address.housenr,
-                            "zipcode":res.results[i].location.address.zipcode
-                        }
-                        filteredArray.push(newObj);
+                        // const newObj = {
+                        //     "category":{
+                        //         "category0":"culture"
+                        //     },
+                        //     "country": res.results[i].location.address.country,
+                        //     "city": res.results[i].location.address.city,
+                        //     "street": res.results[i].location.address.street,
+                        //     "houseNumber": res.results[i].location.address.housenr,
+                        //     "zipcode":res.results[i].location.address.zipcode
+                        // }
+                        // filteredArray.push(newObj);
+                        fuctionname(i,res,filteredArray,"culture","null");
+                    }
+                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Shop Eat/Drink'){
+                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
+                        // const newObj = {
+                        //     "category":{
+                        //         "category0":"shop",
+                        //         "category1":"cafe"
+                        //     },
+                        //     "country": res.results[i].location.address.country,
+                        //     "city": res.results[i].location.address.city,
+                        //     "street": res.results[i].location.address.street,
+                        //     "houseNumber": res.results[i].location.address.housenr,
+                        //     "zipcode":res.results[i].location.address.zipcode
+                        // }
+                        // filteredArray.push(newObj);
+                        fuctionname(i,res,filteredArray,"shop","cafe");
+                    }
+                    if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Sport'){
+                        // console.log(res.results[0].trcItemCategories.types[0].categoryTranslations[0].label)
+                        // const newObj = {
+                        //     "category":{
+                        //         "category0":"sport"
+                        //     },
+                        //     "country": res.results[i].location.address.country,
+                        //     "city": res.results[i].location.address.city,
+                        //     "street": res.results[i].location.address.street,
+                        //     "houseNumber": res.results[i].location.address.housenr,
+                        //     "zipcode":res.results[i].location.address.zipcode
+                        // }
+                        // filteredArray.push(newObj);
+                        fuctionname(i,res,filteredArray,"sport","null");
                     }
 
                 }
+                function fuctionname(i: number, res: { results: { [x: string]: { location: { address: { zipcode: string; }; }; }; }; }, filteredArray: { country: string; city: string; street: string; houseNumber: string; zipcode: string; }[], categoryName: string,categoryName1:string) {
+                    const newObj = {
+                    "category":{
+                        "category0":categoryName,
+                        "category1":categoryName1
+                    },
+                    "country": res.results[i].location.address.country,
+                    "city": res.results[i].location.address.city,
+                    "street": res.results[i].location.address.street,
+                    "houseNumber": res.results[i].location.address.housenr,
+                    "zipcode":res.results[i].location.address.zipcode
+                }
+                    filteredArray.push(newObj);
+                    return filteredArray}
 
 
             })

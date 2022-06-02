@@ -17,7 +17,7 @@ export const Categories = (props: any) => {
                         </button>
                     </div>
                     <div className="flex justify-center h-2/5" >
-                        <p className="text-sm font-bold ">{category.nameOfCategory}</p>
+                        <p className="text-sm font-medium ">{category.nameOfCategory}</p>
                     </div>
                 </div>  
             ))}
