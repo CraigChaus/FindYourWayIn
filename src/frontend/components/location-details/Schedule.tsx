@@ -1,7 +1,5 @@
 import React from "react";
 
-let idPlace = "6280f61e8b779766af33c4bd"
-
 export const Schedule = (props: any) => {
     const { calendar: calendarProp }  = props;
     const [schedule, setSchedule] = React.useState<any[]>([]);
@@ -83,31 +81,32 @@ export const Schedule = (props: any) => {
         setSchedule(result);
     }, [calendar])
 
-    console.log(schedule);
-      
     return (
         <>
-            <table className="w-full h-auto ml-2 text-sm text-center table-auto">
-                <thead>
-                    <tr>
-                        <th>Day</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    { schedule.length > 0 && (
-                         (schedule.map(day => {
-                             return (
-                                <tr>
-                                    <td>{day.date}</td>
-                                    <td>{day.time.start} - {day.time.end}</td>
-                                </tr>
-                             )
-                        }))
-                    )
-                    }       
-                </tbody>
-            </table>
+            <div className="w-full">
+                <h2 className="font-bold text-center underline underline-offset-8">Schedule</h2>
+                <table className="w-full h-auto ml-2 text-sm text-center table-auto">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { schedule.length > 0 && (
+                            (schedule.map(day => {
+                                return (
+                                    <tr>
+                                        <td>{day.date}</td>
+                                        <td>{day.time.start} - {day.time.end}</td>
+                                    </tr>
+                                )
+                            }))
+                        )
+                        }       
+                    </tbody>
+                </table>
+            </div>
         </>
     )
 }
