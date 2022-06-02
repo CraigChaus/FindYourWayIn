@@ -50,7 +50,6 @@ const GoogleMap: React.FC<MapProps> = ({
     console.log("DRAFT")
     const filteredArray: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[]= [];
 
-
     async function getAllLocations() {
         let res = new Object();
          await fetch("https://app.thefeedfactory.nl/api/locations", {
@@ -105,10 +104,7 @@ const GoogleMap: React.FC<MapProps> = ({
             });
 
         console.log(filteredArray);
-
     }
-
-
 
         function createNewLocation(res:any,i:any,label1:string, label2:any){
                      const newLocation = {
@@ -127,20 +123,10 @@ const GoogleMap: React.FC<MapProps> = ({
                 return newLocation
        }
 
-
     getAllLocations().then(data =>{
             return data;
 
     });
-
-
-
- 
-          
-
-
-
-
 
     map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);
