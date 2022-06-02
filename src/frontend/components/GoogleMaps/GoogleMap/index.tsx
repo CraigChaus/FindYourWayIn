@@ -71,24 +71,23 @@ const GoogleMap: React.FC<MapProps> = ({
 
                 for (let i = 0; i < res.size; i++) {
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label==='Shop'){
-                      fuctionname(i,res,filteredArray,"shop","null");
+                        filter(i,res,filteredArray,"shop","null");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Eat/Drink'){
-                      fuctionname(i,res,filteredArray,"cafe","null");
+                        filter(i,res,filteredArray,"cafe","null");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Culture'){
-                      fuctionname(i,res,filteredArray,"culture","null");
+                        filter(i,res,filteredArray,"culture","null");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Shop Eat/Drink'){
-                      fuctionname(i,res,filteredArray,"shop","cafe");
+                        filter(i,res,filteredArray,"shop","cafe");
                     }
                     if(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label=='Sport'){
-                      fuctionname(i,res,filteredArray,"sport","null");
+                        filter(i,res,filteredArray,"sport","null");
                     }
-
                 }
 
-                function fuctionname(i: number, res: { results: { [x: string]: { location: { address: { zipcode: string; }; }; }; }; }, filteredArray: { country: string; city: string; street: string; houseNumber: string; zipcode: string; }[], categoryName: string,categoryName1:string) {
+                function filter(i: number, res: { results: { location: { address: { gisCoordinates: { ycoordinate: any; }[]; }; }; }[]; }, filteredArray: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[], categoryName: string,categoryName1:string) {
                     const newObj = {
                     "category":{
                         "category0":categoryName,
@@ -98,7 +97,9 @@ const GoogleMap: React.FC<MapProps> = ({
                     "city": res.results[i].location.address.city,
                     "street": res.results[i].location.address.street,
                     "houseNumber": res.results[i].location.address.housenr,
-                    "zipcode":res.results[i].location.address.zipcode
+                    "zipcode":res.results[i].location.address.zipcode,
+                    "xcoordinate":res.results[i].location.address.gisCoordinates[0].xcoordinate,
+                    "ycoordinate":res.results[i].location.address.gisCoordinates[0].ycoordinate
                 }
                     filteredArray.push(newObj);
                     return filteredArray}
