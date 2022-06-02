@@ -1,7 +1,7 @@
 import { type } from "os";
 import React, { SetStateAction } from "react";
 import { useRef } from "react";
-import { objectMarker } from '../objectMarker'
+import { ObjectMarker } from "../objectMarker";
 
 interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
@@ -159,7 +159,7 @@ const GoogleMap: React.FC<MapProps> = ({
     addMarkers();
     
     return(
-        <div>
+        <>
             <div ref={mapRef} style={style}/>
             {React.Children.map(children, (child) => {
                 
@@ -168,9 +168,8 @@ const GoogleMap: React.FC<MapProps> = ({
                     <div><p></p></div>
                 }
             })}
-            
-
-        </div>
+        <ObjectMarker map={map} objectMarkerLat={39.9334} objectMarkerLng={32.8597}></ObjectMarker>
+        </>
     );
 };
 export default GoogleMap;

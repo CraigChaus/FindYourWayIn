@@ -1,7 +1,7 @@
 import { type } from "os";
 import React, { useState } from "react";
 
-export const objectMarker = (props:any) =>{
+export const ObjectMarker = (props:any) =>{
 
        new google.maps.Marker({
             position: { lat: props.objectMarkerLat, lng: props.objectMarkerLng },
