@@ -87,7 +87,7 @@ const GoogleMap: React.FC<MapProps> = ({
                     }
                 }
 
-                function filter(i: number, res: { results: { location: { address: { gisCoordinates: { ycoordinate: any; }[]; }; }; }[]; }, filteredArray: { country: any; city: any; street: any; houseNumber: any; zipcode: any; }[], categoryName: string,categoryName1:string) {
+                function filter(i: number, res: any, filteredArray:any, categoryName: string,categoryName1:string) {
                     const newObj = {
                     "category":{
                         "category0":categoryName,
