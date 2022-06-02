@@ -5,7 +5,7 @@ import Footer from './Footer'
 import type { ReactNode } from 'react';
 
 interface LayoutProps {
-    children: ReactNode;
+    children: ReactNode | ReactNode[] | JSX.Element | JSX.Element[];
  }
 
 export default function Layout({ children }: LayoutProps) {
