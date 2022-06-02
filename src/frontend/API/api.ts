@@ -72,13 +72,19 @@ async function getAllLocations(filteredList:any[]) {
 
     }
 
-    function filterByCategory(listOfLocations:any[],searchedCategory:string){
-        return listOfLocations.filter(function (currentElement){
+     const allLocations:any[] = []
+
+     getAllLocations(allLocations).then(data =>{
+            return data;
+    });
+
+    function filterByCategory(allLocations:any[],searchedCategory:string){
+        return allLocations.filter(function (currentElement){
             return currentElement.category.category1 === searchedCategory || currentElement.category.category2 === searchedCategory
         })
         
     }
 
-    export { getAllLocations, filterByCategory }
+    export { allLocations, filterByCategory }
 
   
