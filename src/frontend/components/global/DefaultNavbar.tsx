@@ -1,9 +1,6 @@
 import SideBar from "./Sidebar";
-import { FontAwesomeIcon,
-} from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
 import React from "react";
-import UserButton from "./UserButton";
+import UserDropdown from "./user/Dropdown";
 
 export const Navbar = () => {
     
@@ -15,11 +12,11 @@ export const Navbar = () => {
 
                 <SideBar/>
 
-                <UserButton/>
+                <UserDropdown/>
 
             </div>
         </div>
-     )
+    )
 }
 
 export default Navbar;

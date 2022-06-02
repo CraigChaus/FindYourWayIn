@@ -2,7 +2,7 @@ import SideBar from "../global/Sidebar";
 import SearchBar from "./SearchInputForm";
 import SliderMenu from "./SliderMenu";
 import React from "react";
-import UserButton from "../global/UserButton";
+import UserDropdown from "../global/user/Dropdown";
 
 export const Navbar = () => {
     return (
@@ -10,7 +10,7 @@ export const Navbar = () => {
             <div id="header" className="z-10 flex items-center justify-between bg-green-500 h-18">
                 <SideBar/>
                 <SearchBar/>
-                <UserButton/>
+                <UserDropdown/>
             </div>
             <SliderMenu/>
         </div>

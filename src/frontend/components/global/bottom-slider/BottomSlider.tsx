@@ -8,13 +8,16 @@ import Background from '../../../public/images/background.jpg';
 
 const BottomSlider = (): JSX.Element => {
     return (
-        <div className='absolute bottom-0 left-0 right-0 w-full shadow-xl h-2/5 bg-slate-50'>
+        <div className='absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-slate-100 max-h'>
             <ImageContainer 
                 src={Background}
                 alt="background"
             />
-            <Body />
-            <div className='flex flex-row justify-around'>
+            <Body 
+                header="Header"
+                description="Description"
+            />
+            <div className='flex justify-around'>
                 <RoutingButton />
                 <InfoButton />
             </div>
