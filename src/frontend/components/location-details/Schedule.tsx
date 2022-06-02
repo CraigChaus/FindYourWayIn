@@ -94,9 +94,9 @@ export const Schedule = (props: any) => {
                     </thead>
                     <tbody>
                         { schedule.length > 0 && (
-                            (schedule.map(day => {
+                            (schedule.map((day, index) => {
                                 return (
-                                    <tr>
+                                    <tr key={index}>
                                         <td>{day.date}</td>
                                         <td>{day.time.start} - {day.time.end}</td>
                                     </tr>

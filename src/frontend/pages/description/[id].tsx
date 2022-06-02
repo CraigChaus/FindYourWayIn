@@ -5,12 +5,13 @@ import ContactDetails from "../../components/location-details/ContactDetails";
 import React from "react";
 import Layout from "@components/global/Layout";
 import LocationImages from "@components/location-details/LocationImages";
-import { useRouter } from 'next/router';
+import { NextRouter, useRouter } from 'next/router';
 
 
-export const details = (props: any): JSX.Element => {
+
+export const Details = (props: any): JSX.Element => {
   let url = '';
-  const router = useRouter();
+  const router: NextRouter = useRouter();
   const { id } = router.query;
 
   
@@ -92,5 +93,5 @@ export const details = (props: any): JSX.Element => {
   )
 }
 
-export default details;
+export default Details;
 
