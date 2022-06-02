@@ -14,4 +14,7 @@ module.exports = {
 
     return config
   },
+  images: {
+    domains: ['app.thefeedfactory.nl'],
+  },
 }
