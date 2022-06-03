@@ -2,7 +2,7 @@ import { type } from "os";
 import React, { SetStateAction } from "react";
 import { useRef } from "react";
 import { ObjectMarker } from "../objectMarker";
-import { allLocations, filterByCategory } from "../../../API/api"
+import { getAllLocations, filterByCategory } from "../../../API/api"
 
 
 interface MapProps extends google.maps.MapOptions {
@@ -26,6 +26,8 @@ const GoogleMap: React.FC<MapProps> = ({
     const [ map, setMap ] = React.useState<google.maps.Map>();
     const [filteredLocations, setFilteredLocations] = React.useState([]);
     const filteredList:any[] = [];
+    const [dataLocation, setDataLocation] = React.useState<any[] | null>(null);
+    const [isLoading, setLoading] = React.useState(false);
 
     function clearMarker(marker: google.maps.Marker) {
         marker.setMap(null);
@@ -43,6 +45,28 @@ const GoogleMap: React.FC<MapProps> = ({
         }
     }, [map, options]);
 
+    React.useEffect(() => {
+        setLoading(true);
+        fetch("https://app.thefeedfactory.nl/api/locations", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1`
+        },
+    })   
+        .then(response => {
+            return response.json();
+        }) 
+        .then(data => {
+            setDataLocation(data.results);
+            setLoading(false);
+        })
+        .catch(e => {
+            throw new Error(`HTTP error! status: ${e.status}`);
+        });
+        
+    },[]);
+
 
     map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);
@@ -52,6 +76,10 @@ const GoogleMap: React.FC<MapProps> = ({
         });
     });
 
+    console.log(dataLocation);
+
+    // if (isLoading) return <p>Loading...</p>
+    // if (!data) return <p>No data</p>
     return(
         <>
             <div ref={mapRef} style={style}/>
@@ -59,16 +87,13 @@ const GoogleMap: React.FC<MapProps> = ({
                 
                 if (React.isValidElement(child)) {
                     return React.cloneElement(child, { map });
-                    <div><p></p></div>
                 }
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
-        {/* <ObjectMarker map={map} objectMarkerLat={52.2661} objectMarkerLng={6.1552}></ObjectMarker> */}
-        {allLocations && allLocations.map((location) =>{
-             <ObjectMarker map={map} objectMarkerLat={location.xcoordinate} objectMarkerLng={location.ycoordinate}></ObjectMarker>
-         
-
-        })}
+        { dataLocation && dataLocation.map((location, index) => {
+            console.log(location.location.address.gisCoordinates[0].xcoordinate)
+            return <ObjectMarker key={index} map={map} objectMarkerLat={parseInt(location.location.address.gisCoordinates[0].xcoordinate)} objectMarkerLng={parseInt(location.location.address.gisCoordinates[0].ycoordinate)} />
+        }) }
         </>
     );
 };

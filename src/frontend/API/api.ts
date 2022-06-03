@@ -1,7 +1,10 @@
 function createNewLocation(res:any,i:any,label1:string, label2:any){
     const newLocation = {
+<<<<<<< Updated upstream
         "name": res.results[i].trcItemDetails[0].title,
         "shortDescription": res.results[i].trcItemDetails[0].shortdescription,
+=======
+>>>>>>> Stashed changes
         "category":[label1,label2],
         "country": res.results[i].location.address.country,
         "city": res.results[i].location.address.city,
@@ -16,6 +19,7 @@ function createNewLocation(res:any,i:any,label1:string, label2:any){
 
 
 
+<<<<<<< Updated upstream
 async function getAllLocations(filteredList:any[]) {
     let res = new Object();
         await fetch("https://app.thefeedfactory.nl/api/locations", {
@@ -69,6 +73,63 @@ async function getAllLocations(filteredList:any[]) {
     .catch(e => {
         console.log('There has been a problem with your fetch operation: ' + e.message);
     });
+=======
+async function getAllLocations() {
+    await fetch("https://app.thefeedfactory.nl/api/locations", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1`
+        },
+    })   
+    .then(response => {
+        return response.json();
+    }) 
+    .catch(e => {
+        throw new Error(`HTTP error! status: ${e.status}`);
+    });
+
+    }
+
+     const allLocations:any[] = []
+
+    //  getAllLocations(allLocations).then(data =>{
+    //     return data;
+    // });
+
+    // const filterByLocation: any[] = (res: any) => {
+    //     const result = [];
+    //     for (let i = 0; i < res.size; i++) {
+              
+    //         let location;
+
+    //         switch(res.results[i].trcItemCategories.types[0].categoryTranslations[0].label){
+    //          case "Shop":
+    //          location = createNewLocation(res,i,"shop",null)
+    //          break;
+
+    //          case "Eat/Drink":
+    //          location = createNewLocation(res,i,"cafe",null)    
+    //          break;
+
+    //          case "Culture":
+    //          location =  createNewLocation(res,i,"cafe",null)    
+    //          break;
+
+    //          case "Shop Eat/Drink":
+    //          location = createNewLocation(res,i,"shop","cafe")    
+    //          break;
+
+    //          case "Sport":
+    //          location =  createNewLocation(res,i,"sport",null)    
+    //          break;
+    //         }
+            
+    //         result.push(location);
+    //     }
+    //     return result;    
+    // }
+>>>>>>> Stashed changes
 
 }
 
@@ -85,6 +146,10 @@ return allLocations.filter(function (currentElement){
 
 }
 
+<<<<<<< Updated upstream
 export { allLocations, filterByCategory }
+=======
+export { getAllLocations, filterByCategory }
+>>>>>>> Stashed changes
 
   

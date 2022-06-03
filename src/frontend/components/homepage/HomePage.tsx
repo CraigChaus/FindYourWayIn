@@ -21,26 +21,37 @@ const HomePage = () => {
 
     const [isLocation, setIsLocation] = React.useState(false);
 
+    // Client-side rendering
+    const [data, setData] = React.useState(null)
+    const [isLoading, setLoading] = React.useState(false)
+    
+
     function handleSetLocation() {
         setIsLocation(!isLocation);
     }
 
-        // React.useEffect(() => {
-
-        //     if(navigator.geolocation){
-        //         navigator.geolocation.getCurrentPosition(
-        //             (pos) => {
-        //                 const position = pos.coords;
-        //                 if(position){
-        //                     setLat(position.latitude);
-        //                     setLng(position.longitude);
-        //                 }
-        //             }
-        //         );
-        //     };
-        //     setMounted(true);
-        // }, [isLocation]);
-
+    React.useEffect(() => {
+        setLoading(true);
+        fetch("https://app.thefeedfactory.nl/api/locations", {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1`
+        },
+    })   
+        .then(response => {
+            return response.json();
+        }) 
+        .then(data => {
+            setData(data);
+            setLoading(false);
+        })
+        .catch(e => {
+            throw new Error(`HTTP error! status: ${e.status}`);
+        });
+        
+    },[]);
+    
     React.useEffect(() => {
         if(!mounted) return;
         geocoder
@@ -72,7 +83,7 @@ const HomePage = () => {
     `);
 
     return(
-        <div className="absolute w-full h-full mt-20">
+        <div className="w-full h-full">
             <GoogleAutocomplete
                 setLat={setLat}
                 setLng={setLng}
