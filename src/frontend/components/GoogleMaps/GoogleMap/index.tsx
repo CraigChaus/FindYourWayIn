@@ -67,8 +67,8 @@ const GoogleMap: React.FC<MapProps> = ({
                     <div><p></p></div>
                 }
             })}
-            {/* Below marker is set for testing purposes located in Zwolle.  */}
-        <ObjectMarker map={map} objectMarkerLat={52.5168} objectMarkerLng={6.0830}></ObjectMarker>
+            {/* Below marker is set for testing purposes located in Deventer.  */}
+        <ObjectMarker map={map} objectMarkerLat={52.2661} objectMarkerLng={6.1552}></ObjectMarker>
         </>
     );
 };
