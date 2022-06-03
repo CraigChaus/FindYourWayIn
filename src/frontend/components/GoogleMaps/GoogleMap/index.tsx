@@ -44,11 +44,6 @@ const GoogleMap: React.FC<MapProps> = ({
     }, [map, options]);
 
 
-    // Logs all locations .   
-    console.log("New refactored code");
-    console.log(allLocations)
-
-
     map?.addListener("click", (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);
         markerRef.current = new google.maps.Marker({
@@ -68,7 +63,12 @@ const GoogleMap: React.FC<MapProps> = ({
                 }
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
-        <ObjectMarker map={map} objectMarkerLat={52.2661} objectMarkerLng={6.1552}></ObjectMarker>
+        {/* <ObjectMarker map={map} objectMarkerLat={52.2661} objectMarkerLng={6.1552}></ObjectMarker> */}
+        {allLocations && allLocations.map((location) =>{
+             <ObjectMarker map={map} objectMarkerLat={location.xcoordinate} objectMarkerLng={location.ycoordinate}></ObjectMarker>
+         
+
+        })}
         </>
     );
 };
