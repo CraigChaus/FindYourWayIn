@@ -4,7 +4,11 @@ import Footer from '@components/global/Footer';
 interface AuthProps {
     children: ReactNode;
 }
-
+/**
+ * Layout componenet for authentication pages
+ * @param children - children of the component 
+ * @returns AuthLayout component
+ */
 export default function AuthLayout({ children }: AuthProps) {
     return (
         <div className="h-screen bg-cover bg-landing-page">

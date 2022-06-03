@@ -10,7 +10,10 @@ import AuthButton from './Button';
 import NavigationLink from './NavigationLink';
 import Router from 'next/router';
 
-
+/**
+ * Authentication form for sign up
+ * @returns Sign up form
+ */
 export default function SignUp() {
     // States for sign-up credentials
     const [registerEmail, setRegisterEmail] = useState("");

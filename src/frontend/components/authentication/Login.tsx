@@ -9,7 +9,10 @@ import AuthButton from './Button';
 import NavigationLink from './NavigationLink';
 import Router from 'next/router';
 
-export default function SignUp() {
+/** Authentication form for sign in
+ * @returns Sign in form
+*/
+export default function Login() {
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     const [user, setUser] = useState<any>({});
