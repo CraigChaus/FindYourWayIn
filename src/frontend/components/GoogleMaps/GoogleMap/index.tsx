@@ -2,7 +2,7 @@ import { type } from "os";
 import React, { SetStateAction } from "react";
 import { useRef } from "react";
 import { ObjectMarker } from "../objectMarker";
-import { getAllLocations, filterByCategory } from "../../../API/api"
+import {  filterByCategory } from "../../../API/api"
 
 
 interface MapProps extends google.maps.MapOptions {
@@ -25,9 +25,12 @@ const GoogleMap: React.FC<MapProps> = ({
     const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker)
     const [ map, setMap ] = React.useState<google.maps.Map>();
     const [filteredLocations, setFilteredLocations] = React.useState([]);
-    const filteredList:any[] = [];
     const [dataLocation, setDataLocation] = React.useState<any[] | null>(null);
     const [isLoading, setLoading] = React.useState(false);
+
+
+
+
 
     function clearMarker(marker: google.maps.Marker) {
         marker.setMap(null);
@@ -76,8 +79,7 @@ const GoogleMap: React.FC<MapProps> = ({
         });
     });
 
-    console.log(dataLocation);
-
+    console.log("data locations:",dataLocation);
     // if (isLoading) return <p>Loading...</p>
     // if (!data) return <p>No data</p>
     return(
@@ -90,9 +92,10 @@ const GoogleMap: React.FC<MapProps> = ({
                 }
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
-        { dataLocation && dataLocation.map((location, index) => {
-            console.log(location.location.address.gisCoordinates[0].xcoordinate)
-            return <ObjectMarker key={index} map={map} objectMarkerLat={parseInt(location.location.address.gisCoordinates[0].xcoordinate)} objectMarkerLng={parseInt(location.location.address.gisCoordinates[0].ycoordinate)} />
+        { dataLocation && dataLocation.map((location) => {
+            //   console.log("rendering log:",location.location.address.gisCoordinates[0].xcoordinate)
+            return <ObjectMarker map={map} objectMarkerLat={parseFloat(location.location.address.gisCoordinates[0].xcoordinate)} objectMarkerLng={parseFloat(location.location.address.gisCoordinates[0].ycoordinate)} />
+            // return <ObjectMarker map={map} objectMarkerLat={parseFloat(location.xCoordinate)} objectMarkerLng={parseFloat(location.yCoordinate)} />
         }) }
         </>
     );

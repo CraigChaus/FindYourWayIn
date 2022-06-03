@@ -76,11 +76,11 @@ const HomePage = () => {
             });
     }, [lat]);
 
-    console.log(`
-        Country: ${country}\n
-        City: ${city}\n
-        Address: ${address}
-    `);
+    // console.log(`
+    //     Country: ${country}\n
+    //     City: ${city}\n
+    //     Address: ${address}
+    // `);
 
     return(
         <div className="w-full h-full">

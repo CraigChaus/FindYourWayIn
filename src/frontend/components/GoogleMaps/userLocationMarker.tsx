@@ -36,8 +36,8 @@ const UserLocationMarker : React.FC<MarkerProps> = ({
                 navigator.geolocation.watchPosition((pos) => {
                     const position = pos.coords;
                         if(position){
-                            console.log("CHANGE OF POSITION!")
-                            console.log("new coords ", position.latitude, position.longitude)
+                            // console.log("CHANGE OF POSITION!")
+                            // console.log("new coords ", position.latitude, position.longitude)
                             setLat(position.latitude);
                             setLng(position.longitude);
                         }
@@ -71,7 +71,7 @@ const UserLocationMarker : React.FC<MarkerProps> = ({
     React.useEffect(
         () => {
             if(userMarker) {
-                console.log("options set")
+                // console.log("options set")
                 userMarker.setOptions(options)
                 //console.log("user marker is set with", userLat, userLng)
             }
