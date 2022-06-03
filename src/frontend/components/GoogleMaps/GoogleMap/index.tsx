@@ -28,10 +28,6 @@ const GoogleMap: React.FC<MapProps> = ({
     const [dataLocation, setDataLocation] = React.useState<any[] | null>(null);
     const [isLoading, setLoading] = React.useState(false);
 
-
-
-
-
     function clearMarker(marker: google.maps.Marker) {
         marker.setMap(null);
     }
@@ -93,9 +89,7 @@ const GoogleMap: React.FC<MapProps> = ({
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
         { dataLocation && dataLocation.map((location) => {
-            //   console.log("rendering log:",location.location.address.gisCoordinates[0].xcoordinate)
             return <ObjectMarker map={map} objectMarkerLat={parseFloat(location.location.address.gisCoordinates[0].xcoordinate)} objectMarkerLng={parseFloat(location.location.address.gisCoordinates[0].ycoordinate)} />
-            // return <ObjectMarker map={map} objectMarkerLat={parseFloat(location.xCoordinate)} objectMarkerLng={parseFloat(location.yCoordinate)} />
         }) }
         </>
     );
