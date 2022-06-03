@@ -19,7 +19,7 @@ const BottomSlider = (): JSX.Element => {
         console.log("LOCATION INFO FOR BOTTOM SLIDER")
         console.log(allLocations[0].name)
         console.log(allLocations[0].shortDescription)
-    }, []
+    }, [allLocations]
     )
 
 

@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <div className="flex flex-col h-screen ">
             <Navbar/>
             <HomePage/>
-            <BottomSlider/>
+            {/* <BottomSlider/> */}
         </div>
     )
 }
