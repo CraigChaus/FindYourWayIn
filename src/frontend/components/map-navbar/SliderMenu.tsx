@@ -3,14 +3,13 @@ import Categories from "./Categories";
 
 
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBicycle, faBuildingColumns, faSquareParking, faRestroom, faUtensils,
-    faCartShopping,faAnglesDown,faAnglesUp} from "@fortawesome/free-solid-svg-icons";
+import {faBicycle, faBuildingColumns, faSquareParking, faRestroom, faUtensils,faAnglesDown,faAnglesUp,faBagShopping} from "@fortawesome/free-solid-svg-icons";
 
 export default function SliderMenu (){
     const [isOpen, setIsOpen] = useState(false);
 
     const categories = [
-        { iconName:faCartShopping, nameOfCategory:'Grocery' },
+        { iconName:faBagShopping, nameOfCategory:'Shopping' },
         { iconName:faSquareParking, nameOfCategory:'Car parking' },
         { iconName:faRestroom, nameOfCategory:'Restroom' },
         { iconName:faUtensils, nameOfCategory:'Restaurants' },

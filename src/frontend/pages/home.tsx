@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 
 import Navbar from "../components/map-navbar/MapNavbar";
 import HomePage from "../components/homepage/HomePage";
+import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 
 
 const Home: NextPage = () => {
@@ -10,6 +11,7 @@ const Home: NextPage = () => {
         <div className="flex flex-col h-screen ">
             <Navbar/>
             <HomePage/>
+            {/* <BottomSlider/> */}
         </div>
     )
 }
