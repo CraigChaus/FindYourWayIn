@@ -1,4 +1,4 @@
-import { MouseEventHandler } from "react";
+import { MouseEventHandler } from 'react';
 
 export declare interface AppProps {
     onClick?: MouseEventHandler<HTMLButtonElement> | undefined;

@@ -1,38 +1,44 @@
-import React, { SetStateAction } from "react";
+import React, { SetStateAction } from 'react';
 
 interface AutocompleteProps {
-    setLat: React.Dispatch<SetStateAction<number>>
-    setLng: React.Dispatch<SetStateAction<number>>
-    setAddress: React.Dispatch<SetStateAction<string>>
+    setLat: React.Dispatch<SetStateAction<number>>;
+    setLng: React.Dispatch<SetStateAction<number>>;
+    setAddress: React.Dispatch<SetStateAction<string>>;
 }
 
-const GoogleAutocomplete: React.FC< AutocompleteProps > = ({ setLat, setLng, setAddress }) => {
-    const [ autocomplete, setAutocomplete ] = React.useState<google.maps.places.Autocomplete>();
+const GoogleAutocomplete: React.FC<AutocompleteProps> = ({
+    setLat,
+    setLng,
+    setAddress,
+}) => {
+    const [autocomplete, setAutocomplete] =
+        React.useState<google.maps.places.Autocomplete>();
     const ref = React.useRef<HTMLInputElement>(null);
     React.useEffect(() => {
-        if(ref.current){
-            setAutocomplete( new google.maps.places.Autocomplete( ref.current ) );
-            
+        if (ref.current) {
+            setAutocomplete(new google.maps.places.Autocomplete(ref.current));
         }
-    }, [ ref ]);
+    }, [ref]);
 
     React.useEffect(() => {
-        if(autocomplete){
+        if (autocomplete) {
             autocomplete?.addListener('place_changed', () => {
                 const place = autocomplete.getPlace();
                 const lat = place.geometry?.location?.lat();
                 const lng = place.geometry?.location?.lng();
-                if(lat && lng){
+                if (lat && lng) {
                     setLat(lat);
                     setLng(lng);
-                    if(place.formatted_address){
+                    if (place.formatted_address) {
                         setAddress(place.formatted_address);
                     }
                 }
             });
         }
-    }, [autocomplete])
+    }, [autocomplete]);
 
-    return <input ref={ref} style={{width: '100%', margin: '20px 0 20px 0'}}/>
+    return (
+        <input ref={ref} style={{ width: '100%', margin: '20px 0 20px 0' }} />
+    );
 };
 export default GoogleAutocomplete;
