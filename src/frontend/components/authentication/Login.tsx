@@ -51,7 +51,7 @@ export default function Login() {
                 <HeaderAuthForm formName="Login" />
                 <div className="flex flex-col items-center w-5/6">
                     {loginFail && (
-                        <div className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-t-2 border-red-500 rounded-b shadow-md" role="alert">
+                        <div className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md" role="alert">
                         <div className="flex">
                             <div className="py-1">
                                 <Warning className="w-6 h-6 mr-4 text-red-500 fill-current" />
@@ -64,7 +64,7 @@ export default function Login() {
                     )}
 
                     {loginSuccess && (
-                        <div className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-t-2 border-green-500 rounded-b shadow-md" role="alert">
+                        <div className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-l-4 border-green-500 shadow-md" role="alert">
                         <div className="flex">
                             <div className="py-1">
                                 <Verify className="w-6 h-6 mr-4 text-green-500 fill-current" />
