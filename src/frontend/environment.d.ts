@@ -1,8 +1,10 @@
 declare global {
     namespace NodeJS {
       interface ProcessEnv {
-        API_KEY: string;
-        API_URL: string;
+        NEXT_PUBLIC_FEEDFACTORY_API_KEY: string;
+        NEXT_PUBLIC_GOOGLEMAP_API_KEY: string;
+        NEXT_PUBLIC_API_URL: string;
+        NEXT_PUBLIC_FIREBASE_API_KEY: string;
       }
     }
   }

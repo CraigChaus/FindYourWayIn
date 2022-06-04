@@ -5,12 +5,15 @@ import ContactDetails from "../../components/location-details/ContactDetails";
 import React from "react";
 import Layout from "@components/global/Layout";
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+
 export async function getStaticPaths() {
-  const res = await fetch('https://app.thefeedfactory.nl/api/locations', {
+  const res = await fetch(`${apiUrl}/locations`, {
     method: "GET",
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1'
+      'Authorization': `Bearer ${apiKey}`
       },
     });
   const data = await res.json();
@@ -29,11 +32,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
   const id = context.params.id;
-  const res = await fetch(`https://app.thefeedfactory.nl/api/locations/${id}`, {
+  const res = await fetch(`${apiUrl}/locations/${id}`, {
     method: "GET",
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': 'Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1'
+      'Authorization': `Bearer ${apiKey}`
       },
     });  
   const data = await res.json();

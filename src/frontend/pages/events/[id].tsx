@@ -3,12 +3,15 @@ import { UpcomingInfo } from '@components/events/UpcomingInfo';
 import { deleteApp } from 'firebase/app';
 import React from 'react'
 
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+
 export async function getStaticPaths() {
-    const res = await fetch('https://app.thefeedfactory.nl/api/events', {
+    const res = await fetch(`${apiUrl}/events`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1'
+        'Authorization': `Bearer ${apiKey}`
         },
       });
     const data = await res.json();
@@ -26,11 +29,11 @@ export async function getStaticPaths() {
   
   export async function getStaticProps(context: { params: { id: string } }) {
     const id =context.params.id;
-    const res = await fetch(`https://app.thefeedfactory.nl/api/events/${id}`, {
+    const res = await fetch(`${apiUrl}/events/${id}`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1'
+        'Authorization': `Bearer ${apiKey}`
         },
       });  
     const data = await res.json();
@@ -97,7 +100,7 @@ export async function getStaticPaths() {
   return (
       <>
         <div>
-            <h1 className='font-bold text-center p-4'>Events & Agenda</h1>
+            <h1 className='p-4 font-bold text-center'>Events & Agenda</h1>
             {<AgendaInfo date = {day} event = {eventName}/>}
 
             {<UpcomingInfo upDate = {upDay} upEvent = {upEventName}/>}
