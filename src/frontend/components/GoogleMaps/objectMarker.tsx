@@ -6,20 +6,20 @@ export const ObjectMarker = (props:any) =>{
     const category = props.category;
 
     switch(category){
-        case "shop":
-        objectIcon ="shopIconURL"
+        case "Shop":
+        objectIcon =""
         break;
 
-        case "cafe":
-        objectIcon ="cafeIconURL"
+        case "Eat/Drink":
+        objectIcon =""
         break;
 
-         case "culture":
-        objectIcon ="cultureIconURL"
+         case "Culture":
+        objectIcon =""
         break;
 
-         case "sport":
-        objectIcon ="sportIconURL"
+         case "Sport":
+        objectIcon =""
         break;
 
         default:
@@ -32,6 +32,8 @@ export const ObjectMarker = (props:any) =>{
             map: props.map,
             icon: objectIcon 
         });
+
+        console.log("SELECTED CATEGORY:",category)
     
     return null;
 

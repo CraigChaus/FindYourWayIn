@@ -25,7 +25,7 @@ const GoogleMap: React.FC<MapProps> = ({
     const markerRef = React.useRef<google.maps.Marker>(new google.maps.Marker)
     const [ map, setMap ] = React.useState<google.maps.Map>();
     const [filteredLocations, setFilteredLocations] = React.useState([]);
-    const [dataLocation, setDataLocation] = React.useState<any[] | null>(null);
+    const [dataLocation, setDataLocation] = React.useState<any[]>([])
     const [isLoading, setLoading] = React.useState(false);
 
     function clearMarker(marker: google.maps.Marker) {
@@ -76,8 +76,13 @@ const GoogleMap: React.FC<MapProps> = ({
     });
 
     console.log("data locations:",dataLocation);
+
+    // Testing filtering
+    let filteredShops = filterByCategory(dataLocation,"Eat/Drink")
+    console.log("FILTERED Eat/Drink places", filteredShops)
     // if (isLoading) return <p>Loading...</p>
     // if (!data) return <p>No data</p>
+    
     return(
         <>
             <div ref={mapRef} style={style}/>
@@ -89,7 +94,11 @@ const GoogleMap: React.FC<MapProps> = ({
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
         { dataLocation && dataLocation.map((location) => {
-            return <ObjectMarker map={map} objectMarkerLat={parseFloat(location.location.address.gisCoordinates[0].xcoordinate)} objectMarkerLng={parseFloat(location.location.address.gisCoordinates[0].ycoordinate)} />
+            return <ObjectMarker map={map} 
+            objectMarkerLat={parseFloat(location.location.address.gisCoordinates[0].xcoordinate)} 
+            objectMarkerLng={parseFloat(location.location.address.gisCoordinates[0].ycoordinate)}
+            category = {location.trcItemCategories.types[0].categoryTranslations[0].label}
+            />
         }) }
         </>
     );
