@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "npx eslint pages/** components/**",
-    "lint-fix": "npx eslint pages/** components/** --fix"
+    "lint-fix": "npx eslint pages/** components/** --fix",
+    "prettier": "npx prettier pages/** components/** --write"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
