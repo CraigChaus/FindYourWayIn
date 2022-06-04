@@ -3,35 +3,15 @@ import { UpcomingInfo } from '@components/events/UpcomingInfo';
 import { deleteApp } from 'firebase/app';
 import React from 'react';
 
-export async function getStaticPaths() {
-    const res = await fetch('https://app.thefeedfactory.nl/api/events', {
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+
+export async function getStaticProps() {
+    const res = await fetch(`${apiUrl}/events/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: 'Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1',
-        },
-    });
-    const data = await res.json();
-    const dataArray = data.results;
-    const paths = dataArray.map((event: any) => {
-        return {
-            params: { id: event.id },
-        };
-    });
-
-    return {
-        paths,
-        fallback: false,
-    };
-}
-
-export async function getStaticProps(context: { params: { id: string } }) {
-    const id = context.params.id;
-    const res = await fetch(`https://app.thefeedfactory.nl/api/events/${id}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: 'Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1',
+            Authorization: `Bearer ${apiKey}`,
         },
     });
     const data = await res.json();
