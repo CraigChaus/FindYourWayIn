@@ -8,6 +8,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 import AuthButton from './Button';
 import NavigationLink from './NavigationLink';
 import Router from 'next/router';
+import Warning from '../../public/icons/warning.svg';
+import Verify from '../../public/icons/verify.svg';
 
 /** Authentication form for sign in
  * @returns Sign in form
@@ -17,6 +19,7 @@ export default function Login() {
     const [loginPassword, setLoginPassword] = useState('');
     const [user, setUser] = useState<any>({});
     const [loginFail, setLoginFail] = useState(false);
+    const [loginSuccess, setLoginSuccess] = useState(false);
 
     const login = async () => {
         try {
@@ -29,6 +32,7 @@ export default function Login() {
             if (user) {
                 onAuthStateChanged(auth, (currentUser) => {
                     setUser(currentUser);
+                    setLoginSuccess(true);
                     console.log(
                         'Currently logged in user:' + auth.currentUser?.email,
                     );
@@ -46,6 +50,31 @@ export default function Login() {
             <AuthLayout>
                 <HeaderAuthForm formName="Login" />
                 <div className="flex flex-col items-center w-5/6">
+                    {loginFail && (
+                        <div className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-t-2 border-red-500 rounded-b shadow-md" role="alert">
+                        <div className="flex">
+                            <div className="py-1">
+                                <Warning className="w-6 h-6 mr-4 text-red-500 fill-current" />
+                            </div>
+                            <div>
+                            <p className="text-sm">Your email/password is incorrect.</p>
+                            </div>
+                        </div>
+                        </div>     
+                    )}
+
+                    {loginSuccess && (
+                        <div className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-t-2 border-green-500 rounded-b shadow-md" role="alert">
+                        <div className="flex">
+                            <div className="py-1">
+                                <Verify className="w-6 h-6 mr-4 text-green-500 fill-current" />
+                            </div>
+                            <div>
+                            <p className="text-sm">Login successfully!</p>
+                            </div>
+                        </div>
+                        </div>     
+                    )}  
                     <Input
                         placeholder="Email"
                         type="email"
@@ -54,6 +83,7 @@ export default function Login() {
                             event: React.FormEvent<HTMLInputElement>,
                         ) => {
                             setLoginEmail(event.currentTarget.value);
+                            setLoginFail(false);
                         }}
                     />
                     <Input
@@ -64,14 +94,11 @@ export default function Login() {
                             event: React.FormEvent<HTMLInputElement>,
                         ) => {
                             setLoginPassword(event.currentTarget.value);
+                            setLoginFail(false);
                         }}
                     />
                 </div>
                 <AuthButton action={login} text="Login" />
-                {loginFail && (
-                    // TODO: Temporary display. Refactor to look better.
-                    <h4>FAILED LOGIN.</h4>
-                )}
 
                 <NavigationLink link="signup" />
             </AuthLayout>
