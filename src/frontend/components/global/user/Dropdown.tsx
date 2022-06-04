@@ -8,10 +8,11 @@ import LoginIcon from '../../../public/icons/login.svg';
 import LogoutIcon from '../../../public/icons/logout.svg';
 import UserButton from './UserButton';
 
-export default function UserDropdown() {
+export default function UserDropdown({ userLoggedIn }: any) {
     const router = useRouter();
     const logout = async () => {
         await signOut(auth);
+        router.push('/');   
     };
     return (
         <div>
@@ -61,7 +62,6 @@ export default function UserDropdown() {
                                         } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
                                         onClick={() => {
                                             logout();
-                                            router.push('/');
                                         }}
                                     >
                                         <LogoutIcon
