@@ -16,6 +16,7 @@ export async function getStaticPaths() {
     });
     const data = await res.json();
     const dataArray = data.results;
+    console.log(dataArray);
     const paths = dataArray.map((event: any) => {
         return {
             params: { id: event.id },
@@ -30,6 +31,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
     const id = context.params.id;
+    console.log(apiUrl);
     const res = await fetch(`${apiUrl}/events/${id}`, {
         method: 'GET',
         headers: {

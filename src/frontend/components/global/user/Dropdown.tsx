@@ -12,7 +12,7 @@ export default function UserDropdown({ userLoggedIn }: any) {
     const router = useRouter();
     const logout = async () => {
         await signOut(auth);
-        router.push('/');   
+        router.push('/');
     };
     return (
         <div>
