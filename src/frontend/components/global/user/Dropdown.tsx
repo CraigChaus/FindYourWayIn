@@ -109,7 +109,9 @@ export default function UserDropdown() {
                                                     ? 'bg-green-800 text-white'
                                                     : 'text-gray-100'
                                             } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
-                                            onClick={() => router.push('/auth/signup')}
+                                            onClick={() =>
+                                                router.push('/auth/signup')
+                                            }
                                         >
                                             <SignUpIcon
                                                 className="w-5 h-5 mr-3"

@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { useAuth } from 'contexts/AuthContext';
 import Verify from '../../public/icons/verify.svg';
 
-
 const ResetPassword = (): JSX.Element => {
     const [email, setEmail] = React.useState('');
     const [message, setMessage] = React.useState('');
@@ -23,14 +22,14 @@ const ResetPassword = (): JSX.Element => {
             console.log(error);
         }
     };
-    
+
     return (
         <>
             <AuthLayout>
                 <HeaderAuthForm formName="Reset password" />
-                
+
                 <div className="flex flex-col items-center w-5/6">
-                {message && (
+                    {message && (
                         <div
                             className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-l-4 border-green-500 shadow-md"
                             role="alert"

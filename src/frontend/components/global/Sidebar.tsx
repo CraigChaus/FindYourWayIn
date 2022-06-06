@@ -58,7 +58,6 @@ export default function Sidebar() {
                                 <li onClick={handleShowSidebar} key={index}>
                                     <Link href={icon.href}>
                                         <a className="flex items-center hover:bg-green-400">
-                                            
                                             <FontAwesomeIcon
                                                 icon={icon.iconName}
                                                 size="lg"
