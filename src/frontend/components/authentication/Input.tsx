@@ -11,7 +11,7 @@ export default function Input({
     onChange,
     isRequired,
     type,
-    placeholder
+    placeholder,
 }: any) {
     return (
         <input

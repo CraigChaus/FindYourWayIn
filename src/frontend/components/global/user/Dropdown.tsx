@@ -1,21 +1,21 @@
 import { Menu, Transition } from '@headlessui/react';
 import { useAuth } from 'contexts/AuthContext';
-import { signOut } from 'firebase/auth';
 import { auth } from 'firebase_config';
 import { Router, useRouter } from 'next/router';
-import { Fragment, useEffect, useRef, useState } from 'react';
+import { Fragment } from 'react';
 import AccountSetting from '../../../public/icons/account_settings.svg';
 import LoginIcon from '../../../public/icons/login.svg';
 import LogoutIcon from '../../../public/icons/logout.svg';
+import SignUpIcon from '../../../public/icons/register.svg';
 import UserButton from './UserButton';
 
-export default function UserDropdown({ userLoggedIn }: any) {
+export default function UserDropdown() {
     const router = useRouter();
-    const { logout } = useAuth();
+    const { user, logout } = useAuth();
     const handleLogout = async () => {
         await logout(auth)
-        .then(() => router.push('/'))
-        .catch((error: any) => console.log(error));  
+            .then(() => router.push('/'))
+            .catch((error: any) => console.log(error));
     };
     return (
         <div>
@@ -35,46 +35,95 @@ export default function UserDropdown({ userLoggedIn }: any) {
                     leaveTo="transform opacity-0 scale-95"
                 >
                     <Menu.Items className="absolute right-0 w-40 mt-2 origin-top-right bg-green-500 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <div className="px-1 py-1 divide-y-1">
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        className={`${
-                                            active
-                                                ? 'bg-green-800 text-white'
-                                                : 'text-gray-100'
-                                        } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
-                                        onClick={() => router.push('/profile')}
-                                    >
-                                        <AccountSetting
-                                            className="w-5 h-auto mr-3"
-                                            aria-hidden="true"
-                                            fill="white"
-                                        />
-                                        Account
-                                    </button>
-                                )}
-                            </Menu.Item>
-                            <Menu.Item>
-                                {({ active }) => (
-                                    <button
-                                        className={`${
-                                            active
-                                                ? 'bg-green-800 text-white'
-                                                : 'text-gray-100'
-                                        } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
-                                        onClick={handleLogout}
-                                    >
-                                        <LogoutIcon
-                                            className="w-5 h-5 mr-3"
-                                            aria-hidden="true"
-                                            fill="white"
-                                        />
-                                        Logout
-                                    </button>
-                                )}
-                            </Menu.Item>
-                        </div>
+                        {user ? (
+                            <div className="px-1 py-1 divide-y-1">
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <button
+                                            className={`${
+                                                active
+                                                    ? 'bg-green-800 text-white'
+                                                    : 'text-gray-100'
+                                            } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
+                                            onClick={() =>
+                                                router.push('/profile')
+                                            }
+                                        >
+                                            <AccountSetting
+                                                className="w-5 h-auto mr-3"
+                                                aria-hidden="true"
+                                                fill="white"
+                                            />
+                                            Account
+                                        </button>
+                                    )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <button
+                                            className={`${
+                                                active
+                                                    ? 'bg-green-800 text-white'
+                                                    : 'text-gray-100'
+                                            } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
+                                            onClick={handleLogout}
+                                        >
+                                            <LogoutIcon
+                                                className="w-5 h-5 mr-3"
+                                                aria-hidden="true"
+                                                fill="white"
+                                            />
+                                            Logout
+                                        </button>
+                                    )}
+                                </Menu.Item>
+                            </div>
+                        ) : (
+                            <div className="px-1 py-1 divide-y-1">
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <button
+                                            className={`${
+                                                active
+                                                    ? 'bg-green-800 text-white'
+                                                    : 'text-gray-100'
+                                            } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
+                                            onClick={() =>
+                                                router.push('/auth/login')
+                                            }
+                                        >
+                                            <LoginIcon
+                                                className="w-5 h-auto mr-3"
+                                                aria-hidden="true"
+                                                fill="white"
+                                            />
+                                            Login
+                                        </button>
+                                    )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <button
+                                            className={`${
+                                                active
+                                                    ? 'bg-green-800 text-white'
+                                                    : 'text-gray-100'
+                                            } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
+                                            onClick={() =>
+                                                router.push('/auth/signup')
+                                            }
+                                        >
+                                            <SignUpIcon
+                                                className="w-5 h-5 mr-3"
+                                                aria-hidden="true"
+                                                fill="white"
+                                            />
+                                            Sign up
+                                        </button>
+                                    )}
+                                </Menu.Item>
+                            </div>
+                        )}
                     </Menu.Items>
                 </Transition>
             </Menu>

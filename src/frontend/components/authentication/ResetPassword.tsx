@@ -13,13 +13,12 @@ const ResetPassword = (): JSX.Element => {
 
     const reset = () => {
         console.log(email);
-    }   
+    };
     return (
         <>
             <AuthLayout>
                 <HeaderAuthForm formName="Reset password" />
                 <div className="flex flex-col items-center w-5/6">
-                    
                     <Input
                         placeholder="Email"
                         type="email"
@@ -37,7 +36,7 @@ const ResetPassword = (): JSX.Element => {
                 <NavigationLink link="signup" />
             </AuthLayout>
         </>
-    )
-}
+    );
+};
 
 export default ResetPassword;

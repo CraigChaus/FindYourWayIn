@@ -19,37 +19,37 @@ export default function SignUp() {
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
     const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('');
-    const [error, setError] = useState("");
+    const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
     const { signup } = useAuth();
-    
+
     // const history = useHistory()
 
     async function handleSubmit(e: any) {
-        e.preventDefault()
+        e.preventDefault();
         if (registerPassword !== registerPasswordConfirm) {
-            return setError("Passwords do not match")
+            return setError('Passwords do not match');
         }
         try {
-            setError("")
-            setLoading(true)
-            await signup( registerEmail, registerPassword)
-            .then(() => {
-                Router.push('/home');
-            })
-            .catch((error: { message: SetStateAction<string>; }) => {
-                setError(error.message);   
-                setLoading(false);
-            })
-        // history.push("/")
+            setError('');
+            setLoading(true);
+            await signup(registerEmail, registerPassword)
+                .then(() => {
+                    Router.push('/home');
+                })
+                .catch((error: { message: SetStateAction<string> }) => {
+                    setError(error.message);
+                    setLoading(false);
+                });
+            // history.push("/")
         } catch (error: any) {
             console.log(error.message);
-            setError("Failed to create an account")
+            setError('Failed to create an account');
         }
 
-        setLoading(false)
-    }   
+        setLoading(false);
+    }
 
     // const register = async () => {
     //     try {
@@ -82,25 +82,28 @@ export default function SignUp() {
         <AuthLayout isSignUp={true}>
             <HeaderAuthForm formName="Sign up" />
             <div className="flex flex-col items-center w-5/6">
-            {error && (
-                // TODO: This is temporary display. Refactor make it look better.
-                <div className="w-full px-4 py-2 mt-4 mb-4 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md" role="alert">
-                    <div className="flex items-center">
-                        <div className="py-1">
-                            <Warning className="w-6 h-6 mr-4 text-red-500 fill-current" />
-                        </div>
-                        <div>
-                        <p className="text-sm">{error}</p>
+                {error && (
+                    // TODO: This is temporary display. Refactor make it look better.
+                    <div
+                        className="w-full px-4 py-2 mt-4 mb-4 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md"
+                        role="alert"
+                    >
+                        <div className="flex items-center">
+                            <div className="py-1">
+                                <Warning className="w-6 h-6 mr-4 text-red-500 fill-current" />
+                            </div>
+                            <div>
+                                <p className="text-sm">{error}</p>
+                            </div>
                         </div>
                     </div>
-                </div>      
-            )}
+                )}
                 <Input
                     placeholder="Email"
                     type="email"
                     isRequired={true}
                     onChange={(event: React.FormEvent<HTMLInputElement>) => {
-                        setError("");
+                        setError('');
                         setRegisterEmail(event.currentTarget.value);
                     }}
                 />
@@ -109,7 +112,7 @@ export default function SignUp() {
                     type="password"
                     isRequired={true}
                     onChange={(event: React.FormEvent<HTMLInputElement>) => {
-                        setError("");
+                        setError('');
                         setRegisterPassword(event.currentTarget.value);
                     }}
                 />
@@ -118,12 +121,16 @@ export default function SignUp() {
                     type="password"
                     isRequired={true}
                     onChange={(event: React.FormEvent<HTMLInputElement>) => {
-                        setError("");
+                        setError('');
                         setRegisterPasswordConfirm(event.currentTarget.value);
                     }}
                 />
             </div>
-            <AuthButton disabled={loading} action={handleSubmit} text="Sign up" />
+            <AuthButton
+                disabled={loading}
+                action={handleSubmit}
+                text="Sign up"
+            />
             <NavigationLink link="login" />
         </AuthLayout>
     );

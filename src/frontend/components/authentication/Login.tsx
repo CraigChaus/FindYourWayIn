@@ -17,56 +17,62 @@ export default function Login() {
     const [error, setError] = useState('');
     const [loginSuccess, setLoginSuccess] = useState(false);
 
-    const router = useRouter()
-    const { user, login } = useAuth()
+    const router = useRouter();
+    const { user, login } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleLogin = async (e: any) => {
-        e.preventDefault();  
+        e.preventDefault();
         console.log(user);
         try {
-            await login(email, password)
-            .then(() => {
+            await login(email, password).then(() => {
                 setLoginSuccess(true);
-                router.push('/home')
-            })
-        }
-        catch (error: any) {
+                router.push('/home');
+            });
+        } catch (error: any) {
             setError(error.message);
         }
-    }   
-    
+    };
+
     return (
         <>
             <AuthLayout isSignUp={false}>
                 <HeaderAuthForm formName="Login" />
                 <div className="flex flex-col items-center w-5/6">
                     {error && (
-                        <div className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md" role="alert">
-                        <div className="flex items-center">
-                            <div className="py-1">
-                                <Warning className="w-6 h-6 mr-4 text-red-500 fill-current" />
-                            </div>
-                            <div>
-                            <p className="text-sm">{error}</p>
+                        <div
+                            className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md"
+                            role="alert"
+                        >
+                            <div className="flex items-center">
+                                <div className="py-1">
+                                    <Warning className="w-6 h-6 mr-4 text-red-500 fill-current" />
+                                </div>
+                                <div>
+                                    <p className="text-sm">{error}</p>
+                                </div>
                             </div>
                         </div>
-                        </div>     
                     )}
 
                     {loginSuccess && (
-                        <div className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-l-4 border-green-500 shadow-md" role="alert">
-                        <div className="flex items-center">
-                            <div className="py-1">
-                                <Verify className="w-6 h-6 mr-4 text-green-500 fill-current" />
-                            </div>
-                            <div>
-                            <p className="text-sm text-center">Login successfully!</p>
+                        <div
+                            className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-l-4 border-green-500 shadow-md"
+                            role="alert"
+                        >
+                            <div className="flex items-center">
+                                <div className="py-1">
+                                    <Verify className="w-6 h-6 mr-4 text-green-500 fill-current" />
+                                </div>
+                                <div>
+                                    <p className="text-sm text-center">
+                                        Login successfully!
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        </div>     
-                    )}  
+                    )}
                     <Input
                         placeholder="Email"
                         type="email"
@@ -98,4 +104,3 @@ export default function Login() {
         </>
     );
 }
-    
