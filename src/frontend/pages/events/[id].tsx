@@ -11,7 +11,7 @@ export async function getStaticPaths() {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            'Authorization': `Bearer ${apiKey}`,
         },
     });
     const data = await res.json();
@@ -120,11 +120,11 @@ export const Events = ({ data }: any): JSX.Element => {
 
     return (
         <>
-            <div className="text-center font-bold text-2xl m-4">
+            <div className="m-4 text-2xl font-bold text-center">
                 <h1>Event Details</h1>
             </div>
             <div className="flex w-full h-full mt-8">
-                <div className="m-4 p-4">
+                <div className="p-4 m-4">
                     <DayInfo eventday={dayOfEvent} />
                 </div>
                 <div>
