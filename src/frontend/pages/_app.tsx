@@ -1,15 +1,20 @@
-import '../styles/globals.css'
-import { Wrapper } from "@googlemaps/react-wrapper";
-import { AppProps } from "next/app";
+import '../styles/globals.css';
+import { Wrapper } from '@googlemaps/react-wrapper';
+import { AppProps } from 'next/app';
+import { AuthContextProvider } from '../contexts/AuthContext';
 
-export default function MyApp({ Component, pageProps}: AppProps) {
+const apiKey: string = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
+
+export default function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Wrapper
-            apiKey={"AIzaSyAu53ClDbYWFVWX60wEfEQ5Ed4R-9lYU8E"}
+            apiKey={apiKey}
             libraries={['places', 'geometry']}
             language={'en'}
         >
-            <Component {...pageProps}/>
+            <AuthContextProvider>
+                <Component {...pageProps} />
+            </AuthContextProvider>
         </Wrapper>
     );
-};
+}
