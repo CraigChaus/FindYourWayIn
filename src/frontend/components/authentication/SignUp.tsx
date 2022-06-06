@@ -61,7 +61,7 @@ export default function SignUp() {
                 //     <p className="text-sm">Make sure you know how these changes affect you.</p>
                 //     </div>
                 // </div>
-                // </div>            
+                // </div>
             )}
             <div className="flex flex-col items-center w-5/6">
                 <Input

@@ -49,6 +49,7 @@ export async function getStaticProps(context: { params: { id: string } }) {
 }
 
 export const Details = ({ data }: any): JSX.Element => {
+    console.log(data);
     const [locationName, setLocationName] = React.useState(null);
     const [description, setDescription] = React.useState(null);
     const [calendar, setCalendar] = React.useState(null);
