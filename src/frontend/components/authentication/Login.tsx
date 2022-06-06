@@ -52,6 +52,7 @@ export default function Login() {
                 <div className="flex flex-col items-center w-5/6">
                     {loginFail && (
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <div
                             className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md"
                             role="alert"
@@ -66,6 +67,8 @@ export default function Login() {
                                     </p>
                                 </div>
 =======
+=======
+>>>>>>> 5037533804140eb918e225385eff7c6fc177c01e
                         <div className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md" role="alert">
                         <div className="flex items-center">
                             <div className="py-1">
@@ -73,12 +76,16 @@ export default function Login() {
                             </div>
                             <div>
                             <p className="text-sm">Your email/password is incorrect.</p>
+<<<<<<< HEAD
 >>>>>>> 9306fcaf40194118e02729650831ea0842fef0c5
+=======
+>>>>>>> 5037533804140eb918e225385eff7c6fc177c01e
                             </div>
                         </div>
                     )}
 
                     {loginSuccess && (
+<<<<<<< HEAD
 <<<<<<< HEAD
                         <div
                             className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-l-4 border-green-500 shadow-md"
@@ -94,6 +101,8 @@ export default function Login() {
                                     </p>
                                 </div>
 =======
+=======
+>>>>>>> 5037533804140eb918e225385eff7c6fc177c01e
                         <div className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-l-4 border-green-500 shadow-md" role="alert">
                         <div className="flex items-center">
                             <div className="py-1">
@@ -101,7 +110,10 @@ export default function Login() {
                             </div>
                             <div>
                             <p className="text-sm text-center">Login successfully!</p>
+<<<<<<< HEAD
 >>>>>>> 9306fcaf40194118e02729650831ea0842fef0c5
+=======
+>>>>>>> 5037533804140eb918e225385eff7c6fc177c01e
                             </div>
                         </div>
                     )}
