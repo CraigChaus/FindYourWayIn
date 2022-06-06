@@ -15,14 +15,14 @@ const LandingPage: NextPage = () => {
                     <div className="w-full">
                         <button
                             type="button"
-                            onClick={() => router.push('/login')}
+                            onClick={() => router.push('/auth/login')}
                             className="w-full py-3 mb-4 text-sm font-medium leading-snug text-white transition duration-150 ease-in-out bg-green-600 shadow-md rounded-xl winline-block px-7 hover:bg-green-700 hover:shadow-lg focus:bg-green-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-green-800 active:shadow-lg"
                         >
                             Login
                         </button>
                         <button
                             type="button"
-                            onClick={() => router.push('/signup')}
+                            onClick={() => router.push('/auth/signup')}
                             className="inline-block w-full py-3 mt-4 text-sm font-medium leading-snug text-green-700 transition duration-150 ease-in-out shadow-md rounded-xl bg-gray-50 px-7 hover:bg-gray-300 hover:shadow-lg focus:bg-gray-200 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-300 active:shadow-lg"
                         >
                             Sign up

@@ -11,14 +11,14 @@ export default function Input({
     onChange,
     isRequired,
     type,
-    placeholder,
+    placeholder
 }: any) {
     return (
         <input
             onChange={onChange}
             required={isRequired}
             type={type}
-            className="w-full p-3 mb-3 bg-gray-200 rounded-xl"
+            className="w-full p-3 mb-3 bg-gray-200 rounded-xl focus:bg-gray-200"
             placeholder={placeholder}
         />
     );

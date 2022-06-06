@@ -1,4 +1,5 @@
 import { Menu, Transition } from '@headlessui/react';
+import { useAuth } from 'contexts/AuthContext';
 import { signOut } from 'firebase/auth';
 import { auth } from 'firebase_config';
 import { Router, useRouter } from 'next/router';
@@ -10,9 +11,11 @@ import UserButton from './UserButton';
 
 export default function UserDropdown({ userLoggedIn }: any) {
     const router = useRouter();
-    const logout = async () => {
-        await signOut(auth);
-        router.push('/');   
+    const { logout } = useAuth();
+    const handleLogout = async () => {
+        await logout(auth)
+        .then(() => router.push('/'))
+        .catch((error: any) => console.log(error));  
     };
     return (
         <div>
@@ -60,9 +63,7 @@ export default function UserDropdown({ userLoggedIn }: any) {
                                                 ? 'bg-green-800 text-white'
                                                 : 'text-gray-100'
                                         } group flex w-full items-center rounded-md px-3 py-3 text-sm`}
-                                        onClick={() => {
-                                            logout();
-                                        }}
+                                        onClick={handleLogout}
                                     >
                                         <LogoutIcon
                                             className="w-5 h-5 mr-3"
