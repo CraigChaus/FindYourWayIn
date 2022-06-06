@@ -1,10 +1,13 @@
-import React, { MouseEventHandler, useState } from 'react';
-import { faHome, faSignOut, faSignIn } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
+import { faHome, faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
 export default function Sidebar() {
-    const icons = [{ iconName: faHome, content: 'Home' }];
+    const icons = [
+        { iconName: faHome, content: 'Home', href: '/home' },
+        { iconName: faCalendar, content: 'Events', href: '/events' },
+    ];
 
     const [showSidebar, setShowSidebar] = React.useState(false);
 
@@ -16,10 +19,10 @@ export default function Sidebar() {
         <>
             <button
                 onClick={handleShowSidebar}
-                className="w-16 m-2 font-bold text-white border-black rounded h-14 hover:bg-green-600"
+                className="w-12 m-2 font-bold text-white border-black rounded h-14 hover:bg-green-600"
             >
                 <svg
-                    className="w-16 h-12"
+                    className="w-12 h-8 fill-current"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -53,8 +56,9 @@ export default function Sidebar() {
                         {icons.map((icon, index) => {
                             return (
                                 <li onClick={handleShowSidebar} key={index}>
-                                    <Link href="">
+                                    <Link href={icon.href}>
                                         <a className="flex items-center hover:bg-green-400">
+                                            
                                             <FontAwesomeIcon
                                                 icon={icon.iconName}
                                                 size="lg"

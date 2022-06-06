@@ -13,6 +13,7 @@ import {
     faBagShopping,
 } from '@fortawesome/free-solid-svg-icons';
 
+
 export default function SliderMenu() {
     const [isOpen, setIsOpen] = useState(false);
 
