@@ -1,5 +1,6 @@
 import AgendaInfo from '@components/events/AgendaInfo';
 import { UpcomingInfo } from '@components/events/UpcomingInfo';
+import { useRouter } from 'next/router';
 import React from 'react';
 
 type EventProp = {
@@ -29,6 +30,7 @@ export async function getStaticProps() {
 }
 
 export const Agenda = ({ data }: any): JSX.Element => {
+    const router = useRouter();
     //creating an instance of the event name and day as usestates (FOR CURRENT EVENTS)
     const [currentEvents, setCurrentEvents] = React.useState<
         EventProp[] | null
@@ -77,7 +79,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 thisMonthNumber == monthNumberNoZero
             ) {
                 resultCurrent.push({
-                    id: data.id,
+                    id: data.results[i].id,
                     eventName: data.results[i].location.label,
                     day: dayNumberInstance,
                 });
@@ -94,7 +96,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 const fullDayNumber = dayNumber.substring(0, 10);
 
                 resultUpcoming.push({
-                    id: data.id,
+                    id: data.results[i].id,
                     eventName: data.results[i].location.label,
                     day: fullDayNumber,
                 });
@@ -117,20 +119,23 @@ export const Agenda = ({ data }: any): JSX.Element => {
 
     return (
         <>
-            <div>
-                <h1 className="font-bold text-center p-4">Events & Agenda</h1>
                 <div>
-                    <h2 className="text-center font-bold">Current</h2>
-                    {currentEvents &&
-                        currentEvents.map((currentEvent, index) => {
-                            return (
-                                <AgendaInfo
-                                    key={index}
-                                    date={currentEvent.day}
-                                    event={currentEvent.eventName}
-                                />
-                            );
-                        })}
+                    <div>
+                        <h1 className="font-bold text-center p-4">Events & Agenda</h1>
+
+                        <h2 className="text-center font-bold">Current</h2>
+                        {currentEvents &&
+                            currentEvents.map((currentEvent, index) => {
+                                console.log(currentEvent);
+                                return (
+                                    <AgendaInfo 
+                                        onClick= {() => router.push(`events/${currentEvent.id}`)}
+                                        key={index}
+                                        date={currentEvent.day}
+                                        event={currentEvent.eventName}
+                                    />
+                                );
+                            })}
                 </div>
 
                 <div>
@@ -139,6 +144,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                         upComingEvents.map((upcomingEvent, index) => {
                             return (
                                 <UpcomingInfo
+                                    onClick={() => router.push(`events/${upcomingEvent.id}`)}
                                     key={index}
                                     upDate={upcomingEvent.day}
                                     upEvent={upcomingEvent.eventName}

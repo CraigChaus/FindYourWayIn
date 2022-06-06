@@ -10,13 +10,12 @@ export async function getStaticPaths() {
     const res = await fetch(`${apiUrl}/events`, {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json',  
             Authorization: `Bearer ${apiKey}`,
         },
     });
     const data = await res.json();
     const dataArray = data.results;
-    console.log(dataArray);
     const paths = dataArray.map((event: any) => {
         return {
             params: { id: event.id },
@@ -31,7 +30,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: { params: { id: string } }) {
     const id = context.params.id;
-    console.log(apiUrl);
     const res = await fetch(`${apiUrl}/events/${id}`, {
         method: 'GET',
         headers: {
@@ -94,23 +92,28 @@ export const Events = ({ data }: any): JSX.Element => {
         setEventName(data.location.label);
 
         //this is for setting up the event time
-        setEventStartTime(data.calendar.singleDates[0].when[0].timestart);
-        setEventEndTime(data.calendar.singleDates[0].when[0].timeend);
+        if (data.calendar.singleDates[0]?.when[0]?.timestart) {
+            setEventStartTime(data.calendar.singleDates[0]?.when[0].timestart);
+        }
+
+        if (data.calendar.singleDates[0]?.when[0]?.timeend) {
+            setEventEndTime(data.calendar.singleDates[0]?.when[0].timeend);
+        }
 
         //this is for setting up the venue of the event
-        setEventHouseNumVenue(data.location.address.housenr);
-        setEventStreetVenue(data.location.address.street);
-        setEventZipCodeVenue(data.location.address.zipcode);
-        setEventCityVenue(data.location.address.city);
+        setEventHouseNumVenue(data.location.address?.housenr);
+        setEventStreetVenue(data.location.address?.street);
+        setEventZipCodeVenue(data.location.address?.zipcode);
+        setEventCityVenue(data.location.address?.city);
 
         //this is for stting up the event description
-        setEventDescription(data.trcItemDetails[0].longdescription);
+        setEventDescription(data.trcItemDetails[0]?.longdescription);
 
         //this is for the ticket info for the event
         // setTicket();
 
         //this is for setting up the website
-        setWebsite(data.contactinfo.urls[0].url);
+        setWebsite(data.contactinfo.urls[0]?.url);
     }, [data]);
 
     console.log(data);
