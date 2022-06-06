@@ -1,4 +1,4 @@
-import { AppProps } from '../AppProps';
+import { AppProps } from '../../../interface/AppProps';
 import Direction from '../../../public/icons/direction.svg';
 
 const RoutingButton = (props: AppProps) => {

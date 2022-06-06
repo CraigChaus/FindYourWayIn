@@ -2,55 +2,45 @@ import React, { useState } from 'react';
 import AuthLayout from './AuthLayout';
 import HeaderAuthForm from './HeaderAuthForm';
 import Input from './Input';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from 'firebase_config';
-import { onAuthStateChanged } from 'firebase/auth';
-import AuthButton from './Button';
+import AuthButton from './AuthButton';
 import NavigationLink from './NavigationLink';
-import Router from 'next/router';
+import ResetPasswordLink from './ResetPasswordLink';
+import { useRouter } from 'next/router';
 import Warning from '../../public/icons/warning.svg';
 import Verify from '../../public/icons/verify.svg';
+import { useAuth } from 'contexts/AuthContext';
 
 /** Authentication form for sign in
  * @returns Sign in form
  */
 export default function Login() {
-    const [loginEmail, setLoginEmail] = useState('');
-    const [loginPassword, setLoginPassword] = useState('');
-    const [user, setUser] = useState<any>({});
-    const [loginFail, setLoginFail] = useState(false);
+    const [error, setError] = useState('');
     const [loginSuccess, setLoginSuccess] = useState(false);
 
-    const login = async () => {
+    const router = useRouter();
+    const { user, login } = useAuth();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = async (e: any) => {
+        e.preventDefault();
+        console.log(user);
         try {
-            // Takes in auth from firebase object and login credentials
-            const user = await signInWithEmailAndPassword(
-                auth,
-                loginEmail,
-                loginPassword,
-            );
-            if (user) {
-                onAuthStateChanged(auth, (currentUser) => {
-                    setUser(currentUser);
-                    setLoginSuccess(true);
-                    console.log(
-                        'Currently logged in user:' + auth.currentUser?.email,
-                    );
-                    Router.push('/home');
-                });
-            }
-        } catch (error) {
-            console.log('COULD NOT SIGN IN.');
-            console.log(error);
-            setLoginFail(true);
+            await login(email, password).then(() => {
+                setLoginSuccess(true);
+                router.push('/home');
+            });
+        } catch (error: any) {
+            setError(error.message);
         }
     };
+
     return (
         <>
-            <AuthLayout>
+            <AuthLayout isSignUp={false}>
                 <HeaderAuthForm formName="Login" />
                 <div className="flex flex-col items-center w-5/6">
-                    {loginFail && (
+                    {error && (
                         <div
                             className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md"
                             role="alert"
@@ -60,9 +50,7 @@ export default function Login() {
                                     <Warning className="w-6 h-6 mr-4 text-red-500 fill-current" />
                                 </div>
                                 <div>
-                                    <p className="text-sm">
-                                        Your email/password is incorrect.
-                                    </p>
+                                    <p className="text-sm">{error}</p>
                                 </div>
                             </div>
                         </div>
@@ -92,8 +80,8 @@ export default function Login() {
                         onChange={(
                             event: React.FormEvent<HTMLInputElement>,
                         ) => {
-                            setLoginEmail(event.currentTarget.value);
-                            setLoginFail(false);
+                            setEmail(event.currentTarget.value);
+                            setError('');
                         }}
                     />
                     <Input
@@ -103,12 +91,13 @@ export default function Login() {
                         onChange={(
                             event: React.FormEvent<HTMLInputElement>,
                         ) => {
-                            setLoginPassword(event.currentTarget.value);
-                            setLoginFail(false);
+                            setPassword(event.currentTarget.value);
+                            setError('');
                         }}
                     />
                 </div>
-                <AuthButton action={login} text="Login" />
+                <AuthButton action={handleLogin} text="Login" />
+                <ResetPasswordLink />
 
                 <NavigationLink link="signup" />
             </AuthLayout>
