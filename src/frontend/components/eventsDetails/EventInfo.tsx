@@ -15,8 +15,10 @@ export const EventInfo = ({
         <>
             <div>
                 <h1 className="text-center font-bold mb-8 p-4">{name}</h1>
-                <p className="text-center border-t-2 border-b-2 border-black pb-4" dangerouslySetInnerHTML={{__html: description}}>
-                </p>
+                <p
+                    className="text-center border-t-2 border-b-2 border-black pb-4"
+                    dangerouslySetInnerHTML={{ __html: description }}
+                ></p>
                 <div className="mt-8 space-y-2 border-b-2 border-black ">
                     <div className="flex space-x-2">
                         <label className="font-bold">Time:</label>

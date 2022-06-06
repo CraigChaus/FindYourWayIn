@@ -10,7 +10,7 @@ export async function getStaticPaths() {
     const res = await fetch(`${apiUrl}/events`, {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json',  
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${apiKey}`,
         },
     });

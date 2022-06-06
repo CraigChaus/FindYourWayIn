@@ -119,23 +119,27 @@ export const Agenda = ({ data }: any): JSX.Element => {
 
     return (
         <>
+            <div>
                 <div>
-                    <div>
-                        <h1 className="font-bold text-center p-4">Events & Agenda</h1>
+                    <h1 className="font-bold text-center p-4">
+                        Events & Agenda
+                    </h1>
 
-                        <h2 className="text-center font-bold">Current</h2>
-                        {currentEvents &&
-                            currentEvents.map((currentEvent, index) => {
-                                console.log(currentEvent);
-                                return (
-                                    <AgendaInfo 
-                                        onClick= {() => router.push(`events/${currentEvent.id}`)}
-                                        key={index}
-                                        date={currentEvent.day}
-                                        event={currentEvent.eventName}
-                                    />
-                                );
-                            })}
+                    <h2 className="text-center font-bold">Current</h2>
+                    {currentEvents &&
+                        currentEvents.map((currentEvent, index) => {
+                            console.log(currentEvent);
+                            return (
+                                <AgendaInfo
+                                    onClick={() =>
+                                        router.push(`events/${currentEvent.id}`)
+                                    }
+                                    key={index}
+                                    date={currentEvent.day}
+                                    event={currentEvent.eventName}
+                                />
+                            );
+                        })}
                 </div>
 
                 <div>
@@ -144,7 +148,11 @@ export const Agenda = ({ data }: any): JSX.Element => {
                         upComingEvents.map((upcomingEvent, index) => {
                             return (
                                 <UpcomingInfo
-                                    onClick={() => router.push(`events/${upcomingEvent.id}`)}
+                                    onClick={() =>
+                                        router.push(
+                                            `events/${upcomingEvent.id}`,
+                                        )
+                                    }
                                     key={index}
                                     upDate={upcomingEvent.day}
                                     upEvent={upcomingEvent.eventName}
