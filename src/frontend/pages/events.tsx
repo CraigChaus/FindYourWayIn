@@ -17,7 +17,7 @@ export async function getStaticProps() {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            'Authorization': `Bearer ${apiKey}`,
         },
     });
     const data = await res.json();
@@ -121,11 +121,11 @@ export const Agenda = ({ data }: any): JSX.Element => {
         <>
             <div>
                 <div>
-                    <h1 className="font-bold text-center p-4">
+                    <h1 className="p-4 font-bold text-center">
                         Events & Agenda
                     </h1>
 
-                    <h2 className="text-center font-bold">Current</h2>
+                    <h2 className="font-bold text-center">Current</h2>
                     {currentEvents &&
                         currentEvents.map((currentEvent, index) => {
                             console.log(currentEvent);
@@ -143,7 +143,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 </div>
 
                 <div>
-                    <h2 className="text-center font-bold">Upcoming Events</h2>
+                    <h2 className="font-bold text-center">Upcoming Events</h2>
                     {upComingEvents &&
                         upComingEvents.map((upcomingEvent, index) => {
                             return (
