@@ -17,3 +17,10 @@ eslint:
     - cd ../frontend/
     - npm install
     - npm run lint
+
+prettier:
+  stage: lint
+  script:
+    - cd src/frontend
+    - npm i
+    - npm run prettier

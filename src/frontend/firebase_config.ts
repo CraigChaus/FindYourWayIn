@@ -7,9 +7,10 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 
+const firebaseApiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 //Config object for initializing
 const firebaseConfig = {
-  apiKey: "AIzaSyD2Zs61dN0v-Rv871JYZR6GzVy_intXtv8",
+  apiKey: firebaseApiKey,
   authDomain: "findyourwayin.firebaseapp.com",
   projectId: "findyourwayin",
   storageBucket: "findyourwayin.appspot.com",

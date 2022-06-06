@@ -1,10 +1,10 @@
-
 export const Paragraph = (props: any) => {
-  return (
-      <div className="h-auto">
-        <p>{props.content}</p>
-      </div>
-  )
-}
+    return (
+        <div
+            className="h-auto"
+            dangerouslySetInnerHTML={{ __html: props.content }}
+        ></div>
+    );
+};
 
 export default Paragraph;

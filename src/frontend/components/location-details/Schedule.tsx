@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
 export const Schedule = (props: any) => {
-    const { calendar: calendarProp }  = props;
+    const { calendar: calendarProp } = props;
     const [schedule, setSchedule] = React.useState<any[]>([]);
     const [calendar, setCalendar] = React.useState(calendarProp ?? []);
 
     React.useEffect(() => {
         setCalendar(calendarProp);
-    }, [calendarProp])
+    }, [calendarProp]);
 
     React.useEffect(() => {
         const result = [];
@@ -18,73 +18,75 @@ export const Schedule = (props: any) => {
                         date: 'Sunday',
                         time: {
                             start: calendar[i].whens[0].timestart,
-                            end: calendar[i].whens[0].timeend
-                        }
-                    }); 
+                            end: calendar[i].whens[0].timeend,
+                        },
+                    });
                     break;
                 case 2:
                     result.push({
                         date: 'Monday',
                         time: {
                             start: calendar[i].whens[0].timestart,
-                            end: calendar[i].whens[0].timeend
-                        }
-                    }); 
+                            end: calendar[i].whens[0].timeend,
+                        },
+                    });
                     break;
                 case 3:
                     result.push({
                         date: 'Tuesday',
                         time: {
                             start: calendar[i].whens[0].timestart,
-                            end: calendar[i].whens[0].timeend
-                        }
-                    }); 
+                            end: calendar[i].whens[0].timeend,
+                        },
+                    });
                     break;
                 case 4:
                     result.push({
                         date: 'Wednesday',
                         time: {
                             start: calendar[i].whens[0].timestart,
-                            end: calendar[i].whens[0].timeend
-                        }
-                    }); 
+                            end: calendar[i].whens[0].timeend,
+                        },
+                    });
                     break;
-                case 5: 
+                case 5:
                     result.push({
                         date: 'Thursday',
                         time: {
                             start: calendar[i].whens[0].timestart,
-                            end: calendar[i].whens[0].timeend
-                        }
-                    }); 
+                            end: calendar[i].whens[0].timeend,
+                        },
+                    });
                     break;
                 case 6:
                     result.push({
                         date: 'Friday',
                         time: {
                             start: calendar[i].whens[0].timestart,
-                            end: calendar[i].whens[0].timeend
-                        }
-                    }); 
+                            end: calendar[i].whens[0].timeend,
+                        },
+                    });
                     break;
                 case 7:
                     result.push({
                         date: 'Saturday',
                         time: {
                             start: calendar[i].whens[0].timestart,
-                            end: calendar[i].whens[0].timeend
-                        }
-                    }); 
+                            end: calendar[i].whens[0].timeend,
+                        },
+                    });
                     break;
             }
-        }    
+        }
         setSchedule(result);
-    }, [calendar])
+    }, [calendar]);
 
     return (
         <>
             <div className="w-full">
-                <h2 className="font-bold text-center underline underline-offset-8">Schedule</h2>
+                <h2 className="font-bold text-center underline underline-offset-8">
+                    Schedule
+                </h2>
                 <table className="w-full h-auto ml-2 text-sm text-center table-auto">
                     <thead>
                         <tr>
@@ -93,22 +95,22 @@ export const Schedule = (props: any) => {
                         </tr>
                     </thead>
                     <tbody>
-                        { schedule.length > 0 && (
-                            (schedule.map((day, index) => {
+                        {schedule.length > 0 &&
+                            schedule.map((day, index) => {
                                 return (
                                     <tr key={index}>
                                         <td>{day.date}</td>
-                                        <td>{day.time.start} - {day.time.end}</td>
+                                        <td>
+                                            {day.time.start} - {day.time.end}
+                                        </td>
                                     </tr>
-                                )
-                            }))
-                        )
-                        }       
+                                );
+                            })}
                     </tbody>
                 </table>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Schedule;
