@@ -34,7 +34,7 @@ export async function getStaticProps(context: { params: { id: string } }) {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            'Authorization': `Bearer ${apiKey}`,
         },
     });
     const data = await res.json();
