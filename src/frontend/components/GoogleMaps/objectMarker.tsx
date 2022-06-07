@@ -38,6 +38,5 @@ export const ObjectMarker = (props: any) => {
         icon: objectIcon,
     });
 
-
     return null;
 };

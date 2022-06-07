@@ -54,6 +54,7 @@ const ResetPassword = (): JSX.Element => {
                             event: React.FormEvent<HTMLInputElement>,
                         ) => {
                             setEmail(event.currentTarget.value);
+                            setMessage('');
                         }}
                     />
                 </div>
