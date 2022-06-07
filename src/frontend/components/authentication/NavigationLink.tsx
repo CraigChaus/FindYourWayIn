@@ -12,7 +12,7 @@ export default function NavigationLink({ link }: any) {
             {link === 'login'
                 ? `Already have an account? Login `
                 : `Don't have an account? Sign up `}
-            <Link href={`/${link}`}>
+            <Link href={`/auth/${link}`}>
                 <a className="text-green-700 underline hover:text-green-600">
                     here
                 </a>

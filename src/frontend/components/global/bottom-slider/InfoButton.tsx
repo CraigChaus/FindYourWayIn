@@ -1,4 +1,4 @@
-import { AppProps } from '../AppProps';
+import { AppProps } from '../../../interface/AppProps';
 import Info from '../../../public/icons/info.svg';
 
 const InfoButton = (props: AppProps) => {

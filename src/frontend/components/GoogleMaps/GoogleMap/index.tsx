@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { ObjectMarker } from '../objectMarker';
 import { allLocations, filterByCategory } from '../../../API/api';
 
+
 interface MapProps extends google.maps.MapOptions {
     style: { [key: string]: string };
     onClick?: (e: google.maps.MapMouseEvent) => void;
@@ -25,7 +26,7 @@ const GoogleMap: React.FC<MapProps> = ({
         new google.maps.Marker(),
     );
     const [map, setMap] = React.useState<google.maps.Map>();
-    const [filteredLocations, setFilteredLocations] = React.useState([]);
+    let [filteredLocations, setFilteredLocations] = React.useState<any[]>([]);
     const [dataLocation, setDataLocation] = React.useState<any[]>([]);
     const [isLoading, setLoading] = React.useState(false);
 
@@ -74,11 +75,18 @@ const GoogleMap: React.FC<MapProps> = ({
         });
     });
 
-    console.log('data locations:', dataLocation);
 
+
+    React.useEffect(()=>{
+        setFilteredLocations(filterByCategory(dataLocation, 'Eat/Drink'));
+    },[])
+
+    
+    console.log(dataLocation);
+    console.log("Filtered locations",filteredLocations)
     // Testing filtering
-    const filteredShops = filterByCategory(dataLocation, 'Eat/Drink');
-    console.log('FILTERED Eat/Drink places', filteredShops);
+    // const filteredShops = filterByCategory(dataLocation, 'Eat/Drink');
+    // console.log('FILTERED Eat/Drink places', filteredShops);
     // if (isLoading) return <p>Loading...</p>
     // if (!data) return <p>No data</p>
 
@@ -91,8 +99,8 @@ const GoogleMap: React.FC<MapProps> = ({
                 }
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
-            {dataLocation &&
-                dataLocation.map((location, index) => {
+            {filteredLocations &&
+                filteredLocations.map((location:any, index:any) => {
                     return (
                         <ObjectMarker
                             key={index}

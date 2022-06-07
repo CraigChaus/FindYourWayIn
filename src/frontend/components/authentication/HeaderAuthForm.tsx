@@ -15,11 +15,11 @@ export default function HeaderAuthForm({ formName }: any) {
             <Image
                 onClick={() => router.push('/')}
                 alt="logo"
-                width={84}
-                height={84}
+                width={80}
+                height={80}
                 src={logoWithoutText}
             />
-            <h2 className="mt-4 text-4xl font-bold text-center text-black">
+            <h2 className="mt-4 text-3xl font-bold text-center text-black">
                 {formName}
             </h2>
         </div>

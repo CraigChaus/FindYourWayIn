@@ -38,7 +38,6 @@ export const ObjectMarker = (props: any) => {
         icon: objectIcon,
     });
 
-    console.log('SELECTED CATEGORY:', category);
 
     return null;
 };
