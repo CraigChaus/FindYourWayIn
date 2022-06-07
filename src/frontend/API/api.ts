@@ -80,7 +80,7 @@ getAllLocations(allLocations).then(data => {
 
 function filterByCategory(allLocations:any[],searchedCategory:string){
 return allLocations.filter(function (currentElement){
-    return currentElement.category.category1 === searchedCategory || currentElement.category.category2 === searchedCategory
+    return currentElement.trcItemCategories.types[0].categoryTranslations[0].label === searchedCategory 
 })
 
 }
