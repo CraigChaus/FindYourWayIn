@@ -6,7 +6,7 @@ import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 
 const Home: NextPage = () => {
     return (
-        <div className="flex flex-col h-screen ">
+        <div className="flex flex-col h-screen">
             <Navbar />
             <HomePage />
             {/* <BottomSlider/> */}

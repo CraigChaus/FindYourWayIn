@@ -48,6 +48,31 @@ const UserLocationMarker: React.FC<MarkerProps> = ({
     }, [userMarker]);
 
     React.useEffect(() => {
+        if (userMarker && navigator.geolocation) {
+            console.log('NAVIGATOR CALLED');
+            // navigator.geolocation.getCurrentPosition(
+            //     (pos) => {
+            //         const position = pos.coords;
+            //         if(position){
+            //             console.log(position.latitude, "states updated")
+            //             setLat(position.latitude);
+            //             setLng(position.longitude);
+            //         }
+            //     }
+            // )
+            console.log('NAVIGATOR geolocation received');
+            navigator.geolocation.watchPosition((pos) => {
+                const position = pos.coords;
+                if (position) {
+                    // console.log("CHANGE OF POSITION!")
+                    // console.log("new coords ", position.latitude, position.longitude)
+                    setLat(position.latitude);
+                    setLng(position.longitude);
+                }
+            });
+        }
+    }, [userMarker]);
+    React.useEffect(() => {
         if (!userMarker) {
             setUserMarker(
                 new google.maps.Marker({
