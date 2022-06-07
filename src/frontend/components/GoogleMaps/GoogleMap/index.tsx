@@ -95,8 +95,8 @@ const GoogleMap: React.FC<MapProps> = ({
                 }
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
-            {filteredLocations &&
-                filteredLocations.map((location: any, index: any) => {
+            {dataLocation &&
+                dataLocation.map((location: any, index: any) => {
                     return (
                         <ObjectMarker
                             key={index}
