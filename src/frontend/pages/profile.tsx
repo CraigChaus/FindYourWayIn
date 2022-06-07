@@ -17,11 +17,11 @@ const Profile = (props: any) => {
                 
                 <div  className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-[url('../public/images/profileCat.png')]" ></div>
                 <div className="flex items-center justify-between">
-                    <p className=" text-xl font-semibold text-slate-900 text-gray-400 text-sm">Username: </p>
+                    <p className=" text-2xl font-semibold  text-gray-400 ">Username: </p>
 
                 </div>
                 <div className="  w-full  bg-white rounded shadow-lg ml-3 ">
-                    <p className="text-2xl p-3 font-bold  lg:pt-0">{user.email}</p>
+                    <p className="text-2xl p-5 font-bold  lg:pt-0">{user.email}</p>
                 </div>
 
 
