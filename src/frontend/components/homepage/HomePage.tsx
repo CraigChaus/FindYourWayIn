@@ -4,7 +4,7 @@ import React from 'react';
 import GoogleAutocomplete from '../GoogleMaps/GoogleAutocomplete';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 
-const HomePage = () => {
+const HomePage = ({ locations }: any): JSX.Element => {
     const [mounted, setMounted] = React.useState(false);
     // Default value set to Deventer in the case that geolocation doesnt work
     const [lat, setLat] = React.useState(52.2661);
@@ -21,34 +21,9 @@ const HomePage = () => {
 
     const [isLocation, setIsLocation] = React.useState(false);
 
-    // Client-side rendering
-    const [data, setData] = React.useState(null);
-    const [isLoading, setLoading] = React.useState(false);
-
     function handleSetLocation() {
         setIsLocation(!isLocation);
     }
-
-    React.useEffect(() => {
-        setLoading(true);
-        fetch('https://app.thefeedfactory.nl/api/locations', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer 0eebe5c7-cf95-4519-899b-59e1a78768c1`,
-            },
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) => {
-                setData(data);
-                setLoading(false);
-            })
-            .catch((e) => {
-                throw new Error(`HTTP error! status: ${e.status}`);
-            });
-    }, []);
 
     React.useEffect(() => {
         if (!mounted) return;
@@ -98,7 +73,8 @@ const HomePage = () => {
                 disableDefaultUI
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
-                gestureHandling={'cooperative'}
+                gestureHandling={'cooperative'} 
+                locations={locations}
             >
                 <UserLocationMarker
                     position={{ lat, lng }}
