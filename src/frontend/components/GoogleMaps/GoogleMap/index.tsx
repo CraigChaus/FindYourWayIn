@@ -76,7 +76,7 @@ const GoogleMap: React.FC<MapProps> = ({
 
     React.useEffect(() => {
         setFilteredLocations(filterByCategory(dataLocation, 'Culture'));
-    }, []);
+    }, [dataLocation]);
 
     console.log(dataLocation);
     console.log('Filtered locations', filteredLocations);
@@ -95,8 +95,8 @@ const GoogleMap: React.FC<MapProps> = ({
                 }
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
-            {dataLocation &&
-                dataLocation.map((location: any, index: any) => {
+            {filteredLocations &&
+                filteredLocations.map((location: any, index: any) => {
                     return (
                         <ObjectMarker
                             key={index}

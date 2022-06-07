@@ -32,11 +32,6 @@ export const ObjectMarker = (props: any) => {
         icon: objectIcon,
     });
 
-    new google.maps.Marker({
-        position: { lat: props.objectMarkerLat, lng: props.objectMarkerLng },
-        map: props.map,
-        icon: objectIcon,
-    });
 
     return null;
 };
