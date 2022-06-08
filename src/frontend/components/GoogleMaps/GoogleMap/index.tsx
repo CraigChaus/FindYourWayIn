@@ -1,8 +1,9 @@
 import { type } from 'os';
-import React, { SetStateAction } from 'react';
+import React, { SetStateAction, useContext } from 'react';
 import { useRef } from 'react';
 import { ObjectMarker } from '../objectMarker';
 import { allLocations, filterByCategory } from '../../../API/api';
+import { FilterContext } from 'contexts/FilterContext';
 interface MapProps extends google.maps.MapOptions {
     locations: any[];
     style: { [key: string]: string };
@@ -29,9 +30,15 @@ const GoogleMap = ({
     const [filteredLocations, setFilteredLocations] = React.useState<any[]>([]);
     const [dataLocation, setDataLocation] = React.useState<any[]>([]);
 
+    const [markers, setMarkers] = React.useState<any[]>([]);
+
+
+    const filterContext = useContext(FilterContext);
+
     function clearMarker(marker: google.maps.Marker) {
         marker.setMap(null);
     }
+
 
     React.useEffect(() => {
         if (mapRef.current && !map) {
@@ -45,6 +52,12 @@ const GoogleMap = ({
         }
     }, [map, options]);
 
+    function clearMarkers() {
+        for(let i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+    }
+    
     map?.addListener('click', (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);
         markerRef.current = new google.maps.Marker({
@@ -52,13 +65,57 @@ const GoogleMap = ({
             map: map,
         });
     });
+    
+    React.useEffect(() => {
 
+        clearMarkers();
+    
+        if(filteredLocations.length) {
+          const googleMarkers = [];
+    
+          for(let i = 0; i < filteredLocations.length; i++) {
+            const marker = new google.maps.Marker({
+                position: {
+                    lat: parseFloat(
+                        locations[i].location.address.gisCoordinates[0]
+                            .xcoordinate),
+                    lng: parseFloat(
+                        locations[i].location.address.gisCoordinates[0]
+                            .ycoordinate,
+                    )
+                },
+                map: map,
+            });
+            googleMarkers.push(marker);
+          }
+    
+          setMarkers(googleMarkers);
+        }
+      }, [filteredLocations, map]);
+    
     React.useEffect(() => {
         setDataLocation(locations);
-        setFilteredLocations(filterByCategory(dataLocation, 'Culture'));
-    }, [locations, dataLocation]);
+        setFilteredLocations(filterByCategory(dataLocation, filterContext.filter));
+    }, [locations, dataLocation, filterContext.filter]);
 
-    console.log(dataLocation);
+    // React.useEffect(() => {
+    //     filteredLocations && filteredLocations.map((location: any) => {
+    //         return (
+    //             new google.maps.Marker({
+    //                 position: {
+    //                     lat: parseFloat(
+    //                         location.location.address.gisCoordinates[0]
+    //                             .xcoordinate),
+    //                     lng: parseFloat(
+    //                         location.location.address.gisCoordinates[0]
+    //                             .ycoordinate,
+    //                     )
+    //                 },
+    //                 map: map,
+    //             }));
+    //     })
+    // }, [filteredLocations, map]);
+
     console.log('Filtered locations', filteredLocations);
     // Testing filtering
     // const filteredShops = filterByCategory(dataLocation, 'Eat/Drink');
@@ -81,14 +138,15 @@ const GoogleMap = ({
                         <ObjectMarker
                             key={index}
                             map={map}
-                            objectMarkerLat={parseFloat(
-                                location.location.address.gisCoordinates[0]
-                                    .xcoordinate,
-                            )}
-                            objectMarkerLng={parseFloat(
-                                location.location.address.gisCoordinates[0]
-                                    .ycoordinate,
-                            )}
+                            position={{
+                                lat: parseFloat(
+                                    location.location.address.gisCoordinates[0]
+                                        .xcoordinate),
+                                lng: parseFloat(
+                                    location.location.address.gisCoordinates[0]
+                                        .ycoordinate,
+                                )
+                            }}
                             category={
                                 location.trcItemCategories.types[0]
                                     .categoryTranslations[0].label

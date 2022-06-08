@@ -1,5 +1,6 @@
 import UserLocationMarker from '@components/GoogleMaps/userLocationMarker';
 import LocationMarker from '@components/homepage/LocationMarker';
+import Navbar from '@components/map-navbar/MapNavbar';
 import React from 'react';
 import GoogleAutocomplete from '../GoogleMaps/GoogleAutocomplete';
 import GoogleMap from '../GoogleMaps/GoogleMap';
@@ -58,37 +59,41 @@ const HomePage = ({ locations }: any): JSX.Element => {
     // `);
 
     return (
-        <div className="absolute w-full h-full">
-            <GoogleAutocomplete
-                setLat={setLat}
-                setLng={setLng}
-                setAddress={setAddress}
-            />
+        <>
+            <Navbar />
+            <div className="absolute w-full h-full">
 
-            <GoogleMap
-                center={{ lat, lng }}
-                zoom={zoom}
-                setZoom={setZoom}
-                style={{ width: '100%', height: '100%' }}
-                disableDefaultUI
-                clickableIcons={false}
-                mapId="9c7cb3e171b411ff"
-                gestureHandling={'cooperative'} 
-                locations={locations}
-            >
-                <UserLocationMarker
-                    position={{ lat, lng }}
+                <GoogleAutocomplete
                     setLat={setLat}
                     setLng={setLng}
                     setAddress={setAddress}
                 />
-            </GoogleMap>
 
-            <LocationMarker
-                isLocation={isLocation}
-                setIsLocation={handleSetLocation}
-            />
-        </div>
+                <GoogleMap
+                    center={{ lat, lng }}
+                    zoom={zoom}
+                    setZoom={setZoom}
+                    style={{ width: '100%', height: '100%' }}
+                    disableDefaultUI
+                    clickableIcons={false}
+                    mapId="9c7cb3e171b411ff"
+                    gestureHandling={'cooperative'} 
+                    locations={locations}
+                >
+                    <UserLocationMarker
+                        position={{ lat, lng }}
+                        setLat={setLat}
+                        setLng={setLng}
+                        setAddress={setAddress}
+                    />
+                </GoogleMap>
+
+                <LocationMarker
+                    isLocation={isLocation}
+                    setIsLocation={handleSetLocation}
+                />
+            </div>
+        </>
     );
 };
 export default HomePage;

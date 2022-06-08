@@ -17,12 +17,10 @@ export default function SliderMenu() {
     const [isOpen, setIsOpen] = useState(false);
 
     const categories = [
-        { iconName: faBagShopping, nameOfCategory: 'Shopping' },
-        { iconName: faSquareParking, nameOfCategory: 'Car parking' },
-        { iconName: faRestroom, nameOfCategory: 'Restroom' },
-        { iconName: faUtensils, nameOfCategory: 'Restaurants' },
-        { iconName: faBicycle, nameOfCategory: 'Bike parking' },
-        { iconName: faBuildingColumns, nameOfCategory: 'Museums/Culture' },
+        { iconName: faBagShopping, nameOfCategory: 'Shop' },
+        { iconName: faUtensils, nameOfCategory: 'Eat/Drink' },
+        { iconName: faBicycle, nameOfCategory: 'Sport' },
+        { iconName: faBuildingColumns, nameOfCategory: 'Culture' },
     ];
 
     return (

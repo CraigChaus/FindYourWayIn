@@ -7,18 +7,24 @@ import {
     faUtensils,
     faCartShopping,
 } from '@fortawesome/free-solid-svg-icons';
+import { FilterContext } from 'contexts/FilterContext';
+import { useContext } from 'react';
 
 export const Categories = (props: any) => {
     const categories = props.categories;
     const iconName = props.iconName;
     const nameOfCategory = props.nameOfCategory;
 
+    const filterContext = useContext(FilterContext);
+
     return (
         <>
             {categories.map((category: any, index: number) => (
                 <div key={index + 1} className="flex flex-col">
                     <div className="flex justify-center h-3/5">
-                        <button className="flex justify-center w-12 h-12 mx-2 rounded hover:bg-zinc-300 ">
+                        <button className="flex justify-center w-12 h-12 mx-2 rounded hover:bg-zinc-300 "
+                            onClick={() => {filterContext.handleSetFilter(category.nameOfCategory)}}
+                        >
                             <FontAwesomeIcon
                                 icon={category.iconName}
                                 size="2x"
