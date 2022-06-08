@@ -38,7 +38,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
                 if (location.id === query.id) {
                     setBottomSlider(location);
                 }
-                
             }
         }
     }, [locations, query]);
@@ -104,14 +103,21 @@ const HomePage = ({ locations }: any): JSX.Element => {
                     isLocation={isLocation}
                     setIsLocation={handleSetLocation}
                 />
-                
-                {bottomSlider && 
-                <BottomSlider 
-                    id={bottomSlider?.id}
-                    header={bottomSlider?.location?.label} 
-                    description={bottomSlider.trcItemDetails[0]?.shortdescription}
-                    image={bottomSlider.files[0].hlink ? bottomSlider.files[0]?.hlink : ''}
-                />}
+
+                {bottomSlider && (
+                    <BottomSlider
+                        id={bottomSlider?.id}
+                        header={bottomSlider?.location?.label}
+                        description={
+                            bottomSlider.trcItemDetails[0]?.shortdescription
+                        }
+                        image={
+                            bottomSlider.files[0].hlink
+                                ? bottomSlider.files[0]?.hlink
+                                : ''
+                        }
+                    />
+                )}
             </div>
         </>
     );
