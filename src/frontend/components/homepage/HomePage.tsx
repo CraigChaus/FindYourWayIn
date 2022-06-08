@@ -73,7 +73,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                 disableDefaultUI
                 clickableIcons={false}
                 mapId="9c7cb3e171b411ff"
-                gestureHandling={'cooperative'} 
+                gestureHandling={'cooperative'}
                 locations={locations}
             >
                 <UserLocationMarker

@@ -6,7 +6,6 @@ const ProfilePage = (props: any) => {
 
     const categories = props.categories;
     return (
-
         <div className=" h-screen bg-cover bg-landing-page absolute w-full bg-center bg-no-repeat ">
             {/*// this block I took from  component MapNavbar,*/}
             <div className="z-10 flex flex-col w-full bg-transparent">
@@ -20,8 +19,7 @@ const ProfilePage = (props: any) => {
                     </div>
                 </div>
             </div>
-{/*//*/}
-
+            {/*//*/}
 
             <div className="h-2/3 max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto mt-28 lg:my-0 shadow-md">
                 <div

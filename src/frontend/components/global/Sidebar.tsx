@@ -1,13 +1,21 @@
 import React from 'react';
-import { faHome, faCalendar,faMagnifyingGlassLocation  } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {
+    faHome,
+    faCalendar,
+    faMagnifyingGlassLocation,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
 export default function Sidebar() {
     const icons = [
         { iconName: faHome, content: 'Home', href: '/home' },
         { iconName: faCalendar, content: 'Events', href: '/events' },
-        { iconName: faMagnifyingGlassLocation, content: 'Discovery', href: '/discovery' },
+        {
+            iconName: faMagnifyingGlassLocation,
+            content: 'Discovery',
+            href: '/discovery',
+        },
     ];
 
     const [showSidebar, setShowSidebar] = React.useState(false);

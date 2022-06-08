@@ -1,8 +1,8 @@
 import React from 'react';
-import DiscoveryComponent  from '../components/discovery/DiscoveryComponent';
+import DiscoveryComponent from '../components/discovery/DiscoveryComponent';
 
 const Discovery = () => {
-  return <DiscoveryComponent  />;
+    return <DiscoveryComponent />;
 };
 
 export default Discovery;
