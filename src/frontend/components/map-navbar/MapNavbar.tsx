@@ -12,11 +12,10 @@ export const Navbar = () => {
                 className="z-10 flex items-center justify-between bg-green-500 h-18"
             >
                 <SideBar />
-                <div className="flex justify-end" >
+                <div className="flex justify-end">
                     <SearchBar />
                     <UserDropdown />
                 </div>
-
             </div>
             <SliderMenu />
         </div>
