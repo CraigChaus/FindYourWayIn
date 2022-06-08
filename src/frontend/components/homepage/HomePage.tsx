@@ -25,7 +25,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     const [isLocation, setIsLocation] = React.useState(false);
     const [bottomSlider, setBottomSlider] = React.useState<any>(null);
-    const [openBottomSlider, setOpenBottomSlider] = React.useState(false);;
+    const [openBottomSlider, setOpenBottomSlider] = React.useState(false);
 
     function handleSetLocation() {
         setIsLocation(!isLocation);

@@ -8,8 +8,8 @@ const ImageContainer = (props: any) => {
             alt={props.alt}
             width="100%"
             layout="responsive"
-            objectFit='cover'
-            quality={100}   
+            objectFit="cover"
+            quality={100}
             height="40%"
             className="rounded-t-lg max-h-60"
         />

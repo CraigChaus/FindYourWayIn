@@ -26,7 +26,10 @@ const BottomSlider = ({ id, header, description, image }: any): JSX.Element => {
 
     return (
         <div className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-slate-100">
-            <ImageContainer src={image ? image : brokenImage } alt="background" />
+            <ImageContainer
+                src={image ? image : brokenImage}
+                alt="background"
+            />
             <Body header={header} description={description} />
             <div className="flex justify-around">
                 <RoutingButton />
