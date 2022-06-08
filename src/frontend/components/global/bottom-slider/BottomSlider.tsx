@@ -4,6 +4,7 @@ import RoutingButton from './RoutingButton';
 import InfoButton from './InfoButton';
 import Body from './Body';
 import { useRouter } from 'next/router';
+import brokenImage from '../../../public/images/broken.png';
 
 const BottomSlider = ({ id, header, description, image }: any): JSX.Element => {
     const router = useRouter();
@@ -24,8 +25,8 @@ const BottomSlider = ({ id, header, description, image }: any): JSX.Element => {
     }, []);
 
     return (
-        <div className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-slate-100 max-h">
-            <ImageContainer src={image} alt="background" />
+        <div className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-slate-100">
+            <ImageContainer src={image ? image : brokenImage } alt="background" />
             <Body header={header} description={description} />
             <div className="flex justify-around">
                 <RoutingButton />

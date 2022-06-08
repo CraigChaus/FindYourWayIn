@@ -25,6 +25,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     const [isLocation, setIsLocation] = React.useState(false);
     const [bottomSlider, setBottomSlider] = React.useState<any>(null);
+    const [openBottomSlider, setOpenBottomSlider] = React.useState(false);;
 
     function handleSetLocation() {
         setIsLocation(!isLocation);
@@ -37,6 +38,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
             for (const location of locations) {
                 if (location.id === query.id) {
                     setBottomSlider(location);
+                    setOpenBottomSlider(true);
                 }
             }
         }
@@ -104,7 +106,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                     setIsLocation={handleSetLocation}
                 />
 
-                {bottomSlider && (
+                {bottomSlider && openBottomSlider && (
                     <BottomSlider
                         id={bottomSlider?.id}
                         header={bottomSlider?.location?.label}
@@ -112,7 +114,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                             bottomSlider.trcItemDetails[0]?.shortdescription
                         }
                         image={
-                            bottomSlider.files[0].hlink
+                            bottomSlider.files[0]?.hlink !== undefined
                                 ? bottomSlider.files[0]?.hlink
                                 : ''
                         }
