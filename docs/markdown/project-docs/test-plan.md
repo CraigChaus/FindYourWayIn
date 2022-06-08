@@ -5,10 +5,12 @@ _13/05/2022_
 **VERSION HISTORY**
 
 
-| **ID#**  | **Prepared****By**  | **Revision Date** | **Approved By** | **Approval Date** | **Reason**                  |
-|----------|---------------------|-------------------|-----------------|-------------------|-----------------------------|
- | 1.0      | Craig Chauraya      | 16/05/2022        | Minh Pham       | 13/05/2022        | Test rules and descriptions |
- |
+| **ID#** | **Prepared****By** | **Revision Date** | **Approved By** | **Approval Date** | **Reason**                                           |
+|---------|--------------------|-------------------|-----------------|-------------------|------------------------------------------------------|
+| 1.0     | Craig Chauraya     | 16/05/2022        | Minh Pham       | 13/05/2022        | Test rules and descriptions                          |
+| 2.0     | Craig Chauraya     | 08/06/2022        | Minh Pham       | 09/06/2022        | Update test plan table structure,update User story 2 |
+
+ 
 
 
 
@@ -42,76 +44,74 @@ The test plan is seperated into user stories in the order of their SPRINT priori
 
 ### 2.2.1 User Story 1 
 
- | **Item to Test**                       | **Test Description** | **Test Date** | **Responsibility** |
- |----------------------------------------|:--------------------:|---------------|--------------------|
- | Google map integration                 |   Integration test   |               |                    |
- | Basic functionalities on map interface |   Integration test   |               |                    |
- | UI components for navigation screen    |      Unit test       |               |                    |
+ | **Item to Test**                       | **Test Description** |
+ |----------------------------------------|:--------------------:|
+ | Google map integration                 |   Integration test   |
+ | Basic functionalities on map interface |   Integration test   |
+ | UI components for navigation screen    |      Unit test       |
 
 ### 2.2.2 User Story 2
 
-| **Item to Test**                               | **Test Description** | **Test Date** | **Responsibility** |
-|------------------------------------------------|:--------------------:|---------------|--------------------|
-| Icon bound to a location                       |      Unit test       |               |                    |  
-| API information reflecting on locations popup  |   Integration test   |               |                    |  
-| Icon display filtering                         |   Integration test   |               |                    |  
-| Popup dialogue pops up when icon is clicked    |      Unit test       |               |                    |  
+| **Item to Test**                               | **Test Description** |
+|------------------------------------------------|:--------------------:|
+| API information reflecting on locations popup  |   Integration test   |  
+| Icon display filtering                         |   Integration test   |  
+| Popup dialogue pops up when icon is clicked    |      Unit test       |  
 
 ### 2.2.3 User Story 4
 
-| **Item to Test**                       | **Test Description** | **Test Date** | **Responsibility** |
-|----------------------------------------|:--------------------:|---------------|--------------------|
-| Search bar functionality in navigation |   Integration test   |               |                    |
-| Display route on overview map          |   Integration test   |               |                    |   
-| Switching to live navigation mode      |   Integration test   |               |                    |    
-| Destination reached message            |   Integration test   |               |                    |   
+| **Item to Test**                       | **Test Description** |
+|----------------------------------------|:--------------------:|
+| Search bar functionality in navigation |   Integration test   |
+| Display route on overview map          |   Integration test   |   
+| Switching to live navigation mode      |   Integration test   |    
+| Destination reached message            |   Integration test   |   
 
 ### 2.2.4 User Story 3
 
-| **Item to Test**                                     | **Test Description** | **Test Date** | **Responsibility** |
-|------------------------------------------------------|:--------------------:|---------------|--------------------|
-| API data displayng list of locations with promotions |  Integration  test   |               |                    |
-| Routing to the location                              |   Integration test   |               |                    |
+| **Item to Test**                                     | **Test Description** |
+|------------------------------------------------------|:--------------------:|
+| API data displayng list of locations with promotions |  Integration  test   |
+| Routing to the location                              |   Integration test   |
 
 ### 2.2.5 User Story 5
 
-| **Item to Test**                                          | **Test Description** | **Test Date** | **Responsibility** |
-|-----------------------------------------------------------|:--------------------:|---------------|--------------------|
-| API data displaying shops and restuarants with promotions |   Integration test   |               |                    |
-| Routing to the location                                   |   Integration test   |               |                    |
+| **Item to Test**                                          | **Test Description** |
+|-----------------------------------------------------------|:--------------------:|
+| API data displaying shops and restuarants with promotions |   Integration test   |
+| Routing to the location                                   |   Integration test   |
 
 
 ### 2.2.6 User Story 6
 
-| **Item to Test**                                           | **Test Description** | **Test Date** | **Responsibility** |
-|------------------------------------------------------------|:--------------------:|---------------|--------------------|
-| API data displaying all events( both current and upcoming) |   Integration test   |               | Craig Chauraya     |
-| CLiking on an event to read the details of the event       |      unit test       |               | Craig Chauraya     |
+| **Item to Test**                                           | **Test Description** |
+|------------------------------------------------------------|:--------------------:|
+| API data displaying all events( both current and upcoming) |   Integration test   |
+| CLiking on an event to read the details of the event       |      unit test       |
 
 ### 2.2.7 User Story 7
 
-| **Item to Test**                                              | **Test Description** | **Test Date** | **Responsibility** |
-|---------------------------------------------------------------|:--------------------:|---------------|--------------------|
-| API data displaying all events and locations within Walstraat |   Integration test   |               |                    |
-| CLiking on an event or location to read details about it      |      Unit test       |               |                    |
-| Routing to the location                                       |   Integration test   |               |                    |
-
+| **Item to Test**                                              | **Test Description** |
+|---------------------------------------------------------------|:--------------------:|
+| API data displaying all events and locations within Walstraat |   Integration test   |
+| CLiking on an event or location to read details about it      |      Unit test       |
+| Routing to the location                                       |   Integration test   |
 ### 2.2.8 User Story 9
 
-| **Item to Test**                                | **Test Description** | **Test Date** | **Responsibility** |
-|-------------------------------------------------|:--------------------:|---------------|--------------------|
-| Storing user location preference in database    |   Integration test   |               |                    |
-| Routing to the locations as per user preference |   Integration test   |               |                    |
+| **Item to Test**                                | **Test Description** |
+|-------------------------------------------------|:--------------------:|
+| Storing user location preference in database    |   Integration test   |
+| Routing to the locations as per user preference |   Integration test   |
 
 ### 2.2.9 User Story 13
 
-| **Item to Test**                      | **Test Description** | **Test Date** | **Responsibility** |
-|---------------------------------------|:--------------------:|---------------|--------------------|
-| Signing up                            |      Unit test       |               | Minh Pham          |
-| Login in                              |      Unit test       |               | Minh Pham          |
-| Storing user account data in database |      Unit test       |               | Minh Pham          |
+| **Item to Test**                      | **Test Description** |
+|---------------------------------------|:--------------------:|
+| Signing up                            |      Unit test       |          
+| Login in                              |      Unit test       |          
+| Storing user account data in database |      Unit test       |          
 
-## 2.3. Items to be tested
+## 2.3. Items not to be tested
 
 Some items are not worth testing because they are simply static HTML pages that have no additional functionality besides routing to another page.
 
