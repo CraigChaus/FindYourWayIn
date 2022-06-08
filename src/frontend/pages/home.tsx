@@ -28,7 +28,6 @@ export const getServerSideProps = async () => {
 const Home: NextPage = ({ data }: any) => {
     return (
         <div className="flex flex-col h-screen">
-            <Navbar />
             <HomePage locations={data} />
             {/* <BottomSlider/> */}
         </div>

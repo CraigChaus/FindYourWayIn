@@ -1,10 +1,14 @@
 import UserLocationMarker from '@components/GoogleMaps/userLocationMarker';
 import LocationMarker from '@components/homepage/LocationMarker';
+import Navbar from '@components/map-navbar/MapNavbar';
 import React from 'react';
 import GoogleAutocomplete from '../GoogleMaps/GoogleAutocomplete';
 import GoogleMap from '../GoogleMaps/GoogleMap';
+import { useRouter } from 'next/router';
+import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 
 const HomePage = ({ locations }: any): JSX.Element => {
+    const { query } = useRouter();
     const [mounted, setMounted] = React.useState(false);
     // Default value set to Deventer in the case that geolocation doesnt work
     const [lat, setLat] = React.useState(52.2661);
@@ -20,10 +24,27 @@ const HomePage = ({ locations }: any): JSX.Element => {
     const [address, setAddress] = React.useState<string>('');
 
     const [isLocation, setIsLocation] = React.useState(false);
+    const [bottomSlider, setBottomSlider] = React.useState<any>(null);
+    const [openBottomSlider, setOpenBottomSlider] = React.useState(false);
 
     function handleSetLocation() {
         setIsLocation(!isLocation);
     }
+
+    // const bottomSliderRef = React.useRef(null);
+
+    React.useEffect(() => {
+        if (query.id) {
+            for (const location of locations) {
+                if (location.id === query.id) {
+                    setBottomSlider(location);
+                    setOpenBottomSlider(true);
+                }
+            }
+        }
+    }, [locations, query]);
+
+    console.log('bottomSliderRef', bottomSlider);
 
     React.useEffect(() => {
         if (!mounted) return;
@@ -51,44 +72,56 @@ const HomePage = ({ locations }: any): JSX.Element => {
         });
     }, [lat]);
 
-    // console.log(`
-    //     Country: ${country}\n
-    //     City: ${city}\n
-    //     Address: ${address}
-    // `);
-
     return (
-        <div className="w-full h-full">
-            <GoogleAutocomplete
-                setLat={setLat}
-                setLng={setLng}
-                setAddress={setAddress}
-            />
-
-            <GoogleMap
-                center={{ lat, lng }}
-                zoom={zoom}
-                setZoom={setZoom}
-                style={{ width: '100%', height: '100%' }}
-                disableDefaultUI
-                clickableIcons={false}
-                mapId="9c7cb3e171b411ff"
-                gestureHandling={'cooperative'}
-                locations={locations}
-            >
-                <UserLocationMarker
-                    position={{ lat, lng }}
+        <>
+            <Navbar />
+            <div className="absolute w-full h-full">
+                <GoogleAutocomplete
                     setLat={setLat}
                     setLng={setLng}
                     setAddress={setAddress}
                 />
-            </GoogleMap>
 
-            <LocationMarker
-                isLocation={isLocation}
-                setIsLocation={handleSetLocation}
-            />
-        </div>
+                <GoogleMap
+                    center={{ lat, lng }}
+                    zoom={zoom}
+                    // setZoom={setZoom}
+                    style={{ width: '100%', height: '100%' }}
+                    disableDefaultUI
+                    clickableIcons={false}
+                    mapId="9c7cb3e171b411ff"
+                    gestureHandling={'cooperative'}
+                    locations={locations}
+                >
+                    <UserLocationMarker
+                        position={{ lat, lng }}
+                        setLat={setLat}
+                        setLng={setLng}
+                        setAddress={setAddress}
+                    />
+                </GoogleMap>
+
+                <LocationMarker
+                    isLocation={isLocation}
+                    setIsLocation={handleSetLocation}
+                />
+
+                {bottomSlider && openBottomSlider && (
+                    <BottomSlider
+                        id={bottomSlider?.id}
+                        header={bottomSlider?.location?.label}
+                        description={
+                            bottomSlider.trcItemDetails[0]?.shortdescription
+                        }
+                        image={
+                            bottomSlider.files[0]?.hlink !== undefined
+                                ? bottomSlider.files[0]?.hlink
+                                : ''
+                        }
+                    />
+                )}
+            </div>
+        </>
     );
 };
 export default HomePage;
