@@ -16,7 +16,7 @@ export default function Sidebar() {
     }
 
     return (
-        <>
+        <div>
             <button
                 onClick={handleShowSidebar}
                 className="w-12 m-2 font-bold text-white border-black rounded h-14 hover:bg-green-600"
@@ -74,6 +74,6 @@ export default function Sidebar() {
                     </ul>
                 </div>
             </div>
-        </>
+        </div>
     );
 }

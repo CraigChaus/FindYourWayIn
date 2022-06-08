@@ -13,8 +13,8 @@ export const Navbar = () => {
             <div
                 className="z-10 flex items-center justify-between bg-green-500 h-18"
             >
+                
                 <SideBar />
-
                 <Image
                     onClick={() => router.push('/')}
                     alt="logo"
