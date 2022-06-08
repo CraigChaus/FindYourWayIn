@@ -13,8 +13,8 @@ export const Navbar = () => {
             >
                 <SideBar />
                 <div className="flex justify-end">
-                <SearchBar />
-                <UserDropdown />
+                    <SearchBar />
+                    <UserDropdown />
                 </div>
             </div>
             <SliderMenu />

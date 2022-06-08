@@ -10,7 +10,7 @@ interface MapProps extends google.maps.MapOptions {
     onClick?: (e: google.maps.MapMouseEvent) => void;
     onIdle?: (map: google.maps.Map) => void;
     children?: React.ReactElement | React.ReactElement[];
-    setZoom: React.Dispatch<SetStateAction<number>>;
+    // setZoom: React.Dispatch<SetStateAction<number>>;
 }
 
 const GoogleMap = ({
@@ -19,7 +19,7 @@ const GoogleMap = ({
     onIdle,
     children,
     style,
-    setZoom,
+    // setZoom,
     ...options
 }: MapProps) => {
     const mapRef = React.useRef<HTMLDivElement>(null);
@@ -32,13 +32,11 @@ const GoogleMap = ({
 
     const [markers, setMarkers] = React.useState<any[]>([]);
 
-
     const filterContext = useContext(FilterContext);
 
     function clearMarker(marker: google.maps.Marker) {
         marker.setMap(null);
     }
-
 
     React.useEffect(() => {
         if (mapRef.current && !map) {
@@ -53,11 +51,11 @@ const GoogleMap = ({
     }, [map, options]);
 
     function clearMarkers() {
-        for(let i = 0; i < markers.length; i++) {
+        for (let i = 0; i < markers.length; i++) {
             markers[i].setMap(null);
         }
     }
-    
+
     map?.addListener('click', (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);
         markerRef.current = new google.maps.Marker({
@@ -65,37 +63,39 @@ const GoogleMap = ({
             map: map,
         });
     });
-    
-    React.useEffect(() => {
 
+    React.useEffect(() => {
         clearMarkers();
-    
-        if(filteredLocations.length) {
-          const googleMarkers = [];
-    
-          for(let i = 0; i < filteredLocations.length; i++) {
-            const marker = new google.maps.Marker({
-                position: {
-                    lat: parseFloat(
-                        locations[i].location.address.gisCoordinates[0]
-                            .xcoordinate),
-                    lng: parseFloat(
-                        locations[i].location.address.gisCoordinates[0]
-                            .ycoordinate,
-                    )
-                },
-                map: map,
-            });
-            googleMarkers.push(marker);
-          }
-    
-          setMarkers(googleMarkers);
+
+        if (filteredLocations.length) {
+            const googleMarkers = [];
+
+            for (let i = 0; i < filteredLocations.length; i++) {
+                const marker = new google.maps.Marker({
+                    position: {
+                        lat: parseFloat(
+                            locations[i].location.address.gisCoordinates[0]
+                                .xcoordinate,
+                        ),
+                        lng: parseFloat(
+                            locations[i].location.address.gisCoordinates[0]
+                                .ycoordinate,
+                        ),
+                    },
+                    map: map,
+                });
+                googleMarkers.push(marker);
+            }
+
+            setMarkers(googleMarkers);
         }
-      }, [filteredLocations, map]);
-    
+    }, [filteredLocations, map]);
+
     React.useEffect(() => {
         setDataLocation(locations);
-        setFilteredLocations(filterByCategory(dataLocation, filterContext.filter));
+        setFilteredLocations(
+            filterByCategory(dataLocation, filterContext.filter),
+        );
     }, [locations, dataLocation, filterContext.filter]);
 
     // React.useEffect(() => {
@@ -141,11 +141,12 @@ const GoogleMap = ({
                             position={{
                                 lat: parseFloat(
                                     location.location.address.gisCoordinates[0]
-                                        .xcoordinate),
+                                        .xcoordinate,
+                                ),
                                 lng: parseFloat(
                                     location.location.address.gisCoordinates[0]
                                         .ycoordinate,
-                                )
+                                ),
                             }}
                             category={
                                 location.trcItemCategories.types[0]
