@@ -6,6 +6,9 @@ const ImageContainer = (props: any) => {
         <Image
             src={props.src}
             alt={props.alt}
+            width={375}
+            layout="intrinsic"
+            height={300}
             className="object-cover rounded-t-lg"
         />
     );

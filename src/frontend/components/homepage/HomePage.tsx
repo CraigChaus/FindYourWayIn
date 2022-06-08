@@ -4,8 +4,11 @@ import Navbar from '@components/map-navbar/MapNavbar';
 import React from 'react';
 import GoogleAutocomplete from '../GoogleMaps/GoogleAutocomplete';
 import GoogleMap from '../GoogleMaps/GoogleMap';
+import { useRouter } from 'next/router';
+import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 
 const HomePage = ({ locations }: any): JSX.Element => {
+    const { query } = useRouter();
     const [mounted, setMounted] = React.useState(false);
     // Default value set to Deventer in the case that geolocation doesnt work
     const [lat, setLat] = React.useState(52.2661);
@@ -21,10 +24,26 @@ const HomePage = ({ locations }: any): JSX.Element => {
     const [address, setAddress] = React.useState<string>('');
 
     const [isLocation, setIsLocation] = React.useState(false);
+    const [bottomSlider, setBottomSlider] = React.useState<any>(null);
 
     function handleSetLocation() {
         setIsLocation(!isLocation);
     }
+
+    // const bottomSliderRef = React.useRef(null);
+
+    React.useEffect(() => {
+        if (query.id) {
+            for (const location of locations) {
+                if (location.id === query.id) {
+                    setBottomSlider(location);
+                }
+                
+            }
+        }
+    }, [locations, query]);
+
+    console.log('bottomSliderRef', bottomSlider);
 
     React.useEffect(() => {
         if (!mounted) return;
@@ -51,12 +70,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
             });
         });
     }, [lat]);
-
-    // console.log(`
-    //     Country: ${country}\n
-    //     City: ${city}\n
-    //     Address: ${address}
-    // `);
 
     return (
         <>
@@ -91,6 +104,14 @@ const HomePage = ({ locations }: any): JSX.Element => {
                     isLocation={isLocation}
                     setIsLocation={handleSetLocation}
                 />
+                
+                {bottomSlider && 
+                <BottomSlider 
+                    id={bottomSlider?.id}
+                    header={bottomSlider?.location?.label} 
+                    description={bottomSlider.trcItemDetails[0]?.shortdescription}
+                    image={bottomSlider.files[0].hlink ? bottomSlider.files[0]?.hlink : ''}
+                />}
             </div>
         </>
     );

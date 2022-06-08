@@ -3,29 +3,35 @@ import ImageContainer from './ImageContainer';
 import RoutingButton from './RoutingButton';
 import InfoButton from './InfoButton';
 import Body from './Body';
-import Background from '../../../public/images/background.jpg';
-import { allLocations } from 'API/api';
-import { allowedNodeEnvironmentFlags } from 'process';
+import { useRouter } from 'next/router';
 
-const BottomSlider = (): JSX.Element => {
-    const [locationTitle, setLocationTitle] = useState('');
-    const [locationShortDesc, setlocationShortDesc] = useState('');
+const BottomSlider = ({id, header, description, image}: any): JSX.Element => {
+    const router = useRouter();
+    // const [locationTitle, setLocationTitle] = useState('');
+    // const [locationShortDesc, setlocationShortDesc] = useState('');
 
+    // useEffect(() => {
+    //     setLocationTitle(allLocations[0].name);
+    //     setlocationShortDesc(allLocations[0].shortDescription);
+    //     console.log('LOCATION INFO FOR BOTTOM SLIDER');
+    //     console.log(allLocations[0].name);
+    //     console.log(allLocations[0].shortDescription);
+    // }, []);
     useEffect(() => {
-        setLocationTitle(allLocations[0].name);
-        setlocationShortDesc(allLocations[0].shortDescription);
-        console.log('LOCATION INFO FOR BOTTOM SLIDER');
-        console.log(allLocations[0].name);
-        console.log(allLocations[0].shortDescription);
-    }, [allLocations]);
+        return (
+            () => {
+                console.log('unmounting');
+            }
+        );
+    }, []);
 
     return (
         <div className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-slate-100 max-h">
-            <ImageContainer src={Background} alt="background" />
-            <Body header={locationTitle} description={locationShortDesc} />
+            <ImageContainer src={image} alt="background" />
+            <Body header={header} description={description} />
             <div className="flex justify-around">
                 <RoutingButton />
-                <InfoButton />
+                <InfoButton onClick={() => router.push(`description/${id}`)}/>
             </div>
         </div>
     );

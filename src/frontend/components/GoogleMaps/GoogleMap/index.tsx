@@ -133,10 +133,11 @@ const GoogleMap = ({
             })}
             {/* Below marker is set for testing purposes located in Deventer.  */}
             {dataLocation &&
-                dataLocation.map((location: any, index: any) => {
+                dataLocation.map((location: any) => {
                     return (
                         <ObjectMarker
-                            key={index}
+                            id={location.id}
+                            key={location.id}
                             map={map}
                             position={{
                                 lat: parseFloat(
@@ -148,6 +149,7 @@ const GoogleMap = ({
                                         .ycoordinate,
                                 ),
                             }}
+                            clickable={true}
                             category={
                                 location.trcItemCategories.types[0]
                                     .categoryTranslations[0].label
