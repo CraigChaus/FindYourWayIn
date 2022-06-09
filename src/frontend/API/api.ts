@@ -79,6 +79,9 @@ getAllLocations(allLocations).then(data => {
 });
 
 function filterByCategory(allLocations:any[],searchedCategory:string){
+    // if(searchedCategory==="All"){
+    //     return allLocations
+    // }
 return allLocations.filter(function (currentElement){
     return currentElement.trcItemCategories.types[0].categoryTranslations[0].label === searchedCategory 
 })
