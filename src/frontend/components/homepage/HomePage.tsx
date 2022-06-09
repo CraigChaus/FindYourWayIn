@@ -17,7 +17,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
     const [lat, setLat] = React.useState(52.2661);
     const [lng, setLng] = React.useState(6.1552);
     const [zoom, setZoom] = React.useState(16);
-    
 
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder();
@@ -43,7 +42,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
     //     setCenter(m.getCenter()!.toJSON());
     // };
 
-
     function handleSetLocation() {
         setIsLocation(!isLocation);
     }
@@ -56,7 +54,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     React.useEffect(() => {
         if (!mounted) return;
-        geocoder.geocode({ location: { lat, lng } })
+        geocoder.geocode({ location: { lat, lng } });
         // .then((res) => {
         //     if (res.results[0]) {
         //         res.results[0].address_components.reverse().filter((object) => {
@@ -80,7 +78,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
         //     });
         // });
     }, [geocoder, lat, lng, mounted]);
-    
 
     React.useEffect(() => {
         clearMarkers();
@@ -153,50 +150,51 @@ const HomePage = ({ locations }: any): JSX.Element => {
                         setAddress={setAddress}
                     />
 
-                {dataLocation &&
-                dataLocation.map((location: any) => {
-                    return (
-                        <ObjectMarker
-                            id={location.id}
-                            key={location.id}
-                            position={{
-                                lat: parseFloat(
-                                    location.location.address.gisCoordinates[0]
-                                        .xcoordinate,
-                                ),
-                                lng: parseFloat(
-                                    location.location.address.gisCoordinates[0]
-                                        .ycoordinate,
-                                ),
-                            }}
-                            clickable={true}
-                            category={
-                                location.trcItemCategories.types[0]
-                                    .categoryTranslations[0].label
+                    {dataLocation &&
+                        dataLocation.map((location: any) => {
+                            return (
+                                <ObjectMarker
+                                    id={location.id}
+                                    key={location.id}
+                                    position={{
+                                        lat: parseFloat(
+                                            location.location.address
+                                                .gisCoordinates[0].xcoordinate,
+                                        ),
+                                        lng: parseFloat(
+                                            location.location.address
+                                                .gisCoordinates[0].ycoordinate,
+                                        ),
+                                    }}
+                                    clickable={true}
+                                    category={
+                                        location.trcItemCategories.types[0]
+                                            .categoryTranslations[0].label
+                                    }
+                                />
+                            );
+                        })}
+                    {bottomSlider && (
+                        <BottomSlider
+                            id={bottomSlider?.id}
+                            header={bottomSlider?.location?.label}
+                            description={
+                                bottomSlider.trcItemDetails[0]?.shortdescription
                             }
+                            image={
+                                bottomSlider.files[0]?.hlink !== undefined
+                                    ? bottomSlider.files[0]?.hlink
+                                    : ''
+                            }
+                            handleCloseBottomSlider={() => {
+                                setBottomSlider(null);
+                                Router.replace('/home', undefined, {
+                                    shallow: true,
+                                });
+                            }}
                         />
-                    );
-                })}
-            {bottomSlider && (
-                    <BottomSlider
-                        id={bottomSlider?.id}
-                        header={bottomSlider?.location?.label}
-                        description={
-                            bottomSlider.trcItemDetails[0]?.shortdescription
-                        }
-                        image={
-                            bottomSlider.files[0]?.hlink !== undefined
-                                ? bottomSlider.files[0]?.hlink
-                                : ''
-                        }
-                        handleCloseBottomSlider={() =>  {
-                            setBottomSlider(null)
-                            Router.replace('/home', undefined, { shallow: true })
-                        }}
-                    />
                     )}
                 </GoogleMap>
-
 
                 {/* {bottomSlider && (
                     <BottomSlider
@@ -218,5 +216,3 @@ const HomePage = ({ locations }: any): JSX.Element => {
     );
 };
 export default HomePage;
-
-

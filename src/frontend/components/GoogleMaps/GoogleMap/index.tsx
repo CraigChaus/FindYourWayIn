@@ -46,7 +46,7 @@ const GoogleMap = ({
     React.useEffect(() => {
         if (map) {
             map.setOptions(options);
-            console.log('update option')
+            console.log('update option');
         }
     }, [map]);
 
@@ -58,19 +58,19 @@ const GoogleMap = ({
 
     React.useEffect(() => {
         if (map) {
-          ["click", "idle"].forEach((eventName) =>
-            google.maps.event.clearListeners(map, eventName)
-          );
-      
-          if (onClick) {
-            map.addListener("click", onClick);
-          }
-      
-          if (onIdle) {
-            map.addListener("idle", () => onIdle(map));
-          }
+            ['click', 'idle'].forEach((eventName) =>
+                google.maps.event.clearListeners(map, eventName),
+            );
+
+            if (onClick) {
+                map.addListener('click', onClick);
+            }
+
+            if (onIdle) {
+                map.addListener('idle', () => onIdle(map));
+            }
         }
-      }, [map, onClick, onIdle]);
+    }, [map, onClick, onIdle]);
 
     map?.addListener('click', (mapsMouseEvent: google.maps.MapMouseEvent) => {
         clearMarker(markerRef.current);
@@ -79,7 +79,6 @@ const GoogleMap = ({
             map: map,
         });
     });
-
 
     // React.useEffect(() => {
     //     clearMarkers();
