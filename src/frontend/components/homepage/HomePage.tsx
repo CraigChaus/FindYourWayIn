@@ -25,7 +25,23 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     const [isLocation, setIsLocation] = React.useState(false);
     const [bottomSlider, setBottomSlider] = React.useState<any>(null);
-    const [openBottomSlider, setOpenBottomSlider] = React.useState(false);
+    // const [openBottomSlider, setOpenBottomSlider] = React.useState(false);
+
+    // const [sliderState, dispatchSliderState] = React.useReducer(sliderReducer, false);
+
+    // function sliderReducer(state: boolean, action: any) {
+    //     switch (action.type) {
+    //         case 'open':
+    //             state = true;
+    //             break;
+    //         case 'close':
+    //             state = false;
+    //             break;
+    //         default:
+    //             state = false;
+    //     }
+    //     return state
+    // }
 
     function handleSetLocation() {
         setIsLocation(!isLocation);
@@ -38,7 +54,8 @@ const HomePage = ({ locations }: any): JSX.Element => {
             for (const location of locations) {
                 if (location.id === query.id) {
                     setBottomSlider(location);
-                    setOpenBottomSlider(true);
+                    console.log(bottomSlider);
+                    // setOpenBottomSlider(true);
                 }
             }
         }
@@ -106,7 +123,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                     setIsLocation={handleSetLocation}
                 />
 
-                {bottomSlider && openBottomSlider && (
+                {bottomSlider && (
                     <BottomSlider
                         id={bottomSlider?.id}
                         header={bottomSlider?.location?.label}
@@ -118,6 +135,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                                 ? bottomSlider.files[0]?.hlink
                                 : ''
                         }
+                        handleCloseBottomSlider={() => setBottomSlider(null)}
                     />
                 )}
             </div>

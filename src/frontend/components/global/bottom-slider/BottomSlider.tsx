@@ -5,8 +5,9 @@ import InfoButton from './InfoButton';
 import Body from './Body';
 import { useRouter } from 'next/router';
 import brokenImage from '../../../public/images/broken.png';
+import CloseButton from './CloseButton';
 
-const BottomSlider = ({ id, header, description, image }: any): JSX.Element => {
+const BottomSlider = ({ id, header, description, image, handleCloseBottomSlider }: any): JSX.Element => {
     const router = useRouter();
     // const [locationTitle, setLocationTitle] = useState('');
     // const [locationShortDesc, setlocationShortDesc] = useState('');
@@ -34,6 +35,7 @@ const BottomSlider = ({ id, header, description, image }: any): JSX.Element => {
             <div className="flex justify-around">
                 <RoutingButton />
                 <InfoButton onClick={() => router.push(`description/${id}`)} />
+                <CloseButton onClick={handleCloseBottomSlider} />
             </div>
         </div>
     );
