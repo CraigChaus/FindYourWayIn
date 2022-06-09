@@ -14,58 +14,22 @@ const UserLocationMarker: React.FC<MarkerProps> = ({
     ...options
 }) => {
     const [userMarker, setUserMarker] = React.useState<google.maps.Marker>();
-    // const [ userLat, setUserLat ] = React.useState(0)
-    // const [ userLng, setUserLng ] = React.useState(0)
 
     React.useEffect(() => {
         if (userMarker && navigator.geolocation) {
             console.log('NAVIGATOR CALLED');
-            // navigator.geolocation.getCurrentPosition(
-            //     (pos) => {
-            //         const position = pos.coords;
-            //         if(position){
-            //             console.log(position.latitude, "states updated")
-            //             setLat(position.latitude);
-            //             setLng(position.longitude);
-            //         }
-            //     }
-            // )
-            console.log('NAVIGATOR geolocation received');
-            navigator.geolocation.watchPosition((pos) => {
+            navigator.geolocation.getCurrentPosition((pos) => {
                 const position = pos.coords;
                 if (position) {
-                    console.log('CHANGE OF POSITION!');
-                    console.log(
-                        'new coords ',
-                        position.latitude,
-                        position.longitude,
-                    );
+                    console.log(position.latitude, 'states updated');
                     setLat(position.latitude);
                     setLng(position.longitude);
                 }
             });
-        }
-    }, [userMarker]);
-
-    React.useEffect(() => {
-        if (userMarker && navigator.geolocation) {
-            console.log('NAVIGATOR CALLED');
-            // navigator.geolocation.getCurrentPosition(
-            //     (pos) => {
-            //         const position = pos.coords;
-            //         if(position){
-            //             console.log(position.latitude, "states updated")
-            //             setLat(position.latitude);
-            //             setLng(position.longitude);
-            //         }
-            //     }
-            // )
             console.log('NAVIGATOR geolocation received');
             navigator.geolocation.watchPosition((pos) => {
                 const position = pos.coords;
                 if (position) {
-                    // console.log("CHANGE OF POSITION!")
-                    // console.log("new coords ", position.latitude, position.longitude)
                     setLat(position.latitude);
                     setLng(position.longitude);
                 }
@@ -97,9 +61,8 @@ const UserLocationMarker: React.FC<MarkerProps> = ({
 
     React.useEffect(() => {
         if (userMarker) {
-            console.log('options set');
             userMarker.setOptions(options);
-            //console.log("user marker is set with", userLat, userLng)
+            console.log('user marker is set with', options.position);
         }
     }, [options, userMarker]);
 
