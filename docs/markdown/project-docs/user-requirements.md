@@ -57,12 +57,12 @@ These emphasise the priority of the user requirement: MUST being the greatest fo
 
 ### Non-Functional requirements
 
-| No  | Description                                                                            |     Source     | Reference ID |
-|-----|----------------------------------------------------------------------------------------|:--------------:|:------------:|
-| 1.  | System can work on mobile devices                                                      | Client meeting |    SNF01     |
-| 2.  | System can support at least 3 languages                                                |      Cu08      |    SNF02     |
-| 3.  | System can support multiple users connected at once                                    |    Analysis    |    SNF03     |
-| 4.  | System can securely log in a customer using SSO                                        |    Analysis    |    SNF04     |
-| 5.  | System can run 24/7                                                                    |    Analysis    |    SNF05     |
-| 6.  | System can have a user friendly interface (UI/UX)                                      |    Analysis    |    SNF06     |
-| 7.  | System can be maintained by third parties                                              |    Analysis    |    SNF07     |
+| No  | Description                                                                            |     Source     | Reference ID |   ISO 25010  Standart |
+|-----|----------------------------------------------------------------------------------------|:--------------:|:------------:|:---------------------:|
+| 1.  | System can work on mobile devices                                                      | Client meeting |    SNF01     |  Portability          |
+| 2.  | System can support at least 3 languages                                                |      Cu08      |    SNF02     |  Usability            |
+| 3.  | System can support multiple users connected at once                                    |    Analysis    |    SNF03     | Performance Efficiency|
+| 4.  | System can securely log in a customer using SSO                                        |    Analysis    |    SNF04     |      Security         |
+| 5.  | System can run 24/7                                                                    |    Analysis    |    SNF05     |    Reliability        |
+| 6.  | System can have a user friendly interface (UI/UX)                                      |    Analysis    |    SNF06     |    Usability          |
+| 7.  | System can be maintained by third parties                                              |    Analysis    |    SNF07     |     Maintainability   |
