@@ -7,7 +7,13 @@ import { useRouter } from 'next/router';
 import brokenImage from '../../../public/images/broken.png';
 import CloseButton from './CloseButton';
 
-const BottomSlider = ({ id, header, description, image, handleCloseBottomSlider }: any): JSX.Element => {
+const BottomSlider = ({
+    id,
+    header,
+    description,
+    image,
+    handleCloseBottomSlider,
+}: any): JSX.Element => {
     const router = useRouter();
     // const [locationTitle, setLocationTitle] = useState('');
     // const [locationShortDesc, setlocationShortDesc] = useState('');
