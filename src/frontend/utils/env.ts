@@ -9,9 +9,7 @@ export function assertNonNullable<T>(
     }
 }
 
-export function extractStringEnvVar(
-    key: keyof NodeJS.ProcessEnv,
-): string {
+export function extractStringEnvVar(key: keyof NodeJS.ProcessEnv): string {
     const value = process.env[key];
 
     if (value === undefined) {
@@ -23,9 +21,7 @@ export function extractStringEnvVar(
     return value;
 }
 
-export function extractNumberEnvVar(
-    key: keyof NodeJS.ProcessEnv,
-): number {
+export function extractNumberEnvVar(key: keyof NodeJS.ProcessEnv): number {
     const stringValue = extractStringEnvVar(key);
 
     const numberValue = parseFloat(stringValue);
@@ -39,9 +35,7 @@ export function extractNumberEnvVar(
     return numberValue;
 }
 
-export function extractIntegerEnvVar(
-    key: keyof NodeJS.ProcessEnv,
-): number {
+export function extractIntegerEnvVar(key: keyof NodeJS.ProcessEnv): number {
     const stringValue = extractStringEnvVar(key);
 
     const numberValue = parseInt(stringValue, 10);
@@ -55,9 +49,7 @@ export function extractIntegerEnvVar(
     return numberValue;
 }
 
-export function extractBooleanEnvVar(
-    key: keyof NodeJS.ProcessEnv,
-): boolean {
+export function extractBooleanEnvVar(key: keyof NodeJS.ProcessEnv): boolean {
     const value = extractIntegerEnvVar(key);
 
     return Boolean(value);

@@ -1,61 +1,61 @@
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState } from 'react';
 import {
-  onAuthStateChanged,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  signOut,
-  sendPasswordResetEmail,
-} from 'firebase/auth'
-import { auth } from '../firebase_config'
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    sendPasswordResetEmail,
+} from 'firebase/auth';
+import { auth } from '../firebase_config';
 
-const AuthContext = createContext<any>({})
+const AuthContext = createContext<any>({});
 
-export const useAuth = () => useContext(AuthContext)
+export const useAuth = () => useContext(AuthContext);
 
 export const AuthContextProvider = ({
-  children,
+    children,
 }: {
-  children: React.ReactNode
+    children: React.ReactNode;
 }) => {
-  const [user, setUser] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
+    const [user, setUser] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setUser({
-          uid: user.uid,
-          email: user.email,
-          displayName: user.displayName,
-        })
-      } else {
-        setUser(null)
-      }
-      setLoading(false)
-    })
-    return () => unsubscribe()
-  }, [])
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser({
+                    uid: user.uid,
+                    email: user.email,
+                    displayName: user.displayName,
+                });
+            } else {
+                setUser(null);
+            }
+            setLoading(false);
+        });
+        return () => unsubscribe();
+    }, []);
 
-  const signup = (email: string, password: string) => {
-    return createUserWithEmailAndPassword(auth, email, password)
-  }
+    const signup = (email: string, password: string) => {
+        return createUserWithEmailAndPassword(auth, email, password);
+    };
 
-  const login = (email: string, password: string) => {
-    return signInWithEmailAndPassword(auth, email, password)
-  }
+    const login = (email: string, password: string) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    };
 
-  const logout = async () => {
-    setUser(null)
-    await signOut(auth)
-  }
-  
-  const reset = async (email: string) => {
-    return sendPasswordResetEmail(auth, email)
-  }
+    const logout = async () => {
+        setUser(null);
+        await signOut(auth);
+    };
 
-  return (
-    <AuthContext.Provider value={{ user, login, signup, logout, reset }}>
-      {loading ? null : children}
-    </AuthContext.Provider>
-  )
-}
+    const reset = async (email: string) => {
+        return sendPasswordResetEmail(auth, email);
+    };
+
+    return (
+        <AuthContext.Provider value={{ user, login, signup, logout, reset }}>
+            {loading ? null : children}
+        </AuthContext.Provider>
+    );
+};

@@ -1,12 +1,9 @@
 import React from 'react';
 
-export default function LocationMarker(props: {
-    setIsLocation: (arg0: any) => void;
-    isLocation: boolean;
-}) {
+export default function LocationMarker({ onClick }: any) {
     return (
         <button
-            onClick={() => props.setIsLocation(!props.isLocation)}
+            onClick={() => onClick()}
             className="absolute p-2 font-bold bg-green-600 shadow-sm bottom-80 right-5 rounded-3xl shadow-gray-700 hover:bg-green-500"
         >
             <svg
