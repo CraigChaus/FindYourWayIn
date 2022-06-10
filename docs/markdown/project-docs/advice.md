@@ -9,7 +9,7 @@ Excluding the inital 2 weeks of preperation and research, our team has a total o
 
 ### SSO Authentication
 
-In this project authentication is done by Firebase, a backend multi-tool from Google. For signing up email/password is used. This is a common way for signing up to an application. However, Firebase has many options for authentication these include signing up by SMS/Phone or Anonymous login which allows guest users to login temporarily. There are also options for external providers for sign in, such as signing in with Twitter, Google, Facebook, Microsoft etc. Thesedays, many people make use of these SSO options. Although we did not implement these features, these are viable options that can be done in the future.
+In this project authentication is done by Firebase, a backend multi-tool from Google. For signing up email/password is used. This is a common way for signing up to an application. However, Firebase has many options for authentication. These include signing up by SMS/Phone or Anonymous login which allows guest users to login temporarily. There are also options for external providers for sign in, such as signing in with Twitter, Google, Facebook, Microsoft etc. Thesedays, many people make use of these SSO options. Although we did not implement these features, these are viable options that can be done in the future.
 
 
 
