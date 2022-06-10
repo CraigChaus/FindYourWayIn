@@ -72,16 +72,27 @@ Our possible mapping/ routing API candidates are:
 Here are our candidates:
 
 - A traditional SQL database such as PostgreSQL
-- A cloud hosted, No-SQL backend solution, Google Firebase.
+- A cloud hosted, NoSQL backend solution, Google Firebase.
 
-1. PostgresSQL: Postgres is a relational SQL database. The downside of using Postgre in this project is that the database must be hosted in some way. This can be achieved by using Docker containers or installing the database on a seperate server. The other downside is that there is no direct way to communicate with the database, there must be some ORM (such as Sequelize) for querying. Although these are not technically difficult issues, they are time consuming and require more effort.
+1. PostgresSQL: Postgres is a relational SQL database. The downside of using Postgre in this project is that the database must be hosted in some way. This can be achieved by using Docker containers or installing the database on a seperate server. The other downside is that there is no direct way to communicate with the database, there must be some ORM (such as Sequelize) for querying. Although these are not technically difficult issues, they are time consuming and require more effort in learning.
 
-2. Firebase: Firebase is a backend solution from Google. The Firebase Database is cloud hosted meaning it can be reached from any part of the world with no configuration or extra hosting step. This backend solution also includes other functionalites such as authentication tools.
+2. Firebase: Firebase is a backend solution from Google. The Firebase NoSQL Database is cloud hosted meaning it can be reached from any part of the world with no configuration or extra hosting step. This backend solution also includes other functionalites such as authentication tools.
 
 ### Comparison 
 
-In a large project like this with such limited time, minimising the time conspumption with tasks is crucial to deliver a viable product. 
+#### Platform
+In a large project like this with such limited time, minimising the time conspumption is crucial to deliver a viable product. Firebase is very user-friendly and quick to set up. Another huge benefit of Firebase is that it can also provide Authentication and email service to the project.
 
+One con of using Firebase database however is that it is not free to use. However, after researching the pricing model, we came to the conclusion that the usage of the application will most likely not pass the free usage quota. This means that the client will be paying close to nothing.
+
+#### Database Model
+Firebase uses NoSQL while Postgre is relational.  
+
+* NoSQL stores data in key-value pairs. This is optimal for this project because the company API we are using returns JSON, which uses the same method to store data.
+
+* SQL is well structured with tables, rows and columns. This makes is great for complex queries whereas NoSQL is not great for this. However our database schema is quite simple and straightforward which makes this issue irrelevant.
+
+ 
 
 
  | Criterions | PostgreSQL | Firebase |
@@ -89,3 +100,7 @@ In a large project like this with such limited time, minimising the time conspum
 | Hosting | Local | Cloud Hosted |
 |  No usage of ORM | - | + |
 | Authentication Tooling | - | + |
+| Free-to-use| + | - |
+| Learning curve| - | + |
+
+
