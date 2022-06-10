@@ -9,7 +9,7 @@ import { useAuth } from 'contexts/AuthContext';
 import Verify from '../../public/icons/verify.svg';
 
 /**
- * 
+ *
  * @returns Reset password component
  */
 const ResetPassword = (): JSX.Element => {
@@ -17,7 +17,7 @@ const ResetPassword = (): JSX.Element => {
     const [message, setMessage] = React.useState('');
     const { reset } = useAuth();
 
-    // handle reset password action on button clicked   
+    // handle reset password action on button clicked
     const handleReset = async (e: any) => {
         e.preventDefault();
         try {
