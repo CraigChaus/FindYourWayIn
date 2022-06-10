@@ -22,6 +22,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    // handle login action on button clicked
     const handleLogin = async (e: any) => {
         e.preventDefault();
         console.log(user);
@@ -35,6 +36,9 @@ export default function Login() {
         }
     };
 
+    /**
+     * @returns Sign in form layout
+     */
     return (
         <>
             <AuthLayout isSignUp={false}>

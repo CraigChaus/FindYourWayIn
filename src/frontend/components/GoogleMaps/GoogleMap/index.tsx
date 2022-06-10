@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useRouter } from 'next/router';
 import LocationMarker from '@components/homepage/LocationMarker';
+import { filterByCategory } from 'API/api';
+import { FilterContext } from 'contexts/FilterContext';
 
 interface MapProps extends google.maps.MapOptions {
     locations: any[];
@@ -26,12 +28,12 @@ const GoogleMap = ({
         new google.maps.Marker(),
     );
     const [map, setMap] = React.useState<google.maps.Map>();
-    // const [filteredLocations, setFilteredLocations] = React.useState<any[]>([]);
-    // const [dataLocation, setDataLocation] = React.useState<any[]>([]);
+    const [filteredLocations, setFilteredLocations] = React.useState<any[]>([]);
+    const [dataLocation, setDataLocation] = React.useState<any[]>([]);
     // const [bottomSlider, setBottomSlider] = React.useState<any>(null);
-    // const [markers, setMarkers] = React.useState<any[]>([]);
+    const [markers, setMarkers] = React.useState<any[]>([]);
 
-    // const filterContext = useContext(FilterContext);
+    const filterContext = useContext(FilterContext);
 
     function clearMarker(marker: google.maps.Marker) {
         marker.setMap(null);
@@ -50,11 +52,11 @@ const GoogleMap = ({
         }
     }, [map]);
 
-    // function clearMarkers() {
-    //     for (let i = 0; i < markers.length; i++) {
-    //         markers[i].setMap(null);
-    //     }
-    // }
+    function clearMarkers() {
+        for (let i = 0; i < markers.length; i++) {
+            markers[i].setMap(null);
+        }
+    }
 
     React.useEffect(() => {
         if (map) {
@@ -80,39 +82,39 @@ const GoogleMap = ({
         });
     });
 
-    // React.useEffect(() => {
-    //     clearMarkers();
+    React.useEffect(() => {
+        clearMarkers();
 
-    //     if (filteredLocations.length) {
-    //         const googleMarkers = [];
+        if (filteredLocations.length) {
+            const googleMarkers = [];
 
-    //         for (let i = 0; i < filteredLocations.length; i++) {
-    //             const marker = new google.maps.Marker({
-    //                 position: {
-    //                     lat: parseFloat(
-    //                         locations[i].location.address.gisCoordinates[0]
-    //                             .xcoordinate,
-    //                     ),
-    //                     lng: parseFloat(
-    //                         locations[i].location.address.gisCoordinates[0]
-    //                             .ycoordinate,
-    //                     ),
-    //                 },
-    //                 map: map,
-    //             });
-    //             googleMarkers.push(marker);
-    //         }
+            for (let i = 0; i < filteredLocations.length; i++) {
+                const marker = new google.maps.Marker({
+                    position: {
+                        lat: parseFloat(
+                            locations[i].location.address.gisCoordinates[0]
+                                .xcoordinate,
+                        ),
+                        lng: parseFloat(
+                            locations[i].location.address.gisCoordinates[0]
+                                .ycoordinate,
+                        ),
+                    },
+                    map: map,
+                });
+                googleMarkers.push(marker);
+            }
 
-    //         setMarkers(googleMarkers);
-    //     }
-    // }, [filteredLocations, map]);
+            setMarkers(googleMarkers);
+        }
+    }, [filteredLocations, map]);
 
-    // React.useEffect(() => {
-    //     setDataLocation(locations);
-    //     setFilteredLocations(
-    //         filterByCategory(dataLocation, filterContext.filter),
-    //     );
-    // }, [locations, dataLocation, filterContext.filter]);
+    React.useEffect(() => {
+        setDataLocation(locations);
+        setFilteredLocations(
+            filterByCategory(dataLocation, filterContext.filter),
+        );
+    }, [locations, dataLocation, filterContext.filter]);
 
     // React.useEffect(() => {
     //     if (query.id) {
