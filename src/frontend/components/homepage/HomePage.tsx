@@ -32,7 +32,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     // bottom slider state
     const [bottomSlider, setBottomSlider] = React.useState<any>(null);
-    const [markers, setMarkers] = React.useState<any[]>([]);
+    // const [markers, setMarkers] = React.useState<any[]>([]);
 
     const filterContext = useContext(FilterContext);
 
@@ -46,11 +46,11 @@ const HomePage = ({ locations }: any): JSX.Element => {
         setIsLocation(!isLocation);
     }
 
-    function clearMarkers() {
-        for (let i = 0; i < markers.length; i++) {
-            markers[i].setMap(null);
-        }
-    }
+    // function clearMarkers() {
+    //     for (let i = 0; i < markers.length; i++) {
+    //         markers[i].setMap(null);
+    //     }
+    // }
 
     React.useEffect(() => {
         if (!mounted) return;
@@ -79,31 +79,31 @@ const HomePage = ({ locations }: any): JSX.Element => {
         // });
     }, [geocoder, lat, lng, mounted]);
 
-    React.useEffect(() => {
-        clearMarkers();
+    // React.useEffect(() => {
+    //     clearMarkers();
 
-        if (filteredLocations.length) {
-            const googleMarkers = [];
+    //     if (filteredLocations.length) {
+    //         const googleMarkers = [];
 
-            for (let i = 0; i < filteredLocations.length; i++) {
-                const marker = new google.maps.Marker({
-                    position: {
-                        lat: parseFloat(
-                            dataLocation[i].location.address.gisCoordinates[0]
-                                .xcoordinate,
-                        ),
-                        lng: parseFloat(
-                            dataLocation[i].location.address.gisCoordinates[0]
-                                .ycoordinate,
-                        ),
-                    },
-                });
-                googleMarkers.push(marker);
-            }
+    //         for (let i = 0; i < filteredLocations.length; i++) {
+    //             const marker = new google.maps.Marker({
+    //                 position: {
+    //                     lat: parseFloat(
+    //                         dataLocation[i].location.address.gisCoordinates[0]
+    //                             .xcoordinate,
+    //                     ),
+    //                     lng: parseFloat(
+    //                         dataLocation[i].location.address.gisCoordinates[0]
+    //                             .ycoordinate,
+    //                     ),
+    //                 },
+    //             });
+    //             googleMarkers.push(marker);
+    //         }
 
-            setMarkers(googleMarkers);
-        }
-    }, [dataLocation, filteredLocations]);
+    //         setMarkers(googleMarkers);
+    //     }
+    // }, [dataLocation, filteredLocations]);
 
     React.useEffect(() => {
         setDataLocation(locations);
@@ -125,12 +125,12 @@ const HomePage = ({ locations }: any): JSX.Element => {
     return (
         <>
             <Navbar />
-            <div className="absolute w-full h-full">
-                <GoogleAutocomplete
+            <div className="w-full h-full flex flex-col">
+                {/* <GoogleAutocomplete
                     setLat={setLat}
                     setLng={setLng}
                     setAddress={setAddress}
-                />
+                /> */}
 
                 <GoogleMap
                     center={{ lat, lng }}
