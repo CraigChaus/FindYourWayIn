@@ -1,7 +1,7 @@
 # Research document
 
 ## Maps API Research
-
+For an app that heavily relies on mapping/routing, it is cruicial to pick the optimal map API.
 
 
 ### Multi-criteria analysis
@@ -57,14 +57,15 @@ Our possible mapping/ routing API candidates are:
 | ---------- | ----------- | ------ |
 | Price | high | low |
 |  GUI | + | + |
-| routing | + | + |
-| custom events | + | + |
-| custom markers | + | + |
-| community support | + | - |
-
+| Routing | + | + |
+| Custom events | + | + |
+| Custom markers | + | + |
+| Community support | + | - |
+|  More tooling | + | - |
 
 
 ### Outcome of Maps Research
+Google Maps has all sorts of features, higher community support and more data regarding the locations on the map. For these reasons Google Maps is more suitable to use in this project.
 
 ## Database Choice Research
  The application will be used by public and users will have their own accounts. A database is needed in order to save all their data regarding their favorite locations and events. This research is for selecting the optimal type of database for this project.
@@ -93,9 +94,7 @@ Firebase uses NoSQL while Postgre is relational.
 * SQL is well structured with tables, rows and columns. This makes is great for complex queries whereas NoSQL is not great for this. However our database schema is quite simple and straightforward which makes this issue irrelevant.
 
  
-
-
- | Criterions | PostgreSQL | Firebase |
+| Criterions | PostgreSQL | Firebase |
 | ---------- | ----------- | ------ |
 | Hosting | Local | Cloud Hosted |
 |  No usage of ORM | - | + |
@@ -104,3 +103,6 @@ Firebase uses NoSQL while Postgre is relational.
 | Learning curve| - | + |
 
 
+### Database Research Conclusion
+
+Firebase is the better option of the two with its tools, easy to use nature and pre-configured setup.
