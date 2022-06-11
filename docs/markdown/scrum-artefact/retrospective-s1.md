@@ -1,6 +1,9 @@
 # Scrum Retrospective - Sprint 1 FWYI
 
 ## 1. Introduction
+
+### Scrum master - Minh Pham
+
 This document is a scrum artefact for the scrum retrospective of the sprint 1 of the FindYourWayIn project.
 
 The scrum retrospective is a process where the team gathers feedback from the team members and the stakeholders to improve the quality of the product for the next sprint. 
