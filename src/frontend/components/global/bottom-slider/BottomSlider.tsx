@@ -32,7 +32,7 @@ const BottomSlider = ({
     }, []);
 
     return (
-        <div className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-slate-100">
+        <div className="w-full rounded-t-lg shadow-bottom-slider bg-slate-100">
             <ImageContainer
                 src={image ? image : brokenImage}
                 alt="background"
