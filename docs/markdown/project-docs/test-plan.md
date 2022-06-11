@@ -38,7 +38,7 @@ As a team we agreed that the following type of tests are done when:
 
 **<li>Integrated test** - This is done when a component we want to test on does depend on another component.</li>
 
-**<li>Acceptance test** - This is done by the client, we give them the program in its current state so that they may test and see if they like the way it behaves and its functionality.</li>
+**<li>Acceptance test** - This is done by the client, we give them the program in its current state so that they may test and see if they like the way it behaves and its functionality. They may also let other customers test the application to se how they like it.</li>
 
 The test plan is seperated into user stories in the order of their SPRINT priority as mentioned in the **user stoies** document for easy tracking. User stories can be referred in the user stories <a href = "https://saxion-my.sharepoint.com/:w:/r/personal/495701_student_saxion_nl/Documents/Project_HBO-ICT/Requirements%20Engineering/User_Stories_FindYourWayIn.docx?d=w6dd2c310149640b4b819f0fd78ea1c3e&csf=1&web=1&e=5ER3vR" > here</a>
 
