@@ -57,6 +57,8 @@ The test plan is seperated into user stories in the order of their SPRINT priori
 | API information reflecting on locations popup  |   Integration test   |  
 | Icon display filtering                         |   Integration test   |  
 | Popup dialogue pops up when icon is clicked    |      Unit test       |  
+| API information reflecting on details page     |      Unit test       |  
+
 
 ### 2.2.3 User Story 4
 
