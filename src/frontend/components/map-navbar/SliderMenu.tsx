@@ -26,10 +26,10 @@ export default function SliderMenu() {
     return (
         <>
             {!isOpen ? (
-                <div className="flex justify-center ">
+                <div className="z-10 flex justify-center bg-transparent ">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-cyan-500"
+                        className="z-10 flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700"
                     >
                         {' '}
                         <FontAwesomeIcon
@@ -41,25 +41,31 @@ export default function SliderMenu() {
                 </div>
             ) : (
                 <>
+                    {' '}
                     <div
-                        className={`p-4 h-auto bg-zinc-100 grid grid-cols-3 gap-6 rounded-b-2xl ${
+                        className={`drop-shadow-md   ${
                             isOpen ? 'translate-y-0' : 'translate-y-full'
-                        } transition-transform duration-300`}
+                        } transition-transform duration-600`}
                     >
-                        <Categories categories={categories} />
-                    </div>
+                        <div className="flex justify-center p-2 bg-gray-50">
+                            <p className="text-xl font-bold">Categories</p>
+                        </div>
+                        <div className="grid h-auto grid-cols-3 gap-6 p-4 bg-gray-50 rounded-b-2xl">
+                            <Categories categories={categories} />
+                        </div>
 
-                    <div className="flex justify-center ">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-cyan-500"
-                        >
-                            <FontAwesomeIcon
-                                icon={faAnglesUp}
-                                size="sm"
-                                className="flex justify-center mt-1 text-white "
-                            />
-                        </button>
+                        <div className="flex justify-center ">
+                            <button
+                                onClick={() => setIsOpen(!isOpen)}
+                                className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700 drop-shadow-md"
+                            >
+                                <FontAwesomeIcon
+                                    icon={faAnglesUp}
+                                    size="sm"
+                                    className="flex justify-center mt-1 text-white "
+                                />
+                            </button>
+                        </div>
                     </div>
                 </>
             )}
