@@ -63,5 +63,5 @@ _In this section you can see the requirements. To see when/where or how each req
 | System can support multiple users connected at once                                    |    Analysis    |    SNF03     | Performance Efficiency|
 | System can securely encrypt user data and log in a user with authentication            |    Analysis    |    SNF04     |    Security           |
 | System has a minimum uptime of 99%                                                     |    Analysis    |    SNF05     |    Reliability        |
-| System is easy to naviagate through with a navigation bar                              |    Analysis    |    SNF06     |    Usability          |
-| System can be handed over to a third party (Such as a new developer team) in the end   |    Analysis    |    SNF07     |    Maintainability    |
+| System is easy to naviagate through and is aesthetic with its consistent color scheme  |    Analysis    |    SNF06     |    Usability          |
+| System can be handed over to a third party (Such as a new developer team)  with source code and documentation   |    Analysis    |    SNF07     |    Maintainability    |
