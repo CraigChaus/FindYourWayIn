@@ -1,6 +1,6 @@
 import SideBar from '../global/Sidebar';
 import UserDropdown from '../global/user/Dropdown';
-import Footer from "@components/global/Footer";
+import Footer from '@components/global/Footer';
 
 const ProfilePage = (props: any) => {
     const user = props.user;
@@ -25,7 +25,7 @@ const ProfilePage = (props: any) => {
             <div className="h-2/3 max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto mt-28 lg:my-0 shadow-md">
                 <div
                     id="profile"
-                    className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none shadow-2xl bg-white opacity-80 mx-6 lg:mx-0"
+                    className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none drop-shadow-xl bg-white opacity-80 mx-6 lg:mx-0"
                 >
                     <div className="p-4 md:p-12 text-center lg:text-left">
                         <div className="block lg:hidden   rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-[url('../public/images/profileCat.png')]"></div>
@@ -36,16 +36,13 @@ const ProfilePage = (props: any) => {
                             </p>
                         </div>
 
-
                         <div className="flex justify-start   mb-1">
                             <p className=" text-md   text-gray-500 ">
                                 Username:{' '}
                             </p>
                         </div>
                         <div className="  flex justify-start  bg-white rounded shadow-lg  ">
-                            <p className="text-md  font-bold  ">
-                                {user.email}
-                            </p>
+                            <p className="text-md  font-bold  ">{user.email}</p>
                         </div>
 
                         <div className="pt-6 pb-6">
@@ -60,7 +57,7 @@ const ProfilePage = (props: any) => {
                     <div className="  bg-cover bg-no-repeat h-80 mt-28 hidden  rounded-none lg:rounded-lg shadow-2xl lg:block bg-[url('../public/images/profileCat.png')]"></div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </div>
     );
 };
