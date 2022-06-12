@@ -9,7 +9,7 @@ The abbreviation MSCW means (MUST(M),SHOULD(S), COULD(C) and WOULD(W) ).
 These emphasise the priority of the user requirement: MUST being the greatest followed by SHOULD, COULD and WOULD are of the same priority.
 
 ## Requirements 
-
+_In this section you can see the requirements. To see when/where each requirement was acquired and confirmed, please go to docs/pdf/project-docs/functional design_.
 ### Business requirements
 
 | Description                                                                                  | MSCW | Source         | Reference ID |
@@ -64,4 +64,4 @@ These emphasise the priority of the user requirement: MUST being the greatest fo
 | System can securely encrypt user data and log in a user with authentication            |    Analysis    |    SNF04     |    Security           |
 | System has an minimum uptime of 99%                                                    |    Analysis    |    SNF05     |    Reliability        |
 | System can have a user friendly interface (UI/UX)                                      |    Analysis    |    SNF06     |    Usability          |
-| System can be maintained by third parties                                              |    Analysis    |    SNF07     |     Maintainability   |
+| System can be maintained by third parties                                              |    Analysis    |    SNF07     |    Maintainability    |
