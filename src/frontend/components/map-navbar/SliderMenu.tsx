@@ -41,11 +41,10 @@ export default function SliderMenu() {
                 </div>
             ) : (
                 <>
-                    <div
-                        className={`p-4 h-auto bg-zinc-100 grid grid-cols-3 gap-6 rounded-b-2xl ${
-                            isOpen ? 'translate-y-0' : 'translate-y-full'
-                        } transition-transform duration-300`}
-                    >
+                    <div className=" flex  justify-center bg-zinc-100 p-2">
+                        <p className="font-bold text-xl">Categories</p>
+                    </div>
+                    <div className="p-4 h-auto bg-zinc-100 grid grid-cols-3 gap-6 rounded-b-2xl">
                         <Categories categories={categories} />
                     </div>
 
