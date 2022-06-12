@@ -26,10 +26,10 @@ export default function SliderMenu() {
     return (
         <>
             {!isOpen ? (
-                <div className="flex justify-center ">
+                <div className=" z-10 flex justify-center bg-transparent ">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-cyan-500"
+                        className="z-10 flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700  shadow-lg"
                     >
                         {' '}
                         <FontAwesomeIcon
@@ -40,7 +40,9 @@ export default function SliderMenu() {
                     </button>
                 </div>
             ) : (
-                <>
+                <> <div className={`drop-shadow-xl   ${
+                    isOpen ? 'translate-y-0' : 'translate-y-full'
+                } transition-transform duration-600`}>
                     <div className=" flex  justify-center bg-zinc-100 p-2">
                         <p className="font-bold text-xl">Categories</p>
                     </div>
@@ -51,7 +53,7 @@ export default function SliderMenu() {
                     <div className="flex justify-center ">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-cyan-500"
+                            className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700"
                         >
                             <FontAwesomeIcon
                                 icon={faAnglesUp}
@@ -60,6 +62,8 @@ export default function SliderMenu() {
                             />
                         </button>
                     </div>
+
+                </div>
                 </>
             )}
         </>
