@@ -7,7 +7,7 @@ const ProfilePage = (props: any) => {
 
     const categories = props.categories;
     return (
-        <div className=" h-screen bg-cover bg-landing-page absolute w-full bg-center  overflow-y-scroll">
+        <div className=" h-screen bg-cover  absolute w-full bg-center  overflow-y-scroll bg-[url('../public/images/image2.jpg')]">
             {/*// this block I took from  component MapNavbar,*/}
             <div className="z-10 flex flex-col w-full bg-transparent">
                 <div
@@ -22,10 +22,10 @@ const ProfilePage = (props: any) => {
             </div>
             {/*//*/}
 
-            <div className="h-2/3 max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto mt-28 lg:my-0 shadow-md">
+            <div className="h-2/3 max-w-4xl flex items-center h-auto lg:h-screen flex-wrap mx-auto mt-28 lg:my-0 shadow-lg">
                 <div
                     id="profile"
-                    className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none drop-shadow-xl bg-white opacity-80 mx-6 lg:mx-0"
+                    className="w-full lg:w-3/5 rounded-lg lg:rounded-l-lg lg:rounded-r-none drop-shadow-xl bg-white opacity-90 mx-6 lg:mx-0"
                 >
                     <div className="p-4 md:p-12 text-center lg:text-left">
                         <div className="block lg:hidden   rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-[url('../public/images/profileCat.png')]"></div>
