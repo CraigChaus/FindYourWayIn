@@ -26,10 +26,10 @@ export default function SliderMenu() {
     return (
         <>
             {!isOpen ? (
-                <div className="z-10 flex justify-center bg-transparent ">
+                <div className="flex justify-center bg-transparent ">
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="z-10 flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700"
+                        className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700"
                     >
                         {' '}
                         <FontAwesomeIcon
