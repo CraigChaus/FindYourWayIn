@@ -59,9 +59,9 @@ _In this section you can see the requirements. To see when/where each requiremen
 | Description                                                                            |     Source     | Reference ID |   ISO 25010  Standart |
 |----------------------------------------------------------------------------------------|:--------------:|:------------:|:---------------------:|
 | System can work on mobile devices                                                      | Client meeting |    SNF01     |  Portability          |
-| System can support Dutch, English and German                                           |      Cu08      |    SNF02     |  Usability            |
+| System can support Dutch, English and German                                           |      Cu08      |    SNF02     | Usability            |
 | System can support multiple users connected at once                                    |    Analysis    |    SNF03     | Performance Efficiency|
 | System can securely encrypt user data and log in a user with authentication            |    Analysis    |    SNF04     |    Security           |
-| System has an minimum uptime of 99%                                                    |    Analysis    |    SNF05     |    Reliability        |
-| System can have a user friendly interface (UI/UX)                                      |    Analysis    |    SNF06     |    Usability          |
+| System has a minimum uptime of 99%                                                     |    Analysis    |    SNF05     |    Reliability        |
+| System is easy to naviagate through with a navigation bar                              |    Analysis    |    SNF06     |    Usability          |
 | System can be maintained by third parties                                              |    Analysis    |    SNF07     |    Maintainability    |
