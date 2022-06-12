@@ -52,7 +52,7 @@ _In this section you can see the requirements. To see when/where or how each req
 | System can display a "discover Walstraat" page and give the user recommended locations   |   Cu07   |     SF08     |
 | System can display a specific location based on the users search and preferences         |   Cu09   |     SF09     |
 | System can generate a route based on the users preferences as to what they want to visit |   Cu11   |     SF10     |
-| System can integrate call functionality with the users mobile device to make calls       |   Cu12   |     SF10     |
+| System can integrate call functionality with the users mobile device to make calls       |   Cu12   |     SF11     |
 
 ### Non-Functional requirements
 
