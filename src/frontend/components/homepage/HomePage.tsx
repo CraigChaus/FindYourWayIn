@@ -124,7 +124,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     return (
         <>
-            <div className="flex flex-col w-full h-full">
+            <div className="flex flex-col w-full h-full overflow-hidden">
                 <Navbar />
                 {/* <GoogleAutocomplete
                     setLat={setLat}
