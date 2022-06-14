@@ -5,10 +5,12 @@ _13/05/2022_
 **VERSION HISTORY**
 
 
-| **ID#**  | **Prepared****By**  | **Revision Date** | **Approved By** | **Approval Date** | **Reason**                  |
-|----------|---------------------|-------------------|-----------------|-------------------|-----------------------------|
- | 1.0      | Craig Chauraya      | 16/05/2022        | Minh Pham       | 13/05/2022        | Test rules and descriptions |
- |
+| **ID#** | **Prepared****By** | **Revision Date** | **Approved By** | **Approval Date** | **Reason**                                           |
+|---------|--------------------|-------------------|-----------------|-------------------|------------------------------------------------------|
+| 1.0     | Craig Chauraya     | 16/05/2022        | Minh Pham       | 13/05/2022        | Test rules and descriptions                          |
+| 2.0     | Craig Chauraya     | 08/06/2022        | Minh Pham       | 09/06/2022        | Update test plan table structure,update User story 2 |
+
+ 
 
 
 
@@ -36,52 +38,102 @@ As a team we agreed that the following type of tests are done when:
 
 **<li>Integrated test** - This is done when a component we want to test on does depend on another component.</li>
 
-**<li>Acceptance test** - This is done by the client, we give them the program in its current state so that they may test and see if they like the way it behaves and its functionality.</li>
+**<li>Acceptance test** - This is done by the client, we give them the program in its current state so that they may test and see if they like the way it behaves and its functionality. They may also let other customers test the application to se how they like it.</li>
 
-The test plan is seperated into user stories for easy tracking. User stories can be referred in the user stories <a href = "https://saxion-my.sharepoint.com/:w:/r/personal/495701_student_saxion_nl/Documents/Project_HBO-ICT/Requirements%20Engineering/User_Stories_FindYourWayIn.docx?d=w6dd2c310149640b4b819f0fd78ea1c3e&csf=1&web=1&e=5ER3vR" > here</a>
+The test plan is seperated into user stories in the order of their SPRINT priority as mentioned in the **user stoies** document for easy tracking. User stories can be referred in the user stories <a href = "https://saxion-my.sharepoint.com/:w:/r/personal/495701_student_saxion_nl/Documents/Project_HBO-ICT/Requirements%20Engineering/User_Stories_FindYourWayIn.docx?d=w6dd2c310149640b4b819f0fd78ea1c3e&csf=1&web=1&e=5ER3vR" > here</a>
 
 ### 2.2.1 User Story 1 
 
-| **Item to Test**                       | **Test Description** | **Test Date** | **Responsibility** | **Cu01-Bi##** |
-|----------------------------------------|:--------------------:|---------------|--------------------|:-------------:|
- | Google map integration                 |      Unit test       |               |                    |     Bi01      |
- | Basic functionalities on map interface |   Integration test   |               |                    |     Bi02      |
- | UI components for navigation screen    |      Unit test       |               |                    |     Bi03      | 
+ | **Item to Test**                       | **Test Description** |
+ |----------------------------------------|:--------------------:|
+ | Google map integration                 |   Integration test   |
+ | Basic functionalities on map interface |   Integration test   |
+ | UI components for navigation screen    |      Unit test       |
 
 ### 2.2.2 User Story 2
 
-| **Item to Test**                               | **Test Description** | **Test Date** | **Responsibility** | **Cu02-Bi##** |
-|------------------------------------------------|:--------------------:|---------------|--------------------|:-------------:|
-| Icon bound to a location                       |      Unit test       |               |                    |     Bi01      |
-| API information reflecting on locations popup  |   Integration test   |               |                    |     Bi02      |
-| Icon display filtering                         |   Integration test   |               |                    |     Bi03      | 
-| Popup dialogue pops up when icon is clicked    |      Unit test       |               |                    |     Bi04      |
+| **Item to Test**                               | **Test Description** |
+|------------------------------------------------|:--------------------:|
+| API information reflecting on locations popup  |   Integration test   |  
+| Icon display filtering                         |   Integration test   |  
+| Popup dialogue pops up when icon is clicked    |      Unit test       |  
+| API information reflecting on details page     |      Unit test       |  
+
 
 ### 2.2.3 User Story 4
 
-| **Item to Test**                       | **Test Description** | **Test Date** | **Responsibility** | **Cu04-Bi##** |
-|----------------------------------------|:--------------------:|---------------|--------------------|:-------------:|
-| Search bar functionality in navigation |   Integration test   |               |                    |     Bi01      |
-| Display route on overview map          |   Integration test   |               |                    |     Bi02      |
-| Switching to live navigation mode      |   Integration test   |               |                    |     Bi03      | 
-| Destination reached message            |   Integration test   |               |                    |     Bi04      |
+| **Item to Test**                       | **Test Description** |
+|----------------------------------------|:--------------------:|
+| Search bar functionality in navigation |   Integration test   |
+| Display route on overview map          |   Integration test   |   
+| Switching to live navigation mode      |   Integration test   |    
+| Destination reached message            |   Integration test   |   
+
+### 2.2.4 User Story 3
+
+| **Item to Test**                                     | **Test Description** |
+|------------------------------------------------------|:--------------------:|
+| API data displayng list of locations with promotions |  Integration  test   |
+| Routing to the location                              |   Integration test   |
+
+### 2.2.5 User Story 5
+
+| **Item to Test**                                          | **Test Description** |
+|-----------------------------------------------------------|:--------------------:|
+| API data displaying shops and restuarants with promotions |   Integration test   |
+| Routing to the location                                   |   Integration test   |
 
 
-## 2.3. Items to be tested
+### 2.2.6 User Story 6
+
+| **Item to Test**                                           | **Test Description** |
+|------------------------------------------------------------|:--------------------:|
+| API data displaying all events( both current and upcoming) |   Integration test   |
+| CLiking on an event to read the details of the event       |      unit test       |
+
+### 2.2.7 User Story 7
+
+| **Item to Test**                                              | **Test Description** |
+|---------------------------------------------------------------|:--------------------:|
+| API data displaying all events and locations within Walstraat |   Integration test   |
+| CLiking on an event or location to read details about it      |      Unit test       |
+| Routing to the location                                       |   Integration test   |
+### 2.2.8 User Story 9
+
+| **Item to Test**                                | **Test Description** |
+|-------------------------------------------------|:--------------------:|
+| Storing user location preference in database    |   Integration test   |
+| Routing to the locations as per user preference |   Integration test   |
+
+### 2.2.9 User Story 13
+
+| **Item to Test**                      | **Test Description** |
+|---------------------------------------|:--------------------:|
+| Signing up                            |      Unit test       |          
+| Login in                              |      Unit test       |          
+| Storing user account data in database |      Unit test       |          
+
+## 2.3. Items not to be tested
 
 Some items are not worth testing because they are simply static HTML pages that have no additional functionality besides routing to another page.
 
-| **Item Not to Test**  | **User story ID#** | **Comment**                                                                             |
-|-----------------------|:------------------:|-----------------------------------------------------------------------------------------|
- | Landing page          |         1          | Its just an HTML page that is shown upon opening the web application as an introduction |
- |
+| **Item Not to Test** | **User story ID#** | **Comment**                                                                             |
+|----------------------|:------------------:|-----------------------------------------------------------------------------------------|
+| Landing page         |         1          | Its just an HTML page that is shown upon opening the web application as an introduction |
+ 
 
 
 ## 2.4. Test Approach(s)
 
+At the end of a completed user story (when all the components worth testing as mentioned above are done ) the tests will be performed by the developer who created it. The test will be documented and when approved by the product owner will be put aside as 100% complete.
+
+For components that require unit testing, they can be tested immediately even when the user story components are not all complete.
+For components that require integration testing, they can only be tested once all the user story components are also complete as it may rely on another component of the same user story.
+
 ## 2.5. Test Pass / Fail Criteria
 
-**A test pass** is when the expected results and the actual results. A **test fail**  is when the actual results do not match  the expected results.  
+**A test pass** is when the expected results and the actual results. 
+A **test fail**  is when the actual results do not match  the expected results.  
 
 ## 2.6. Test Entry / Exit Criteria
 

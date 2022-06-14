@@ -1,6 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 
+/**
+ *
+ * @returns reset password link component
+ */
 const ResetPasswordLink = (): JSX.Element => {
     return (
         <Link href={'/auth/reset'}>
