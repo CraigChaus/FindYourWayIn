@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FilterContext } from 'contexts/FilterContext';
 import { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Categories = (props: any) => {
     const categories = props.categories;
@@ -16,6 +17,8 @@ export const Categories = (props: any) => {
     const nameOfCategory = props.nameOfCategory;
 
     const filterContext = useContext(FilterContext);
+    const { t } = useTranslation('common');
+
 
     return (
         <>

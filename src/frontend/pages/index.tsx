@@ -3,32 +3,34 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import LanguageSelector from '@components/global/LanguageSelector';
+import React from 'react';  
 
 export const getStaticProps = async ({ locale }: any) => ({
     props: {
-      ...await serverSideTranslations(locale, ['common']),
+        ...await serverSideTranslations(locale, ['common']),
     },  
-  })
+})
 
 const LandingPage: NextPage = () => {
     const router = useRouter();
     const { t } = useTranslation();
 
-
     return (
         <div className="block h-screen bg-cover bg-landing-page">
+            <LanguageSelector />
             <div className="flex flex-col items-center justify-center h-screen bg-gray-600 bg-opacity-70">
                 <h1 className="text-6xl text-center text-white">
                     FYWI <br></br> Walstraat
                 </h1>
-                <Link
+                {/* <Link
                     href='/'
                     locale={router.locale === 'en' ? 'nl' : 'en'}
                 >
                     <a className="text-center text-white">
-                        {t('common:changeLanguage')}
+                        {t('changeLanguage')}
                     </a>
-                </Link>
+                </Link> */}
                 <div className="flex flex-col items-center w-4/5 mt-12 justify-evenly h-2/5">
                     <div className="w-full">
                         <button
