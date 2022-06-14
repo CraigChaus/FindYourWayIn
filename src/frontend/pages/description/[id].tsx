@@ -5,7 +5,6 @@ import ContactDetails from '../../components/location-details/ContactDetails';
 import React from 'react';
 import Layout from '@components/global/Layout';
 
-
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
@@ -107,7 +106,11 @@ export const Details = ({ data }: any): JSX.Element => {
                                 email={email}
                             />
                         ) : (
-                            <ContactDetails phoneNumber="" email="" id={data.id} />
+                            <ContactDetails
+                                phoneNumber=""
+                                email=""
+                                id={data.id}
+                            />
                         )}
                     </>
                 </div>
