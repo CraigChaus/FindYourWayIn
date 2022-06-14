@@ -1,16 +1,16 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import LanguageSelector from '@components/global/LanguageSelector';
-import React from 'react';  
+import React from 'react';
 
 export const getStaticProps = async ({ locale }: any) => ({
     props: {
-        ...await serverSideTranslations(locale, ['common']),
-    },  
-})
+        ...(await serverSideTranslations(locale, ['common'])),
+    },
+});
 
 const LandingPage: NextPage = () => {
     const router = useRouter();

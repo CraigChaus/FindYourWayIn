@@ -11,7 +11,6 @@ const apiKey: string = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Suspense fallback="loading">
-
             <Wrapper
                 apiKey={apiKey}
                 libraries={['places', 'geometry']}
@@ -24,7 +23,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                 </AuthContextProvider>
             </Wrapper>
         </Suspense>
-
     );
 }
 

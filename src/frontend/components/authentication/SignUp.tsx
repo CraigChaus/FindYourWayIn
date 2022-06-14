@@ -18,7 +18,7 @@ import { useTranslation } from 'react-i18next';
  */
 export default function SignUp() {
     // States for sign-up credentials
-    const { t } = useTranslation('common')
+    const { t } = useTranslation('common');
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
     const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('');
@@ -56,7 +56,7 @@ export default function SignUp() {
 
     console.log(t('signup'));
 
-    return (    
+    return (
         <AuthLayout isSignUp={true}>
             <HeaderAuthForm formName={`${t('signup')}`} />
             <div className="flex flex-col items-center w-5/6">

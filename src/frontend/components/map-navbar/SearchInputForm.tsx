@@ -1,7 +1,7 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 export const SearchInputForm = () => {
     const { t } = useTranslation('common');
-    
+
     return (
         <form>
             <label className="relative block">

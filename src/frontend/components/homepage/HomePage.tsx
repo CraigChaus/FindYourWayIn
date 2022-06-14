@@ -43,7 +43,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
     //     setCenter(m.getCenter()!.toJSON());
     // };
 
-
     // function clearMarkers() {
     //     for (let i = 0; i < markers.length; i++) {
     //         markers[i].setMap(null);
@@ -120,8 +119,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
         }
     }, [dataLocation, query]);
 
-   
-
     return (
         <>
             <div className="flex flex-col w-full h-full overflow-hidden">
@@ -152,10 +149,9 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
                     {dataLocation &&
                         dataLocation.map((location: any) => {
-                            if (!location.location.address
-                                .gisCoordinates[0]) {
-                                    return;
-                                }
+                            if (!location.location.address.gisCoordinates[0]) {
+                                return;
+                            }
                             // console.log(location.location.address
                             //     .gisCoordinates[0].xcoordinate +' ' + location.location.address
                             //     .gisCoordinates[0].ycoordinate)

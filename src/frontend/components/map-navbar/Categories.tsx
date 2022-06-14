@@ -19,7 +19,6 @@ export const Categories = (props: any) => {
     const filterContext = useContext(FilterContext);
     const { t } = useTranslation('common');
 
-
     return (
         <>
             {categories.map((category: any, index: number) => (

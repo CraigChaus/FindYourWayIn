@@ -1,7 +1,4 @@
-import type {
-    GetServerSideProps,
-    NextPage,
-} from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import HomePage from '../components/homepage/HomePage';
@@ -20,11 +17,11 @@ export const getServerSideProps = async ({ locale }: any) => {
     const data = await res.json();
     const locations = data.results;
 
-    return { props: {
-         data: locations,
-         ...await serverSideTranslations(locale, ['common']),
-
-        } 
+    return {
+        props: {
+            data: locations,
+            ...(await serverSideTranslations(locale, ['common'])),
+        },
     };
 };
 
