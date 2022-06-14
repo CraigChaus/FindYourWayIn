@@ -106,7 +106,7 @@ export default function SignUp() {
             <AuthButton
                 disabled={loading}
                 action={handleSubmit}
-                text="Sign up"
+                text={t('signup')}
             />
             <NavigationLink link="login" />
         </AuthLayout>
