@@ -4,7 +4,7 @@ import Schedule from '../../components/location-details/Schedule';
 import ContactDetails from '../../components/location-details/ContactDetails';
 import React from 'react';
 import Layout from '@components/global/Layout';
-import { isContext } from 'vm';
+
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
