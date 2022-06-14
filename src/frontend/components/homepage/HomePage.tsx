@@ -37,15 +37,13 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     const filterContext = useContext(FilterContext);
 
+    console.log(locations);
     // const onIdle = (m: google.maps.Map) => {
     //     console.log("onIdle");
     //     setZoom(m.getZoom()!);
     //     setCenter(m.getCenter()!.toJSON());
     // };
 
-    function handleSetLocation() {
-        setIsLocation(!isLocation);
-    }
 
     // function clearMarkers() {
     //     for (let i = 0; i < markers.length; i++) {
@@ -123,9 +121,11 @@ const HomePage = ({ locations }: any): JSX.Element => {
         }
     }, [dataLocation, query]);
 
+   
+
     return (
         <>
-            <div className="flex flex-col w-full h-full">
+            <div className="flex flex-col w-full h-full overflow-hidden">
                 <Navbar />
                 {/* <GoogleAutocomplete
                     setLat={setLat}
@@ -153,6 +153,13 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
                     {dataLocation &&
                         dataLocation.map((location: any) => {
+                            if (!location.location.address
+                                .gisCoordinates[0]) {
+                                    return;
+                                }
+                            // console.log(location.location.address
+                            //     .gisCoordinates[0].xcoordinate +' ' + location.location.address
+                            //     .gisCoordinates[0].ycoordinate)
                             return (
                                 <ObjectMarker
                                     id={location.id}
