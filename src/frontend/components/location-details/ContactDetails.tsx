@@ -7,23 +7,25 @@ import { doc, setDoc,updateDoc, arrayUnion, arrayRemove  } from "firebase/firest
 export const ContactDetails = ({ phoneNumber, email, id }: any) => {
     const { user } = useAuth();
     const addToFavorites = async () => {
-        // TODO: write the actual firebase command to add location id
+        if(user){
+        // The "userRef" is a reference to the user document in the database 
         const userRef = doc(db, 'users', user.uid);
         await updateDoc(userRef, {
             favorite_locations:arrayUnion(id)
         });
 
+        // defaultly user objects have an empty object in their favorites. 
+        //Below line deletes the initial object.
         await updateDoc(userRef, {
             favorite_locations: arrayRemove("")
-        })
-
-//         await updateDoc(washingtonRef, {
-//     regions: arrayRemove("east_coast")
-// });
-
-        
+        })        
         console.log("new location added to the users favorites!")
    }
+    else{
+        // this else block is for testing purposes. Will delete later. 
+        console.log("error in adding to favorites!")
+    }
+}
 
     return (
         <div className="pl-2 text-left w-full">
