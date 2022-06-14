@@ -13,6 +13,14 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
             favorite_locations:arrayUnion(id)
         });
 
+        await updateDoc(userRef, {
+            favorite_locations: arrayRemove("")
+        })
+
+//         await updateDoc(washingtonRef, {
+//     regions: arrayRemove("east_coast")
+// });
+
         
         console.log("new location added to the users favorites!")
    }
