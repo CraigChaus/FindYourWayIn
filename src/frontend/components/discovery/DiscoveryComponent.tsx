@@ -4,8 +4,13 @@ import LocationData from './LocationData';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
-export const DiscoveryComponent = ({locationData, spotID, spotName, spotImage,spotImageAlt}: any) => {
-
+export const DiscoveryComponent = ({
+    locationData,
+    spotID,
+    spotName,
+    spotImage,
+    spotImageAlt,
+}: any) => {
     const router = useRouter();
 
     return (
@@ -15,7 +20,7 @@ export const DiscoveryComponent = ({locationData, spotID, spotName, spotImage,sp
                 <div
                     id="header"
                     className="z-10 flex items-center justify-between bg-green-500 h-18"
-                  >
+                >
                     <SideBar />
                     <div className="flex justify-end">
                         <UserDropdown />
@@ -43,18 +48,17 @@ export const DiscoveryComponent = ({locationData, spotID, spotName, spotImage,sp
 
             <div className="flex  flex-raw  h-1/5 w-full">
                 {locationData &&
-                    locationData.map((location: any,index: number) => {
-                        return(
-                            <LocationData 
-                               key ={index}
-                               locationName = {location.locationName}
-                               srcImage = {location.imageSRC}
-                               srcAlt = {location.imageAlt}
-                               locationID = {location.id}
-                            /> 
-                        )
-                      })
-                }
+                    locationData.map((location: any, index: number) => {
+                        return (
+                            <LocationData
+                                key={index}
+                                locationName={location.locationName}
+                                srcImage={location.imageSRC}
+                                srcAlt={location.imageAlt}
+                                locationID={location.id}
+                            />
+                        );
+                    })}
             </div>
 
             <div className="flex-col justify-center border-orange-700 flex h-1/3 w-full  ">
@@ -62,18 +66,21 @@ export const DiscoveryComponent = ({locationData, spotID, spotName, spotImage,sp
                     <h1 className="   font-bold  text-white">{spotName}</h1>
                 </div>
 
-                
                 <div className="flex justify-center h-4/5 p-5">
                     <>
                         {spotImage && spotImageAlt && (
-                        <Image 
-                        onClick = {() => router.push(`description/${spotID}`)}
-                        src={spotImage} alt={spotImageAlt} width={300} height={300} 
-                        />
+                            <Image
+                                onClick={() =>
+                                    router.push(`description/${spotID}`)
+                                }
+                                src={spotImage}
+                                alt={spotImageAlt}
+                                width={300}
+                                height={300}
+                            />
                         )}
                     </>
                 </div>
-        
             </div>
         </div>
     );
