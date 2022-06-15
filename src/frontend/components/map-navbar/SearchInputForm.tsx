@@ -61,7 +61,7 @@ const search=(event:FormEvent<HTMLFormElement>)=>{
 
     return (
         <>
-            <div className="flex-col z-20">
+            <div className="flex-col ">
         <form onSubmit={event=>search(event)}>
             <label className="relative block">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -82,12 +82,21 @@ const search=(event:FormEvent<HTMLFormElement>)=>{
                     placeholder="Search a place "
                     type="text"
                 />
+                <div className="absolute  bg-white w-full rounded-b-lg">
+                    {locationSearch && <p className="font-medium pt-2">Results for {locationSearch}:</p>}
+
+                    <LocationComponent locationRes={locationRes}/>
+                </div>
+
+
             </label>
         </form>
-    {locationSearch && <p>Results for {locationSearch}...</p>}
-        <div className="z-20 bg-white">
-             <LocationComponent locationRes={locationRes}/>
-        </div>
+    {/*            <div className="absolute bg-white w-full mr-20">*/}
+    {/*{locationSearch && <p>Results for {locationSearch}...</p>}*/}
+
+    {/*           <LocationComponent locationRes={locationRes}/>*/}
+    {/*         </div>*/}
+
             </div>
         {/*  <Categories categories={categories} />*/}
             </>  );
