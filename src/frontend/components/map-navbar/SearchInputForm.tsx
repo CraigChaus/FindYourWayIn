@@ -1,6 +1,5 @@
 import React, { FormEvent } from 'react';
 import { useState, useEffect } from "react";
-// <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css" integrity="sha512-IuO+tczf4J43RzbCMEFggCWW5JuX78IrCJRFFBoQEXNvGI6gkUw4OjuwMidiS4Lm9Q2lILzpJwZuMWuSEeT9UQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
 import LocationComponent from "./LocationComponent";
 
 
@@ -23,6 +22,7 @@ export const SearchInputForm = () =>{
        });
        return (await result.json()).results;
    }
+
 const search=(event:FormEvent<HTMLFormElement>)=>{
        event.preventDefault();
        const  form=event.target as HTMLFormElement;
@@ -30,7 +30,6 @@ const search=(event:FormEvent<HTMLFormElement>)=>{
        setLocationSearch(input.value);
 }
    useEffect(()=>{
-      // const resultForSearch = [];
 
        (async()=>{
            const query=encodeURIComponent(locationSearch)
@@ -62,11 +61,7 @@ const search=(event:FormEvent<HTMLFormElement>)=>{
     }
 
 
-
-    const [isShown, setIsShown] = useState(true);
-
-
-
+    const [isShown, setIsShown] = useState(true); // this states we needed for slide-bar to show and collapse
 
     return (
         <>
