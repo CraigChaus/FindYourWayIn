@@ -19,8 +19,9 @@ const HomePage = ({ locations }: any): JSX.Element => {
     const [lng, setLng] = React.useState(6.1552);
     const [zoom, setZoom] = React.useState(16);
 
-    const [directions, setDirections] = useState<google.maps.DirectionsResult>();
-    
+    const [directions, setDirections] =
+        useState<google.maps.DirectionsResult>();
+
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder();
     const [country, setCountry] = React.useState<string>();
@@ -45,7 +46,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
     //     setZoom(m.getZoom()!);
     //     setCenter(m.getCenter()!.toJSON());
     // };
-
 
     // function clearMarkers() {
     //     for (let i = 0; i < markers.length; i++) {
@@ -123,10 +123,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
         }
     }, [dataLocation, query]);
 
-    
-
-   
-
     return (
         <>
             <div className="flex flex-col w-full h-full overflow-hidden">
@@ -157,10 +153,9 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
                     {dataLocation &&
                         dataLocation.map((location: any) => {
-                            if (!location.location.address
-                                .gisCoordinates[0]) {
-                                    return;
-                                }
+                            if (!location.location.address.gisCoordinates[0]) {
+                                return;
+                            }
                             // console.log(location.location.address
                             //     .gisCoordinates[0].xcoordinate +' ' + location.location.address
                             //     .gisCoordinates[0].ycoordinate)
@@ -188,10 +183,18 @@ const HomePage = ({ locations }: any): JSX.Element => {
                         })}
                     {bottomSlider && (
                         <BottomSlider
-                            destinationCoords={{ lat: parseFloat(bottomSlider?.location?.address?.gisCoordinates[0].xcoordinate) , 
-                                lng: parseFloat(bottomSlider?.location?.address?.gisCoordinates[0].ycoordinate)}}
+                            destinationCoords={{
+                                lat: parseFloat(
+                                    bottomSlider?.location?.address
+                                        ?.gisCoordinates[0].xcoordinate,
+                                ),
+                                lng: parseFloat(
+                                    bottomSlider?.location?.address
+                                        ?.gisCoordinates[0].ycoordinate,
+                                ),
+                            }}
                             setDirections={setDirections}
-                            currentUserLocation={{lat, lng}}
+                            currentUserLocation={{ lat, lng }}
                             id={bottomSlider?.id}
                             header={bottomSlider?.location?.label}
                             description={
@@ -210,10 +213,8 @@ const HomePage = ({ locations }: any): JSX.Element => {
                             }}
                         />
                     )}
-                    
-                        <DirectionsRenderer
-                        directions={directions}/>
-                    
+
+                    <DirectionsRenderer directions={directions} />
                 </GoogleMap>
 
                 {/* {bottomSlider && (
