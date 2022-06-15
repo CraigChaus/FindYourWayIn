@@ -7,6 +7,7 @@ import {
     updateDoc,
     arrayUnion,
     arrayRemove,
+    getDoc,
 } from 'firebase/firestore';
 
 export const ContactDetails = ({ phoneNumber, email, id }: any) => {
@@ -15,16 +16,23 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
         if (user) {
             // The "userRef" is a reference to the user document in the database
             const userRef = doc(db, 'users', user.uid);
-            await updateDoc(userRef, {
-                favorite_locations: arrayUnion(id),
-            });
-
-            // defaultly user objects have an empty object in their favorites.
-            //Below line deletes the initial object.
-            await updateDoc(userRef, {
-                favorite_locations: arrayRemove(''),
-            });
-            console.log('new location added to the users favorites!');
+            const docSnap = await getDoc(userRef);
+            if (docSnap.exists()) {
+                await updateDoc(userRef, {
+                    favorite_locations: arrayUnion(id),
+                });
+                // defaultly user objects have an empty object in their favorites.
+                //Below line deletes the initial object.
+                await updateDoc(userRef, {
+                    favorite_locations: arrayRemove(''),
+                });
+                console.log('new location added to the users favorites!');
+            } else {
+                await setDoc(doc(db, 'users', user.uid), {
+                    favorite_locations: [id],
+                    favorite_events: [],
+                });
+            }
         } else {
             // this else block is for testing purposes. Will delete later.
             console.log('error in adding to favorites!');
