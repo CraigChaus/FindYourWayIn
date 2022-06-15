@@ -1,8 +1,13 @@
 import SideBar from '../global/Sidebar';
 import UserDropdown from '../global/user/Dropdown';
 import LocationData from './LocationData';
+import { useRouter } from 'next/router';
+import Image from 'next/image';
 
-const DiscoveryComponent = () => {
+export const DiscoveryComponent = ({locationData, spotLightID, spotLightName, spotLightImage}: any) => {
+
+    const router = useRouter();
+
     return (
         <div className=" h-screen  absolute w-full  text-gray-900 bg-cover bg-no-repeat bg-center bg-[url('../public/images/imageWalstraat.jpg')]  ">
             {/*// this block I took from  component MapNavbar,*/}
@@ -10,15 +15,14 @@ const DiscoveryComponent = () => {
                 <div
                     id="header"
                     className="z-10 flex items-center justify-between bg-green-500 h-18"
-                >
+                  >
                     <SideBar />
                     <div className="flex justify-end">
                         <UserDropdown />
                     </div>
                 </div>
             </div>
-            {/*//*/}
-
+            {/* */}
             <div className="px-5">
                 <div className="flex   flex-raw border-white border-b-4 h-20 w-full ">
                     <div className=" flex  justify-center  h-full w-1/2 p-3">
@@ -38,18 +42,30 @@ const DiscoveryComponent = () => {
             </div>
 
             <div className="flex  flex-raw  h-1/5 w-full">
-                <LocationData />
-                <LocationData />
-
-                <LocationData />
+                {locationData &&
+                    locationData.map((location: any,index: number) => {
+                        return(
+                            <LocationData 
+                                onClick = {() => router.push(`details/${location.id}`)
+                               }
+                               key ={index}
+                               locationName = {location.locationName}
+                               src = {location.imageSRC}
+                            /> 
+                        )
+                      })
+                }
             </div>
 
-            <div className=" flex flex-col justify-center border-orange-700 flex    h-1/3 w-full  ">
+            <div className="flex-col justify-center border-orange-700 flex h-1/3 w-full  ">
                 <div className="  flex justify-center h-1/5 pt-5">
-                    <h1 className="   font-bold  text-white">Name BIG</h1>
+                    <h1 className="   font-bold  text-white">{spotLightName}</h1>
                 </div>
                 <div className="flex justify-center h-4/5 p-5">
-                    <div className="   bg-cyan-300 flex justify-center w-full h-full rounded-3xl mx-20"></div>
+                     <Image 
+                     onClick={() => router.push(`descriptions/${spotLightID}`)}
+                     src={spotLightImage} alt={"alt"} width={300} height={300} />
+
                 </div>
             </div>
         </div>
