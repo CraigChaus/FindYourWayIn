@@ -9,11 +9,13 @@ import { useRouter } from 'next/router';
 import Warning from '../../public/icons/warning.svg';
 import Verify from '../../public/icons/verify.svg';
 import { useAuth } from 'contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
 
 /** Authentication form for sign in
  * @returns Sign in form
  */
 export default function Login() {
+    const { t } = useTranslation();
     const [error, setError] = useState('');
     const [loginSuccess, setLoginSuccess] = useState(false);
 
@@ -22,6 +24,7 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    // handle login action on button clicked
     const handleLogin = async (e: any) => {
         e.preventDefault();
         console.log(user);
@@ -35,10 +38,13 @@ export default function Login() {
         }
     };
 
+    /**
+     * @returns Sign in form layout
+     */
     return (
         <>
             <AuthLayout isSignUp={false}>
-                <HeaderAuthForm formName="Login" />
+                <HeaderAuthForm formName={`${t('login')}`} />
                 <div className="flex flex-col items-center w-5/6">
                     {error && (
                         <div
@@ -67,14 +73,14 @@ export default function Login() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-center">
-                                        Login successfully!
+                                        {t('loginSuccess')}
                                     </p>
                                 </div>
                             </div>
                         </div>
                     )}
                     <Input
-                        placeholder="Email"
+                        placeholder={t('email')}
                         type="email"
                         isRequired={true}
                         onChange={(
@@ -85,7 +91,7 @@ export default function Login() {
                         }}
                     />
                     <Input
-                        placeholder="Password"
+                        placeholder={t('password')}
                         type="password"
                         isRequired={true}
                         onChange={(
@@ -96,7 +102,7 @@ export default function Login() {
                         }}
                     />
                 </div>
-                <AuthButton action={handleLogin} text="Login" />
+                <AuthButton action={handleLogin} text={t('login')} />
                 <ResetPasswordLink />
 
                 <NavigationLink link="signup" />
