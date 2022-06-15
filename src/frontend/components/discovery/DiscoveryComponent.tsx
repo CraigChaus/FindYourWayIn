@@ -4,7 +4,7 @@ import LocationData from './LocationData';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 
-export const DiscoveryComponent = ({locationData, spotLightID, spotLightName, spotLightImage}: any) => {
+export const DiscoveryComponent = ({locationData, spotID, spotName, spotImage,spotImageAlt}: any) => {
 
     const router = useRouter();
 
@@ -46,11 +46,11 @@ export const DiscoveryComponent = ({locationData, spotLightID, spotLightName, sp
                     locationData.map((location: any,index: number) => {
                         return(
                             <LocationData 
-                                onClick = {() => router.push(`details/${location.id}`)
-                               }
                                key ={index}
                                locationName = {location.locationName}
-                               src = {location.imageSRC}
+                               srcImage = {location.imageSRC}
+                               srcAlt = {location.imageAlt}
+                               locationID = {location.id}
                             /> 
                         )
                       })
@@ -59,14 +59,21 @@ export const DiscoveryComponent = ({locationData, spotLightID, spotLightName, sp
 
             <div className="flex-col justify-center border-orange-700 flex h-1/3 w-full  ">
                 <div className="  flex justify-center h-1/5 pt-5">
-                    <h1 className="   font-bold  text-white">{spotLightName}</h1>
+                    <h1 className="   font-bold  text-white">{spotName}</h1>
                 </div>
-                <div className="flex justify-center h-4/5 p-5">
-                     <Image 
-                     onClick={() => router.push(`descriptions/${spotLightID}`)}
-                     src={spotLightImage} alt={"alt"} width={300} height={300} />
 
+                
+                <div className="flex justify-center h-4/5 p-5">
+                    <>
+                        {spotImage && spotImageAlt && (
+                        <Image 
+                        onClick = {() => router.push(`description/${spotID}`)}
+                        src={spotImage} alt={spotImageAlt} width={300} height={300} 
+                        />
+                        )}
+                    </>
                 </div>
+        
             </div>
         </div>
     );
