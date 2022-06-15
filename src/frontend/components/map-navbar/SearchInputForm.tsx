@@ -1,4 +1,7 @@
+import { useTranslation } from 'react-i18next';
 export const SearchInputForm = () => {
+    const { t } = useTranslation('common');
+
     return (
         <form>
             <label className="relative block">
@@ -17,7 +20,7 @@ export const SearchInputForm = () => {
                 </span>
                 <input
                     className="w-full h-8 py-2 pl-10 pr-4 my-5 text-lg bg-green-400 border border-green-500 rounded-md shadow-sm placeholder:text-white placeholder:font-italitc focus:outline-none"
-                    placeholder="Search a place "
+                    placeholder={t('search')}
                     type="text"
                 />
             </label>
