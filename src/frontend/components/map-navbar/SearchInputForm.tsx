@@ -1,29 +1,17 @@
 import React, { FormEvent } from 'react';
-//
 import { useState, useEffect } from "react";
 // <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css" integrity="sha512-IuO+tczf4J43RzbCMEFggCWW5JuX78IrCJRFFBoQEXNvGI6gkUw4OjuwMidiS4Lm9Q2lILzpJwZuMWuSEeT9UQ==" crossOrigin="anonymous" referrerPolicy="no-referrer" />
-//  //import './SearchInputForm.css';
-//  import axios from 'axios';
+import LocationComponent from "./LocationComponent";
+
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-// const [locations,setLocations]=useState([])
-// useEffect(()=>{
-//     const loadLocations = async () => {
-//         const response = await axios.get(`${apiUrl}/locations`, {
-//             method: 'GET',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 Authorization: `Bearer ${apiKey}`,
-//             },
-//         })
-//         const data = await response.data;
-//         console.log("DData:"+data)
-//         setLocations(response.data)}
-//     loadLocations();
-//
-// },[])
+type locationCl = {
+
+    // shortDescription:string
+};
+
 
 export const SearchInputForm = () =>{
    const  [locationFound,setLocationFound]=useState([]);
@@ -44,21 +32,36 @@ const search=(event:FormEvent<HTMLFormElement>)=>{
        const  form=event.target as HTMLFormElement;
        const input=form.querySelector('#searchText') as HTMLInputElement;
        setLocationSearch(input.value);
-       //console.log(form);
 }
    useEffect(()=>{
+      // const resultForSearch = [];
+
        (async()=>{
            const query=encodeURIComponent(locationSearch)
            if(query){
-               const response=await  searchForLocations(query);
+               const response=await searchForLocations(query);
                setLocationFound(response);
+
            }
 
        })();
    },[locationSearch]);
 
+   const locationRes = [];
+   console.log(locationFound);
+    for (let i = 0; i < locationFound.length; i++) {
+        locationRes.push({
+        title: locationFound[i].location.label })
+    }
+
+    for(let i = 0; i < locationRes.length; i++){
+        console.log( i+") res: "+locationRes[i].title)
+    }
+
 
     return (
+        <>
+            <div className="flex-col z-20">
         <form onSubmit={event=>search(event)}>
             <label className="relative block">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -78,10 +81,16 @@ const search=(event:FormEvent<HTMLFormElement>)=>{
                     className="w-full h-8 py-2 pl-10 pr-4 my-5 text-lg bg-green-400 border border-green-500 rounded-md shadow-sm placeholder:text-white placeholder:font-italitc focus:outline-none"
                     placeholder="Search a place "
                     type="text"
-                /> <button  className="border-2 hover:bg-green-800">Search</button>
+                />
             </label>
         </form>
-    );
+    {locationSearch && <p>Results for {locationSearch}...</p>}
+        <div className="z-20 bg-white">
+             <LocationComponent locationRes={locationRes}/>
+        </div>
+            </div>
+        {/*  <Categories categories={categories} />*/}
+            </>  );
 };
 
 export default SearchInputForm;
