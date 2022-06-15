@@ -1,7 +1,7 @@
 import UserLocationMarker from '@components/GoogleMaps/userLocationMarker';
 // import LocationMarker from '@components/homepage/LocationMarker';
 import Navbar from '@components/map-navbar/MapNavbar';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import GoogleAutocomplete from '../GoogleMaps/GoogleAutocomplete';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 import Router, { useRouter } from 'next/router';
@@ -9,6 +9,7 @@ import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 import { ObjectMarker } from '@components/GoogleMaps/objectMarker';
 import { filterByCategory } from 'API/api';
 import { FilterContext } from 'contexts/FilterContext';
+import { DirectionsRenderer } from '@react-google-maps/api';
 
 const HomePage = ({ locations }: any): JSX.Element => {
     const { query } = useRouter();
@@ -17,6 +18,9 @@ const HomePage = ({ locations }: any): JSX.Element => {
     const [lat, setLat] = React.useState(52.2661);
     const [lng, setLng] = React.useState(6.1552);
     const [zoom, setZoom] = React.useState(16);
+
+    const [directions, setDirections] =
+        useState<google.maps.DirectionsResult>();
 
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder();
@@ -49,32 +53,32 @@ const HomePage = ({ locations }: any): JSX.Element => {
     //     }
     // }
 
-    React.useEffect(() => {
-        if (!mounted) return;
-        geocoder.geocode({ location: { lat, lng } });
-        // .then((res) => {
-        //     if (res.results[0]) {
-        //         res.results[0].address_components.reverse().filter((object) => {
-        //             object.types.filter((type) => {
-        //                 if (type === 'country') setCountry(object.long_name);
-        //                 if (type === 'locality') setCity(object.long_name);
-        //                 if (type === 'sublocality_level_1')
-        //                     setSector(object.long_name);
-        //                 if (type === 'route')
-        //                     setAddress((s) => s + object.long_name);
-        //                 if (type === 'street_number')
-        //                     setAddress((s) => s + ' ' + object.long_name);
-        //             });
-        //         });
-        //     }
-        //     res.results.map((object) => {
-        //         object.types.filter((type) => {
-        //             if (type === 'neighborhood')
-        //                 setNeighborhood(object.formatted_address.split(',')[0]);
-        //         });
-        //     });
-        // });
-    }, [geocoder, lat, lng, mounted]);
+    // React.useEffect(() => {
+    //     if (!mounted) return;
+    //     geocoder.geocode({ location: { lat, lng } });
+    //     // .then((res) => {
+    //     //     if (res.results[0]) {
+    //     //         res.results[0].address_components.reverse().filter((object) => {
+    //     //             object.types.filter((type) => {
+    //     //                 if (type === 'country') setCountry(object.long_name);
+    //     //                 if (type === 'locality') setCity(object.long_name);
+    //     //                 if (type === 'sublocality_level_1')
+    //     //                     setSector(object.long_name);
+    //     //                 if (type === 'route')
+    //     //                     setAddress((s) => s + object.long_name);
+    //     //                 if (type === 'street_number')
+    //     //                     setAddress((s) => s + ' ' + object.long_name);
+    //     //             });
+    //     //         });
+    //     //     }
+    //     //     res.results.map((object) => {
+    //     //         object.types.filter((type) => {
+    //     //             if (type === 'neighborhood')
+    //     //                 setNeighborhood(object.formatted_address.split(',')[0]);
+    //     //         });
+    //     //     });
+    //     // });
+    // }, [geocoder, lat, lng, mounted]);
 
     // React.useEffect(() => {
     //     clearMarkers();
@@ -179,6 +183,18 @@ const HomePage = ({ locations }: any): JSX.Element => {
                         })}
                     {bottomSlider && (
                         <BottomSlider
+                            destinationCoords={{
+                                lat: parseFloat(
+                                    bottomSlider?.location?.address
+                                        ?.gisCoordinates[0].xcoordinate,
+                                ),
+                                lng: parseFloat(
+                                    bottomSlider?.location?.address
+                                        ?.gisCoordinates[0].ycoordinate,
+                                ),
+                            }}
+                            setDirections={setDirections}
+                            currentUserLocation={{ lat, lng }}
                             id={bottomSlider?.id}
                             header={bottomSlider?.location?.label}
                             description={
@@ -197,6 +213,8 @@ const HomePage = ({ locations }: any): JSX.Element => {
                             }}
                         />
                     )}
+
+                    <DirectionsRenderer directions={directions} />
                 </GoogleMap>
 
                 {/* {bottomSlider && (
