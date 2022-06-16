@@ -22,6 +22,8 @@ export default function SliderMenu() {
         { iconName: faUtensils, nameOfCategory: 'Eat/Drink' },
         { iconName: faBicycle, nameOfCategory: 'Sport' },
         { iconName: faBuildingColumns, nameOfCategory: 'Culture' },
+        { iconName: faSquareParking, nameOfCategory: 'Bicycle parking' },
+        { iconName: faRestroom, nameOfCategory: 'Restroom' },
     ];
 
     const { t } = useTranslation('common');
