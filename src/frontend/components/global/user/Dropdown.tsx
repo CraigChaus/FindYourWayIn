@@ -3,6 +3,7 @@ import { useAuth } from 'contexts/AuthContext';
 import { auth } from 'firebase_config';
 import { Router, useRouter } from 'next/router';
 import { Fragment } from 'react';
+import { useTranslation } from 'react-i18next';
 import AccountSetting from '../../../public/icons/account_settings.svg';
 import LoginIcon from '../../../public/icons/login.svg';
 import LogoutIcon from '../../../public/icons/logout.svg';
@@ -10,6 +11,7 @@ import SignUpIcon from '../../../public/icons/register.svg';
 import UserButton from './UserButton';
 
 export default function UserDropdown() {
+    const { t } = useTranslation('common');
     const router = useRouter();
     const { user, logout } = useAuth();
     const handleLogout = async () => {
@@ -54,7 +56,7 @@ export default function UserDropdown() {
                                                 aria-hidden="true"
                                                 fill="white"
                                             />
-                                            Account
+                                            {t('account')}
                                         </button>
                                     )}
                                 </Menu.Item>
@@ -73,7 +75,7 @@ export default function UserDropdown() {
                                                 aria-hidden="true"
                                                 fill="white"
                                             />
-                                            Logout
+                                            {t('logout')}
                                         </button>
                                     )}
                                 </Menu.Item>
@@ -97,7 +99,7 @@ export default function UserDropdown() {
                                                 aria-hidden="true"
                                                 fill="white"
                                             />
-                                            Login
+                                            {t('login')}
                                         </button>
                                     )}
                                 </Menu.Item>
@@ -118,7 +120,7 @@ export default function UserDropdown() {
                                                 aria-hidden="true"
                                                 fill="white"
                                             />
-                                            Sign up
+                                            {t('signup')}
                                         </button>
                                     )}
                                 </Menu.Item>

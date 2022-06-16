@@ -1,7 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
 export default function Footer() {
+    const { t } = useTranslation('common');
     return (
         <footer className="p-4 text-center text-white lg:text-left sticky top-[100vh] ">
             <span className="block text-sm text-gray-300 sm:text-center dark:text-gray-300">
@@ -9,7 +11,7 @@ export default function Footer() {
                 <Link href="/home">
                     <a className="hover:underline"> FYWI™</a>
                 </Link>
-                . All rights reserved.
+                {`. ${t('footer')}.`}
             </span>
         </footer>
     );
