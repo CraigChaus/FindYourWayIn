@@ -9,6 +9,8 @@ import NavigationLink from './NavigationLink';
 import { useAuth } from '../../contexts/AuthContext';
 import Warning from '../../public/icons/warning.svg';
 import Router from 'next/router';
+import { t } from 'i18next';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Authentication form for sign up
@@ -16,27 +18,29 @@ import Router from 'next/router';
  */
 export default function SignUp() {
     // States for sign-up credentials
+    const { t } = useTranslation('common');
     const [registerEmail, setRegisterEmail] = useState('');
     const [registerPassword, setRegisterPassword] = useState('');
     const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const { signup } = useAuth();
+    const { user, signup } = useAuth();
 
     // const history = useHistory()
 
     async function handleSubmit(e: any) {
         e.preventDefault();
         if (registerPassword !== registerPasswordConfirm) {
-            return setError('Passwords do not match');
+            return setError(t('passwordNotMatch'));
         }
         try {
             setError('');
             setLoading(true);
             await signup(registerEmail, registerPassword)
                 .then(() => {
-                    Router.push('/home');
+                    // Router.push('/home');
+                    //  console.log(user)
                 })
                 .catch((error: { message: SetStateAction<string> }) => {
                     setError(error.message);
@@ -45,45 +49,19 @@ export default function SignUp() {
             // history.push("/")
         } catch (error: any) {
             console.log(error.message);
-            setError('Failed to create an account');
+            setError(t('errorSignup'));
         }
 
         setLoading(false);
     }
 
-    // const register = async () => {
-    //     try {
-    //         // Takes in auth from firebase object and credentials
-    //         const user = await createUserWithEmailAndPassword(
-    //             auth,
-    //             registerEmail,
-    //             registerPassword,
-    //         );
-    //         console.log(user);
+    console.log(t('signup'));
 
-    //         // Check if user exists
-    //         if (user) {
-    //             // Add a new document in collection "users"
-    //             await setDoc(doc(db, 'users', user.user.uid), {
-    //                 favorite_locations: [''],
-    //             });
-    //             console.log('New user added to database.');
-    //             // Route user to home page after signup
-    //             Router.push('/home');
-    //         } else {
-    //             console.log('Could not sign up!');
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //         setSignupFail(true);
-    //     }
-    // };
     return (
         <AuthLayout isSignUp={true}>
-            <HeaderAuthForm formName="Sign up" />
+            <HeaderAuthForm formName={`${t('signup')}`} />
             <div className="flex flex-col items-center w-5/6">
                 {error && (
-                    // TODO: This is temporary display. Refactor make it look better.
                     <div
                         className="w-full px-4 py-2 mt-4 mb-4 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md"
                         role="alert"
@@ -99,7 +77,7 @@ export default function SignUp() {
                     </div>
                 )}
                 <Input
-                    placeholder="Email"
+                    placeholder={t('email')}
                     type="email"
                     isRequired={true}
                     onChange={(event: React.FormEvent<HTMLInputElement>) => {
@@ -108,7 +86,7 @@ export default function SignUp() {
                     }}
                 />
                 <Input
-                    placeholder="Password"
+                    placeholder={t('password')}
                     type="password"
                     isRequired={true}
                     onChange={(event: React.FormEvent<HTMLInputElement>) => {
@@ -117,7 +95,7 @@ export default function SignUp() {
                     }}
                 />
                 <Input
-                    placeholder="Confirm password"
+                    placeholder={t('confirmPassword')}
                     type="password"
                     isRequired={true}
                     onChange={(event: React.FormEvent<HTMLInputElement>) => {
@@ -129,7 +107,7 @@ export default function SignUp() {
             <AuthButton
                 disabled={loading}
                 action={handleSubmit}
-                text="Sign up"
+                text={t('signup')}
             />
             <NavigationLink link="login" />
         </AuthLayout>
