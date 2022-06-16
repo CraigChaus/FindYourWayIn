@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-describe("Sign Up: Bad Weather-Already Existing Email", () =>{
+describe("Authenticaton: Sign Up Bad Weather-Already Existing Email", () =>{
     it("Input for email", () =>{
         cy.visit('http://localhost:3000/auth/signup')
         cy.get('input[name="signup-email"]')
@@ -35,7 +35,7 @@ describe("Sign Up: Bad Weather-Already Existing Email", () =>{
 })
 
 
-describe("Sign Up: Bad Weather-Missing Email", () =>{
+describe("Authenticaton: Sign Up Bad Weather-Missing Email", () =>{
     it("Input for password",()=>{
         cy.visit('http://localhost:3000/auth/signup')
         cy.get('input[name="signup-password"]')
@@ -65,7 +65,7 @@ describe("Sign Up: Bad Weather-Missing Email", () =>{
 })
 
 
-describe("Sign Up: Bad Weather-Non Matching Passwords", () =>{
+describe("Authenticaton: Sign Up Bad Weather-Non Matching Passwords", () =>{
     it("Input for email", () =>{
         cy.visit('http://localhost:3000/auth/signup')
         cy.get('input[name="signup-email"]')

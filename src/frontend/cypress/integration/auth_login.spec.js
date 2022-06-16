@@ -1,5 +1,5 @@
 /// <reference types="Cypress" />
-describe("Logging in Valid Credentials-Good Weather", () =>{
+describe("Authenticaton: Logging in Valid Credentials-Good Weather", () =>{
     it("input for email", () =>{
         cy.visit('http://localhost:3000/auth/login')
         cy.get('input[name="auth-email"]')
@@ -24,7 +24,7 @@ describe("Logging in Valid Credentials-Good Weather", () =>{
     
 })
 
-describe("Logging in Valid Credentials-Bad Weather", () =>{
+describe("Authenticaton: Logging in Valid Credentials-Bad Weather", () =>{
     it("input for email", () =>{
         cy.visit('http://localhost:3000/auth/login')
         cy.get('input[name="auth-email"]')
