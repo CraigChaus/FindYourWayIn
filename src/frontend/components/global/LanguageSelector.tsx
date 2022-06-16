@@ -17,7 +17,7 @@ export default function LanguageSelector() {
     const router = useRouter();
     return (
         <div className="absolute top-5 right-5">
-            <Menu as="div" className="relative inline-block text-left">
+            <Menu as="div" className="relative inline-block text-left z-10">
                 <div>
                     <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-800 border border-gray-300 rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
                         {router.locale === 'en' ? (
