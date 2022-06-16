@@ -29,6 +29,7 @@ describe("Sign Up: Bad Weather-Already Existing Email", () =>{
 
         it('Check error display', () => {
         cy.get('#error-display')
+        .should("exist")
         .should('have.text', 'Firebase: Error (auth/email-already-in-use).')
     })
 })
@@ -57,11 +58,11 @@ describe("Sign Up: Bad Weather-Missing Email", () =>{
 
         it('Check error display', () => {
         cy.get('#error-display')
+        .should("exist")
         .should('have.text', 'Firebase: Error (auth/missing-email).')
+      
     })
 })
-
-
 
 
 describe("Sign Up: Bad Weather-Non Matching Passwords", () =>{
@@ -94,6 +95,7 @@ describe("Sign Up: Bad Weather-Non Matching Passwords", () =>{
 
         it('Check error display', () => {
         cy.get('#error-display')
+        .should("exist")
         .should('have.text', 'Passwords do not match')
     })
 })
