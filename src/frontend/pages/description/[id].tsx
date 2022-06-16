@@ -4,12 +4,12 @@ import Schedule from '../../components/location-details/Schedule';
 import ContactDetails from '../../components/location-details/ContactDetails';
 import React from 'react';
 import Layout from '@components/global/Layout';
-import Head from 'next/head';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }: any) {
     const res = await fetch(`${apiUrl}/locations`, {
         method: 'GET',
         headers: {
@@ -19,19 +19,22 @@ export async function getStaticPaths() {
     });
     const data = await res.json();
     const dataArray = data.results;
-    const paths = dataArray.map((location: any) => {
-        return {
-            params: { id: location.id },
-        };
+    const paths = dataArray.flatMap((location: any) => {
+        return locales.map((locale: any) => {
+            return {
+             params: { id: location.id },
+             locale: locale,
+            };
+          });
     });
 
     return {
         paths,
-        fallback: false,
+        fallback: true,
     };
 }
 
-export async function getStaticProps(context: { params: { id: string } }) {
+export async function getStaticProps(context: { params: { id: string }, locale: string }) {
     const id = context.params.id;
     const res = await fetch(`${apiUrl}/locations/${id}`, {
         method: 'GET',
@@ -45,6 +48,7 @@ export async function getStaticProps(context: { params: { id: string } }) {
     return {
         props: {
             data: data,
+            ...(await serverSideTranslations(context.locale, ['common'])),
         },
     };
 }
@@ -86,13 +90,6 @@ export const Details = ({ data }: any): JSX.Element => {
 
     return (
         <Layout>
-            <Head>
-                <title>{locationName}</title>
-                <meta
-                    name="viewport"
-                    content="initial-scale=1.0, width=device-width"
-                />
-            </Head>
             <div className="flex flex-col justify-center w-full h-full mb-1 space-y-4">
                 <div className="w-auto p-2 mt-20 space-y-3">
                     <>
@@ -114,11 +111,7 @@ export const Details = ({ data }: any): JSX.Element => {
                                 email={email}
                             />
                         ) : (
-                            <ContactDetails
-                                phoneNumber=""
-                                email=""
-                                id={data.id}
-                            />
+                            <ContactDetails phoneNumber="" email="" />
                         )}
                     </>
                 </div>
