@@ -5,6 +5,8 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import LanguageSelector from '@components/global/LanguageSelector';
 import React from 'react';
+import Head from 'next/head';
+import Footer from '@components/global/Footer';
 
 export const getStaticProps = async ({ locale }: any) => ({
     props: {
@@ -18,6 +20,10 @@ const LandingPage: NextPage = () => {
 
     return (
         <div className="block h-screen bg-cover bg-landing-page">
+            <Head>
+                <title>Find Your Way In</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <LanguageSelector />
             <div className="flex flex-col items-center justify-center h-screen bg-gray-600 bg-opacity-70">
                 <h1 className="text-6xl text-center text-white">
@@ -55,6 +61,7 @@ const LandingPage: NextPage = () => {
                         </a>
                     </Link>
                 </div>
+                <Footer/>
             </div>
         </div>
     );

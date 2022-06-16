@@ -24,87 +24,21 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     // Reverse geocode marker position
     const geocoder = new google.maps.Geocoder();
-    const [country, setCountry] = React.useState<string>();
-    const [city, setCity] = React.useState<string>();
-    const [sector, setSector] = React.useState<string>();
-    const [neighborhood, setNeighborhood] = React.useState<string>();
-    const [address, setAddress] = React.useState<string>('');
 
-    const [isLocation, setIsLocation] = React.useState(false);
     const [dataLocation, setDataLocation] = React.useState<any[]>([]);
     const [filteredLocations, setFilteredLocations] = React.useState<any[]>([]);
 
     // bottom slider state
     const [bottomSlider, setBottomSlider] = React.useState<any>(null);
-    // const [markers, setMarkers] = React.useState<any[]>([]);
 
     const filterContext = useContext(FilterContext);
 
     console.log(locations);
-    // const onIdle = (m: google.maps.Map) => {
-    //     console.log("onIdle");
-    //     setZoom(m.getZoom()!);
-    //     setCenter(m.getCenter()!.toJSON());
-    // };
 
-    // function clearMarkers() {
-    //     for (let i = 0; i < markers.length; i++) {
-    //         markers[i].setMap(null);
-    //     }
-    // }
-
-    // React.useEffect(() => {
-    //     if (!mounted) return;
-    //     geocoder.geocode({ location: { lat, lng } });
-    //     // .then((res) => {
-    //     //     if (res.results[0]) {
-    //     //         res.results[0].address_components.reverse().filter((object) => {
-    //     //             object.types.filter((type) => {
-    //     //                 if (type === 'country') setCountry(object.long_name);
-    //     //                 if (type === 'locality') setCity(object.long_name);
-    //     //                 if (type === 'sublocality_level_1')
-    //     //                     setSector(object.long_name);
-    //     //                 if (type === 'route')
-    //     //                     setAddress((s) => s + object.long_name);
-    //     //                 if (type === 'street_number')
-    //     //                     setAddress((s) => s + ' ' + object.long_name);
-    //     //             });
-    //     //         });
-    //     //     }
-    //     //     res.results.map((object) => {
-    //     //         object.types.filter((type) => {
-    //     //             if (type === 'neighborhood')
-    //     //                 setNeighborhood(object.formatted_address.split(',')[0]);
-    //     //         });
-    //     //     });
-    //     // });
-    // }, [geocoder, lat, lng, mounted]);
-
-    // React.useEffect(() => {
-    //     clearMarkers();
-
-    //     if (filteredLocations.length) {
-    //         const googleMarkers = [];
-
-    //         for (let i = 0; i < filteredLocations.length; i++) {
-    //             const marker = new google.maps.Marker({
-    //                 position: {
-    //                     lat: parseFloat(
-    //                         dataLocation[i].location.address.gisCoordinates[0]
-    //                             .xcoordinate,
-    //                     ),
-    //                     lng: parseFloat(
-    //                         dataLocation[i].location.address.gisCoordinates[0]
-    //                             .ycoordinate,
-    //                     ),
-    //                 },
-    //             });
-    //             googleMarkers.push(marker);
-    //         }
-
-    //         setMarkers(googleMarkers);
-    //     }
-    // }, [dataLocation, filteredLocations]);
+    React.useEffect(() => {
+        if (!mounted) return;
+        geocoder.geocode({ location: { lat, lng } });
+    }, [geocoder, lat, lng, mounted]);
 
     React.useEffect(() => {
         setDataLocation(locations);
@@ -127,28 +61,20 @@ const HomePage = ({ locations }: any): JSX.Element => {
         <>
             <div className="flex flex-col w-full h-full overflow-hidden">
                 <Navbar />
-                {/* <GoogleAutocomplete
-                    setLat={setLat}
-                    setLng={setLng}
-                    setAddress={setAddress}
-                /> */}
 
                 <GoogleMap
                     center={{ lat, lng }}
                     zoom={zoom}
-                    // setZoom={setZoom}
                     style={{ width: '100%', height: '100%' }}
                     clickableIcons={false}
                     mapId="9c7cb3e171b411ff"
                     gestureHandling={'greedy'}
                     locations={locations}
-                    // onIdle={onIdle}
                 >
                     <UserLocationMarker
                         position={{ lat, lng }}
                         setLat={setLat}
                         setLng={setLng}
-                        setAddress={setAddress}
                     />
 
                     {dataLocation &&
@@ -156,9 +82,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
                             if (!location.location.address.gisCoordinates[0]) {
                                 return;
                             }
-                            // console.log(location.location.address
-                            //     .gisCoordinates[0].xcoordinate +' ' + location.location.address
-                            //     .gisCoordinates[0].ycoordinate)
                             return (
                                 <ObjectMarker
                                     id={location.id}
@@ -216,22 +139,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
                     <DirectionsRenderer directions={directions} />
                 </GoogleMap>
-
-                {/* {bottomSlider && (
-                    <BottomSlider
-                        id={bottomSlider?.id}
-                        header={bottomSlider?.location?.label}
-                        description={
-                            bottomSlider.trcItemDetails[0]?.shortdescription
-                        }
-                        image={
-                            bottomSlider.files[0]?.hlink !== undefined
-                                ? bottomSlider.files[0]?.hlink
-                                : ''
-                        }
-                        handleCloseBottomSlider={() => setBottomSlider(null)}
-                    />
-                )} */}
             </div>
         </>
     );
