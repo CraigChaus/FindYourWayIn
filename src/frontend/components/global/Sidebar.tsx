@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from './LanguageSelector';
 import Image from 'next/image';
-import logoWithoutText from '../../public/logo_without_text.png'
+import logoWithoutText from '../../public/logo_without_text.png';
 
 export default function Sidebar() {
     const { t } = useTranslation('common');
@@ -31,7 +31,6 @@ export default function Sidebar() {
 
     return (
         <>
-
             <button
                 onClick={handleShowSidebar}
                 className="w-12 m-2 font-bold text-white border-black rounded h-14 hover:bg-green-600"
@@ -60,7 +59,7 @@ export default function Sidebar() {
                             : 'hidden opacity-0'
                     }
                 ></div>
-            
+
                 <div
                     className={
                         showSidebar
@@ -68,18 +67,18 @@ export default function Sidebar() {
                             : 'fixed inset-y-0 duration-500 transition-right -left-full z-50 w-64 py-4 bg-green-500'
                     }
                 >
-                    <div className=' '>
-                       <LanguageSelector/>
-                       <div className=' pt-2 ml-10 -z-10'>
-                        <Image 
+                    <div className=" ">
+                        <LanguageSelector />
+                        <div className=" pt-2 ml-10 -z-10">
+                            <Image
                                 src={logoWithoutText}
-                                alt = {"logo"}
-                                height = {60}
-                                width = {60}/>
-                       </div>
-                      
+                                alt={'logo'}
+                                height={60}
+                                width={60}
+                            />
+                        </div>
                     </div>
-                    
+
                     <ul className="font-normal pt-4 text-white">
                         {icons.map((icon, index) => {
                             return (
