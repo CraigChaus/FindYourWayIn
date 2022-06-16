@@ -1,7 +1,7 @@
 import React from 'react';
 import DiscoveryComponent from '../components/discovery/DiscoveryComponent';
 import broken from '../public/images/broken.png';
-import Head from 'next/head'
+import Head from 'next/head';
 
 type DiscoveryProp = {
     id: any;
@@ -95,10 +95,10 @@ export const Discovery = ({ data }: any): JSX.Element => {
 
         setLocationData(resultLocation);
     }, [data]);
-    
+
     return (
         <>
-             <Head>
+            <Head>
                 <title>Find Your Way In</title>
                 <meta
                     name="viewport"
