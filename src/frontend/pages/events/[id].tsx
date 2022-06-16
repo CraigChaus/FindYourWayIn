@@ -2,6 +2,7 @@ import React from 'react';
 import DayInfo from '@components/eventsDetails/DayInfo';
 import EventImage from '@components/eventsDetails/EventImage';
 import EventInfo from '@components/eventsDetails/EventInfo';
+import Head from 'next/head';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
@@ -120,6 +121,13 @@ export const Events = ({ data }: any): JSX.Element => {
 
     return (
         <>
+            <Head>
+                <title>{eventName}</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
             <div className="m-4 text-2xl font-bold text-center">
                 <h1>Event Details</h1>
             </div>

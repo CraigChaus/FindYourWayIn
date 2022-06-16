@@ -1,5 +1,6 @@
 import AgendaInfo from '@components/events/AgendaInfo';
 import { UpcomingInfo } from '@components/events/UpcomingInfo';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -80,7 +81,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
             ) {
                 resultCurrent.push({
                     id: data.results[i].id,
-                    eventName: data.results[i].location.label,
+                    eventName: data.results[i].trcItemDetails[0].title,
                     day: dayNumberInstance,
                 });
 
@@ -97,7 +98,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
 
                 resultUpcoming.push({
                     id: data.results[i].id,
-                    eventName: data.results[i].location.label,
+                    eventName: data.results[i].trcItemDetails.title,
                     day: fullDayNumber,
                 });
 
@@ -119,6 +120,13 @@ export const Agenda = ({ data }: any): JSX.Element => {
 
     return (
         <>
+            <Head>
+                <title>Events</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
             <div>
                 <div>
                     <h1 className="p-4 font-bold text-center">

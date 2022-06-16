@@ -4,6 +4,7 @@ import Schedule from '../../components/location-details/Schedule';
 import ContactDetails from '../../components/location-details/ContactDetails';
 import React from 'react';
 import Layout from '@components/global/Layout';
+import Head from 'next/head';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
@@ -64,7 +65,7 @@ export const Details = ({ data }: any): JSX.Element => {
         }
 
         //api data for name of the location
-        setLocationName(data.location.label);
+        setLocationName(data.trcItemDetails[0].title);
 
         //api data for the description of the place
         setDescription(data.trcItemDetails[0].longdescription);
@@ -85,6 +86,13 @@ export const Details = ({ data }: any): JSX.Element => {
 
     return (
         <Layout>
+            <Head>
+                <title>{locationName}</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
             <div className="flex flex-col justify-center w-full h-full mb-1 space-y-4">
                 <div className="w-auto p-2 mt-20 space-y-3">
                     <>

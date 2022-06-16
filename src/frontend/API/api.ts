@@ -18,7 +18,7 @@ function createNewLocation(res: any, i: any, label1: string, label2: any) {
 
 async function getAllLocations(filteredList: any[]) {
     let res = new Object();
-    await fetch('https://app.thefeedfactory.nl/api/locations', {
+    await fetch('https://app.thefeedfactory.nl/api/locations?size=34', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -86,7 +86,7 @@ function filterByCategory(allLocations: any[], searchedCategory: string) {
     // }
     return allLocations.filter(function (currentElement) {
         return (
-            currentElement.trcItemCategories.types[0].categoryTranslations[0]
+            currentElement.trcItemCategories.types[0]?.categoryTranslations[0]
                 .label === searchedCategory
         );
     });
