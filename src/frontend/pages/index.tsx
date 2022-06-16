@@ -22,7 +22,10 @@ const LandingPage: NextPage = () => {
         <div className="block h-screen bg-cover bg-landing-page">
             <Head>
                 <title>Find Your Way In</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
             </Head>
             <LanguageSelector />
             <div className="flex flex-col items-center justify-center h-screen bg-gray-600 bg-opacity-70">
@@ -61,7 +64,7 @@ const LandingPage: NextPage = () => {
                         </a>
                     </Link>
                 </div>
-                <Footer/>
+                <Footer />
             </div>
         </div>
     );

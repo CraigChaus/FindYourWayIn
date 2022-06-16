@@ -88,7 +88,10 @@ export const Details = ({ data }: any): JSX.Element => {
         <Layout>
             <Head>
                 <title>{locationName}</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
             </Head>
             <div className="flex flex-col justify-center w-full h-full mb-1 space-y-4">
                 <div className="w-auto p-2 mt-20 space-y-3">

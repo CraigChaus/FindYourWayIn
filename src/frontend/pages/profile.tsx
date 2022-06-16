@@ -12,17 +12,19 @@ export const getStaticProps = async ({ locale }: any) => ({
 
 const Profile = (props: any) => {
     const { user } = useAuth();
-    
 
     return (
         <div>
             <Head>
                 <title>Profile</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
             </Head>
             <ProfilePage user={user} />;
         </div>
-    )
+    );
 };
 
 export default Profile;

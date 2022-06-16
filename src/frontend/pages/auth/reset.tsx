@@ -14,12 +14,14 @@ const Reset = (): JSX.Element => {
         <>
             <Head>
                 <title>Reset password</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
             </Head>
             <ResetPassword />;
-        </>    
-    )
-    
+        </>
+    );
 };
 
 export default Reset;

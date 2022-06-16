@@ -1,7 +1,6 @@
 import React from 'react';
 import Dropdown from '../components/global/user/Dropdown';
 
-
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
@@ -30,7 +29,6 @@ export default function Demo({ data }: any): JSX.Element {
     return (
         <>
             <Dropdown />
-            
         </>
     );
 }

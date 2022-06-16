@@ -85,7 +85,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                     day: dayNumberInstance,
                 });
 
-                // console.log(resultCurrent)   
+                // console.log(resultCurrent)
 
                 // //api data for name of the event
                 // setEventName(data.results[i].location.label);
@@ -122,7 +122,10 @@ export const Agenda = ({ data }: any): JSX.Element => {
         <>
             <Head>
                 <title>Events</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
             </Head>
             <div>
                 <div>

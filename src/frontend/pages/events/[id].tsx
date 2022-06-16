@@ -123,7 +123,10 @@ export const Events = ({ data }: any): JSX.Element => {
         <>
             <Head>
                 <title>{eventName}</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
             </Head>
             <div className="m-4 text-2xl font-bold text-center">
                 <h1>Event Details</h1>

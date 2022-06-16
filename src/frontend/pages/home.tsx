@@ -25,7 +25,7 @@ export const getServerSideProps = async ({ locale }: any) => {
             Authorization: `Bearer ${apiKey}`,
         },
     });
-     
+
     const data = await res2.json();
 
     return {
@@ -41,7 +41,10 @@ const Home: NextPage = ({ data }: any) => {
         <div className="flex flex-col h-screen">
             <Head>
                 <title>Home</title>
-                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
             </Head>
             <HomePage locations={data} />
         </div>
