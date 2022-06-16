@@ -95,15 +95,24 @@ export const Discovery = ({ data }: any): JSX.Element => {
 
         setLocationData(resultLocation);
     }, [data]);
-    console.log(data);
+    
     return (
         <>
+<<<<<<< HEAD
             <Head>
             <title>Find Your Way In</title>
             <meta
                 name="viewport"
                 content="initial-scale=1.0, width=device-width"
             />
+=======
+             <Head>
+                <title>Find Your Way In</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+>>>>>>> a450f1ffbe0b4ebc4680b9eb5e8bf664914e0826
             </Head>
             <DiscoveryComponent
                 locationData={locationData}
