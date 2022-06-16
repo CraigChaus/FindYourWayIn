@@ -106,7 +106,11 @@ export const Details = ({ data }: any): JSX.Element => {
                                 email={email}
                             />
                         ) : (
-                            <ContactDetails phoneNumber="" email="" />
+                            <ContactDetails
+                                phoneNumber=""
+                                email=""
+                                id={data.id}
+                            />
                         )}
                     </>
                 </div>

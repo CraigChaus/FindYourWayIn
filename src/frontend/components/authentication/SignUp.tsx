@@ -25,7 +25,7 @@ export default function SignUp() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const { signup } = useAuth();
+    const { user, signup } = useAuth();
 
     // const history = useHistory()
 
@@ -39,7 +39,8 @@ export default function SignUp() {
             setLoading(true);
             await signup(registerEmail, registerPassword)
                 .then(() => {
-                    Router.push('/home');
+                    // Router.push('/home');
+                    //  console.log(user)
                 })
                 .catch((error: { message: SetStateAction<string> }) => {
                     setError(error.message);
