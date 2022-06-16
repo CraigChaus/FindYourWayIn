@@ -22,10 +22,10 @@ export async function getStaticPaths({ locales }: any) {
     const paths = dataArray.flatMap((location: any) => {
         return locales.map((locale: any) => {
             return {
-             params: { id: location.id },
-             locale: locale,
+                params: { id: location.id },
+                locale: locale,
             };
-          });
+        });
     });
 
     return {
@@ -34,7 +34,10 @@ export async function getStaticPaths({ locales }: any) {
     };
 }
 
-export async function getStaticProps(context: { params: { id: string }, locale: string }) {
+export async function getStaticProps(context: {
+    params: { id: string };
+    locale: string;
+}) {
     const id = context.params.id;
     const res = await fetch(`${apiUrl}/locations/${id}`, {
         method: 'GET',
