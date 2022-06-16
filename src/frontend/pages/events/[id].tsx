@@ -3,11 +3,12 @@ import DayInfo from '@components/eventsDetails/DayInfo';
 import EventImage from '@components/eventsDetails/EventImage';
 import EventInfo from '@components/eventsDetails/EventInfo';
 import Head from 'next/head';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-export async function getStaticPaths() {
+export async function getStaticPaths({ locales }: any) {
     const res = await fetch(`${apiUrl}/events`, {
         method: 'GET',
         headers: {
@@ -17,19 +18,22 @@ export async function getStaticPaths() {
     });
     const data = await res.json();
     const dataArray = data.results;
-    const paths = dataArray.map((event: any) => {
-        return {
-            params: { id: event.id },
-        };
+    const paths = dataArray.flatMap((location: any) => {
+        return locales.map((locale: any) => {
+            return {
+             params: { id: location.id },
+             locale: locale,
+            };
+          });
     });
 
     return {
         paths,
-        fallback: false,
+        fallback: true,
     };
 }
 
-export async function getStaticProps(context: { params: { id: string } }) {
+export async function getStaticProps(context: { params: { id: string }, locale: string }) {
     const id = context.params.id;
     const res = await fetch(`${apiUrl}/events/${id}`, {
         method: 'GET',
@@ -43,6 +47,8 @@ export async function getStaticProps(context: { params: { id: string } }) {
     return {
         props: {
             data: data,
+            ...(await serverSideTranslations(context.locale, ['common'])),
+
         },
     };
 }
@@ -116,8 +122,6 @@ export const Events = ({ data }: any): JSX.Element => {
         //this is for setting up the website
         setWebsite(data.contactinfo.urls[0]?.url);
     }, [data]);
-
-    console.log(data);
 
     return (
         <>

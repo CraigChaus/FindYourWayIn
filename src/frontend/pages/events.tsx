@@ -1,5 +1,7 @@
 import AgendaInfo from '@components/events/AgendaInfo';
 import { UpcomingInfo } from '@components/events/UpcomingInfo';
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
@@ -13,7 +15,7 @@ type EventProp = {
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }: any) {
     const res = await fetch(`${apiUrl}/events`, {
         method: 'GET',
         headers: {
@@ -26,12 +28,15 @@ export async function getStaticProps() {
     return {
         props: {
             data: data,
+            ...(await serverSideTranslations(locale, ['common'])),
+
         },
     };
 }
 
 export const Agenda = ({ data }: any): JSX.Element => {
     const router = useRouter();
+    const { t } = useTranslation('common');
     //creating an instance of the event name and day as usestates (FOR CURRENT EVENTS)
     const [currentEvents, setCurrentEvents] = React.useState<
         EventProp[] | null

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import LanguageSelector from '@components/global/LanguageSelector';
+import LanguageSelector from '@components/global/language/LanguageSelector';
 import React from 'react';
 import Head from 'next/head';
 import Footer from '@components/global/Footer';

@@ -1,13 +1,15 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment, useContext } from 'react';
 import { Menu, Transition } from '@headlessui/react';
-import ChevronDownIcon from '../../public/icons/chevron-down.svg';
+import ChevronDownIcon from '../../../public/icons/chevron-down.svg';
 import React from 'react';
 import Link from 'next/link';
-import Language from '../../public/icons/language.svg';
-import FlagUK from '../../public/icons/flags/4x3/gb.svg';
-import FlagNL from '../../public/icons/flags/4x3/nl.svg';
 import { useRouter } from 'next/router';
+import FlagUK from '../../../public/icons/flags/4x3/gb.svg';
+import FlagNL from '../../../public/icons/flags/4x3/nl.svg';
+import FlagCN from '../../../public/icons/flags/4x3/cn.svg';
+import FlagDE from '../../../public/icons/flags/4x3/de.svg';
+import LanguageItem from './LanguageItem';
 
 function classNames(...classes: any[]) {
     return classes.filter(Boolean).join(' ');
@@ -15,16 +17,27 @@ function classNames(...classes: any[]) {
 
 export default function LanguageSelector() {
     const router = useRouter();
+    const flagSelection = () => {
+        switch (router.locale) {
+        case 'en':
+            return <FlagUK className="w-5 h-5" />
+        case 'nl':
+            return <FlagNL className="w-5 h-5" />
+        case 'zh':
+            return <FlagCN className="w-5 h-5" />
+        case 'de':
+            return <FlagDE className="w-5 h-5" />
+        default:
+            return <FlagUK className="w-5 h-5" />
+        }
+    }
+
     return (
         <div className="absolute top-5 right-5">
             <Menu as="div" className="relative inline-block text-left">
                 <div>
                     <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-800 border border-gray-300 rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-                        {router.locale === 'en' ? (
-                            <FlagUK className="w-5 h-5" />
-                        ) : (
-                            <FlagNL className="w-5 h-5" />
-                        )}
+                        {flagSelection()}
                         <ChevronDownIcon
                             className="w-5 h-5 ml-2 -mr-1"
                             aria-hidden="true"
@@ -59,17 +72,7 @@ export default function LanguageSelector() {
                                                         'flex px-4 py-2 text-sm',
                                                     )}
                                                 >
-                                                    {locale === 'en' ? (
-                                                        <>
-                                                            <FlagUK className="w-5 h-5 mr-2" />
-                                                            English
-                                                        </>
-                                                    ) : (
-                                                        <>
-                                                            <FlagNL className="w-5 h-5 mr-2" />
-                                                            Nederlands
-                                                        </>
-                                                    )}
+                                                    <LanguageItem locale={locale} />
                                                 </a>
                                             </Link>
                                         )}
