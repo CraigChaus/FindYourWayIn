@@ -1,6 +1,6 @@
 import React from 'react';
 import DiscoveryComponent from '../components/discovery/DiscoveryComponent';
-import broken from '../public/images/broken.png'
+import broken from '../public/images/broken.png';
 
 type DiscoveryProp = {
     id: any;
@@ -13,8 +13,8 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 //these variables are for the location image and location name data checking stage
-let locImage:any = "";
-let locName:any = " ";
+let locImage: any = '';
+let locName: any = ' ';
 
 export async function getStaticProps() {
     const res = await fetch(`${apiUrl}/locations`, {
@@ -50,45 +50,43 @@ export const Discovery = ({ data }: any): JSX.Element => {
         console.log(total);
 
         for (let i = 0; i < data.results.length; i++) {
+            //data checking stage
+            if (data.results[i]?.files[0]?.hlink == null) {
+                locImage = broken;
+            } else {
+                locImage = data.results[i]?.files[0]?.hlink;
+            }
 
-                //data checking stage
-                if((data.results[i]?.files[0]?.hlink)==null){
-                     locImage = broken;
-              
-                }else {
+            if (data.results[i]?.trcItemDetails[0]?.title == '') {
+                locName = 'Under Construction';
+            } else {
+                locName = data.results[i]?.trcItemDetails[0]?.title;
+            }
 
-                     locImage = data.results[i]?.files[0]?.hlink;
-                }
-                
-                if((data.results[i]?.trcItemDetails[0]?.title) == ""){
-                   
-                     locName = 'Under Construction';
-                }else{
-                    locName = data.results[i]?.trcItemDetails[0]?.title;
-                }
-
-                resultLocation.push({
-                    id: data.results[i]?.id,
-                    imageSRC: locImage,
-                    imageAlt: 'alt',
-                    locationName: locName
-                });
+            resultLocation.push({
+                id: data.results[i]?.id,
+                imageSRC: locImage,
+                imageAlt: 'alt',
+                locationName: locName,
+            });
         }
 
         //This is the random index number generator based on total number of array elements
         const spotLightPicker =
             (Math.floor(Math.random() * 10) % (total ?? 0)) + (total ? 0 : 0);
 
-        if((data.results[spotLightPicker]?.trcItemDetails[0]?.title) == ""){
+        if (data.results[spotLightPicker]?.trcItemDetails[0]?.title == '') {
             setSpotLightName('Under Construction');
-        }else{
-            setSpotLightName(data.results[spotLightPicker]?.trcItemDetails[0]?.title);
+        } else {
+            setSpotLightName(
+                data.results[spotLightPicker]?.trcItemDetails[0]?.title,
+            );
         }
 
-        if((data.results[spotLightPicker]?.files[0]?.hlink) == null ){
-            setSpotLightImage(broken)
-        }else{
-          setSpotLightImage(data.results[spotLightPicker]?.files[0]?.hlink);
+        if (data.results[spotLightPicker]?.files[0]?.hlink == null) {
+            setSpotLightImage(broken);
+        } else {
+            setSpotLightImage(data.results[spotLightPicker]?.files[0]?.hlink);
         }
 
         setSpotLightId(data.results[spotLightPicker].id);
@@ -96,7 +94,7 @@ export const Discovery = ({ data }: any): JSX.Element => {
 
         setLocationData(resultLocation);
     }, [data]);
-console.log(data);
+    console.log(data);
     return (
         <DiscoveryComponent
             locationData={locationData}
