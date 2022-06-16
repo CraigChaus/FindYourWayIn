@@ -12,6 +12,7 @@ import {
     faAnglesUp,
     faBagShopping,
 } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 export default function SliderMenu() {
     const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +22,11 @@ export default function SliderMenu() {
         { iconName: faUtensils, nameOfCategory: 'Eat/Drink' },
         { iconName: faBicycle, nameOfCategory: 'Sport' },
         { iconName: faBuildingColumns, nameOfCategory: 'Culture' },
+        { iconName: faSquareParking, nameOfCategory: 'Bicycle parking' },
+        { iconName: faRestroom, nameOfCategory: 'Restroom' },
     ];
+
+    const { t } = useTranslation('common');
 
     return (
         <>
@@ -48,7 +53,7 @@ export default function SliderMenu() {
                         } transition-transform duration-600`}
                     >
                         <div className="flex justify-center p-2 bg-gray-50">
-                            <p className="text-xl font-bold">Categories</p>
+                            <p className="text-xl font-bold">{t('category')}</p>
                         </div>
                         <div className="grid h-auto grid-cols-3 gap-6 p-4 bg-gray-50 rounded-b-2xl">
                             <Categories categories={categories} />

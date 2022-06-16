@@ -7,12 +7,14 @@ import ArrowBack from '../../public/icons/arrow-back.svg';
 import Link from 'next/link';
 import { useAuth } from 'contexts/AuthContext';
 import Verify from '../../public/icons/verify.svg';
+import { useTranslation } from 'react-i18next';
 
 /**
  *
  * @returns Reset password component
  */
 const ResetPassword = (): JSX.Element => {
+    const { t } = useTranslation('common');
     const [email, setEmail] = React.useState('');
     const [message, setMessage] = React.useState('');
     const { reset } = useAuth();
@@ -22,7 +24,7 @@ const ResetPassword = (): JSX.Element => {
         e.preventDefault();
         try {
             await reset(email);
-            setMessage('Password reset link has been sent to your email!');
+            setMessage(t('resetPasswordMessage'));
         } catch (error) {
             console.log(error);
         }
@@ -31,7 +33,7 @@ const ResetPassword = (): JSX.Element => {
     return (
         <>
             <AuthLayout>
-                <HeaderAuthForm formName="Reset password" />
+                <HeaderAuthForm formName={t('reset')} />
 
                 <div className="flex flex-col items-center w-5/6">
                     {message && (
@@ -52,7 +54,7 @@ const ResetPassword = (): JSX.Element => {
                         </div>
                     )}
                     <Input
-                        placeholder="Email"
+                        placeholder={t('email')}
                         type="email"
                         isRequired={true}
                         onChange={(
@@ -63,12 +65,12 @@ const ResetPassword = (): JSX.Element => {
                         }}
                     />
                 </div>
-                <AuthButton action={handleReset} text="Reset password" />
+                <AuthButton action={handleReset} text={t('reset')} />
 
                 <Link href="/auth/login">
                     <a className="flex items-center text-sm text-green-800 hover:text-green-600">
                         <ArrowBack className="w-6 h-6 mr-2 text-green-800 fill-current" />
-                        Back to login
+                        {t('backToLogin')}
                     </a>
                 </Link>
             </AuthLayout>

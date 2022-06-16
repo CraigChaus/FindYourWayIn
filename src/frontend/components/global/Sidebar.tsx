@@ -6,14 +6,19 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import LanguageSelector from './LanguageSelector';
+import Image from 'next/image';
+import logoWithoutText from '../../public/logo_without_text.png';
 
 export default function Sidebar() {
+    const { t } = useTranslation('common');
     const icons = [
-        { iconName: faHome, content: 'Home', href: '/home' },
-        { iconName: faCalendar, content: 'Events', href: '/events' },
+        { iconName: faHome, content: 'home', href: '/home' },
+        { iconName: faCalendar, content: 'events', href: '/events' },
         {
             iconName: faMagnifyingGlassLocation,
-            content: 'Discovery',
+            content: 'discovery',
             href: '/discovery',
         },
     ];
@@ -54,14 +59,27 @@ export default function Sidebar() {
                             : 'hidden opacity-0'
                     }
                 ></div>
+
                 <div
                     className={
                         showSidebar
-                            ? 'fixed inset-y-0 left-0 z-50 w-64 py-4 bg-green-500 transition-right duration-300'
+                            ? 'fixed inset-y-0 left-0  z-50 w-64 py-4 bg-green-500 transition-right duration-300'
                             : 'fixed inset-y-0 duration-500 transition-right -left-full z-50 w-64 py-4 bg-green-500'
                     }
                 >
-                    <ul className="font-normal text-white">
+                    <div className=" ">
+                        <LanguageSelector />
+                        <div className=" pt-2 ml-10 -z-10">
+                            <Image
+                                src={logoWithoutText}
+                                alt={'logo'}
+                                height={60}
+                                width={60}
+                            />
+                        </div>
+                    </div>
+
+                    <ul className="font-normal pt-4 text-white">
                         {icons.map((icon, index) => {
                             return (
                                 <li onClick={handleShowSidebar} key={index}>
@@ -73,7 +91,7 @@ export default function Sidebar() {
                                                 className="m-4 text-white"
                                             />
                                             <p className="ml-4">
-                                                {icon.content}
+                                                {t(icon.content)}
                                             </p>
                                         </a>
                                     </Link>

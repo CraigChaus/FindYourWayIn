@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FilterContext } from 'contexts/FilterContext';
 import { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Categories = (props: any) => {
     const categories = props.categories;
@@ -16,6 +17,7 @@ export const Categories = (props: any) => {
     const nameOfCategory = props.nameOfCategory;
 
     const filterContext = useContext(FilterContext);
+    const { t } = useTranslation('common');
 
     return (
         <>
@@ -23,7 +25,7 @@ export const Categories = (props: any) => {
                 <div key={index + 1} className="flex flex-col">
                     <div className="flex justify-center h-3/5">
                         <button
-                            className="flex justify-center w-12 h-12 mx-2 rounded hover:scale-150 hover:-translate-y-1 "
+                            className="flex justify-center w-12 h-12 mx-2 rounded hover:scale-125 hover:-translate-y-2 hover:bg-gray-300"
                             onClick={() => {
                                 filterContext.handleSetFilter(
                                     category.nameOfCategory,

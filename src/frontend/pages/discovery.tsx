@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 import DiscoveryComponent from '../components/discovery/DiscoveryComponent';
 import broken from '../public/images/broken.png';
@@ -94,15 +95,24 @@ export const Discovery = ({ data }: any): JSX.Element => {
 
         setLocationData(resultLocation);
     }, [data]);
-    console.log(data);
+    
     return (
-        <DiscoveryComponent
-            locationData={locationData}
-            spotName={spotLightName}
-            spotImage={spotLightImage}
-            spotID={spotLightId}
-            spotImageAlt={spotLightImageAlt}
-        />
+        <>
+             <Head>
+                <title>Find Your Way In</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
+            <DiscoveryComponent
+                locationData={locationData}
+                spotName={spotLightName}
+                spotImage={spotLightImage}
+                spotID={spotLightId}
+                spotImageAlt={spotLightImageAlt}
+            />
+        </>
     );
 };
 
