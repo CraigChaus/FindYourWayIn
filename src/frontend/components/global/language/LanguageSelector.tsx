@@ -19,18 +19,18 @@ export default function LanguageSelector() {
     const router = useRouter();
     const flagSelection = () => {
         switch (router.locale) {
-        case 'en':
-            return <FlagUK className="w-5 h-5" />
-        case 'nl':
-            return <FlagNL className="w-5 h-5" />
-        case 'zh':
-            return <FlagCN className="w-5 h-5" />
-        case 'de':
-            return <FlagDE className="w-5 h-5" />
-        default:
-            return <FlagUK className="w-5 h-5" />
+            case 'en':
+                return <FlagUK className="w-5 h-5" />;
+            case 'nl':
+                return <FlagNL className="w-5 h-5" />;
+            case 'zh':
+                return <FlagCN className="w-5 h-5" />;
+            case 'de':
+                return <FlagDE className="w-5 h-5" />;
+            default:
+                return <FlagUK className="w-5 h-5" />;
         }
-    }
+    };
 
     return (
         <div className="absolute top-5 right-5">
@@ -72,7 +72,9 @@ export default function LanguageSelector() {
                                                         'flex px-4 py-2 text-sm',
                                                     )}
                                                 >
-                                                    <LanguageItem locale={locale} />
+                                                    <LanguageItem
+                                                        locale={locale}
+                                                    />
                                                 </a>
                                             </Link>
                                         )}

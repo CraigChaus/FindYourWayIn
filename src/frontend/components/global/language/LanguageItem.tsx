@@ -10,7 +10,7 @@ const LanguageItem = ({ locale }: any) => {
     const languageSelection = () => {
         switch (locale) {
             case 'en':
-                return ( 
+                return (
                     <>
                         <FlagUK className="w-5 h-5 mr-2" />
                         {t('english')}
@@ -22,9 +22,9 @@ const LanguageItem = ({ locale }: any) => {
                         <FlagNL className="w-5 h-5 mr-2" />
                         {t('dutch')}
                     </>
-                )
+                );
             case 'zh':
-                return ( 
+                return (
                     <>
                         <FlagCN className="w-5 h-5 mr-2" />
                         {t('chinese')}
@@ -32,24 +32,20 @@ const LanguageItem = ({ locale }: any) => {
                 );
             case 'de':
                 return (
-                    <>                    
+                    <>
                         <FlagDE className="w-5 h-5 mr-2" />
                         {t('german')}
                     </>
-                )
+                );
             default:
-                return ( 
+                return (
                     <>
                         <FlagUK className="w-5 h-5 mr-2" />
                         {t('english')}
                     </>
-                );    
-            }
+                );
         }
-    return (
-        <>
-            {languageSelection()}
-        </>
-    );
-}
+    };
+    return <>{languageSelection()}</>;
+};
 export default LanguageItem;
