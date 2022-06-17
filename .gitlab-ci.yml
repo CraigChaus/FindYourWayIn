@@ -12,15 +12,15 @@ eslint:
   stage: lint
   script:
     - cd src/backend/
-    - npm install
+    - npm install --force
     - npm run lint
     - cd ../frontend/
-    - npm install
+    - npm install --force
     - npm run lint
 
 prettier:
   stage: lint
   script:
-    - cd src/frontend
-    - npm i
+    - cd src/frontend 
+    - npm i --force
     - npm run prettier
