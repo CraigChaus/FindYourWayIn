@@ -1,5 +1,6 @@
 import React from 'react';
 import Dropdown from '../components/global/user/Dropdown';
+import categories from '../CategorizationOntology-TheFeedFactory.json';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
@@ -23,9 +24,7 @@ export const getServerSideProps = async () => {
 };
 
 export default function Demo({ data }: any): JSX.Element {
-    for (const location of data) {
-        console.log(location.trcItemDetails[0].title);
-    }
+    console.log(categories.categorizations);
     return (
         <>
             <Dropdown />

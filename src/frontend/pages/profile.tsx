@@ -14,17 +14,30 @@ const Profile = (props: any) => {
     const { user } = useAuth();
 
     return (
+
         <div>
-            <Head>
-                <title>Profile</title>
-                <meta
-                    name="viewport"
-                    content="initial-scale=1.0, width=device-width"
-                />
-            </Head>
-            <ProfilePage user={user} />;
+            {user ? (    
+                <>
+                    <Head>
+                        <title>Profile</title>
+                        <meta
+                            name="viewport"
+                            content="initial-scale=1.0, width=device-width"
+                        />
+                    </Head>
+                    <ProfilePage user={user} />
+                </>
+            ) : (
+                <>
+                    <div>
+                        <h1>You are not logged in</h1>
+                    </div>
+                </>
+            ) 
+            } 
         </div>
-    );
+        )
+    
 };
 
 export default Profile;
