@@ -4,16 +4,16 @@ import SliderMenu from './SliderMenu';
 import React from 'react';
 import UserDropdown from '../global/user/Dropdown';
 
-export const Navbar = () => {
+export const Navbar = ({ setBottomSlider, dataLocation }: any) => {
     return (
-        <div className="z-10 flex flex-col w-full bg-transparent fixed">
+        <div className="fixed z-10 flex flex-col w-full bg-transparent">
             <div
                 id="header"
                 className="z-10 flex items-center justify-between bg-green-500 h-18"
             >
                 <SideBar />
                 <div className="flex justify-end">
-                    <SearchBar />
+                    <SearchBar setBottomSlider={setBottomSlider} dataLocation={dataLocation}/>
                     <UserDropdown />
                 </div>
             </div>

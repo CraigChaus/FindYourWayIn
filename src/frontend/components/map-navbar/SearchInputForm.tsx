@@ -7,7 +7,7 @@ import LocationComponent from './LocationComponent';
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-export const SearchInputForm = () => {
+export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
     const { t } = useTranslation('common');
     const [locationFound, setLocationFound] = useState<any>([]);
     const [locationSearch, setLocationSearch] = useState('');
@@ -60,7 +60,7 @@ export const SearchInputForm = () => {
 
     return (
         <>
-            <div className="flex-col ">
+            <div className="flex-col">
                 <form onSubmit={(event) => search(event)}>
                     <label className="relative block">
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
@@ -92,7 +92,7 @@ export const SearchInputForm = () => {
                                     </p>
                                 )}
 
-                                <LocationComponent locationRes={locationRes} />
+                                <LocationComponent locationRes={locationRes} setBottomSlider={setBottomSlider} dataLocation={dataLocation}/>
                             </div>
                         )}
                     </label>

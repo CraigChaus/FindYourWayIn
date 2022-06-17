@@ -65,6 +65,7 @@ export default function SignUp() {
                     <div
                         className="w-full px-4 py-2 mt-4 mb-4 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md"
                         role="alert"
+                        id="error-display"
                     >
                         <div className="flex items-center">
                             <div className="py-1">
@@ -77,6 +78,7 @@ export default function SignUp() {
                     </div>
                 )}
                 <Input
+                    name="signup-email"
                     placeholder={t('email')}
                     type="email"
                     isRequired={true}
@@ -86,6 +88,7 @@ export default function SignUp() {
                     }}
                 />
                 <Input
+                    name="signup-password"
                     placeholder={t('password')}
                     type="password"
                     isRequired={true}
@@ -95,6 +98,7 @@ export default function SignUp() {
                     }}
                 />
                 <Input
+                    name="signup-password_confirm"
                     placeholder={t('confirmPassword')}
                     type="password"
                     isRequired={true}

@@ -18,16 +18,6 @@ const BottomSlider = ({
     handleCloseBottomSlider,
 }: any): JSX.Element => {
     const router = useRouter();
-    // const [locationTitle, setLocationTitle] = useState('');
-    // const [locationShortDesc, setlocationShortDesc] = useState('');
-
-    // useEffect(() => {
-    //     setLocationTitle(allLocations[0].name);
-    //     setlocationShortDesc(allLocations[0].shortDescription);
-    //     console.log('LOCATION INFO FOR BOTTOM SLIDER');
-    //     console.log(allLocations[0].name);
-    //     console.log(allLocations[0].shortDescription);
-    // }, []);
     useEffect(() => {
         return () => {
             console.log('unmounting');
@@ -60,7 +50,7 @@ const BottomSlider = ({
     console.log('YY', destinationCoords.lng);
 
     return (
-        <div className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-gray-50">
+        <div data-cy="bottomSlider" className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-gray-50">
             <ImageContainer
                 src={image ? image : brokenImage}
                 alt="background"

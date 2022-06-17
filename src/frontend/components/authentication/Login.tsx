@@ -80,6 +80,7 @@ export default function Login() {
                         </div>
                     )}
                     <Input
+                        name="auth-email"
                         placeholder={t('email')}
                         type="email"
                         isRequired={true}
@@ -91,6 +92,7 @@ export default function Login() {
                         }}
                     />
                     <Input
+                        name="auth-password"
                         placeholder={t('password')}
                         type="password"
                         isRequired={true}
