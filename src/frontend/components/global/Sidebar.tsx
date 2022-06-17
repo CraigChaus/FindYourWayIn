@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import LanguageSelector from './LanguageSelector';
+import LanguageSelector from './language/LanguageSelector';
 import Image from 'next/image';
 import logoWithoutText from '../../public/logo_without_text.png';
 
