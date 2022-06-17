@@ -1,13 +1,14 @@
+import { t } from 'i18next';
 import React, { FormEvent } from 'react';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import LocationComponent from './LocationComponent';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-
-
-export const SearchInputForm = () => {
+export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
+    const { t } = useTranslation('common');
     const [locationFound, setLocationFound] = useState<any>([]);
     const [locationSearch, setLocationSearch] = useState('');
 
@@ -62,10 +63,14 @@ export const SearchInputForm = () => {
 
     const [isShown, setIsShown] = useState(true); // this states we needed for slide-bar to show and collapse
 
+
+        const [inputText, setInputText] = useState("")
+
+
     return (
         <>
-            <div className="flex-col ">
-                <form onSubmit={(event) => search(event)}  >
+            <div className="flex-col">
+                <form onSubmit={(event) => search(event)}>
                     <label className="relative block">
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                             <svg
@@ -80,23 +85,27 @@ export const SearchInputForm = () => {
                                 <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"></path>
                             </svg>
                         </span>
-                        <input
+                        <input onChange={ (e) => {
+                            setInputText(e.target.value)
+                        }}
+                            // onKeyUp={() => setIsShown(true)}
                             id="searchText"
                             onMouseEnter={() => setIsShown(true)} //to make slideBar open and closed depends on focus
                             className="w-full h-8 py-2 pl-10 pr-4 my-5 text-lg bg-green-400 border border-green-500 rounded-md shadow-sm placeholder:text-white placeholder:font-italitc focus:outline-none"
-                            placeholder="Search a place "
+                            placeholder={t('search')}
                             type="text"
                         />
-                       {isShown && (
-                            <div className="absolute bg-gray-50 w-full rounded-b-lg  "
+                       {isShown &&   (inputText !== "")  && (
+                            <div className="absolute bg-gray-50 w-full rounded-b-lg"
                                  onMouseLeave={() => setIsShown(false)}>
                                 {locationSearch && (
-                                    <p className="font-medium pt-2">
+                                    <p className="pt-2 font-medium">
                                         Results for {locationSearch}:
                                     </p>
                                 )}
 
-                                <LocationComponent locationRes={locationRes}  />
+
+                                <LocationComponent locationRes={locationRes} setBottomSlider={setBottomSlider} dataLocation={dataLocation}/>
                             </div>
                         )}
                     </label>

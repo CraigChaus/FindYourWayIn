@@ -1,0 +1,10 @@
+{
+  "projectId": "5n41q5",
+  "component": {
+    "testFiles": "**/*.test.{js,ts,jsx,tsx}",
+    "componentFolder": "src"
+  },
+  "baseUrl": "http://localhost:3000",
+  "viewportWidth": 375,
+  "viewportHeight": 812
+}

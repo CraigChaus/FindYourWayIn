@@ -9,11 +9,13 @@ import { useRouter } from 'next/router';
 import Warning from '../../public/icons/warning.svg';
 import Verify from '../../public/icons/verify.svg';
 import { useAuth } from 'contexts/AuthContext';
+import { useTranslation } from 'react-i18next';
 
 /** Authentication form for sign in
  * @returns Sign in form
  */
 export default function Login() {
+    const { t } = useTranslation();
     const [error, setError] = useState('');
     const [loginSuccess, setLoginSuccess] = useState(false);
 
@@ -42,7 +44,7 @@ export default function Login() {
     return (
         <>
             <AuthLayout isSignUp={false}>
-                <HeaderAuthForm formName="Login" />
+                <HeaderAuthForm formName={`${t('login')}`} />
                 <div className="flex flex-col items-center w-5/6">
                     {error && (
                         <div
@@ -71,14 +73,15 @@ export default function Login() {
                                 </div>
                                 <div>
                                     <p className="text-sm text-center">
-                                        Login successfully!
+                                        {t('loginSuccess')}
                                     </p>
                                 </div>
                             </div>
                         </div>
                     )}
                     <Input
-                        placeholder="Email"
+                        name="auth-email"
+                        placeholder={t('email')}
                         type="email"
                         isRequired={true}
                         onChange={(
@@ -89,7 +92,8 @@ export default function Login() {
                         }}
                     />
                     <Input
-                        placeholder="Password"
+                        name="auth-password"
+                        placeholder={t('password')}
                         type="password"
                         isRequired={true}
                         onChange={(
@@ -100,7 +104,7 @@ export default function Login() {
                         }}
                     />
                 </div>
-                <AuthButton action={handleLogin} text="Login" />
+                <AuthButton action={handleLogin} text={t('login')} />
                 <ResetPasswordLink />
 
                 <NavigationLink link="signup" />
