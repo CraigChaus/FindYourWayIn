@@ -1,8 +1,7 @@
 # Research document
-
+This document contains the researchs/multi-criteria analyisis' for the potential tools that could be used in the tech stack. 
 ## Maps API Research
-For an app that heavily relies on mapping/routing, it is cruicial to pick the optimal map API.
-
+This app has many requirements related to mapping and routing. [Click here to see the user requirements in the functional design. ]() Therefore, it is cruicial to pick the optimal map API.
 
 ### Multi-criteria analysis
 
@@ -36,7 +35,8 @@ Our possible mapping/ routing API candidates are:
   - the additional features. 
   - community support
   
-  1. When we created a map with MapBox we realised that not all shops were displayed already which means we would need to input all the data of the business' in the Walstraat ourselves in a dataset. (*To see the prototype of MapBox please go to "system-docs/proof-of-concept/MapBox_POC"*)
+  1. When we created a map with MapBox we realised that not all shops were displayed already which means we would need to input all the data of the business' in the Walstraat ourselves in a dataset. [Click here to see the prototype. ](../system-docs/proof-of-concept/MapBox_POC/index.html)
+  
 
   2. As of today, the Google Maps platform provides all types of API's. Which include not only APIs specifically for the map itself but also geographical data such as timezones and distance matrix's that could possibly come in handy in the future. Another thing worth mentioning is that Google Maps has different type of views, such as sattalite view or real life view.
 
@@ -64,11 +64,12 @@ Our possible mapping/ routing API candidates are:
 |  More tooling | + | - |
 
 
-### Outcome of Maps Research
+### Conclusion of Maps Research
 Google Maps has all sorts of features, higher community support and more data regarding the locations on the map. For these reasons Google Maps is more suitable to use in this project.
-
+<!-- Add the link to functional design -->
 ## Database Choice Research
- The application will be used by public and users will have their own accounts. A database is needed in order to save all their data regarding their favorite locations and events. This research is for selecting the optimal type of database for this project.
+ The application will be used by public and users will have their own accounts. A database is needed in order to save all their data regarding their favorite locations and events. [Click here to see the user requirements in the functional design. ]()
+    This research is for selecting the optimal type of database for this project.
 
 Here are our candidates:
 
