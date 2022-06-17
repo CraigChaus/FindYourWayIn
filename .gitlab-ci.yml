@@ -23,15 +23,18 @@ install:
 eslint:
   stage: lint
   script:
+    - cd src/frontend
     - npm run lint
     
 
 prettier:
   stage: lint
   script:
+    - cd src/frontend
     - npm run prettier
 
 test:
   stage: test
   script: 
+    - cd src/frontend
     - npm run test
