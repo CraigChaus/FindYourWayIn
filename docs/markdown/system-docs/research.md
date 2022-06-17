@@ -1,7 +1,7 @@
 # Research document
 This document contains the researchs/multi-criteria analyisis' for the potential tools that could be used in the tech stack. 
 ## Maps API Research
-This app has many requirements related to mapping and routing. [Click here to see the user requirements in the functional design. ]() Therefore, it is cruicial to pick the optimal map API.
+This app has many requirements related to mapping and routing. [(Click here to see the user requirements in the functional design.) ]() Therefore, it is cruicial to pick the optimal map API.
 
 ### Multi-criteria analysis
 
@@ -15,7 +15,7 @@ Our possible mapping/ routing API candidates are:
  The reasoning behind having these two API's as potential candidates is due to them being the leading API's in terms of popularity and community support. 
 
 ##### Criteria
-
+o
  The map API we seek for should do the following:
   - display the maps (roads, buildings, street names, markers, other names)
   - support routing from point a to point b (and more points)

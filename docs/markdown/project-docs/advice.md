@@ -5,7 +5,7 @@ This paper outlines the main motivations behind the choice of tools, libraries, 
 
 ## Advice to Client for Future
 ### App Platform
-Although the client requested for a web application, after doing research we have realised that this project is most suitable to be a native application that uses Google Maps Andriod or Google Maps IOS API's. These API's not only have all functionality the JavaScript API has, but also has more tools for the map such as 3D camera, map rotation, real time location sharing, more zoom and pan control etc. 
+Although the client requested for a web application, after doing research we have realised that this project is most suitable to be a native application that uses Google Maps Andriod or Google Maps IOS API's. These API's not only have all functionality the JavaScript API has, but also has more tools for the map such as 3D camera, map rotation, real time location sharing, more zoom and pan control etc. Also native apps run faster which makes the user experience better.
 
 ### Timing for Building The Project
 
@@ -14,6 +14,12 @@ Excluding the inital 2 weeks of preperation and research, our team has a total o
 ### SSO Authentication
 
 In this project authentication is done by Firebase, a backend multi-tool from Google. For signing up email/password is used. This is a common way for signing up to an application. However, Firebase has many options for authentication. These include signing up by SMS/Phone or Anonymous login which allows guest users to login temporarily. There are also options for external providers for sign in, such as signing in with Twitter, Google, Facebook, Microsoft etc. Thesedays, many people make use of these SSO options. Although we did not implement these features, these are viable options that can be done in the future.
+
+### Intention of Replacing a Tourist Leaflet
+
+ The client emphasized that the application intends to help people discover Deventer.  [Click here to see the project description in the POA. ](../project-docs/POA.md) The data that gets displayed on the application is manually input in the system via TheFeedFactory. Currently, some of the location descriptions are a bit generic such "place to get a drink". If the intention is to promote "discovering" then it is important to always have some unique facts about each location. Such as e.g "this building was built in 1861 by person xyz and was later converted into a pub".
+
+ This will keep the users more interested and the app will fulfill its intention more. 
 
 ### User interface
 
