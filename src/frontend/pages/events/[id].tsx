@@ -70,7 +70,7 @@ export const Events = ({ data }: any): JSX.Element => {
     const [eventName, setEventName] = React.useState(null);
     const [eventStartTime, setEventStartTime] = React.useState(null);
     const [eventendTime, setEventEndTime] = React.useState(null);
-    const [eventImage, setEventImage] = React.useState<any>('')
+    const [eventImage, setEventImage] = React.useState<any>('');
 
     //this is for the event description
     const [eventDescription, setEventDescription] = React.useState(null);
@@ -85,11 +85,9 @@ export const Events = ({ data }: any): JSX.Element => {
     const [eventWebSite, setWebsite] = React.useState(null);
 
     React.useEffect(() => {
-
-        if(data.files[0]?.hlink ){
+        if (data.files[0]?.hlink) {
             setEventImage(data?.files[0]?.hlink);
         }
-        
 
         //this is for setting up the day
         const dayNumber = data.calendar.singleDates[0].date;
@@ -107,8 +105,6 @@ export const Events = ({ data }: any): JSX.Element => {
         if (data.calendar.singleDates[0]?.when[0]?.timeend) {
             setEventEndTime(data.calendar.singleDates[0]?.when[0].timeend);
         }
-
-       
 
         setEventHouseNumVenue(data.location.address?.housenr);
         setEventStreetVenue(data.location.address?.street);
@@ -142,9 +138,7 @@ export const Events = ({ data }: any): JSX.Element => {
                     <DayInfo eventday={dayOfEvent} />
                 </div>
                 <div>
-                    <EventImage 
-                        idImageSrc ={eventImage}
-                    />
+                    <EventImage idImageSrc={eventImage} />
                     <EventInfo
                         description={eventDescription}
                         timeStart={eventStartTime}
@@ -154,7 +148,6 @@ export const Events = ({ data }: any): JSX.Element => {
                         city={eventCityVenue}
                         zipcode={eventZipCodeVenue}
                         website={eventWebSite}
-
                     />
                 </div>
             </div>
