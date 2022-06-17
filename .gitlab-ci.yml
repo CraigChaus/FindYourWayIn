@@ -1,26 +1,37 @@
 image: node:lts-alpine
 
 stages:
+ - build
  - lint
+ - test
 
 cache: 
   paths: 
-    - src/backend/node_modules/
     - src/frontend/node_modules/
+
+install:
+  stage: build
+  script:
+    - cd src/frontend
+    - npm i --force
+  artifacts:
+    paths:
+      - node_modules
+    untracked: false
+    expire_in: 7 days
 
 eslint:
   stage: lint
   script:
-    - cd src/backend/
-    - npm install --force
     - npm run lint
-    - cd ../frontend/
-    - npm install --force
-    - npm run lint
+    
 
 prettier:
   stage: lint
   script:
-    - cd src/frontend 
-    - npm i --force
     - npm run prettier
+
+test:
+  stage: test
+  script: 
+    - npm run test
