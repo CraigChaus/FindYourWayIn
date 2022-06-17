@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe("Authenticaton: Logging in Valid Credentials-Good Weather", () =>{
     it("type    input for email", () =>{
-        cy.visit('http://localhost:3000/auth/login')
+        cy.visit('/auth/login')
         cy.get('input[name="auth-email"]')
         .should("exist")
         .type('test@gmail.com')

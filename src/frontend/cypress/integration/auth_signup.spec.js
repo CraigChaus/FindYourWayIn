@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 describe("Authenticaton: Sign Up Bad Weather-Already Existing Email", () =>{
     it("type input for email", () =>{
-        cy.visit('http://localhost:3000/auth/signup')
+        cy.visit('/auth/signup')
         cy.get('input[name="signup-email"]')
         .should("exist")
         .type("test@gmail.com")

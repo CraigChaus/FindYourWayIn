@@ -8,30 +8,42 @@
 /// <reference types="Cypress" />
 context('Home Page', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/home');
+        cy.visit('/home');
     });
     
     it('should have a title', () => {
         cy.title().should('equal', 'Home')
     });
     
-    it('should have a navigation bar', () => {
-        cy.get('h1').contains('FYWI Walstraat')
-    });
-    
-    it('should have a link to the about page', () => {
-        cy.get('a').contains('Continue without login')
+    it('check sidebar components', () => {
+        cy.get('#header').get('button').first().click();
+        cy.get('div').contains('Home');
+        cy.get('div').contains('Discovery');
+        cy.get('div').contains('Events');
+        cy.get('img')
     });
 
-    it('should have a link to the login page', () => {
-        cy.get('button').contains('Login');
+    it('check home sidebar item', () => {
+        cy.get('[data-cy=sidebar-button]').click();
+        cy.get('div').contains('Home').click();
+        cy.url().should('include', '/home');
+    });
+
+    it('check discovery sidebar item', () => {
+        cy.get('[data-cy=sidebar-button]').click();
+        cy.get('div').contains('Discovery').click();
+        cy.url().should('include', '/discovery');
+    });
+
+    it('check events sidebar item', () => {
+        cy.get('[data-cy=sidebar-button]').click();
+        cy.get('div').contains('Events').click();
+        cy.url().should('include', '/events');
+    });
+
+    it('bottom slider', () => {
+        cy.get('[data-cy=objectMarker]').first().click();
+        cy.get('[data-cy=bottomSlider]').should('be.visible');
     })
-
-    it('should have a link to the register page', () => {
-        cy.get('button').contains('Sign up');
-    });
-
-    it('should have a footer', () => {
-        cy.get('footer')
-    });
+    
 })
