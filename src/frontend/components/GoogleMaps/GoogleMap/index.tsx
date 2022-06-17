@@ -100,7 +100,7 @@ const GoogleMap = ({
         );
     }, [locations, dataLocation, filterContext.filter]);
 
-    map?.addListener('click', () => { 
+    map?.addListener('click', () => {
         setBottomSlider(null);
         Router.replace('/home');
     });
