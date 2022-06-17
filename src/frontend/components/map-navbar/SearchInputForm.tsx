@@ -92,7 +92,11 @@ export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
                                     </p>
                                 )}
 
-                                <LocationComponent locationRes={locationRes} setBottomSlider={setBottomSlider} dataLocation={dataLocation}/>
+                                <LocationComponent
+                                    locationRes={locationRes}
+                                    setBottomSlider={setBottomSlider}
+                                    dataLocation={dataLocation}
+                                />
                             </div>
                         )}
                     </label>

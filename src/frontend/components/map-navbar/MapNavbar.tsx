@@ -13,7 +13,10 @@ export const Navbar = ({ setBottomSlider, dataLocation }: any) => {
             >
                 <SideBar />
                 <div className="flex justify-end">
-                    <SearchBar setBottomSlider={setBottomSlider} dataLocation={dataLocation}/>
+                    <SearchBar
+                        setBottomSlider={setBottomSlider}
+                        dataLocation={dataLocation}
+                    />
                     <UserDropdown />
                 </div>
             </div>
