@@ -22,7 +22,16 @@ const Profile = (props: any) => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <ProfilePage user={user} />;
+            {user ? 
+                <ProfilePage user={user} />
+            : 
+                <div>
+                    <h1>You are not logged in</h1>
+                    <p>
+                        <a href="/auth/login">Login</a>
+                    </p>
+                </div>
+            }
         </div>
     );
 };
