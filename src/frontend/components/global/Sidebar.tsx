@@ -63,7 +63,7 @@ export default function Sidebar() {
                 <div
                     className={
                         showSidebar
-                            ? 'fixed inset-y-0 left-0  z-50 w-64 py-4 bg-green-500 transition-right duration-300'
+                            ? 'fixed inset-y-0 left-0 z-50 w-64 py-4 bg-green-500 transition-right duration-300'
                             : 'fixed inset-y-0 duration-500 transition-right -left-full z-50 w-64 py-4 bg-green-500'
                     }
                 >

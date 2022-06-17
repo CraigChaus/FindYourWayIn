@@ -5,11 +5,14 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
+import DefaultNavbar from '../components/global/DefaultNavbar';
+import broken from '../public/images/broken.png'
 
 type EventProp = {
     id: any;
     eventName: any;
     day: any;
+    eventImage: any;
 };
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -31,7 +34,9 @@ export async function getStaticProps({ locale }: any) {
             ...(await serverSideTranslations(locale, ['common'])),
         },
     };
+    
 }
+
 
 export const Agenda = ({ data }: any): JSX.Element => {
     const router = useRouter();
@@ -42,10 +47,9 @@ export const Agenda = ({ data }: any): JSX.Element => {
     >(null);
 
     //creating an instance of the event name and day as usestates (FOR UPCOMING EVENTS)
-    const [upComingEvents, setUpComingEvents] = React.useState<
-        EventProp[] | null
-    >(null);
+    const [upComingEvents, setUpComingEvents] = React.useState<EventProp[] | null >(null);
 
+    console.log(data)
     React.useEffect(() => {
         const resultCurrent = [];
         const resultUpcoming = [];
@@ -83,11 +87,22 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 dayNumberInstance >= todayDateNumber &&
                 thisMonthNumber == monthNumberNoZero
             ) {
-                resultCurrent.push({
-                    id: data.results[i].id,
-                    eventName: data.results[i].trcItemDetails[0].title,
-                    day: dayNumberInstance,
-                });
+                    if(data.results[i]?.files[0]?.hlink == null){
+                        resultCurrent.push({
+                            id: data.results[i].id,
+                            eventName: data.results[i].trcItemDetails[0].title,
+                            day: dayNumberInstance,
+                            eventImage: broken,
+                        });
+                    }else{
+                        resultCurrent.push({
+                            id: data.results[i].id,
+                            eventName: data.results[i].trcItemDetails[0].title,
+                            day: dayNumberInstance,
+                            eventImage:  data.results[i]?.files[0]?.hlink,
+                        });
+
+                    }
 
                 // console.log(resultCurrent)
 
@@ -100,12 +115,21 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 //(YYYY/MM/DD)
                 const fullDayNumber = dayNumber.substring(0, 10);
 
-                resultUpcoming.push({
-                    id: data.results[i].id,
-                    eventName: data.results[i].trcItemDetails.title,
-                    day: fullDayNumber,
-                });
-
+                if(data.results[i]?.files[0]?.hlink == null){
+                    resultUpcoming.push({
+                        id: data.results[i].id,
+                        eventName: data.results[i].trcItemDetails.title,
+                        day: fullDayNumber,
+                        eventImage: broken,
+                    });
+                }else{
+                    resultUpcoming.push({
+                        id: data.results[i].id,
+                        eventName: data.results[i].trcItemDetails.title,
+                        day: fullDayNumber,
+                        eventImage: data.results[i]?.files[0]?.hlink,
+                    });
+                }
                 // console.log(resultUpcoming);
 
                 // //the name of the event that is upcoming
@@ -118,7 +142,6 @@ export const Agenda = ({ data }: any): JSX.Element => {
         setUpComingEvents(resultUpcoming);
         setCurrentEvents(resultCurrent);
     }, [data]);
-    console.log(data);
     // console.log(upComingEvents);
     // console.log(currentEvents);
 
@@ -131,13 +154,32 @@ export const Agenda = ({ data }: any): JSX.Element => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <div>
-                <div>
-                    <h1 className="p-4 font-bold text-center">
-                        Events & Agenda
-                    </h1>
+            <DefaultNavbar/>
 
-                    <h2 className="font-bold text-center">Current</h2>
+            <div>
+                    <h1 className="pt-20 p-4 font-bold text-center text-4xl">
+                        Events
+                    </h1>
+                <div className="px-5">
+                    <div className="flex border-white border-b-4  w-full ">
+                        <div className=" flex  justify-center  h-full w-1/2 p-3">
+                            <button className="flex justify-center w-full h-15 mx-2 rounded hover:bg-zinc-300  font-bold text-black">
+                                This month
+                            </button>
+                        </div>
+                        <div className="flex justify-center   h-full w-1/2 p-3">
+                            <button className="flex justify-center w-full h-15 mx-2 rounded hover:bg-zinc-300  font-bold text-black ">
+                                Upcoming
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+            
+            <div>
+                <div className='mt-8'>
+
                     {currentEvents &&
                         currentEvents.map((currentEvent, index) => {
                             console.log(currentEvent);
@@ -149,13 +191,13 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                     key={index}
                                     date={currentEvent.day}
                                     event={currentEvent.eventName}
+                                    imageSrc={currentEvent.eventImage}
                                 />
                             );
                         })}
                 </div>
 
                 <div>
-                    <h2 className="font-bold text-center">Upcoming Events</h2>
                     {upComingEvents &&
                         upComingEvents.map((upcomingEvent, index) => {
                             return (
@@ -168,6 +210,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                     key={index}
                                     upDate={upcomingEvent.day}
                                     upEvent={upcomingEvent.eventName}
+                                    upImageSrc={upcomingEvent.eventImage}
                                 />
                             );
                         })}
