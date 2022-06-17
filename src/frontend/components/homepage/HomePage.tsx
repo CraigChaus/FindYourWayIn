@@ -75,6 +75,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                     mapId="9c7cb3e171b411ff"
                     gestureHandling={'greedy'}
                     locations={locations}
+                    setBottomSlider={setBottomSlider}
                 >
                     <UserLocationMarker
                         position={{ lat, lng }}
