@@ -57,6 +57,8 @@ const HomePage = ({ locations }: any): JSX.Element => {
         }
     }, [dataLocation, query]);
 
+    console.log(dataLocation);
+
     return (
         <>
             <div className="flex flex-col w-full h-full overflow-hidden">

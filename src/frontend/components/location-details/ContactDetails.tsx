@@ -44,8 +44,12 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
             <h2 className="font-bold text-center underline underline-offset-8">
                 Contact details
             </h2>
-            <p>{phoneNumber ? phoneNumber : 'No phone number provided'}</p>
-            <p>{email ? email : "No email provided"}</p>
+            <a href={`tel:${phoneNumber}`}>
+                {phoneNumber ? phoneNumber : 'No phone number provided'}
+            </a>
+            <a href={`mailto:${email}`}>
+                {email ? email : 'No email provided'}
+            </a>
             <button
                 className="border-2 border-blue-800"
                 onClick={addToFavorites}
