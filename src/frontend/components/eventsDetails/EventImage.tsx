@@ -1,17 +1,28 @@
 import React from 'react';
 import Image from 'next/image';
+import broken from '../../public/images/broken.png'
 
-export const EventImage = () => {
+
+export const EventImage = ({idImageSrc}:any) => {
+    console.log(idImageSrc);
     return (
         <>
-            <h1>IMAGE IS MEANT TO BE HERE</h1>
             <div className="h-auto p-2 mt-6 inline align-middle">
-                {/* <Image 
-            src={src} 
-            alt={alt} 
-            width={300}
-            height={300}
-          />  */}
+                {idImageSrc === '' ? 
+                    <Image 
+                        src={broken} 
+                        alt={'alt'} 
+                        width={300}
+                        height={300}
+                    /> 
+                : 
+                    <Image 
+                        src={idImageSrc} 
+                        alt={'alt'} 
+                        width={300}
+                        height={300}
+                    /> 
+                }
             </div>
         </>
     );
