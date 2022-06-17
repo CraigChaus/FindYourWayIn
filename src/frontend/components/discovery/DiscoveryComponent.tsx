@@ -35,7 +35,7 @@ export const DiscoveryComponent = ({
                 <h1>SHOPS</h1>
             </div>
 
-            <div className="flex w-full overflow-y-auto flex-raw h-1/5">
+            <div className="flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide">
                 {locationData &&
                     locationData.map((location: any, index: number) => {
                         return (
