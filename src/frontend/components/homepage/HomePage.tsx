@@ -60,7 +60,10 @@ const HomePage = ({ locations }: any): JSX.Element => {
     return (
         <>
             <div className="flex flex-col w-full h-full overflow-hidden">
-                <Navbar setBottomSlider={setBottomSlider} dataLocation={dataLocation}/>
+                <Navbar
+                    setBottomSlider={setBottomSlider}
+                    dataLocation={dataLocation}
+                />
 
                 <GoogleMap
                     center={{ lat, lng }}
