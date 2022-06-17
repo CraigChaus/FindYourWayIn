@@ -40,12 +40,12 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
     };
 
     return (
-        <div className="pl-2 text-left w-full">
+        <div className="w-full pl-2 text-left">
             <h2 className="font-bold text-center underline underline-offset-8">
                 Contact details
             </h2>
-            <p>{phoneNumber} ---------</p>
-            <p>{email} ---------</p>
+            <p>{phoneNumber ? phoneNumber : 'No phone number provided'}</p>
+            <p>{email ? email : "No email provided"}</p>
             <button
                 className="border-2 border-blue-800"
                 onClick={addToFavorites}
