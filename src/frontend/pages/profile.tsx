@@ -14,9 +14,8 @@ const Profile = (props: any) => {
     const { user } = useAuth();
 
     return (
-
         <div>
-            {user ? (    
+            {user ? (
                 <>
                     <Head>
                         <title>Profile</title>
@@ -33,11 +32,9 @@ const Profile = (props: any) => {
                         <h1>You are not logged in</h1>
                     </div>
                 </>
-            ) 
-            } 
+            )}
         </div>
-        )
-    
+    );
 };
 
 export default Profile;

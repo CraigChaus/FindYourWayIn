@@ -1,5 +1,5 @@
-import router, { Router, useRouter } from "next/router";
-import React from "react";
+import router, { Router, useRouter } from 'next/router';
+import React from 'react';
 
 const LocationComponent = (props: any) => {
     const { query } = useRouter();
@@ -18,7 +18,9 @@ const LocationComponent = (props: any) => {
         <>
             {locationRes.map((location: any, index: number) => (
                 <div
-                    onClick={() => { router.push(`/location/${location.id}`); }}
+                    onClick={() => {
+                        router.push(`/location/${location.id}`);
+                    }}
                     key={index + 1}
                     className="flex-col w-full pl-1 rounded-b-lg border-1"
                 >

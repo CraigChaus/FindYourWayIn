@@ -23,7 +23,7 @@ const LandingPage: NextPage = () => {
 
     if (user) {
         router.push('/home');
-    }   
+    }
 
     return (
         <div className="block h-screen bg-cover bg-landing-page">
@@ -38,7 +38,7 @@ const LandingPage: NextPage = () => {
             <div className="flex flex-col items-center justify-center h-screen bg-gray-600 bg-opacity-70">
                 <h1 className="text-6xl text-center text-white">
                     FYWI <br></br> Walstraat
-                </h1> 
+                </h1>
                 <div className="flex flex-col items-center w-4/5 mt-12 justify-evenly h-2/5">
                     <div className="w-full">
                         <button
@@ -60,7 +60,10 @@ const LandingPage: NextPage = () => {
                     </div>
 
                     <Link href="/home">
-                        <a className="text-base font-medium text-gray-300" data-cy="notLogin">
+                        <a
+                            className="text-base font-medium text-gray-300"
+                            data-cy="notLogin"
+                        >
                             {t('not-login')}
                         </a>
                     </Link>

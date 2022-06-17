@@ -15,7 +15,10 @@ export default function NavigationLink({ link }: any) {
                 ? `${t('linkToLogin')} `
                 : `${t('linkToSignup')} `}
             <Link href={`/auth/${link}`}>
-                <a data-cy="authLink" className="text-green-700 underline hover:text-green-600">
+                <a
+                    data-cy="authLink"
+                    className="text-green-700 underline hover:text-green-600"
+                >
                     {t('here')}
                 </a>
             </Link>
