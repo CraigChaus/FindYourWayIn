@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 describe('Authenticaton: Logging in Valid Credentials-Good Weather', () => {
-    it('type    input for email', () => {
+    it('type input for email', () => {
         cy.visit('/auth/login');
         cy.get('input[name="auth-email"]')
             .should('exist')
