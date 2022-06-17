@@ -5,9 +5,14 @@ import LocationComponent from './LocationComponent';
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
+
+
 export const SearchInputForm = () => {
     const [locationFound, setLocationFound] = useState<any>([]);
     const [locationSearch, setLocationSearch] = useState('');
+
+
+
 
     const searchForLocations = async (query: string): Promise<any> => {
         const result = await fetch(`${apiUrl}/locations/?search=${query}`, {
@@ -60,7 +65,7 @@ export const SearchInputForm = () => {
     return (
         <>
             <div className="flex-col ">
-                <form onSubmit={(event) => search(event)}>
+                <form onSubmit={(event) => search(event)}  >
                     <label className="relative block">
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                             <svg
@@ -77,23 +82,23 @@ export const SearchInputForm = () => {
                         </span>
                         <input
                             id="searchText"
-                            // onMouseLeave={() => setIsShown(false)}
-                            // onMouseEnter={() => setIsShown(true)} //to make slideBar open and closed depends on focus
+                            onMouseEnter={() => setIsShown(true)} //to make slideBar open and closed depends on focus
                             className="w-full h-8 py-2 pl-10 pr-4 my-5 text-lg bg-green-400 border border-green-500 rounded-md shadow-sm placeholder:text-white placeholder:font-italitc focus:outline-none"
                             placeholder="Search a place "
                             type="text"
                         />
-                       {/*//{isShown && (*/}
-                            <div className="absolute  bg-gray-50 w-full rounded-b-lg overflow-y-scroll">
+                       {isShown && (
+                            <div className="absolute bg-gray-50 w-full rounded-b-lg  "
+                                 onMouseLeave={() => setIsShown(false)}>
                                 {locationSearch && (
                                     <p className="font-medium pt-2">
                                         Results for {locationSearch}:
                                     </p>
                                 )}
 
-                                <LocationComponent locationRes={locationRes} />
+                                <LocationComponent locationRes={locationRes}  />
                             </div>
-                      {/*//  )}*/}
+                        )}
                     </label>
                 </form>
             </div>
