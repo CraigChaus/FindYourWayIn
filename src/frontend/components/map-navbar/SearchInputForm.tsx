@@ -46,6 +46,8 @@ export const SearchInputForm = () => {
             city: locationFound[i].location.address.city,
             country: locationFound[i].location.address.country,
             zipcode: locationFound[i].location.address.zipcode,
+            id: locationFound[i].id,
+
         });
     }
 
@@ -75,13 +77,13 @@ export const SearchInputForm = () => {
                         </span>
                         <input
                             id="searchText"
-                            onMouseLeave={() => setIsShown(false)}
-                            onMouseEnter={() => setIsShown(true)} //to make slideBar open and closed depends on focus
+                            // onMouseLeave={() => setIsShown(false)}
+                            // onMouseEnter={() => setIsShown(true)} //to make slideBar open and closed depends on focus
                             className="w-full h-8 py-2 pl-10 pr-4 my-5 text-lg bg-green-400 border border-green-500 rounded-md shadow-sm placeholder:text-white placeholder:font-italitc focus:outline-none"
                             placeholder="Search a place "
                             type="text"
                         />
-                        {isShown && (
+                       {/*//{isShown && (*/}
                             <div className="absolute  bg-gray-50 w-full rounded-b-lg overflow-y-scroll">
                                 {locationSearch && (
                                     <p className="font-medium pt-2">
@@ -91,7 +93,7 @@ export const SearchInputForm = () => {
 
                                 <LocationComponent locationRes={locationRes} />
                             </div>
-                        )}
+                      {/*//  )}*/}
                     </label>
                 </form>
             </div>
