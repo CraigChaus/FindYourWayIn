@@ -1,4 +1,4 @@
-import AgendaInfo from '@components/events/AgendaInfo';
+import { Card } from '@components/events/Card';
 import { UpcomingInfo } from '@components/events/UpcomingInfo';
 import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
@@ -181,7 +181,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                         currentEvents.map((currentEvent, index) => {
                             console.log(currentEvent);
                             return (
-                                <AgendaInfo
+                                <Card
                                     onClick={() =>
                                         router.push(`events/${currentEvent.id}`)
                                     }
@@ -198,16 +198,16 @@ export const Agenda = ({ data }: any): JSX.Element => {
                     {upComingEvents &&
                         upComingEvents.map((upcomingEvent, index) => {
                             return (
-                                <UpcomingInfo
+                                <Card
                                     onClick={() =>
                                         router.push(
                                             `events/${upcomingEvent.id}`,
                                         )
                                     }
                                     key={index}
-                                    upDate={upcomingEvent.day}
-                                    upEvent={upcomingEvent.eventName}
-                                    upImageSrc={upcomingEvent.eventImage}
+                                    date={upcomingEvent.day}
+                                    event={upcomingEvent.eventName}
+                                    imageSrc={upcomingEvent.eventImage}
                                 />
                             );
                         })}
