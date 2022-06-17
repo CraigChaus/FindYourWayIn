@@ -116,16 +116,6 @@ const GoogleMap = ({
         );
     }, [locations, dataLocation, filterContext.filter]);
 
-    // React.useEffect(() => {
-    //     if (query.id) {
-    //         for (const location of locations) {
-    //             if (location.id === query.id) {
-    //                 setBottomSlider(location);
-    //             }
-    //         }
-    //     }
-    // }, [locations, query]);
-
     return (
         <>
             <div ref={mapRef} style={style} />
@@ -139,50 +129,6 @@ const GoogleMap = ({
                     map?.setOptions(options);
                 }}
             />
-            {/* Below marker is set for testing purposes located in Deventer.  */}
-            {/* {dataLocation &&
-                dataLocation.map((location: any) => {
-                    return (
-                        <ObjectMarker
-                            id={location.id}
-                            key={location.id}
-                            map={map}
-                            position={{
-                                lat: parseFloat(
-                                    location.location.address.gisCoordinates[0]
-                                        .xcoordinate,
-                                ),
-                                lng: parseFloat(
-                                    location.location.address.gisCoordinates[0]
-                                        .ycoordinate,
-                                ),
-                            }}
-                            clickable={true}
-                            category={
-                                location.trcItemCategories.types[0]
-                                    .categoryTranslations[0].label
-                            }
-                        />
-                    );
-                })}
-            {bottomSlider && (
-                    <BottomSlider
-                        id={bottomSlider?.id}
-                        header={bottomSlider?.location?.label}
-                        description={
-                            bottomSlider.trcItemDetails[0]?.shortdescription
-                        }
-                        image={
-                            bottomSlider.files[0]?.hlink !== undefined
-                                ? bottomSlider.files[0]?.hlink
-                                : ''
-                        }
-                        handleCloseBottomSlider={() =>  {
-                            setBottomSlider(null)
-                            router.replace('/home', undefined, { shallow: true })
-                        }}
-                    />
-                )} */}
         </>
     );
 };
