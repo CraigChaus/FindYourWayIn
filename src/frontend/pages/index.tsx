@@ -26,6 +26,12 @@ const LandingPage: NextPage = () => {
         }
     }, [router, user]);
 
+    const { user } = useAuth();
+
+    if (user) {
+        router.push('/home');
+    }
+
     return (
         <div className="block h-screen bg-cover bg-landing-page">
             <Head>
