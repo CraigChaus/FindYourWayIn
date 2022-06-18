@@ -71,6 +71,9 @@ Google Maps has all sorts of features, higher community support and more data re
  The application will be used by public and users will have their own accounts. A database is needed in order to save all their data regarding their favorite locations and events. [Click here to see the user requirements in the functional design. ](../../pdf/system-docs/Functional%20design.pdf)
     This research is for selecting the optimal type of database for this project.
 
+### Multi Criteria Analysis
+
+#### Possible Solutions
 Here are our candidates:
 
 - A traditional SQL database such as PostgreSQL
@@ -94,6 +97,13 @@ Firebase uses NoSQL while Postgre is relational.
 
 * SQL is well structured with tables, rows and columns. This makes is great for complex queries whereas NoSQL is not great for this. However our database schema is quite simple and straightforward which makes this issue irrelevant.
 
+#### Scales
+
+1. Hosting
+2. ORM Usage
+3. Authentication Tooling
+4. Free to use
+5. Learning curve
  
 | Criterions | PostgreSQL | Firebase |
 | ---------- | ----------- | ------ |
