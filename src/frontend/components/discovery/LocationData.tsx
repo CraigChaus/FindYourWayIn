@@ -15,7 +15,8 @@ export const LocationData = ({
                 <div className="flex justify-center w-44 h-38 hover:scale-125">
                     <>
                         {srcImage && srcAlt && (
-                            <Image  className=" rounded "
+                            <Image
+                                className=" rounded "
                                 onClick={() =>
                                     router.push(`description/${locationID}`)
                                 }
