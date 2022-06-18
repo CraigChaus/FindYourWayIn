@@ -70,6 +70,7 @@ export const Events = ({ data }: any): JSX.Element => {
     const [eventName, setEventName] = React.useState(null);
     const [eventStartTime, setEventStartTime] = React.useState(null);
     const [eventendTime, setEventEndTime] = React.useState(null);
+    const [eventImage, setEventImage] = React.useState<any>('');
 
     //this is for the event description
     const [eventDescription, setEventDescription] = React.useState(null);
@@ -84,11 +85,9 @@ export const Events = ({ data }: any): JSX.Element => {
     const [eventWebSite, setWebsite] = React.useState(null);
 
     React.useEffect(() => {
-        //This is for setting up the image src and alt
-        // setImgSrc(data.files[0].hlink);
-        // setImgAlt('alt');
-
-        //TODO: uncomment these set up above me
+        if (data.files[0]?.hlink) {
+            setEventImage(data?.files[0]?.hlink);
+        }
 
         //this is for setting up the day
         const dayNumber = data.calendar.singleDates[0].date;
@@ -97,10 +96,8 @@ export const Events = ({ data }: any): JSX.Element => {
         const dayNumberInstance = dayNumber.substring(8, 10);
         setDayOfEvent(dayNumberInstance);
 
-        //this is for setting up the event name
-        setEventName(data.location.label);
+        setEventName(data.trcItemDetails[0].title);
 
-        //this is for setting up the event time
         if (data.calendar.singleDates[0]?.when[0]?.timestart) {
             setEventStartTime(data.calendar.singleDates[0]?.when[0].timestart);
         }
@@ -109,21 +106,20 @@ export const Events = ({ data }: any): JSX.Element => {
             setEventEndTime(data.calendar.singleDates[0]?.when[0].timeend);
         }
 
-        //this is for setting up the venue of the event
         setEventHouseNumVenue(data.location.address?.housenr);
         setEventStreetVenue(data.location.address?.street);
         setEventZipCodeVenue(data.location.address?.zipcode);
         setEventCityVenue(data.location.address?.city);
 
-        //this is for stting up the event description
         setEventDescription(data.trcItemDetails[0]?.longdescription);
 
         //this is for the ticket info for the event
         // setTicket();
 
-        //this is for setting up the website
         setWebsite(data.contactinfo.urls[0]?.url);
     }, [data]);
+
+    console.log(eventImage);
 
     return (
         <>
@@ -135,16 +131,15 @@ export const Events = ({ data }: any): JSX.Element => {
                 />
             </Head>
             <div className="m-4 text-2xl font-bold text-center">
-                <h1>Event Details</h1>
+                <h1>{eventName}</h1>
             </div>
             <div className="flex w-full h-full mt-8">
                 <div className="p-4 m-4">
                     <DayInfo eventday={dayOfEvent} />
                 </div>
                 <div>
-                    <EventImage />
+                    <EventImage idImageSrc={eventImage} />
                     <EventInfo
-                        name={eventName}
                         description={eventDescription}
                         timeStart={eventStartTime}
                         timeEnd={eventendTime}

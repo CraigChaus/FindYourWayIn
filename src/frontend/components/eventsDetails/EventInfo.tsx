@@ -1,7 +1,6 @@
 import React from 'react';
 
 export const EventInfo = ({
-    name,
     description,
     timeStart,
     timeEnd,
@@ -14,7 +13,6 @@ export const EventInfo = ({
     return (
         <>
             <div>
-                <h1 className="text-center font-bold mb-8 p-4">{name}</h1>
                 <p
                     className="text-center border-t-2 border-b-2 border-black pb-4"
                     dangerouslySetInnerHTML={{ __html: description }}
