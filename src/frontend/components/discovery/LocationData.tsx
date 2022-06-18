@@ -10,7 +10,7 @@ export const LocationData = ({
     const router = useRouter();
 
     return (
-        <div className=" flex flex-col justify-center h-full w-1/3 p-2">
+        <div className=" flex flex-col justify-center h-full w-1/3 p-2 mt-5">
             <div className="flex justify-center h-4/5">
                 <div className="flex justify-center w-44 h-38 hover:scale-125">
                     <>

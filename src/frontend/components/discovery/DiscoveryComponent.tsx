@@ -39,26 +39,30 @@ export const DiscoveryComponent = ({
         <>
             <Navbar/>
 
-        <div className=" h-screen  w-full  text-black bg-white top-32">
+        <div className=" h-screen  w-full  text-black bg-white pt-20">
 
             <div className="flex-col justify-center border-orange-700 flex h-1/2 w-full  ">
                 <div className="  flex justify-center h-1/5 ">
-                    <h1 className="   font-bold  text-black">{spotName}</h1>
+                    <h1 className="  text-2xl font-bold  text-black">Spotlight</h1>
                 </div>
 
-                <div className="flex justify-center h-4/5 p-5">
+                <div className="flex justify-center h-4/5 px-5 ">
                     <>
                         {spotImage && spotImageAlt && (
                             <Image
-                                onClick={() =>
-                                    router.push(`description/${spotID}`)
-                                }
                                 src={spotImage}
                                 alt={spotImageAlt}
                                 width={300}
                                 height={300}
                             />
+
                         )}
+                        <div className="absolute top-60  flex-colon text-gray-300 justify-items-center">
+                        <h1 className="  text-lg font-bold  ">{spotName}</h1>
+                        <button  onClick={() =>
+                            router.push(`description/${spotID}`)
+                        } className=" left-1/2 rounded bg-green-700 hover:bg-green-900 h-8 w-30 text-white p-1  mt-2 text-sm" >Click for more</button>
+                       </div>
                     </>
                 </div>
             </div>
