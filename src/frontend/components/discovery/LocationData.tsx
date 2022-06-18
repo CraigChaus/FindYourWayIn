@@ -30,7 +30,7 @@ export const LocationData = ({
                 </div>
             </div>
             <div className="  flex justify-center h-20">
-                <p className="text-black text-center text-sm font-medium ">
+                <p className="text-black text-center text-sm font-medium pt-3 ">
                     {locationName}
                 </p>
             </div>
