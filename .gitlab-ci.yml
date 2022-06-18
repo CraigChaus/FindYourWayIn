@@ -12,9 +12,9 @@ variables:
 cache: 
   key: ${CI_COMMIT_REF_SLUG}
   paths: 
-    - src/frontend/node_modules/
-    - src/frontend/.cache/*
-    - src/frontend/cache/Cypress
+    - node_modules/
+    - .cache/*
+    - cache/Cypress
 
 install:
   stage: build
