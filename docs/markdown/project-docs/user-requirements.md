@@ -36,6 +36,7 @@ _In this section you can see the requirements. To see when/where or how each req
   |     Cu10     | User wants to be able to see an organisation in the spotlight                                                  |  S   | Analysis       |
   |     Cu11     | User wants to be able to get a personalised route based on their preferences                                   |  S   | Analysis       |
   |     Cu12     | User wants to be able to contact the organisation using their contact details                                  |  C   | Client meeting |
+  |     Cu13     | User wants to be able to filter locations based on category                                                    |  S   | Client meeting |
 
 ## System requirements
 
@@ -55,7 +56,7 @@ _In this section you can see the requirements. To see when/where or how each req
    |     SF10     | System can generate a route based on the users preferences as to what they want to visit |   Cu11   |
    |     SF11     | System can integrate call functionality with the users mobile device to make calls       |   Cu12   |
    |     SF12     | System can store user data in a database                                                 | Analysis |
-   |     SF11     | System can display map icons according to the filters placed from category               |   Cu09   |
+   |     SF13     | System can display map icons according to the filters placed from category               |   Cu13   |
 
 
 ### Non-Functional requirements
