@@ -1,5 +1,4 @@
 import { Card } from '@components/events/Card';
-import { UpcomingInfo } from '@components/events/UpcomingInfo';
 import { useTranslation } from 'react-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
@@ -7,6 +6,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import DefaultNavbar from '../components/global/DefaultNavbar';
 import broken from '../public/images/broken.png';
+import NoDataCard from '@components/events/NoDataCard';
 
 type EventProp = {
     id: any;
@@ -48,6 +48,8 @@ export const Agenda = ({ data }: any): JSX.Element => {
     const [upComingEvents, setUpComingEvents] = React.useState<
         EventProp[] | null
     >(null);
+
+    const [toggleState,setToggleState] = React.useState(1);
 
     console.log(data);
     React.useEffect(() => {
@@ -117,14 +119,14 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 if (data.results[i]?.files[0]?.hlink == null) {
                     resultUpcoming.push({
                         id: data.results[i].id,
-                        eventName: data.results[i].trcItemDetails.title,
+                        eventName: data.results[i].trcItemDetails[0].title,
                         day: fullDayNumber,
                         eventImage: broken,
                     });
                 } else {
                     resultUpcoming.push({
                         id: data.results[i].id,
-                        eventName: data.results[i].trcItemDetails.title,
+                        eventName: data.results[i].trcItemDetails[0].title,
                         day: fullDayNumber,
                         eventImage: data.results[i]?.files[0]?.hlink,
                     });
@@ -141,8 +143,10 @@ export const Agenda = ({ data }: any): JSX.Element => {
         setUpComingEvents(resultUpcoming);
         setCurrentEvents(resultCurrent);
     }, [data]);
-    // console.log(upComingEvents);
-    // console.log(currentEvents);
+
+    const toggleTab = (tabIndex:any) =>{
+        setToggleState(tabIndex);
+    }
 
     return (
         <>
@@ -162,12 +166,16 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 <div className="px-5">
                     <div className="flex border-white border-b-4  w-full ">
                         <div className=" flex  justify-center  h-full w-1/2 p-3">
-                            <button className="flex justify-center w-full h-15 mx-2 rounded hover:bg-zinc-300  font-bold text-black">
+                            <div className= {toggleState === 1 ? " flex justify-center w-full h-30 mx-2 rounded   font-bold text-white  bg-green-800" 
+                                : "flex justify-center w-full h-30 mx-2 rounded hover:bg-zinc-300  font-bold text-black" }
+                                onClick={()=>toggleTab(1)}>
                                 This month
-                            </button>
+                            </div>
                         </div>
                         <div className="flex justify-center   h-full w-1/2 p-3">
-                            <button className="flex justify-center w-full h-15 mx-2 rounded hover:bg-zinc-300  font-bold text-black ">
+                            <button className= {toggleState === 2 ? "flex justify-center w-full h-15 mx-2 rounded  font-bold text-white  bg-green-800 "
+                                    :"flex justify-center w-full h-30 mx-2 rounded hover:bg-zinc-300  font-bold text-black" }
+                                     onClick={()=>toggleTab(2)}>
                                 Upcoming
                             </button>
                         </div>
@@ -176,41 +184,48 @@ export const Agenda = ({ data }: any): JSX.Element => {
             </div>
 
             <div>
-                <div className="mt-8">
-                    {currentEvents &&
-                        currentEvents.map((currentEvent, index) => {
-                            console.log(currentEvent);
-                            return (
-                                <Card
-                                    onClick={() =>
-                                        router.push(`events/${currentEvent.id}`)
-                                    }
-                                    key={index}
-                                    date={currentEvent.day}
-                                    event={currentEvent.eventName}
-                                    imageSrc={currentEvent.eventImage}
-                                />
-                            );
-                        })}
+                {currentEvents == null ?  
+                <div className= {toggleState === 1 ? "mt-8 overflow-y-auto" : "invisible h-0"}>
+                    <NoDataCard/>
                 </div>
+                :
+                <div className= {toggleState === 1 ? "mt-8 overflow-y-auto " : " h-0 "}>
+                {currentEvents &&
+                    currentEvents.map((currentEvent, index) => {
+                        return (
+                            <Card
+                                onClick={() =>
+                                    router.push(`events/${currentEvent.id}`)
+                                }
+                                key={index}
+                                date={currentEvent.day}
+                                event={currentEvent.eventName}
+                                imageSrc={currentEvent.eventImage}
+                            />
+                        );
+                    })}
+                </div>
+                }
 
                 <div>
-                    {upComingEvents &&
-                        upComingEvents.map((upcomingEvent, index) => {
-                            return (
-                                <Card
-                                    onClick={() =>
-                                        router.push(
-                                            `events/${upcomingEvent.id}`,
-                                        )
-                                    }
-                                    key={index}
-                                    date={upcomingEvent.day}
-                                    event={upcomingEvent.eventName}
-                                    imageSrc={upcomingEvent.eventImage}
-                                />
-                            );
-                        })}
+                    <div className= {toggleState === 2 ? "mt-8" : "invisible"}>
+                        {upComingEvents &&
+                            upComingEvents.map((upcomingEvent, index) => {
+                                return (
+                                    <Card
+                                        onClick={() =>
+                                            router.push(
+                                                `events/${upcomingEvent.id}`,
+                                            )
+                                        }
+                                        key={index}
+                                        date={upcomingEvent.day}
+                                        event={upcomingEvent.eventName}
+                                        imageSrc={upcomingEvent.eventImage}
+                                    />
+                                );
+                            })}
+                    </div>
                 </div>
             </div>
         </>
