@@ -1,7 +1,7 @@
 # Research document
 This document contains the researchs/multi-criteria analyisis' for the potential tools that could be used in the tech stack. 
 ## Maps API Research
-This app has many requirements related to mapping and routing. [(Click here to see the user requirements in the functional design.) ]() Therefore, it is cruicial to pick the optimal map API.
+This app has many requirements related to mapping and routing. [(Click here to see the user requirements in the functional design -In Appendix) ](../../pdf/system-docs/Functional%20design.pdf) Therefore, it is cruicial to pick the optimal map API.
 
 ### Multi-criteria analysis
 
@@ -68,7 +68,7 @@ o
 Google Maps has all sorts of features, higher community support and more data regarding the locations on the map. For these reasons Google Maps is more suitable to use in this project.
 <!-- Add the link to functional design -->
 ## Database Choice Research
- The application will be used by public and users will have their own accounts. A database is needed in order to save all their data regarding their favorite locations and events. [Click here to see the user requirements in the functional design. ]()
+ The application will be used by public and users will have their own accounts. A database is needed in order to save all their data regarding their favorite locations and events. [Click here to see the user requirements in the functional design. ](../../pdf/system-docs/Functional%20design.pdf)
     This research is for selecting the optimal type of database for this project.
 
 Here are our candidates:
