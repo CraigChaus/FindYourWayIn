@@ -47,7 +47,7 @@ export const DiscoveryComponent = ({
                         </h1>
                     </div>
 
-                    <div className="relative flex flex-col justify-center h-4/5 px-5 buttom-20">
+                    <div className=" flex flex-col justify-center h-full px-5 border-2 border-color-red">
 
                             {spotImage && spotImageAlt && (
                                 <Image
@@ -57,19 +57,19 @@ export const DiscoveryComponent = ({
                                     height={300}
                                 />
                             )}
-                           {/*// <div className=" relative z-10 top-30 left-30 justify-center flex-colon text-gray-300 justify-items-center">*/}
-                                <span className="  text-center text-lg font-bold relative  ">
+                            <div className=" relative flex flex-col bottom-20  justify-center  text-gray-300 justify-items-center">
+                                <span className=" w-full text-center text-lg font-bold ">
                                     {spotName}
                                 </span>
                                 <button
                                     onClick={() =>
                                         router.push(`description/${spotID}`)
                                     }
-                                    className=" left-20 top-30 rounded bg-green-700 hover:bg-green-900 h-8 w-30 text-white p-1  mt-2 text-sm"
+                                    className=" mx-auto w-30 rounded bg-green-700 hover:bg-green-900 h-8 w-30 text-white p-1  mt-2 text-sm"
                                 >Click for more
                                 </button>
 
-
+                            </div>
                     </div>
                 </div>
 
