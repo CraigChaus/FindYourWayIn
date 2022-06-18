@@ -1,0 +1,50 @@
+image: node:lts-alpine
+
+stages:
+ - build
+ - lint
+ - test
+
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
+cache: 
+  key: ${CI_COMMIT_REF_SLUG}
+  paths: 
+    - node_modules/
+    - .cache/*
+    - cache/Cypress
+
+install:
+  stage: build
+  script:
+    - npm i --force
+  artifacts:
+    paths:
+      - node_modules
+    untracked: false
+    expire_in: 7 days
+
+eslint:
+  stage: lint
+  script:
+    - npm run lint
+    
+
+prettier:
+  stage: lint
+  script:
+    - npm run prettier
+
+test:
+  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+  stage: test
+  script: 
+    - npm run cypress:run
+  artifacts:
+    when: always
+    paths:
+      - cypress/videos/**/*.mp4
+      - cypress/screenshots/**/*.png
+    expire_in: 1 day
