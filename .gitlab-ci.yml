@@ -1,26 +1,47 @@
 image: node:lts-alpine
 
 stages:
+ - build
  - lint
+ - test
 
 cache: 
   paths: 
-    - src/backend/node_modules/
     - src/frontend/node_modules/
+
+install:
+  stage: build
+  script:
+    - cd src/frontend
+    - npm i --force
+  artifacts:
+    paths:
+      - node_modules
+    untracked: false
+    expire_in: 7 days
 
 eslint:
   stage: lint
   script:
-    - cd src/backend/
-    - npm install --force
+    - cd src/frontend
     - npm run lint
-    - cd ../frontend/
-    - npm install --force
-    - npm run lint
+    
 
 prettier:
   stage: lint
   script:
-    - cd src/frontend 
-    - npm i --force
+    - cd src/frontend
     - npm run prettier
+
+test:
+  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+  stage: test
+  script: 
+    - cd src/frontend
+    - npm run test
+  artifacts:
+    when: always
+    paths:
+      - cypress/videos/**/*.mp4
+      - cypress/screenshots/**/*.png
+    expire_in: 1 day
