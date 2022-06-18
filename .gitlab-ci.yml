@@ -8,6 +8,7 @@ stages:
 cache: 
   paths: 
     - src/frontend/node_modules/
+    - /root/.cache/Cypress
 
 install:
   stage: build
@@ -42,6 +43,6 @@ test:
   artifacts:
     when: always
     paths:
-      - cypress/videos/**/*.mp4
-      - cypress/screenshots/**/*.png
+      - src/frontend/cypress/videos/**/*.mp4
+      - src/frontend/cypress/screenshots/**/*.png
     expire_in: 1 day
