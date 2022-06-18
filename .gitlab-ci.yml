@@ -38,7 +38,7 @@ test:
   stage: test
   script: 
     - cd src/frontend
-    - npm run test
+    - npm run cypress:run
   artifacts:
     when: always
     paths:
