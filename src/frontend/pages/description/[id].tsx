@@ -10,7 +10,7 @@ const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 export async function getStaticPaths({ locales }: any) {
-    const res = await fetch(`${apiUrl}/locations`, {
+    const res = await fetch(`${apiUrl}/locations?size=34`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -85,10 +85,10 @@ export const Details = ({ data }: any): JSX.Element => {
         setImgAlt('alt');
 
         //phone number of the place is put here
-        setPhoneNumber(data.contactinfo.phone.number);
+        setPhoneNumber(data.contactinfo.phones[0].number);
 
         //email address for the place is put here
-        setEmail(data.contactinfo.mail.email);
+        setEmail(data.contactinfo.mails[0].email);
     }, [data]);
 
     return (

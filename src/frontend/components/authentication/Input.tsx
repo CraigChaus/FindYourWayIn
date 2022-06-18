@@ -12,9 +12,11 @@ export default function Input({
     isRequired,
     type,
     placeholder,
+    name,
 }: any) {
     return (
         <input
+            name={name}
             onChange={onChange}
             required={isRequired}
             type={type}

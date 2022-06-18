@@ -1,0 +1,1851 @@
+{
+  "categorizations": [
+    {
+      "categorizationId": "5",
+      "categorization": "Congrescentra",
+      "cnetID": "1.1",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "31",
+          "categorization": "Congres- en vergaderaccommodatie",
+          "cnetID": "1.1.1"
+        }
+      ]
+    },
+    {
+      "categorizationId": "6",
+      "categorization": "Campings",
+      "cnetID": "1.2",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "32",
+          "categorization": "Camping",
+          "cnetID": "1.2.1"
+        },
+        {
+          "categorizationId": "33",
+          "categorization": "Mini-camping",
+          "cnetID": "1.2.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "34",
+          "categorization": "Camperstandplaats",
+          "cnetID": "1.2.4",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2802",
+          "categorization": "Glamping",
+          "cnetID": "1.2.5",
+          "deprecated": true
+        }
+      ]
+    },
+    {
+      "categorizationId": "7",
+      "categorization": "Jachthavens",
+      "cnetID": "1.5",
+      "entityType": "LOCATIE",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "35",
+          "categorization": "Jachthaven",
+          "cnetID": "1.2.2"
+        }
+      ]
+    },
+    {
+      "categorizationId": "8",
+      "categorization": "Logies",
+      "cnetID": "1.3",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "36",
+          "categorization": "Bed and Breakfast",
+          "cnetID": "1.3.1"
+        },
+        {
+          "categorizationId": "38",
+          "categorization": "Groepsaccommodatie",
+          "cnetID": "1.3.2"
+        },
+        {
+          "categorizationId": "39",
+          "categorization": "Hostel",
+          "cnetID": "1.3.3"
+        },
+        {
+          "categorizationId": "37",
+          "categorization": "Hotel",
+          "cnetID": "1.3.4"
+        },
+        {
+          "categorizationId": "2225",
+          "categorization": "Caravan",
+          "cnetID": "1.3.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2226",
+          "categorization": "Gemeubileerde woning",
+          "cnetID": "1.3.6",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2865",
+          "categorization": "Bijzondere logeergelegenheden",
+          "cnetID": "1.3.7",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "45",
+          "categorization": "Stacaravan",
+          "cnetID": "1.4.7"
+        }
+      ]
+    },
+    {
+      "categorizationId": "9",
+      "categorization": "Groepsaccommodaties",
+      "cnetID": "1.6",
+      "entityType": "LOCATIE",
+      "deprecated": true
+    },
+    {
+      "categorizationId": "10",
+      "categorization": "Vakantiewoningen",
+      "cnetID": "1.4",
+      "entityType": "LOCATIE",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "40",
+          "categorization": "Appartement",
+          "cnetID": "1.4.1"
+        },
+        {
+          "categorizationId": "41",
+          "categorization": "Appartementencomplex",
+          "cnetID": "1.4.2"
+        },
+        {
+          "categorizationId": "42",
+          "categorization": "Bungalow/Vakantiewoning",
+          "cnetID": "1.4.3"
+        },
+        {
+          "categorizationId": "43",
+          "categorization": "Bungalowpark",
+          "cnetID": "1.4.4"
+        },
+        {
+          "categorizationId": "44",
+          "categorization": "Trekkershut",
+          "cnetID": "1.4.5"
+        },
+        {
+          "categorizationId": "46",
+          "categorization": "Chalet",
+          "cnetID": "1.4.8"
+        },
+        {
+          "categorizationId": "47",
+          "categorization": "Boot",
+          "cnetID": "1.4.9"
+        }
+      ]
+    },
+    {
+      "categorizationId": "2309",
+      "categorization": "Verblijfsarrangementen",
+      "cnetID": "1.7",
+      "entityType": "LOCATIE",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "2315",
+          "categorization": "Verblijfsarrangement",
+          "cnetID": "1.7.1"
+        }
+      ]
+    },
+    {
+      "categorizationId": "11",
+      "categorization": "Attracties",
+      "cnetID": "2.1",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "48",
+          "categorization": "Attractie",
+          "cnetID": "2.1.1"
+        },
+        {
+          "categorizationId": "49",
+          "categorization": "Bedrijf te bezoeken",
+          "cnetID": "2.2.2",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "50",
+          "categorization": "Bezoekerscentrum",
+          "cnetID": "2.2.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "51",
+          "categorization": "Dierentuin",
+          "cnetID": "2.1.4",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "52",
+          "categorization": "Galerie",
+          "cnetID": "2.2.4"
+        },
+        {
+          "categorizationId": "53",
+          "categorization": "Kinderboerderij",
+          "cnetID": "2.1.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "84",
+          "categorization": "Markt",
+          "cnetID": "2.3.10"
+        },
+        {
+          "categorizationId": "54",
+          "categorization": "Museum",
+          "cnetID": "2.1.6"
+        },
+        {
+          "categorizationId": "55",
+          "categorization": "Pretpark",
+          "cnetID": "2.1.13",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "56",
+          "categorization": "Rondvaart",
+          "cnetID": "2.1.8"
+        },
+        {
+          "categorizationId": "57",
+          "categorization": "Speeltuin",
+          "cnetID": "2.1.9",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "58",
+          "categorization": "Sterrenwacht",
+          "cnetID": "2.1.10",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "59",
+          "categorization": "Wellness",
+          "cnetID": "2.1.2"
+        },
+        {
+          "categorizationId": "69",
+          "categorization": "Winkelcentrum",
+          "cnetID": "2.1.12"
+        },
+        {
+          "categorizationId": "1511",
+          "categorization": "Schaapskooi",
+          "cnetID": "2.1.14",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2236",
+          "categorization": "Historische tram/trein",
+          "cnetID": "2.1.15",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2297",
+          "categorization": "Bezinnen",
+          "cnetID": "2.1.16",
+          "deprecated": true
+        }
+      ]
+    },
+    {
+      "categorizationId": "12",
+      "categorization": "Bezienswaardigheden",
+      "cnetID": "2.2",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "60",
+          "categorization": "Architectuur",
+          "cnetID": "2.2.1"
+        },
+        {
+          "categorizationId": "61",
+          "categorization": "Grot",
+          "cnetID": "2.2.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "62",
+          "categorization": "Kasteel of Landhuis",
+          "cnetID": "2.2.6",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "63",
+          "categorization": "Kerk",
+          "cnetID": "2.2.7"
+        },
+        {
+          "categorizationId": "64",
+          "categorization": "Molen of Gemaal",
+          "cnetID": "2.2.8",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "65",
+          "categorization": "Monument",
+          "cnetID": "2.2.9"
+        },
+        {
+          "categorizationId": "66",
+          "categorization": "Uitzichtpunt",
+          "cnetID": "2.2.13",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "67",
+          "categorization": "Vuurtoren",
+          "cnetID": "2.2.14",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "68",
+          "categorization": "Wijngaard",
+          "cnetID": "2.2.15",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "1913",
+          "categorization": "Erfgoed",
+          "cnetID": "2.2.16",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2227",
+          "categorization": "Schaapskudde",
+          "cnetID": "2.2.17",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2233",
+          "categorization": "Bos",
+          "cnetID": "2.2.18"
+        },
+        {
+          "categorizationId": "2234",
+          "categorization": "Bezienswaardigheid",
+          "cnetID": "2.2.19"
+        },
+        {
+          "categorizationId": "2680",
+          "categorization": "Haven",
+          "cnetID": "2.20"
+        },
+        {
+          "categorizationId": "2811",
+          "categorization": "Bierbrouwerij",
+          "cnetID": "2.2.20"
+        }
+      ]
+    },
+    {
+      "categorizationId": "16",
+      "categorization": "Routes",
+      "cnetID": "2.7",
+      "entityType": "LOCATIE",
+      "deprecated": false,
+      "child": [
+        {
+          "categorizationId": "109",
+          "categorization": "Autoroute",
+          "deprecated": true,
+          "cnetID": "2.7.1"
+        },
+        {
+          "categorizationId": "110",
+          "categorization": "Fietsroute",
+          "deprecated": false,
+          "cnetID": "2.7.3"
+        },
+        {
+          "categorizationId": "111",
+          "categorization": "GPS Wandel- of Puzzelroute",
+          "deprecated": true,
+          "cnetID": "2.7.4"
+        },
+        {
+          "categorizationId": "112",
+          "categorization": "Ruiterroute",
+          "deprecated": true,
+          "cnetID": "2.7.5"
+        },
+        {
+          "categorizationId": "113",
+          "categorization": "Skateroute",
+          "deprecated": true,
+          "cnetID": "2.7.6"
+        },
+        {
+          "categorizationId": "114",
+          "categorization": "Vaarroute",
+          "deprecated": true,
+          "cnetID": "2.7.8"
+        },
+        {
+          "categorizationId": "115",
+          "categorization": "Wandelroute",
+          "deprecated": false,
+          "cnetID": "2.7.9"
+        },
+        {
+          "categorizationId": "2237",
+          "categorization": "Schaatsroute",
+          "deprecated": true,
+          "cnetID": "2.7.10"
+        },
+        {
+          "categorizationId": "2583",
+          "categorization": "Menroute",
+          "deprecated": true,
+          "cnetID": "2.7.11"
+        }
+      ]
+    },
+    {
+      "categorizationId": "17",
+      "categorization": "Sport en Actief",
+      "cnetID": "2.8",
+      "entityType": "LOCATIE",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "116",
+          "categorization": "Bowlingbaan",
+          "cnetID": "2.8.1"
+        },
+        {
+          "categorizationId": "118",
+          "categorization": "Golfbaan",
+          "cnetID": "2.8.2"
+        },
+        {
+          "categorizationId": "119",
+          "categorization": "Ijsbaan",
+          "cnetID": "2.8.3"
+        },
+        {
+          "categorizationId": "121",
+          "categorization": "Klimhal",
+          "cnetID": "2.8.4"
+        },
+        {
+          "categorizationId": "122",
+          "categorization": "Midgetgolf",
+          "cnetID": "2.8.12"
+        },
+        {
+          "categorizationId": "123",
+          "categorization": "Skatepark",
+          "cnetID": "2.8.13"
+        },
+        {
+          "categorizationId": "124",
+          "categorization": "Skibaan",
+          "cnetID": "2.8.5"
+        },
+        {
+          "categorizationId": "125",
+          "categorization": "Tennisaccommodatie",
+          "cnetID": "2.8.6"
+        },
+        {
+          "categorizationId": "126",
+          "categorization": "Voetbalstadion",
+          "cnetID": "2.8.7"
+        },
+        {
+          "categorizationId": "127",
+          "categorization": "Watersport",
+          "cnetID": "2.8.8"
+        },
+        {
+          "categorizationId": "128",
+          "categorization": "Zeil- en surfschool",
+          "cnetID": "2.8.9"
+        },
+        {
+          "categorizationId": "129",
+          "categorization": "Zwembad",
+          "cnetID": "2.1.11"
+        },
+        {
+          "categorizationId": "130",
+          "categorization": "Overige binnensport",
+          "cnetID": "2.8.10"
+        },
+        {
+          "categorizationId": "131",
+          "categorization": "Overige buitensport",
+          "cnetID": "2.8.11"
+        },
+        {
+          "categorizationId": "1515",
+          "categorization": "Manege",
+          "cnetID": "2.8.14"
+        },
+        {
+          "categorizationId": "1516",
+          "categorization": "Visvijver",
+          "cnetID": "2.8.15"
+        },
+        {
+          "categorizationId": "1517",
+          "categorization": "Klimbos",
+          "cnetID": "2.8.16"
+        },
+        {
+          "categorizationId": "1914",
+          "categorization": "Boerengolf",
+          "cnetID": "2.8.17"
+        },
+        {
+          "categorizationId": "2304",
+          "categorization": "Beugelen",
+          "cnetID": "2.8.18"
+        },
+        {
+          "categorizationId": "2305",
+          "categorization": "Jeu de boules",
+          "cnetID": "2.8.19"
+        },
+        {
+          "categorizationId": "2306",
+          "categorization": "Outdoor en Survival",
+          "cnetID": "2.8.20"
+        },
+        {
+          "categorizationId": "2307",
+          "categorization": "Electronic Fun",
+          "cnetID": "2.8.21"
+        },
+        {
+          "categorizationId": "2793",
+          "categorization": "Escape Room",
+          "cnetID": "2.8.22"
+        },
+        {
+          "categorizationId": "2821",
+          "categorization": "Kartbaan",
+          "cnetID": "2.8.23"
+        }
+      ]
+    },
+    {
+      "categorizationId": "19",
+      "categorization": "Natuur",
+      "cnetID": "2.10",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "70",
+          "categorization": "Natuurgebied",
+          "cnetID": "2.2.10"
+        },
+        {
+          "categorizationId": "71",
+          "categorization": "Recreatiegebied",
+          "cnetID": "2.1.7"
+        },
+        {
+          "categorizationId": "72",
+          "categorization": "Park/Tuin",
+          "cnetID": "2.2.11"
+        },
+        {
+          "categorizationId": "73",
+          "categorization": "Strand",
+          "cnetID": "2.2.12"
+        },
+        {
+          "categorizationId": "1512",
+          "categorization": "Wildobservatiepunt",
+          "cnetID": "2.10.1",
+          "deprecated": true
+        }
+      ]
+    },
+    {
+      "categorizationId": "20",
+      "categorization": "Groepsarrangementen en activiteiten",
+      "cnetID": "2.11",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "141",
+          "categorization": "Arrangement",
+          "cnetID": "2.11.1",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "142",
+          "categorization": "Excursie",
+          "cnetID": "2.11.2"
+        },
+        {
+          "categorizationId": "143",
+          "categorization": "Rondleiding",
+          "cnetID": "2.11.3"
+        },
+        {
+          "categorizationId": "144",
+          "categorization": "Tocht",
+          "cnetID": "2.11.4",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "145",
+          "categorization": "Workshop",
+          "cnetID": "2.11.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "1912",
+          "categorization": "Kinderfeestjes",
+          "cnetID": "2.11.6",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2230",
+          "categorization": "Opleidingen & Cursussen",
+          "cnetID": "2.11.7",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2298",
+          "categorization": "Culinair",
+          "cnetID": "2.11.8",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2299",
+          "categorization": "Watersport",
+          "cnetID": "2.11.9",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2300",
+          "categorization": "Actief en Sportief",
+          "cnetID": "2.11.10"
+        },
+        {
+          "categorizationId": "2301",
+          "categorization": "Kunst en Cultuur",
+          "cnetID": "2.11.11"
+        },
+        {
+          "categorizationId": "2302",
+          "categorization": "Natuur en Recreatie",
+          "cnetID": "2.11.12",
+          "deprecated": true
+        }
+      ]
+    },
+    {
+      "categorizationId": "2308",
+      "categorization": "Dagarrangementen",
+      "cnetID": "2.13",
+      "entityType": "LOCATIE",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "2314",
+          "categorization": "Dagarrangement",
+          "cnetID": "2.13.1"
+        }
+      ]
+    },
+    {
+      "categorizationId": "22",
+      "categorization": "Restaurants",
+      "cnetID": "3.1",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "146",
+          "categorization": "Restaurant",
+          "cnetID": "3.1.1"
+        },
+        {
+          "categorizationId": "147",
+          "categorization": "Eetcafé",
+          "cnetID": "3.1.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "1518",
+          "categorization": "Pannenkoekenrestaurant",
+          "cnetID": "3.1.4",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2372",
+          "categorization": "Strandpaviljoen",
+          "cnetID": "3.1.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2704",
+          "categorization": "Visrestaurant",
+          "cnetID": "3.1.6"
+        }
+      ]
+    },
+    {
+      "categorizationId": "23",
+      "categorization": "Kleine horeca",
+      "cnetID": "3.2",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "148",
+          "categorization": "Broodjeszaak",
+          "cnetID": "3.2.1",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "149",
+          "categorization": "Snackbar",
+          "cnetID": "3.2.2",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "150",
+          "categorization": "IJssalon",
+          "cnetID": "3.2.3"
+        },
+        {
+          "categorizationId": "1429",
+          "categorization": "Theetuin",
+          "cnetID": "3.2.4",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "1901",
+          "categorization": "Catering",
+          "cnetID": "3.2.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2303",
+          "categorization": "Brasserie/Lunchroom",
+          "cnetID": "3.2.6"
+        },
+        {
+          "categorizationId": "2702",
+          "categorization": "Koffiebar",
+          "cnetID": "3.2.7"
+        },
+        {
+          "categorizationId": "2703",
+          "categorization": "Viswinkel",
+          "cnetID": "3.2.8"
+        }
+      ]
+    },
+    {
+      "categorizationId": "24",
+      "categorization": "Uitgaan",
+      "cnetID": "3.3",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "151",
+          "categorization": "Café of Bar",
+          "cnetID": "3.3.1"
+        },
+        {
+          "categorizationId": "152",
+          "categorization": "Uitgaanscentrum",
+          "cnetID": "3.3.2"
+        },
+        {
+          "categorizationId": "153",
+          "categorization": "Casino",
+          "cnetID": "2.1.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "174",
+          "categorization": "Partylocatie of zaalverhuur",
+          "cnetID": "4.3.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2604",
+          "categorization": "Bioscoop",
+          "cnetID": "3.3.3"
+        },
+        {
+          "categorizationId": "2605",
+          "categorization": "Filmtheater",
+          "cnetID": "3.3.4"
+        },
+        {
+          "categorizationId": "2606",
+          "categorization": "Muziekpodium",
+          "cnetID": "3.3.5"
+        },
+        {
+          "categorizationId": "2607",
+          "categorization": "Theaterpodium",
+          "cnetID": "3.3.6"
+        },
+        {
+          "categorizationId": "2609",
+          "categorization": "Buiten locatie",
+          "cnetID": "3.3.7"
+        }
+      ]
+    },
+    {
+      "categorizationId": "25",
+      "categorization": "Algemene voorzieningen ter plaatse",
+      "cnetID": "4.1",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "154",
+          "categorization": "Carpoolplaats",
+          "cnetID": "4.1.1",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "155",
+          "categorization": "Dagrecreatieterrein",
+          "cnetID": "4.1.2",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "156",
+          "categorization": "Fietsknooppunt",
+          "cnetID": "4.1.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "157",
+          "categorization": "Geldautomaat",
+          "cnetID": "4.1.4",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "158",
+          "categorization": "P&R terrein",
+          "cnetID": "4.1.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "159",
+          "categorization": "Parkeerplaats langs de weg",
+          "cnetID": "4.1.6",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "160",
+          "categorization": "Toeristisch Overstap Punt -TOP-",
+          "cnetID": "4.1.8",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "161",
+          "categorization": "Transferium",
+          "cnetID": "4.1.7"
+        },
+        {
+          "categorizationId": "1900",
+          "categorization": "Rustpunt",
+          "cnetID": "4.1.9",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2608",
+          "categorization": "Toeristisch informatie Punt",
+          "cnetID": "4.1.10",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2699",
+          "categorization": "Parkeergarage",
+          "cnetID": "4.1.11"
+        }
+      ]
+    },
+    {
+      "categorizationId": "26",
+      "categorization": "Bedrijven ter plaatse",
+      "cnetID": "4.2",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "162",
+          "categorization": "Ambassade",
+          "cnetID": "4.2.1",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "163",
+          "categorization": "ANWB Vestiging",
+          "cnetID": "4.2.2",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "164",
+          "categorization": "Benzinestation",
+          "cnetID": "4.2.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "165",
+          "categorization": "Beursgebouw",
+          "cnetID": "4.2.4"
+        },
+        {
+          "categorizationId": "166",
+          "categorization": "Politiebureau",
+          "cnetID": "4.2.5",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "167",
+          "categorization": "Post NL Postkantoor",
+          "cnetID": "4.2.6",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "168",
+          "categorization": "Stadhuis",
+          "cnetID": "4.2.7",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "169",
+          "categorization": "Stadion",
+          "cnetID": "4.2.8",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "170",
+          "categorization": "Stadskantoor",
+          "cnetID": "4.2.9",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "171",
+          "categorization": "Ziekenhuis",
+          "cnetID": "4.2.10",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2235",
+          "categorization": "Kwekerij",
+          "cnetID": "4.2.11",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2270",
+          "categorization": "Bibliotheek",
+          "cnetID": "4.2.12"
+        },
+        {
+          "categorizationId": "2338",
+          "categorization": "Bank",
+          "cnetID": "4.2.13",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2339",
+          "categorization": "Huisarts",
+          "cnetID": "4.2.14",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2340",
+          "categorization": "Garage",
+          "cnetID": "4.2.15",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2369",
+          "categorization": "Bruna Vestiging",
+          "cnetID": "4.2.16",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2373",
+          "categorization": "Touroperator",
+          "cnetID": "4.2.17"
+        },
+        {
+          "categorizationId": "2374",
+          "categorization": "Evenementenbureau",
+          "cnetID": "4.2.18"
+        },
+        {
+          "categorizationId": "2375",
+          "categorization": "Reisbureau",
+          "cnetID": "4.2.19",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2599",
+          "categorization": "Bijeenkomst organisator",
+          "cnetID": "4.2.20",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2600",
+          "categorization": "Conferentie services",
+          "cnetID": "4.2.21"
+        },
+        {
+          "categorizationId": "2601",
+          "categorization": "Audio-visuele dienstverlener",
+          "cnetID": "4.2.22",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2602",
+          "categorization": "Gids",
+          "cnetID": "4.2.23"
+        },
+        {
+          "categorizationId": "2610",
+          "categorization": "Tandarts",
+          "cnetID": "4.2.24",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2642",
+          "categorization": "Apotheek",
+          "cnetID": "4.2.25",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2644",
+          "categorization": "AKO",
+          "cnetID": "4.2.26",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2677",
+          "categorization": "Primera",
+          "cnetID": "4.2.27",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2681",
+          "categorization": "Uitzendbureau",
+          "cnetID": "4.2.28",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2689",
+          "categorization": "Coop",
+          "cnetID": "4.2.29",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2690",
+          "categorization": "The Read Shop",
+          "cnetID": "4.2.30",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2692",
+          "categorization": "Cigo",
+          "cnetID": "4.2.31",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2795",
+          "categorization": "Jachtwerf",
+          "cnetID": "4.2.32",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2796",
+          "categorization": "Jachtbemiddeling",
+          "cnetID": "4.2.33",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "185",
+          "categorization": "VVV",
+          "cnetID": "4.5.1"
+        }
+      ]
+    },
+    {
+      "categorizationId": "27",
+      "categorization": "Verhuurbedrijven",
+      "cnetID": "4.3",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "117",
+          "categorization": "Fietsverhuurbedrijf",
+          "cnetID": "4.3.4"
+        },
+        {
+          "categorizationId": "120",
+          "categorization": "Bootverhuurbedrijf",
+          "cnetID": "4.3.2"
+        },
+        {
+          "categorizationId": "172",
+          "categorization": "Autoverhuurbedrijf",
+          "cnetID": "4.3.1"
+        },
+        {
+          "categorizationId": "173",
+          "categorization": "Caravanverhuurbedrijf",
+          "cnetID": "4.3.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "174",
+          "categorization": "Partylocatie of zaalverhuur",
+          "cnetID": "4.3.5"
+        },
+        {
+          "categorizationId": "175",
+          "categorization": "Tentenverhuur",
+          "cnetID": "4.3.6",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "176",
+          "categorization": "Verhuurkantoor",
+          "cnetID": "4.3.8",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "177",
+          "categorization": "Vliegtuigverhuur en rondvluchten",
+          "cnetID": "4.3.7",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "1519",
+          "categorization": "Bijzonder verhuur",
+          "cnetID": "4.3.9"
+        },
+        {
+          "categorizationId": "2228",
+          "categorization": "Kampeermiddelenverhuur",
+          "cnetID": "4.3.10",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2231",
+          "categorization": "Verhuurbedrijf overige",
+          "cnetID": "4.3.11",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2311",
+          "categorization": "Open-zeilbootverhuur",
+          "cnetID": "4.3.12",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2312",
+          "categorization": "Sloepverhuur",
+          "cnetID": "4.3.13",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2313",
+          "categorization": "Kanoverhuur",
+          "cnetID": "4.3.14",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2376",
+          "categorization": "Bus en touringcarverhuur",
+          "cnetID": "4.3.15"
+        },
+        {
+          "categorizationId": "2797",
+          "categorization": "Kajuit-zeilbootverhuur",
+          "cnetID": "4.3.16",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2798",
+          "categorization": "Motorbootverhuur",
+          "cnetID": "4.3.17",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2799",
+          "categorization": "Platbodemverhuur",
+          "cnetID": "4.3.18",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2800",
+          "categorization": "Roei- en Visbootverhuur",
+          "cnetID": "4.3.19",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2801",
+          "categorization": "Charter met Schipper",
+          "cnetID": "4.3.20",
+          "deprecated": true
+        }
+      ]
+    },
+    {
+      "categorizationId": "28",
+      "categorization": "Vervoerbedrijven",
+      "cnetID": "4.4",
+      "entityType": "LOCATIE",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "178",
+          "categorization": "Bus",
+          "cnetID": "4.4.1"
+        },
+        {
+          "categorizationId": "179",
+          "categorization": "Metro",
+          "cnetID": "4.4.2"
+        },
+        {
+          "categorizationId": "180",
+          "categorization": "Taxibedrijf",
+          "cnetID": "4.4.7"
+        },
+        {
+          "categorizationId": "181",
+          "categorization": "Tram",
+          "cnetID": "4.4.3"
+        },
+        {
+          "categorizationId": "182",
+          "categorization": "Trein",
+          "cnetID": "4.4.4"
+        },
+        {
+          "categorizationId": "183",
+          "categorization": "Veerpont",
+          "cnetID": "4.4.5"
+        },
+        {
+          "categorizationId": "184",
+          "categorization": "Vliegveld",
+          "cnetID": "4.4.6"
+        },
+        {
+          "categorizationId": "2603",
+          "categorization": "Luchtvaartmaatschappij",
+          "cnetID": "4.4.8"
+        }
+      ]
+    },
+    {
+      "categorizationId": "29",
+      "categorization": "VVV",
+      "cnetID": "4.5",
+      "entityType": "LOCATIE",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "1520",
+          "categorization": "Touchscreen VVV i-punt",
+          "cnetID": "4.5.3"
+        },
+        {
+          "categorizationId": "2586",
+          "categorization": "VVV Informatiepunt",
+          "cnetID": "4.5.4"
+        }
+      ]
+    },
+    {
+      "categorizationId": "30",
+      "categorization": "Winkels",
+      "cnetID": "4.6",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "188",
+          "categorization": "Warenhuizen/Bouwmarkten/Hobby",
+          "cnetID": "4.6.2",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "189",
+          "categorization": "Goede doelen",
+          "cnetID": "4.6.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "191",
+          "categorization": "Huis- en Tuin",
+          "cnetID": "4.6.5"
+        },
+        {
+          "categorizationId": "193",
+          "categorization": "Voeding/drank",
+          "cnetID": "4.6.7"
+        },
+        {
+          "categorizationId": "194",
+          "categorization": "Cadeau",
+          "cnetID": "4.6.8"
+        },
+        {
+          "categorizationId": "195",
+          "categorization": "Sport/Outdoor/Auto",
+          "cnetID": "4.6.9"
+        },
+        {
+          "categorizationId": "196",
+          "categorization": "Overige winkels",
+          "cnetID": "4.6.10"
+        },
+        {
+          "categorizationId": "1528",
+          "categorization": "Vintage",
+          "cnetID": "4.6.11"
+        },
+        {
+          "categorizationId": "1529",
+          "categorization": "Kinderen",
+          "cnetID": "4.6.12"
+        },
+        {
+          "categorizationId": "1993",
+          "categorization": "Antiquariaat",
+          "cnetID": "4.6.13",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2350",
+          "categorization": "Muziek",
+          "cnetID": "4.6.14"
+        },
+        {
+          "categorizationId": "2352",
+          "categorization": "Sieraden/Juwelier",
+          "cnetID": "4.6.15"
+        },
+        {
+          "categorizationId": "2353",
+          "categorization": "Schoenen",
+          "cnetID": "4.6.16"
+        },
+        {
+          "categorizationId": "2354",
+          "categorization": "Lederwaren",
+          "cnetID": "4.6.17",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2356",
+          "categorization": "Opticien",
+          "cnetID": "4.6.18",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2365",
+          "categorization": "Boeken",
+          "cnetID": "4.6.19"
+        },
+        {
+          "categorizationId": "2366",
+          "categorization": "Speelgoed",
+          "cnetID": "4.6.20"
+        },
+        {
+          "categorizationId": "2367",
+          "categorization": "Dieren/Hengelsport",
+          "cnetID": "4.6.21",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2368",
+          "categorization": "Kunst/Antiek",
+          "cnetID": "4.6.22"
+        },
+        {
+          "categorizationId": "2377",
+          "categorization": "Elektronica",
+          "cnetID": "4.6.23",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2378",
+          "categorization": "Warenhuis",
+          "cnetID": "4.6.25"
+        },
+        {
+          "categorizationId": "2379",
+          "categorization": "Hobby/Vrije tijd",
+          "cnetID": "4.6.29"
+        },
+        {
+          "categorizationId": "2380",
+          "categorization": "Bouwmarkt",
+          "cnetID": "4.6.32",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2381",
+          "categorization": "Foto&Video",
+          "cnetID": "4.6.24",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2382",
+          "categorization": "Telecom",
+          "cnetID": "4.6.28",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2383",
+          "categorization": "Lichaamsverzorging/Gezondheid",
+          "cnetID": "4.6.27"
+        },
+        {
+          "categorizationId": "2384",
+          "categorization": "Kleding",
+          "cnetID": "4.6.26"
+        },
+        {
+          "categorizationId": "2385",
+          "categorization": "Sport/Outdoor",
+          "cnetID": "4.6.30",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2386",
+          "categorization": "Vervoer",
+          "cnetID": "4.6.31"
+        },
+        {
+          "categorizationId": "2710",
+          "categorization": "Games",
+          "cnetID": "4.6.33",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2711",
+          "categorization": "Film",
+          "cnetID": "4.6.34"
+        },
+        {
+          "categorizationId": "2713",
+          "categorization": "Ticketshop",
+          "cnetID": "4.6.35",
+          "deprecated": true
+        }
+      ]
+    },
+    {
+      "categorizationId": "1521",
+      "categorization": "Streekproducten",
+      "cnetID": "4.7",
+      "entityType": "LOCATIE",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "2284",
+          "categorization": "Streekproducten",
+          "cnetID": "4.7.2"
+        }
+      ]
+    },
+    {
+      "categorizationId": "1526",
+      "categorization": "Cultuur- en sportverenigingen",
+      "cnetID": "4.8",
+      "entityType": "LOCATIE",
+      "child": [
+        {
+          "categorizationId": "1527",
+          "categorization": "Sportverenigingen",
+          "cnetID": "4.8.1",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2155",
+          "categorization": "Culturele organisaties",
+          "cnetID": "4.8.2"
+        }
+      ]
+    },
+    {
+      "categorizationId": "2502",
+      "categorization": "Vergaderruimte",
+      "cnetID": "5.2",
+      "entityType": "LOCATIE",
+      "deprecated": true
+    },
+    {
+      "categorizationId": "13",
+      "categorization": "Evenementen",
+      "cnetID": "2.3",
+      "entityType": "EVENEMENT",
+      "child": [
+        {
+          "categorizationId": "74",
+          "categorization": "Beurs",
+          "cnetID": "2.3.1"
+        },
+        {
+          "categorizationId": "75",
+          "categorization": "Braderie",
+          "cnetID": "2.3.2"
+        },
+        {
+          "categorizationId": "76",
+          "categorization": "Circus",
+          "cnetID": "2.3.3",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "77",
+          "categorization": "Congres",
+          "cnetID": "2.3.4"
+        },
+        {
+          "categorizationId": "78",
+          "categorization": "Corso of Optocht",
+          "cnetID": "2.3.5"
+        },
+        {
+          "categorizationId": "79",
+          "categorization": "Culinair",
+          "cnetID": "2.3.6"
+        },
+        {
+          "categorizationId": "80",
+          "categorization": "Excursie",
+          "cnetID": "2.7.2"
+        },
+        {
+          "categorizationId": "81",
+          "categorization": "Folklore",
+          "cnetID": "2.3.7",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "82",
+          "categorization": "Kermis",
+          "cnetID": "2.3.8"
+        },
+        {
+          "categorizationId": "83",
+          "categorization": "Lezing/Debat",
+          "cnetID": "2.3.9"
+        },
+        {
+          "categorizationId": "84",
+          "categorization": "Markt",
+          "cnetID": "2.3.10"
+        },
+        {
+          "categorizationId": "85",
+          "categorization": "Open Dag",
+          "cnetID": "2.3.11"
+        },
+        {
+          "categorizationId": "86",
+          "categorization": "Rondleiding",
+          "cnetID": "2.3.12"
+        },
+        {
+          "categorizationId": "87",
+          "categorization": "Sportevenement",
+          "cnetID": "2.3.13"
+        },
+        {
+          "categorizationId": "88",
+          "categorization": "Workshop",
+          "cnetID": "2.3.15"
+        },
+        {
+          "categorizationId": "89",
+          "categorization": "Fietstocht",
+          "cnetID": "2.3.16",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "90",
+          "categorization": "Wandeltocht",
+          "cnetID": "2.3.17",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "96",
+          "categorization": "Varia",
+          "cnetID": "2.3.18"
+        },
+        {
+          "categorizationId": "1513",
+          "categorization": "Huifkartocht",
+          "cnetID": "2.3.19",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "1756",
+          "categorization": "Winkelen",
+          "cnetID": "2.3.20",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2109",
+          "categorization": "Koopzondag",
+          "cnetID": "2.3.21",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2232",
+          "categorization": "Koopavond",
+          "cnetID": "2.3.22",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "2310",
+          "categorization": "Grootstedelijk evenement",
+          "cnetID": "2.3.23"
+        },
+        {
+          "categorizationId": "2335",
+          "categorization": "Rommelmarkt",
+          "cnetID": "2.4.6"
+        },
+        {
+          "categorizationId": "2832",
+          "categorization": "Ceremonie",
+          "cnetID": "2.3.24",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "99",
+          "categorization": "Film",
+          "cnetID": "2.5.2"
+        }
+      ]
+    },
+    {
+      "categorizationId": "107",
+      "categorization": "Festivals",
+      "cnetID": "2.4",
+      "entityType": "EVENEMENT",
+      "child": [
+        {
+          "categorizationId": "91",
+          "categorization": "Cultureel festival",
+          "cnetID": "2.4.1"
+        },
+        {
+          "categorizationId": "92",
+          "categorization": "Filmfestival",
+          "cnetID": "2.4.2"
+        },
+        {
+          "categorizationId": "93",
+          "categorization": "Muziekfestival",
+          "cnetID": "2.4.3"
+        },
+        {
+          "categorizationId": "94",
+          "categorization": "Theaterfestival",
+          "cnetID": "2.4.4"
+        },
+        {
+          "categorizationId": "95",
+          "categorization": "Jeugdfestival",
+          "cnetID": "2.4.5"
+        },
+        {
+          "categorizationId": "98",
+          "categorization": "Festival",
+          "cnetID": "2.4.7"
+        },
+        {
+          "categorizationId": "100",
+          "categorization": "Dancefestival",
+          "cnetID": "2.4.8"
+        }
+      ]
+    },
+    {
+      "categorizationId": "14",
+      "categorization": "Film",
+      "cnetID": "2.5",
+      "entityType": "EVENEMENT",
+      "deprecated": true
+    },
+    {
+      "categorizationId": "15",
+      "categorization": "Muziek",
+      "cnetID": "2.6",
+      "entityType": "EVENEMENT",
+      "child": [
+        {
+          "categorizationId": "101",
+          "categorization": "Dance",
+          "cnetID": "2.6.1"
+        },
+        {
+          "categorizationId": "102",
+          "categorization": "Jazz of Wereldmuziek",
+          "cnetID": "2.6.2"
+        },
+        {
+          "categorizationId": "103",
+          "categorization": "Klassieke muziek",
+          "cnetID": "2.6.3"
+        },
+        {
+          "categorizationId": "104",
+          "categorization": "Lichte muziek",
+          "cnetID": "2.6.4"
+        },
+        {
+          "categorizationId": "105",
+          "categorization": "Pop en Rock",
+          "cnetID": "2.6.5"
+        },
+        {
+          "categorizationId": "106",
+          "categorization": "R&B en Soul",
+          "cnetID": "2.6.6"
+        },
+        {
+          "categorizationId": "108",
+          "categorization": "Muziek overig",
+          "cnetID": "2.6.8"
+        },
+        {
+          "categorizationId": "2134",
+          "categorization": "Gezelschap/orkest",
+          "cnetID": "2.6.9"
+        },
+        {
+          "categorizationId": "2818",
+          "categorization": "Jazz",
+          "cnetID": "2.6.10",
+          "deprecated": true
+        }
+      ]
+    },
+    {
+      "categorizationId": "18",
+      "categorization": "Theater",
+      "cnetID": "2.9",
+      "entityType": "EVENEMENT",
+      "child": [
+        {
+          "categorizationId": "132",
+          "categorization": "Cabaret",
+          "cnetID": "2.9.1"
+        },
+        {
+          "categorizationId": "133",
+          "categorization": "Dans en Ballet",
+          "cnetID": "2.9.2"
+        },
+        {
+          "categorizationId": "134",
+          "categorization": "Jeugdtheater",
+          "cnetID": "2.9.3"
+        },
+        {
+          "categorizationId": "135",
+          "categorization": "Musical of Show",
+          "cnetID": "2.9.4"
+        },
+        {
+          "categorizationId": "136",
+          "categorization": "Opera",
+          "cnetID": "2.9.5"
+        },
+        {
+          "categorizationId": "137",
+          "categorization": "Theater en Toneel",
+          "cnetID": "2.9.6"
+        },
+        {
+          "categorizationId": "138",
+          "categorization": "Straattheater",
+          "cnetID": "2.9.10",
+          "deprecated": true
+        },
+        {
+          "categorizationId": "140",
+          "categorization": "Theater overig",
+          "cnetID": "2.9.8",
+          "deprecated": true
+        }
+      ]
+    },
+    {
+      "categorizationId": "21",
+      "categorization": "Tentoonstellingen",
+      "cnetID": "2.12",
+      "entityType": "EVENEMENT",
+      "child": [
+        {
+          "categorizationId": "97",
+          "categorization": "Tentoonstelling",
+          "cnetID": "2.3.14"
+        }
+      ]
+    },
+    {
+      "categorizationId": "2673",
+      "categorization": "Steden en Regio's",
+      "cnetID": "7.1",
+      "deprecated": true,
+      "child": [
+        {
+          "categorizationId": "2675",
+          "categorization": "Regio",
+          "cnetID": "7.1.1"
+        },
+        {
+          "categorizationId": "2676",
+          "categorization": "Stad of Dorp",
+          "cnetID": "7.1.2"
+        }
+      ]
+    }
+  ]
+}

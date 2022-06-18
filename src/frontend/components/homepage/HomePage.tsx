@@ -7,7 +7,7 @@ import GoogleMap from '../GoogleMaps/GoogleMap';
 import Router, { useRouter } from 'next/router';
 import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 import { ObjectMarker } from '@components/GoogleMaps/objectMarker';
-import { filterByCategory } from 'API/api';
+import { filterByCategory } from '@utils/filter';
 import { FilterContext } from 'contexts/FilterContext';
 import { DirectionsRenderer } from '@react-google-maps/api';
 
@@ -57,10 +57,15 @@ const HomePage = ({ locations }: any): JSX.Element => {
         }
     }, [dataLocation, query]);
 
+    console.log(dataLocation);
+
     return (
         <>
             <div className="flex flex-col w-full h-full overflow-hidden">
-                <Navbar />
+                <Navbar
+                    setBottomSlider={setBottomSlider}
+                    dataLocation={dataLocation}
+                />
 
                 <GoogleMap
                     center={{ lat, lng }}
@@ -70,6 +75,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                     mapId="9c7cb3e171b411ff"
                     gestureHandling={'greedy'}
                     locations={locations}
+                    setBottomSlider={setBottomSlider}
                 >
                     <UserLocationMarker
                         position={{ lat, lng }}
