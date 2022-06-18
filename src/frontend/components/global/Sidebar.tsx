@@ -32,6 +32,7 @@ export default function Sidebar() {
     return (
         <>
             <button
+                data-cy="sidebar-button"
                 onClick={handleShowSidebar}
                 className="w-12 m-2 font-bold text-white border-black rounded h-14 hover:bg-green-600"
             >
@@ -64,12 +65,12 @@ export default function Sidebar() {
                     className={
                         showSidebar
                             ? 'fixed inset-y-0 left-0 z-50 w-64 py-4 bg-green-500 transition-right duration-300'
-                            : 'fixed inset-y-0 duration-500 transition-right -left-full z-50 w-64 py-4 bg-green-500'
+                            : 'fixed inset-y-0 duration-500 transition-right -left-full z-30 w-64 py-4 bg-green-500'
                     }
                 >
-                    <div className=" ">
+                    <div className="">
                         <LanguageSelector />
-                        <div className=" pt-2 ml-10 -z-10">
+                        <div className="pt-2 ml-10 -z-10">
                             <Image
                                 src={logoWithoutText}
                                 alt={'logo'}
@@ -79,7 +80,7 @@ export default function Sidebar() {
                         </div>
                     </div>
 
-                    <ul className="font-normal pt-4 text-white">
+                    <ul className="pt-4 font-normal text-white">
                         {icons.map((icon, index) => {
                             return (
                                 <li onClick={handleShowSidebar} key={index}>

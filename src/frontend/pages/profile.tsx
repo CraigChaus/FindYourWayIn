@@ -3,6 +3,7 @@ import { useAuth } from 'contexts/AuthContext';
 import ProfilePage from '../components/authentication/ProfilePage';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
+import Link from 'next/link';
 
 export const getStaticProps = async ({ locale }: any) => ({
     props: {
@@ -22,7 +23,18 @@ const Profile = (props: any) => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <ProfilePage user={user} />;
+            {user ? (
+                <ProfilePage user={user} />
+            ) : (
+                <div>
+                    <h1>You are not logged in</h1>
+                    <p>
+                        <Link href="/auth/login">
+                            <a>Login</a>
+                        </Link>
+                    </p>
+                </div>
+            )}
         </div>
     );
 };

@@ -2,6 +2,7 @@ import SideBar from '../global/Sidebar';
 import UserDropdown from '../global/user/Dropdown';
 import Footer from '@components/global/Footer';
 import { useTranslation } from 'react-i18next';
+import Navbar from '@components/global/DefaultNavbar';
 
 const ProfilePage = (props: any) => {
     const user = props.user;
@@ -10,21 +11,9 @@ const ProfilePage = (props: any) => {
     const categories = props.categories;
     return (
         <div className=" h-screen bg-cover  absolute w-full bg-center  overflow-y-scroll bg-[url('../public/images/image2.jpg')]">
-            {/*// this block I took from  component MapNavbar,*/}
-            <div className="z-10 flex flex-col w-full bg-transparent">
-                <div
-                    id="header"
-                    className="z-10 flex items-center justify-between bg-green-500 h-18"
-                >
-                    <SideBar />
-                    <div className="flex justify-end">
-                        <UserDropdown />
-                    </div>
-                </div>
-            </div>
-            {/*//*/}
+            <Navbar />
 
-            <div className="flex flex-wrap items-center h-auto max-w-4xl mx-auto shadow-lg h-2/3 lg:h-screen mt-28 lg:my-0">
+            <div className="flex flex-wrap items-center h-auto max-w-4xl mx-auto shadow-lg lg:h-screen mt-28 lg:my-0">
                 <div
                     id="profile"
                     className="w-full mx-6 bg-white rounded-lg lg:w-3/5 lg:rounded-l-lg lg:rounded-r-none drop-shadow-xl opacity-90 lg:mx-0"
