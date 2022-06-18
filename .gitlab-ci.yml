@@ -34,6 +34,7 @@ prettier:
     - npm run prettier
 
 test:
+  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
   script: 
     - cd src/frontend
