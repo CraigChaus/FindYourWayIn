@@ -40,15 +40,15 @@ export const DiscoveryComponent = ({
             <Navbar />
 
             <div className=" h-screen  w-full  text-black bg-white pt-20">
-                <div className="flex-col justify-center border-orange-700 flex h-1/2 w-full  ">
+                <div className="flex-col justify-center border-orange-700 flex h-1/2 w-full  relative">
                     <div className="  flex justify-center h-1/5 ">
                         <h1 className="  text-2xl font-bold  text-black">
                             Spotlight
                         </h1>
                     </div>
 
-                    <div className="flex justify-center h-4/5 px-5 ">
-                        <>
+                    <div className="relative flex flex-colon justify-center h-4/5 px-5  container">
+
                             {spotImage && spotImageAlt && (
                                 <Image
                                     src={spotImage}
@@ -57,20 +57,19 @@ export const DiscoveryComponent = ({
                                     height={300}
                                 />
                             )}
-                            <div className="absolute top-60  flex-colon text-gray-300 justify-items-center">
-                                <h1 className="  text-lg font-bold  ">
+                            <div className=" relative z-10 top-30 left-30 justify-center flex-colon text-gray-300 justify-items-center">
+                                <h1 className="  text-lg font-bold relative  ">
                                     {spotName}
                                 </h1>
                                 <button
                                     onClick={() =>
                                         router.push(`description/${spotID}`)
                                     }
-                                    className=" left-1/2 rounded bg-green-700 hover:bg-green-900 h-8 w-30 text-white p-1  mt-2 text-sm"
-                                >
-                                    Click for more
+                                    className=" left-20 top-30 rounded bg-green-700 hover:bg-green-900 h-8 w-30 text-white p-1  mt-2 text-sm"
+                                >Click for more
                                 </button>
                             </div>
-                        </>
+
                     </div>
                 </div>
 
@@ -79,7 +78,7 @@ export const DiscoveryComponent = ({
                 </div>
 
                 <div className="px-5">
-                    <div className="flex   flex-raw border-black border-t-2 h-20 w-full flex w-full overflow-y-auto flex-raw scrollbar-hide ">
+                    <div className="flex   flex-raw border-black border-t-2 h-16 w-full flex w-full overflow-y-auto flex-raw scrollbar-hide ">
                         <CategoriesButtons categories={categories} />
                     </div>
                 </div>
