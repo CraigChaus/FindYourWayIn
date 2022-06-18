@@ -7,7 +7,7 @@ import GoogleMap from '../GoogleMaps/GoogleMap';
 import Router, { useRouter } from 'next/router';
 import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 import { ObjectMarker } from '@components/GoogleMaps/objectMarker';
-import { filterByCategory } from 'API/api';
+import { filterByCategory } from '@utils/filter';
 import { FilterContext } from 'contexts/FilterContext';
 import { DirectionsRenderer } from '@react-google-maps/api';
 

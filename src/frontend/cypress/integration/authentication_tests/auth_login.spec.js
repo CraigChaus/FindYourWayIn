@@ -18,10 +18,6 @@ describe('Authenticaton: Logging in Valid Credentials-Good Weather', () => {
     it('check if auth was valid', () => {
         cy.url().should('eq', 'http://localhost:3000/home');
     });
-<<<<<<< HEAD
-});
-
-=======
 
     it('click forget password', () => {
         cy.visit('/auth/login');
@@ -36,7 +32,6 @@ describe('Authenticaton: Logging in Valid Credentials-Good Weather', () => {
     });
 });
 
->>>>>>> a217265569ac47c059f811373bd6fcf4f1f8e070
 describe('Authenticaton: Logging in Valid Credentials-Bad Weather', () => {
     it('type input for email', () => {
         cy.visit('http://localhost:3000/auth/login');

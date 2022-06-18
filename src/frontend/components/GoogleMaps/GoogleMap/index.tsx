@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Router, { useRouter } from 'next/router';
 import LocationMarker from '@components/homepage/LocationMarker';
-import { filterByCategory } from 'API/api';
+import { filterByCategory } from '@utils/filter';
 import { FilterContext } from 'contexts/FilterContext';
 
 interface MapProps extends google.maps.MapOptions {

@@ -40,9 +40,4 @@ context('Home Page', () => {
         cy.get('div').contains('Events').click();
         cy.url().should('include', '/events');
     });
-
-    it('bottom slider', () => {
-        cy.get('[data-cy=objectMarker]').first().click();
-        cy.get('[data-cy=bottomSlider]').should('be.visible');
-    });
 });
