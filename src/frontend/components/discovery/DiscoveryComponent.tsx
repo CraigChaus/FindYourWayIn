@@ -4,6 +4,7 @@ import LocationData from './LocationData';
 import { useRouter } from 'next/router';
 import CategoriesButtons from './CategoriesButtons';
 import Image from 'next/image';
+import Navbar from '../global/DefaultNavbar';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -35,22 +36,13 @@ export const DiscoveryComponent = ({
     ];
 
     return (
-        <div className=" h-screen  absolute w-full  text-black bg-cover bg-no-repeat bg-center bg-[url('../public/images/imageWalstraat.jpg')]  ">
-            {/*// this block I took from  component MapNavbar,*/}
-            <div className="z-10 flex flex-col w-full bg-transparent">
-                <div
-                    id="header"
-                    className="z-10 flex items-center justify-between bg-green-500 h-18"
-                >
-                    <SideBar />
-                    <div className="flex justify-end">
-                        <UserDropdown />
-                    </div>
-                </div>
-            </div>
-            {/* */}
-            <div className="flex-col justify-center border-orange-700 flex h-1/3 w-full  ">
-                <div className="  flex justify-center h-1/5 pt-5">
+        <>
+            <Navbar/>
+
+        <div className=" h-screen  w-full  text-black bg-white top-32">
+
+            <div className="flex-col justify-center border-orange-700 flex h-1/2 w-full  ">
+                <div className="  flex justify-center h-1/5 ">
                     <h1 className="   font-bold  text-black">{spotName}</h1>
                 </div>
 
@@ -71,8 +63,8 @@ export const DiscoveryComponent = ({
                 </div>
             </div>
 
-            <div className="flex w-full h-10  font-bold text-black justify-center pt-3">
-                <h1 className="text-lg">Locations</h1>
+            <div className="flex w-full h-30  font-bold text-black justify-center pb-3">
+                <h1 className="text-xl">Locations</h1>
             </div>
 
 
@@ -100,7 +92,7 @@ export const DiscoveryComponent = ({
             </div>
 
         </div>
-    );
+        </> );
 };
 
 export default DiscoveryComponent;
