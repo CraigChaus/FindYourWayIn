@@ -40,7 +40,7 @@ export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
     }, [locationSearch]);
 
     const locationRes = [];
-    console.log(locationFound);
+    // console.log(locationFound);
     for (let i = 0; i < locationFound.length; i++) {
         locationRes.push({
             title: locationFound[i].location.label,

@@ -28,21 +28,15 @@ export const Categories = (props: any) => {
                             className="flex justify-center w-12 h-12 mx-2 rounded hover:scale-125 hover:-translate-y-2 hover:bg-gray-300"
                             onClick={() => {
                                 filterContext.handleSetFilter(
-                                    category.nameOfCategory,
+                                    category.value.iconName,
                                 );
                             }}
                         >
-                            <FontAwesomeIcon
-                                icon={category.iconName}
-                                size="2x"
-                                className="flex justify-center mt-2 text-green-800 "
-                            />
+                            {category.value.icon}
                         </button>
                     </div>
                     <div className="flex justify-center h-2/5">
-                        <p className="text-sm font-medium ">
-                            {category.nameOfCategory}
-                        </p>
+                        <p className="text-sm font-medium ">{category.key}</p>
                     </div>
                 </div>
             ))}

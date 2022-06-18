@@ -11,6 +11,7 @@ interface MapProps extends google.maps.MapOptions {
     onIdle?: (map: google.maps.Map) => void;
     children?: React.ReactElement | React.ReactElement[];
     setBottomSlider: any;
+    enhancedCategories: any[];
 }
 
 const GoogleMap = ({
@@ -20,6 +21,7 @@ const GoogleMap = ({
     children,
     style,
     setBottomSlider,
+    enhancedCategories,
     ...options
 }: MapProps) => {
     const mapRef = React.useRef<HTMLDivElement>(null);
@@ -30,6 +32,13 @@ const GoogleMap = ({
     const [markers, setMarkers] = React.useState<any[]>([]);
 
     const filterContext = useContext(FilterContext);
+
+    React.useEffect(() => {
+        setDataLocation(locations);
+        setFilteredLocations(
+            filterByCategory(filterContext.filter, enhancedCategories),
+        );
+    }, [locations, dataLocation, filterContext.filter]);
 
     React.useEffect(() => {
         if (mapRef.current && !map) {
@@ -51,6 +60,43 @@ const GoogleMap = ({
     }
 
     React.useEffect(() => {
+        clearMarkers();
+
+        if (filteredLocations.length) {
+            const googleMarkers = [];
+            for (let i = 0; i < filteredLocations.length; i++) {
+                for (const el of filteredLocations[i].items) {
+                    const marker = new google.maps.Marker({
+                        position: {
+                            lat: parseFloat(
+                                el.location.address.gisCoordinates[0]
+                                    ?.xcoordinate,
+                            ),
+                            lng: parseFloat(
+                                el.location.address.gisCoordinates[0]
+                                    ?.ycoordinate,
+                            ),
+                        },
+                    });
+                    googleMarkers.push(marker);
+                }
+            }
+
+            setMarkers(googleMarkers);
+        }
+    }, [dataLocation, filteredLocations]);
+
+    console.log(filteredLocations);
+
+    React.useEffect(() => {
+        if (map) {
+            for (let i = 0; i < markers.length; i++) {
+                markers[i].setMap(map);
+            }
+        }
+    }, [map, markers]);
+
+    React.useEffect(() => {
         if (map) {
             ['click', 'idle'].forEach((eventName) =>
                 google.maps.event.clearListeners(map, eventName),
@@ -65,40 +111,6 @@ const GoogleMap = ({
             }
         }
     }, [map, onClick, onIdle]);
-
-    React.useEffect(() => {
-        clearMarkers();
-
-        if (filteredLocations.length) {
-            const googleMarkers = [];
-
-            for (let i = 0; i < filteredLocations.length; i++) {
-                const marker = new google.maps.Marker({
-                    position: {
-                        lat: parseFloat(
-                            locations[i].location.address.gisCoordinates[0]
-                                .xcoordinate,
-                        ),
-                        lng: parseFloat(
-                            locations[i].location.address.gisCoordinates[0]
-                                .ycoordinate,
-                        ),
-                    },
-                    map: map,
-                });
-                googleMarkers.push(marker);
-            }
-
-            setMarkers(googleMarkers);
-        }
-    }, [filteredLocations, map]);
-
-    React.useEffect(() => {
-        setDataLocation(locations);
-        setFilteredLocations(
-            filterByCategory(dataLocation, filterContext.filter),
-        );
-    }, [locations, dataLocation, filterContext.filter]);
 
     map?.addListener('click', () => {
         setBottomSlider(null);

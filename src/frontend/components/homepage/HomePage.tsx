@@ -7,11 +7,33 @@ import GoogleMap from '../GoogleMaps/GoogleMap';
 import Router, { useRouter } from 'next/router';
 import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 import { ObjectMarker } from '@components/GoogleMaps/objectMarker';
-import { filterByCategory } from '@utils/filter';
 import { FilterContext } from 'contexts/FilterContext';
 import { DirectionsRenderer } from '@react-google-maps/api';
+import { categoriesRes, iconMap, filterByCategory } from '@utils/filter';
+import { categoryList } from '../GoogleMaps/objectMarker';
 
-const HomePage = ({ locations }: any): JSX.Element => {
+const HomePage = ({ locations }: any) => {
+    function findLocation(category: any, locations: any) {
+        const result = [];
+        for (const el of category) {
+            for (const location of locations) {
+                if (el.cnetID === location.trcItemCategories.types[0]?.catid) {
+                    result.push(location);
+                }
+            }
+        }
+        return result;
+    }
+
+    const enhancedCategories: any[] = [];
+    categoryList.forEach((cat: any) => {
+        const enhancedCategory = {
+            categoryName: cat.categorization,
+            items: findLocation(cat.child, locations),
+        };
+        enhancedCategories.push(enhancedCategory);
+    });
+
     const { query } = useRouter();
     const [mounted, setMounted] = React.useState(false);
     // Default value set to Deventer in the case that geolocation doesnt work
@@ -26,14 +48,11 @@ const HomePage = ({ locations }: any): JSX.Element => {
     const geocoder = new google.maps.Geocoder();
 
     const [dataLocation, setDataLocation] = React.useState<any[]>([]);
-    const [filteredLocations, setFilteredLocations] = React.useState<any[]>([]);
 
     // bottom slider state
     const [bottomSlider, setBottomSlider] = React.useState<any>(null);
 
     const filterContext = useContext(FilterContext);
-
-    console.log(locations);
 
     React.useEffect(() => {
         if (!mounted) return;
@@ -42,9 +61,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
 
     React.useEffect(() => {
         setDataLocation(locations);
-        setFilteredLocations(
-            filterByCategory(dataLocation, filterContext.filter),
-        );
     }, [locations, dataLocation, filterContext.filter]);
 
     React.useEffect(() => {
@@ -57,8 +73,6 @@ const HomePage = ({ locations }: any): JSX.Element => {
         }
     }, [dataLocation, query]);
 
-    console.log(dataLocation);
-
     return (
         <>
             <div className="flex flex-col w-full h-full overflow-hidden">
@@ -68,6 +82,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                 />
 
                 <GoogleMap
+                    enhancedCategories={enhancedCategories}
                     center={{ lat, lng }}
                     zoom={zoom}
                     style={{ width: '100%', height: '100%' }}
@@ -105,7 +120,7 @@ const HomePage = ({ locations }: any): JSX.Element => {
                                     clickable={true}
                                     category={
                                         location.trcItemCategories.types[0]
-                                            .categoryTranslations[0].label
+                                            .catid
                                     }
                                 />
                             );
