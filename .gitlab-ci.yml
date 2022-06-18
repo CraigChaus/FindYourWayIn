@@ -5,10 +5,16 @@ stages:
  - lint
  - test
 
+variables:
+  npm_config_cache: "$CI_PROJECT_DIR/.npm"
+  CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+
 cache: 
+  key: ${CI_COMMIT_REF_SLUG}
   paths: 
     - src/frontend/node_modules/
-    - /root/.cache/Cypress
+    - src/frontend/.cache/*
+    - src/frontend/cache/Cypress
 
 install:
   stage: build
