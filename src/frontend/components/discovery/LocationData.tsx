@@ -12,10 +12,10 @@ export const LocationData = ({
     return (
         <div className=" flex flex-col justify-center h-full w-1/3 p-2">
             <div className="flex justify-center h-4/5">
-                <div className="flex justify-center w-24 h-24 rounded-full  ">
+                <div className="flex justify-center w-24 h-24 hover:scale-125">
                     <>
                         {srcImage && srcAlt && (
-                            <Image
+                            <Image  className=" rounded "
                                 onClick={() =>
                                     router.push(`description/${locationID}`)
                                 }
@@ -29,7 +29,7 @@ export const LocationData = ({
                 </div>
             </div>
             <div className="  flex justify-center h-1/5">
-                <p className="text-white  text-lg font-medium ">
+                <p className="text-white text-base font-medium ">
                     {locationName}
                 </p>
             </div>
