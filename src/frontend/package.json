@@ -11,7 +11,7 @@
         "prettier": "npx prettier pages/** components/** contexts/** interface/** -c",
         "prettier-fix": "npx prettier pages/** components/** contexts/** interface/** cypress/integration/** --write",
         "cypress:open": "npx cypress open",
-        "test": "start-server-and-test dev 3000 cypress:open",
+        "test": "start-server-and-test dev 3000 cypress:run",
         "cypress:run": "cypress run --record --key 5c10f67f-3133-44ee-a970-b3da9fecde17"
     },
     "dependencies": {
