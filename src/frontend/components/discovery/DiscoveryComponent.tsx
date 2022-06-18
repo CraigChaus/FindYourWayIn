@@ -3,6 +3,7 @@ import UserDropdown from '../global/user/Dropdown';
 import LocationData from './LocationData';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import Navbar from '@components/global/DefaultNavbar';
 
 export const DiscoveryComponent = ({
     locationData,
@@ -15,38 +16,26 @@ export const DiscoveryComponent = ({
 
     return (
         <div className=" h-screen  absolute w-full  text-gray-900 bg-cover bg-no-repeat bg-center bg-[url('../public/images/imageWalstraat.jpg')]  ">
-            {/*// this block I took from  component MapNavbar,*/}
-            <div className="z-10 flex flex-col w-full bg-transparent">
-                <div
-                    id="header"
-                    className="z-10 flex items-center justify-between bg-green-500 h-18"
-                >
-                    <SideBar />
-                    <div className="flex justify-end">
-                        <UserDropdown />
-                    </div>
-                </div>
-            </div>
-            {/* */}
+            <Navbar />
             <div className="px-5">
-                <div className="flex   flex-raw border-white border-b-4 h-20 w-full ">
-                    <div className=" flex  justify-center  h-full w-1/2 p-3">
-                        <button className="flex justify-center w-full h-15 mx-2 rounded hover:bg-zinc-300 pt-5 font-bold text-white">
+                <div className="flex w-full h-20 border-b-4 border-white flex-raw ">
+                    <div className="flex justify-center w-1/2 h-full p-3 ">
+                        <button className="flex justify-center w-full pt-5 mx-2 font-bold text-white rounded h-15 hover:bg-zinc-300">
                             Suggestions
                         </button>
                     </div>
-                    <div className="flex justify-center   h-full w-1/2 p-3">
-                        <button className="flex justify-center w-full h-15 mx-2 rounded hover:bg-zinc-300 pt-5 font-bold text-white ">
+                    <div className="flex justify-center w-1/2 h-full p-3">
+                        <button className="flex justify-center w-full pt-5 mx-2 font-bold text-white rounded h-15 hover:bg-zinc-300 ">
                             Favorite
                         </button>
                     </div>
                 </div>
             </div>
-            <div className="flex w-full h-10  font-bold text-white justify-center pt-3">
+            <div className="flex justify-center w-full h-10 pt-3 font-bold text-white">
                 <h1>SHOPS</h1>
             </div>
 
-            <div className="flex  flex-raw  h-1/5 w-full">
+            <div className="flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide">
                 {locationData &&
                     locationData.map((location: any, index: number) => {
                         return (
@@ -61,12 +50,12 @@ export const DiscoveryComponent = ({
                     })}
             </div>
 
-            <div className="flex-col justify-center border-orange-700 flex h-1/3 w-full  ">
-                <div className="  flex justify-center h-1/5 pt-5">
-                    <h1 className="   font-bold  text-white">{spotName}</h1>
+            <div className="flex flex-col justify-center w-full border-orange-700 h-1/3 ">
+                <div className="flex justify-center pt-5 h-1/5">
+                    <h1 className="font-bold text-white ">{spotName}</h1>
                 </div>
 
-                <div className="flex justify-center h-4/5 p-5">
+                <div className="flex justify-center p-5 h-4/5">
                     <>
                         {spotImage && spotImageAlt && (
                             <Image

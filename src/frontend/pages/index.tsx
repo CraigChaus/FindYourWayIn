@@ -7,6 +7,7 @@ import LanguageSelector from '@components/global/language/LanguageSelector';
 import React from 'react';
 import Head from 'next/head';
 import Footer from '@components/global/Footer';
+import { useAuth } from 'contexts/AuthContext';
 
 export const getStaticProps = async ({ locale }: any) => ({
     props: {
@@ -17,6 +18,13 @@ export const getStaticProps = async ({ locale }: any) => ({
 const LandingPage: NextPage = () => {
     const router = useRouter();
     const { t } = useTranslation();
+    const { user } = useAuth();
+
+    React.useEffect(() => {
+        if (user) {
+            router.push('/home');
+        }
+    }, [router, user]);
 
     return (
         <div className="block h-screen bg-cover bg-landing-page">

@@ -10,17 +10,17 @@ context('Home Page', () => {
     beforeEach(() => {
         cy.visit('/home');
     });
-    
+
     it('should have a title', () => {
-        cy.title().should('equal', 'Home')
+        cy.title().should('equal', 'Home');
     });
-    
+
     it('check sidebar components', () => {
         cy.get('#header').get('button').first().click();
         cy.get('div').contains('Home');
         cy.get('div').contains('Discovery');
         cy.get('div').contains('Events');
-        cy.get('img')
+        cy.get('img');
     });
 
     it('check home sidebar item', () => {
@@ -40,10 +40,4 @@ context('Home Page', () => {
         cy.get('div').contains('Events').click();
         cy.url().should('include', '/events');
     });
-
-    it('bottom slider', () => {
-        cy.get('[data-cy=objectMarker]').first().click();
-        cy.get('[data-cy=bottomSlider]').should('be.visible');
-    })
-    
-})
+});
