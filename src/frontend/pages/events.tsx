@@ -49,7 +49,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
         EventProp[] | null
     >(null);
 
-    const [toggleState,setToggleState] = React.useState(1);
+    const [toggleState, setToggleState] = React.useState(1);
 
     console.log(data);
     React.useEffect(() => {
@@ -144,9 +144,9 @@ export const Agenda = ({ data }: any): JSX.Element => {
         setCurrentEvents(resultCurrent);
     }, [data]);
 
-    const toggleTab = (tabIndex:any) =>{
+    const toggleTab = (tabIndex: any) => {
         setToggleState(tabIndex);
-    }
+    };
 
     return (
         <>
@@ -166,16 +166,26 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 <div className="px-5">
                     <div className="flex border-white border-b-4  w-full ">
                         <div className=" flex  justify-center  h-full w-1/2 p-3">
-                            <div className= {toggleState === 1 ? " flex justify-center w-full h-30 mx-2 rounded   font-bold text-white  bg-green-800" 
-                                : "flex justify-center w-full h-30 mx-2 rounded hover:bg-zinc-300  font-bold text-black" }
-                                onClick={()=>toggleTab(1)}>
+                            <div
+                                className={
+                                    toggleState === 1
+                                        ? ' flex justify-center w-full h-30 mx-2 rounded   font-bold text-white  bg-green-800'
+                                        : 'flex justify-center w-full h-30 mx-2 rounded hover:bg-zinc-300  font-bold text-black'
+                                }
+                                onClick={() => toggleTab(1)}
+                            >
                                 This month
                             </div>
                         </div>
                         <div className="flex justify-center   h-full w-1/2 p-3">
-                            <button className= {toggleState === 2 ? "flex justify-center w-full h-15 mx-2 rounded  font-bold text-white  bg-green-800 "
-                                    :"flex justify-center w-full h-30 mx-2 rounded hover:bg-zinc-300  font-bold text-black" }
-                                     onClick={()=>toggleTab(2)}>
+                            <button
+                                className={
+                                    toggleState === 2
+                                        ? 'flex justify-center w-full h-15 mx-2 rounded  font-bold text-white  bg-green-800 '
+                                        : 'flex justify-center w-full h-30 mx-2 rounded hover:bg-zinc-300  font-bold text-black'
+                                }
+                                onClick={() => toggleTab(2)}
+                            >
                                 Upcoming
                             </button>
                         </div>
@@ -184,31 +194,45 @@ export const Agenda = ({ data }: any): JSX.Element => {
             </div>
 
             <div>
-                {currentEvents == null ?  
-                <div className= {toggleState === 1 ? "mt-8 overflow-y-auto" : "invisible h-0"}>
-                    <NoDataCard/>
-                </div>
-                :
-                <div className= {toggleState === 1 ? "mt-8 overflow-y-auto " : " h-0 "}>
-                {currentEvents &&
-                    currentEvents.map((currentEvent, index) => {
-                        return (
-                            <Card
-                                onClick={() =>
-                                    router.push(`events/${currentEvent.id}`)
-                                }
-                                key={index}
-                                date={currentEvent.day}
-                                event={currentEvent.eventName}
-                                imageSrc={currentEvent.eventImage}
-                            />
-                        );
-                    })}
-                </div>
-                }
+                {currentEvents == null ? (
+                    <div
+                        className={
+                            toggleState === 1
+                                ? 'mt-8 overflow-y-auto'
+                                : 'invisible h-0'
+                        }
+                    >
+                        <NoDataCard />
+                    </div>
+                ) : (
+                    <div
+                        className={
+                            toggleState === 1
+                                ? 'mt-8 overflow-y-auto '
+                                : ' h-0 '
+                        }
+                    >
+                        {currentEvents &&
+                            currentEvents.map((currentEvent, index) => {
+                                return (
+                                    <Card
+                                        onClick={() =>
+                                            router.push(
+                                                `events/${currentEvent.id}`,
+                                            )
+                                        }
+                                        key={index}
+                                        date={currentEvent.day}
+                                        event={currentEvent.eventName}
+                                        imageSrc={currentEvent.eventImage}
+                                    />
+                                );
+                            })}
+                    </div>
+                )}
 
                 <div>
-                    <div className= {toggleState === 2 ? "mt-8" : "invisible"}>
+                    <div className={toggleState === 2 ? 'mt-8' : 'invisible'}>
                         {upComingEvents &&
                             upComingEvents.map((upcomingEvent, index) => {
                                 return (
