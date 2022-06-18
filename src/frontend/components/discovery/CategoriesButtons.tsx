@@ -8,7 +8,7 @@ export const CategoriesButtons = (props: any) => {
             {categories.map((category: any, index: number) => (
                 <div
                     key={index + 1}
-                    className=" flex  justify-center  h-14 w-1/3 p-3 mt-3"
+                    className=" flex  justify-center  h-14 w-1/3 p-3 mt-1"
                 >
                     <button className=" drop-shadow-md flex flex-raw pt-1  w-full h-15 mx-2 rounded bg-green-300 hover:bg-green-500 text-black">
                         <FontAwesomeIcon

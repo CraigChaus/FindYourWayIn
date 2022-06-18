@@ -48,28 +48,28 @@ export const DiscoveryComponent = ({
                     </div>
 
                     <div className=" flex flex-col justify-center h-4/5 px-5 ">
-
-                            {spotImage && spotImageAlt && (
-                                <Image className="hover:brightness-125  "
-                                    src={spotImage}
-                                    alt={spotImageAlt}
-                                    width={300}
-                                    height={300}
-                                />
-                            )}
-                            <span className=" relative bottom-24 flex flex-col  justify-center  text-gray-300 justify-items-center">
-                                <span className=" w-full text-center text-lg font-bold  ">
-                                    {spotName}
-                                </span>
-                                <button
-                                    onClick={() =>
-                                        router.push(`description/${spotID}`)
-                                    }
-                                    className=" mx-auto w-30 rounded bg-green-700 hover:bg-green-900 h-8  text-white p-1  mt-2 text-sm"
-                                >Click for more
-                                </button>
-
+                        {spotImage && spotImageAlt && (
+                            <Image
+                                className="hover:brightness-125  "
+                                src={spotImage}
+                                alt={spotImageAlt}
+                                width={300}
+                                height={300}
+                            />
+                        )}
+                        <span className=" relative bottom-24 flex flex-col  justify-center  text-gray-300 justify-items-center">
+                            <span className=" w-full text-center text-lg font-bold  ">
+                                {spotName}
                             </span>
+                            <button
+                                onClick={() =>
+                                    router.push(`description/${spotID}`)
+                                }
+                                className=" mx-auto w-30 rounded bg-green-700 hover:bg-green-900 h-8  text-white p-1  mt-2 text-sm"
+                            >
+                                Click for more
+                            </button>
+                        </span>
                     </div>
                 </div>
 
