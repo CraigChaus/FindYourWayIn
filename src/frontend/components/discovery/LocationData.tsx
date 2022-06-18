@@ -12,7 +12,7 @@ export const LocationData = ({
     return (
         <div className=" flex flex-col justify-center h-full w-1/3 p-2 mt-4">
             <div className="flex justify-center h-4/5">
-                <div className="flex justify-center w-44 h-38 hover:scale-125">
+                <div className="flex justify-center w-44 h-38 drop-shadow-lg hover:scale-125 ">
                     <>
                         {srcImage && srcAlt && (
                             <Image

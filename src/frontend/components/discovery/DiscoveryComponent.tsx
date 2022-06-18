@@ -50,7 +50,7 @@ export const DiscoveryComponent = ({
                     <div className=" flex flex-col justify-center h-4/5 px-5 ">
 
                             {spotImage && spotImageAlt && (
-                                <Image
+                                <Image className="hover:brightness-125  "
                                     src={spotImage}
                                     alt={spotImageAlt}
                                     width={300}
