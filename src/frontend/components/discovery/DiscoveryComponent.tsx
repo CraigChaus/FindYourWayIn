@@ -39,7 +39,7 @@ export const DiscoveryComponent = ({
         <>
             <Navbar />
 
-            <div className=" h-screen  w-full  text-black bg-white pt-16">
+            <div className=" h-screen  w-full  text-black bg-white ">
                 <div className="flex-col justify-center flex h-1/2 w-full   ">
                     <div className="  flex justify-center h-1/7">
                         <h1 className="  text-2xl font-bold  text-black">
