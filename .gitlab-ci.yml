@@ -13,8 +13,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths: 
     - node_modules/
-    - .cache/*
-    - cache/Cypress
+    - cache/*
 
 install:
   stage: build
@@ -45,6 +44,7 @@ test:
   stage: test
   script: 
     - cd src/frontend
+    - npm i --force
     - npm run cypress:run
   artifacts:
     when: always
