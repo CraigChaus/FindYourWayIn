@@ -1,12 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faBicycle,
-    faBuildingColumns,
-    faSquareParking,
-    faToilet,
-    faUtensils,
-    faCartShopping,
-} from '@fortawesome/free-solid-svg-icons';
+
 import { FilterContext } from 'contexts/FilterContext';
 import { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
