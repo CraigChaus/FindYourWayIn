@@ -55,8 +55,6 @@ export default function SignUp() {
         setLoading(false);
     }
 
-    console.log(t('signup'));
-
     return (
         <AuthLayout isSignUp={true}>
             <HeaderAuthForm formName={`${t('signup')}`} />
