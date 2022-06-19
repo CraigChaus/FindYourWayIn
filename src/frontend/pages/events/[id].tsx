@@ -68,7 +68,6 @@ export const Events = ({ data }: any): JSX.Element => {
     const [monthOfEvent, setMontOfEvent] = React.useState(null);
     const [yearOfEvent, setYearOfEvent] = React.useState(null);
 
-
     //This is for the event name, time, venue, ticket info and website
 
     const [eventName, setEventName] = React.useState(null);
@@ -138,18 +137,18 @@ export const Events = ({ data }: any): JSX.Element => {
             </Head>
             <DefaultNavbar />
 
-               <div className="w-full">
-                     <div className=" m-4">
-                         <EventImage idImageSrc={eventImage} />
-                     </div>
+            <div className="w-full">
+                <div className=" m-4">
+                    <EventImage idImageSrc={eventImage} />
                 </div>
+            </div>
 
-                <div className="w-full h-full mt-4">
+            <div className="w-full h-full mt-4">
                 <div className="px-4 text-3xl font-black text-left">
-                        <h1>{eventName}</h1>
+                    <h1>{eventName}</h1>
                 </div>
-                    <div>
-                        <DayInfo 
+                <div>
+                    <DayInfo
                         eventday={dayOfEvent}
                         eventMonth={monthOfEvent}
                         eventYear={yearOfEvent}
@@ -159,18 +158,17 @@ export const Events = ({ data }: any): JSX.Element => {
                         street={eventStreetVenue}
                         city={eventCityVenue}
                         zipcode={eventZipCodeVenue}
-                        />
-                    </div>
-                </div>
-
-                <div className='px-4'>
-                    <h1 className='text-2xl font-bold'>Description</h1>
-                    <EventInfo
-                        description={eventDescription}
-                        website={eventWebSite}
                     />
                 </div>
-          
+            </div>
+
+            <div className="px-4">
+                <h1 className="text-2xl font-bold">Description</h1>
+                <EventInfo
+                    description={eventDescription}
+                    website={eventWebSite}
+                />
+            </div>
         </>
     );
 };

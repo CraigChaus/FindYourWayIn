@@ -8,19 +8,20 @@ export const EventImage = ({ idImageSrc }: any) => {
         <>
             <div className=" w-full h-1/2 mt-6 inline align-middle">
                 {idImageSrc === '' ? (
-                    <Image 
-                        className='rounded-xl container'
-                        src={broken} 
+                    <Image
+                        className="rounded-xl container"
+                        src={broken}
                         alt={'alt'}
                         height={280}
-                        width={385} />
+                        width={385}
+                    />
                 ) : (
                     <Image
-                        className='rounded-xl container'
+                        className="rounded-xl container"
                         src={idImageSrc}
                         alt={'alt'}
                         height={280}
-                        width={385} 
+                        width={385}
                     />
                 )}
             </div>
