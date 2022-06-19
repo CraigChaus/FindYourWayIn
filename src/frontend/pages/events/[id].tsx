@@ -5,15 +5,15 @@ import EventInfo from '@components/eventsDetails/EventInfo';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 export async function getStaticPaths({ locales }: any) {
-    const res = await fetch(`${apiUrl}/events`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data = await res.json();
@@ -38,11 +38,11 @@ export async function getStaticProps(context: {
     locale: string;
 }) {
     const id = context.params.id;
-    const res = await fetch(`${apiUrl}/events/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data = await res.json();

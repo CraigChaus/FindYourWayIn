@@ -7,13 +7,11 @@ import { Suspense } from 'react';
 import { appWithTranslation } from 'next-i18next';
 import '/styles/mainPage.css';
 
-const apiKey: string = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
-
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Suspense fallback="loading">
             <Wrapper
-                apiKey={apiKey}
+                apiKey={process.env.NEXT_PUBLIC_GOOGLEMAP_API_KEY}
                 libraries={['places', 'geometry']}
                 language={'en'}
             >

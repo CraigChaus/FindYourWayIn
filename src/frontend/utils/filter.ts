@@ -10,8 +10,8 @@ const iconMap = [
     { iconName: 'landscape', category: ['Bezienswaardigheden'] },
     { iconName: 'activity', category: ['Groepsarrangementen en activiteiten', 'Evenementen'] },
 ]
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 const results = new Set();
 const resultsArray = [];
 const categoriesRes = new Set();
@@ -35,21 +35,21 @@ async function getCategories() {
     //     .then(response => { 
     //         return response.json();
     //     })
-    const res1 = await fetch(`${apiUrl}/locations`, {
+    const res1 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data1 = await res1.json();
     const hits = data1.hits;
 
-    const res2 = await fetch(`${apiUrl}/locations?size=${hits}`, {
+    const res2 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations?size=${hits}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
 

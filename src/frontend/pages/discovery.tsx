@@ -10,19 +10,19 @@ type DiscoveryProp = {
     locationName: any;
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 //these variables are for the location image and location name data checking stage
 let locImage: any = '';
 let locName: any = ' ';
 
 export async function getStaticProps() {
-    const res = await fetch(`${apiUrl}/locations`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data = await res.json();

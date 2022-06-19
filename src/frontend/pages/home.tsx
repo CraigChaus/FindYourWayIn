@@ -4,27 +4,30 @@ import Head from 'next/head';
 
 import HomePage from '../components/homepage/HomePage';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 export const getServerSideProps = async ({ locale }: any) => {
-    const res1 = await fetch(`${apiUrl}/locations`, {
+    const res1 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data1 = await res1.json();
     const hits = data1.hits;
 
-    const res2 = await fetch(`${apiUrl}/locations?size=${hits}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+    const res2 = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/locations?size=${hits}`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+            },
         },
-    });
+    );
 
     const data = await res2.json();
 

@@ -15,15 +15,15 @@ type EventProp = {
     eventImage: any;
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 export async function getStaticProps({ locale }: any) {
-    const res = await fetch(`${apiUrl}/events`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data = await res.json();
@@ -160,12 +160,12 @@ export const Agenda = ({ data }: any): JSX.Element => {
             <DefaultNavbar />
 
             <div>
-                <h1 className="pt-20 p-4 font-bold text-center text-4xl">
+                <h1 className="p-4 pt-20 text-4xl font-bold text-center">
                     Events
                 </h1>
                 <div className="px-5">
-                    <div className="flex border-white border-b-4  w-full ">
-                        <div className=" flex  justify-center  h-full w-1/2 p-3">
+                    <div className="flex w-full border-b-4 border-white ">
+                        <div className="flex justify-center w-1/2 h-full p-3 ">
                             <div
                                 className={
                                     toggleState === 1
@@ -177,7 +177,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                 This month
                             </div>
                         </div>
-                        <div className="flex justify-center   h-full w-1/2 p-3">
+                        <div className="flex justify-center w-1/2 h-full p-3">
                             <button
                                 className={
                                     toggleState === 2

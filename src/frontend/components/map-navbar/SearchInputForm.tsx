@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LocationComponent from './LocationComponent';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
     const { t } = useTranslation('common');
@@ -13,13 +13,16 @@ export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
     const [locationSearch, setLocationSearch] = useState('');
 
     const searchForLocations = async (query: string): Promise<any> => {
-        const result = await fetch(`${apiUrl}/locations/?search=${query}`, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${apiKey}`,
+        const result = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/locations/?search=${query}`,
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+                },
             },
-        });
+        );
         return (await result.json()).results;
     };
 
@@ -101,7 +104,7 @@ export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
                             inputText !== '' && ( // when input is empty - this block will be collapsed,if unfocus also
                                 <div
                                     id="slideSearchBar"
-                                    className="absolute bg-gray-50 w-full rounded-b-lg"
+                                    className="absolute w-full rounded-b-lg bg-gray-50"
                                     onMouseLeave={() => setIsShown(false)}
                                 >
                                     {locationSearch && (

@@ -13,6 +13,7 @@ interface MarkerProp extends google.maps.MarkerOptions {
 
 export const categoryList = new Set();
 export const ObjectMarker = ({ category, id, ...options }: MarkerProp) => {
+    console.log('object marker rendered');
     categoriesRes.forEach((catID: any) => {
         const cat = categories.categorizations.find(
             (cat: any) => cat.cnetID === catID,

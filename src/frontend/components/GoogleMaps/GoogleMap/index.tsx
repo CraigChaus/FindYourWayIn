@@ -86,8 +86,6 @@ const GoogleMap = ({
         }
     }, [dataLocation, filteredLocations]);
 
-    console.log(filteredLocations);
-
     React.useEffect(() => {
         if (map) {
             for (let i = 0; i < markers.length; i++) {

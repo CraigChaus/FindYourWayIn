@@ -6,17 +6,20 @@ import React from 'react';
 import Layout from '@components/global/Layout';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 export async function getStaticPaths({ locales }: any) {
-    const res = await fetch(`${apiUrl}/locations?size=34`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/locations?size=34`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+            },
         },
-    });
+    );
     const data = await res.json();
     const dataArray = data.results;
     const paths = dataArray.flatMap((location: any) => {
@@ -39,13 +42,16 @@ export async function getStaticProps(context: {
     locale: string;
 }) {
     const id = context.params.id;
-    const res = await fetch(`${apiUrl}/locations/${id}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/locations/${id}`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+            },
         },
-    });
+    );
     const data = await res.json();
 
     return {
