@@ -161,7 +161,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
 
             <div>
                 <h1 className="p-4 pt-20 text-4xl font-bold text-center">
-                    Events
+                    {t('events')}
                 </h1>
                 <div className="px-5">
                     <div className="flex w-full border-b-4 border-white ">
@@ -174,7 +174,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                 }
                                 onClick={() => toggleTab(1)}
                             >
-                                This month
+                                {t('thisMonth')}
                             </div>
                         </div>
                         <div className="flex justify-center w-1/2 h-full p-3">
@@ -186,7 +186,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                 }
                                 onClick={() => toggleTab(2)}
                             >
-                                Upcoming
+                                {t('upcoming')}
                             </button>
                         </div>
                     </div>

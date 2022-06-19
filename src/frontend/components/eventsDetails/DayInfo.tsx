@@ -2,6 +2,7 @@ import React from 'react';
 import LocationPinSVG from '../../public/icons/location_pin.svg';
 import Clock from '../../public/icons/clock.svg';
 import Calendar from '../../public/icons/calendar.svg';
+import { useTranslation } from 'react-i18next';
 
 export const DayInfo = ({
     eventday,
@@ -14,6 +15,7 @@ export const DayInfo = ({
     timeStart,
     timeEnd,
 }: any) => {
+    const { t } = useTranslation('common');
     return (
         <>
             <div className="flex justify-between p-2 mx-2 text-base">
@@ -21,7 +23,7 @@ export const DayInfo = ({
                     <div>
                         <LocationPinSVG />
                     </div>
-                    <label> Location:</label>
+                    <label> {`${t('location_one')}`}:</label>
 
                     {street ? (
                         <p>
@@ -29,7 +31,7 @@ export const DayInfo = ({
                         </p>
                     ) : (
                         <p>
-                            In description... , {zipcode}, {city}
+                            {t('inDesc')} , {zipcode}, {city}
                         </p>
                     )}
                 </div>
@@ -53,7 +55,7 @@ export const DayInfo = ({
                             {timeStart} - {timeEnd}
                         </p>
                     ) : (
-                        <p>In description...</p>
+                        <p>{t('inDesc')}</p>
                     )}
                 </div>
             </div>

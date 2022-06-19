@@ -1,5 +1,3 @@
-import SideBar from '../global/Sidebar';
-import UserDropdown from '../global/user/Dropdown';
 import LocationData from './LocationData';
 import { useRouter } from 'next/router';
 import CategoriesButtons from './CategoriesButtons';
@@ -16,6 +14,7 @@ import {
     faUtensils,
     faBagShopping,
 } from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
 
 export const DiscoveryComponent = ({
     locationData,
@@ -25,6 +24,8 @@ export const DiscoveryComponent = ({
     spotImageAlt,
 }: any) => {
     const router = useRouter();
+    const { t } = useTranslation('common');
+
 
     const categories = [
         { iconName: faBagShopping, nameOfCategory: 'Shop' },
@@ -38,52 +39,51 @@ export const DiscoveryComponent = ({
     return (
         <>
             <Navbar />
-
-            <div className=" h-screen  w-full  text-black bg-white ">
-                <div className="flex-col justify-center flex h-1/2 w-full   ">
-                    <div className="  flex justify-center h-1/7">
-                        <h1 className="  text-2xl font-bold  text-black">
-                            Spotlight
+            <div className="w-full h-screen text-black bg-white ">
+                <div className="flex flex-col justify-center w-full h-1/2 ">
+                    <div className="flex justify-center h-1/7">
+                        <h1 className="text-2xl font-bold text-black ">
+                            {t('spotlight')}
                         </h1>
                     </div>
 
-                    <div className="  w-full flex flex-col justify-center h-4/5 px-5  relative">
+                    <div className="relative flex flex-col justify-center w-full px-5 h-4/5">
                         {spotImage && spotImageAlt && (
                             <Image
-                                className="hover:brightness-125  "
+                                className="hover:brightness-125 "
                                 src={spotImage}
                                 alt={spotImageAlt}
                                 width={300}
                                 height={300}
                             />
                         )}
-                        <span className="  inset-x-32  absolute top-30   mx-auto flex flex-col  justify-center  text-gray-300 justify-items-center">
-                            <span className=" w-full text-center text-lg font-bold  ">
+                        <span className="absolute flex flex-col justify-center mx-auto text-gray-300 inset-x-32 top-30 justify-items-center">
+                            <span className="w-full text-lg font-bold text-center ">
                                 {spotName}
                             </span>
                             <button
                                 onClick={() =>
                                     router.push(`description/${spotID}`)
                                 }
-                                className=" w-30 rounded bg-green-700 hover:bg-green-900 h-8  text-white p-1  mt-2 text-sm"
+                                className="h-8 p-1 mt-2 text-sm text-white bg-green-700 rounded w-30 hover:bg-green-900"
                             >
-                                Click for more
+                                {t('clickForMore')}
                             </button>
                         </span>
                     </div>
                 </div>
 
-                <div className="flex w-full h-30  font-bold text-black justify-center pb-3 relative ">
-                    <h1 className="text-xl">Locations</h1>
+                <div className="relative flex justify-center w-full pb-3 font-bold text-black h-30 ">
+                    <h1 className="text-xl">{t('location_other')}</h1>
                 </div>
 
-                <div className="px-5 relative ">
-                    <div className="flex   flex-raw border-black border-t-2 h-16 w-full flex w-full overflow-y-auto flex-raw scrollbar-hide ">
+                <div className="relative px-5 ">
+                    <div className="flex w-full h-16 overflow-y-auto border-t-2 border-black flex-raw scrollbar-hide ">
                         <CategoriesButtons categories={categories} />
                     </div>
                 </div>
 
-                <div className="flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide relative bottom-5">
+                <div className="relative flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide bottom-5">
                     {locationData &&
                         locationData.map((location: any, index: number) => {
                             return (

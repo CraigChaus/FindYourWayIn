@@ -1,14 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import broken from '../../public/images/broken.png';
+import { useTranslation } from 'react-i18next';
 
 export const Card = ({ date, event, onClick, imageSrc }: any) => {
+    const { t } = useTranslation('common');
     return (
         <>
             <div onClick={onClick} className="w-full h-1/2 ">
-                <div className=" p-2 text-center h-60 m-1 ">
+                <div className="p-2 m-1 text-center h-60">
                     <Image
-                        className="rounded-xl container"
+                        className="container rounded-xl"
                         src={imageSrc}
                         alt={'alt'}
                         height={220}
@@ -18,27 +20,27 @@ export const Card = ({ date, event, onClick, imageSrc }: any) => {
                     {/* change text color based on image color */}
 
                     {imageSrc == broken ? (
-                        <div className="flex flex-col relative  bottom-40">
-                            <span className="pr-2 text-center text-black font-bold text-l ">
+                        <div className="relative flex flex-col bottom-40">
+                            <span className="pr-2 font-bold text-center text-black text-l ">
                                 {date}
                             </span>
-                            <span className="pl-2 text-center  text-black font-bold text-xl w-full ">
+                            <span className="w-full pl-2 text-xl font-bold text-center text-black ">
                                 {event}{' '}
                             </span>
-                            <button className="mt-4 mx-24  bg-green-800 rounded-md text-white font-normal">
-                                Click for more
+                            <button className="mx-24 mt-4 font-normal text-white bg-green-800 rounded-md">
+                                {t('clickForMore')}
                             </button>
                         </div>
                     ) : (
-                        <div className="flex flex-col relative  bottom-40">
-                            <span className="pr-2 text-center text-white font-bold text-l ">
+                        <div className="relative flex flex-col bottom-40">
+                            <span className="pr-2 font-bold text-center text-white text-l ">
                                 {date}
                             </span>
-                            <span className="pl-2 text-center  text-white font-bold text-xl w-full ">
+                            <span className="w-full pl-2 text-xl font-bold text-center text-white ">
                                 {event}{' '}
                             </span>
-                            <button className="mt-4 mx-24  bg-green-800 rounded-md text-white font-normal">
-                                Click for more
+                            <button className="mx-24 mt-4 font-normal text-white bg-green-800 rounded-md">
+                                {t('clickForMore')}
                             </button>
                         </div>
                     )}

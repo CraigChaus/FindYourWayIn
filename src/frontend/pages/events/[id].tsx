@@ -5,6 +5,7 @@ import EventInfo from '@components/eventsDetails/EventInfo';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import DefaultNavbar from '../../components/global/DefaultNavbar';
+import { useTranslation } from 'react-i18next';
 
 // const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 // const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
@@ -86,6 +87,7 @@ export const Events = ({ data }: any): JSX.Element => {
 
     // const [ticket, setTicket] = React.useState(null);
     const [eventWebSite, setWebsite] = React.useState(null);
+    const { t } = useTranslation('common');
 
     React.useEffect(() => {
         if (data.files[0]?.hlink) {
@@ -138,7 +140,7 @@ export const Events = ({ data }: any): JSX.Element => {
             <DefaultNavbar />
 
             <div className="w-full">
-                <div className=" m-4">
+                <div className="m-4 ">
                     <EventImage idImageSrc={eventImage} />
                 </div>
             </div>
@@ -163,7 +165,7 @@ export const Events = ({ data }: any): JSX.Element => {
             </div>
 
             <div className="px-4">
-                <h1 className="text-2xl font-bold">Description</h1>
+                <h1 className="text-2xl font-bold">{t('desc')}</h1>
                 <EventInfo
                     description={eventDescription}
                     website={eventWebSite}
