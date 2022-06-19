@@ -25,7 +25,7 @@ export default function SignUp() {
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
-    const { signup } = useAuth();
+    const { user, signup } = useAuth();
 
     // const history = useHistory()
 
@@ -39,7 +39,8 @@ export default function SignUp() {
             setLoading(true);
             await signup(registerEmail, registerPassword)
                 .then(() => {
-                    Router.push('/home');
+                    // Router.push('/home');
+                    //  console.log(user)
                 })
                 .catch((error: { message: SetStateAction<string> }) => {
                     setError(error.message);
@@ -64,6 +65,7 @@ export default function SignUp() {
                     <div
                         className="w-full px-4 py-2 mt-4 mb-4 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md"
                         role="alert"
+                        id="error-display"
                     >
                         <div className="flex items-center">
                             <div className="py-1">
@@ -76,6 +78,7 @@ export default function SignUp() {
                     </div>
                 )}
                 <Input
+                    name="signup-email"
                     placeholder={t('email')}
                     type="email"
                     isRequired={true}
@@ -85,6 +88,7 @@ export default function SignUp() {
                     }}
                 />
                 <Input
+                    name="signup-password"
                     placeholder={t('password')}
                     type="password"
                     isRequired={true}
@@ -94,6 +98,7 @@ export default function SignUp() {
                     }}
                 />
                 <Input
+                    name="signup-password_confirm"
                     placeholder={t('confirmPassword')}
                     type="password"
                     isRequired={true}

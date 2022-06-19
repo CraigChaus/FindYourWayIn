@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 export const Navbar = () => {
     const router = useRouter();
     return (
-        <div className="fixed z-10 flex flex-col w-full bg-transparent">
+        <div className="z-10 flex flex-col w-full bg-transparent">
             <div
                 className="z-10 flex items-center justify-between bg-green-500 h-18"
             >

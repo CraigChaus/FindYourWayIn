@@ -2,39 +2,48 @@ import React from 'react';
 import DayInfo from '@components/eventsDetails/DayInfo';
 import EventImage from '@components/eventsDetails/EventImage';
 import EventInfo from '@components/eventsDetails/EventInfo';
+import Head from 'next/head';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import DefaultNavbar from '../../components/global/DefaultNavbar';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-export async function getStaticPaths() {
-    const res = await fetch(`${apiUrl}/events`, {
+export async function getStaticPaths({ locales }: any) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data = await res.json();
     const dataArray = data.results;
-    const paths = dataArray.map((event: any) => {
-        return {
-            params: { id: event.id },
-        };
+    const paths = dataArray.flatMap((location: any) => {
+        return locales.map((locale: any) => {
+            return {
+                params: { id: location.id },
+                locale: locale,
+            };
+        });
     });
 
     return {
         paths,
-        fallback: false,
+        fallback: true,
     };
 }
 
-export async function getStaticProps(context: { params: { id: string } }) {
+export async function getStaticProps(context: {
+    params: { id: string };
+    locale: string;
+}) {
     const id = context.params.id;
-    const res = await fetch(`${apiUrl}/events/${id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events/${id}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data = await res.json();
@@ -42,6 +51,7 @@ export async function getStaticProps(context: { params: { id: string } }) {
     return {
         props: {
             data: data,
+            ...(await serverSideTranslations(context.locale, ['common'])),
         },
     };
 }
@@ -55,12 +65,15 @@ export const Events = ({ data }: any): JSX.Element => {
 
     //This is for the day number of the event
     const [dayOfEvent, setDayOfEvent] = React.useState(null);
+    const [monthOfEvent, setMontOfEvent] = React.useState(null);
+    const [yearOfEvent, setYearOfEvent] = React.useState(null);
 
     //This is for the event name, time, venue, ticket info and website
 
     const [eventName, setEventName] = React.useState(null);
     const [eventStartTime, setEventStartTime] = React.useState(null);
     const [eventendTime, setEventEndTime] = React.useState(null);
+    const [eventImage, setEventImage] = React.useState<any>('');
 
     //this is for the event description
     const [eventDescription, setEventDescription] = React.useState(null);
@@ -75,23 +88,23 @@ export const Events = ({ data }: any): JSX.Element => {
     const [eventWebSite, setWebsite] = React.useState(null);
 
     React.useEffect(() => {
-        //This is for setting up the image src and alt
-        // setImgSrc(data.files[0].hlink);
-        // setImgAlt('alt');
-
-        //TODO: uncomment these set up above me
+        if (data.files[0]?.hlink) {
+            setEventImage(data?.files[0]?.hlink);
+        }
 
         //this is for setting up the day
-        const dayNumber = data.calendar.singleDates[0].date;
+        const date = data.calendar.singleDates[0].date;
 
         //here the date string is split into the day number and the month number
-        const dayNumberInstance = dayNumber.substring(8, 10);
-        setDayOfEvent(dayNumberInstance);
+        const dayNumber = date.substring(8, 10);
+        const monthNumber = date.substring(5, 7);
+        const yearNumber = date.substring(0, 4);
+        setDayOfEvent(dayNumber);
+        setMontOfEvent(monthNumber);
+        setYearOfEvent(yearNumber);
 
-        //this is for setting up the event name
-        setEventName(data.location.label);
+        setEventName(data.trcItemDetails[0].title);
 
-        //this is for setting up the event time
         if (data.calendar.singleDates[0]?.when[0]?.timestart) {
             setEventStartTime(data.calendar.singleDates[0]?.when[0].timestart);
         }
@@ -100,47 +113,61 @@ export const Events = ({ data }: any): JSX.Element => {
             setEventEndTime(data.calendar.singleDates[0]?.when[0].timeend);
         }
 
-        //this is for setting up the venue of the event
         setEventHouseNumVenue(data.location.address?.housenr);
         setEventStreetVenue(data.location.address?.street);
         setEventZipCodeVenue(data.location.address?.zipcode);
         setEventCityVenue(data.location.address?.city);
 
-        //this is for stting up the event description
         setEventDescription(data.trcItemDetails[0]?.longdescription);
 
         //this is for the ticket info for the event
         // setTicket();
 
-        //this is for setting up the website
         setWebsite(data.contactinfo.urls[0]?.url);
     }, [data]);
 
-    console.log(data);
-
     return (
         <>
-            <div className="m-4 text-2xl font-bold text-center">
-                <h1>Event Details</h1>
+            <Head>
+                <title>{eventName}</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
+            <DefaultNavbar />
+
+            <div className="w-full">
+                <div className=" m-4">
+                    <EventImage idImageSrc={eventImage} />
+                </div>
             </div>
-            <div className="flex w-full h-full mt-8">
-                <div className="p-4 m-4">
-                    <DayInfo eventday={dayOfEvent} />
+
+            <div className="w-full h-full mt-4">
+                <div className="px-4 text-3xl font-black text-left">
+                    <h1>{eventName}</h1>
                 </div>
                 <div>
-                    <EventImage />
-                    <EventInfo
-                        name={eventName}
-                        description={eventDescription}
+                    <DayInfo
+                        eventday={dayOfEvent}
+                        eventMonth={monthOfEvent}
+                        eventYear={yearOfEvent}
                         timeStart={eventStartTime}
                         timeEnd={eventendTime}
                         housenr={eventHouseNumVenue}
                         street={eventStreetVenue}
                         city={eventCityVenue}
                         zipcode={eventZipCodeVenue}
-                        website={eventWebSite}
                     />
                 </div>
+            </div>
+
+            <div className="px-4">
+                <h1 className="text-2xl font-bold">Description</h1>
+                <EventInfo
+                    description={eventDescription}
+                    website={eventWebSite}
+                />
             </div>
         </>
     );

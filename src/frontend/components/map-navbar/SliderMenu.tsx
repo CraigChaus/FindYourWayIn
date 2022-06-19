@@ -1,30 +1,74 @@
 import React, { useState } from 'react';
 import Categories from './Categories';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faBicycle,
-    faBuildingColumns,
-    faSquareParking,
-    faRestroom,
-    faUtensils,
-    faAnglesDown,
-    faAnglesUp,
-    faBagShopping,
-} from '@fortawesome/free-solid-svg-icons';
+import * as icons from 'public/markerIcons';
 import { useTranslation } from 'react-i18next';
+import { faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
+import ActivityZone from '../../public/icons/activity_zone.svg';
+import Entertainment from '../../public/icons/theater_comedy.svg';
+import Shop from '../../public/icons/shopping-40.svg';
+import Landscape from '../../public/icons/landscape.svg';
+import Attraction from '../../public/icons/attractions.svg';
+import Restaurant from '../../public/icons/restaurant-40.svg';
 
 export default function SliderMenu() {
+    const { t } = useTranslation('common');
     const [isOpen, setIsOpen] = useState(false);
 
     const categories = [
-        { iconName: faBagShopping, nameOfCategory: 'Shop' },
-        { iconName: faUtensils, nameOfCategory: 'Eat/Drink' },
-        { iconName: faBicycle, nameOfCategory: 'Sport' },
-        { iconName: faBuildingColumns, nameOfCategory: 'Culture' },
+        {
+            key: t('categoryShop'),
+            value: {
+                iconName: 'shop',
+                icon: <Shop className="flex justify-center fill-green-800" />,
+            },
+        },
+        {
+            key: t('categoryEat'),
+            value: {
+                iconName: 'eat',
+                icon: (
+                    <Restaurant className="flex justify-center fill-green-800" />
+                ),
+            },
+        },
+        {
+            key: t('categoryActivity'),
+            value: {
+                iconName: 'activity',
+                icon: (
+                    <ActivityZone className="flex justify-center fill-green-800" />
+                ),
+            },
+        },
+        {
+            key: t('categoryEntertainment'),
+            value: {
+                iconName: 'entertainment',
+                icon: (
+                    <Entertainment className="flex justify-center fill-green-800" />
+                ),
+            },
+        },
+        {
+            key: t('categoryLandscape'),
+            value: {
+                iconName: 'landscape',
+                icon: (
+                    <Landscape className="flex justify-center fill-green-800" />
+                ),
+            },
+        },
+        {
+            key: t('categoryAttraction'),
+            value: {
+                iconName: 'attraction',
+                icon: (
+                    <Attraction className="flex justify-center fill-green-800" />
+                ),
+            },
+        },
     ];
-
-    const { t } = useTranslation('common');
 
     return (
         <>
@@ -38,7 +82,7 @@ export default function SliderMenu() {
                         <FontAwesomeIcon
                             icon={faAnglesDown}
                             size="sm"
-                            className="flex justify-center mt-1 text-white "
+                            className="flex justify-center mt-1 text-white"
                         />
                     </button>
                 </div>

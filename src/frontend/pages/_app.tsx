@@ -5,14 +5,13 @@ import { AuthContextProvider } from '../contexts/AuthContext';
 import { FilterContextProvider } from '../contexts/FilterContext';
 import { Suspense } from 'react';
 import { appWithTranslation } from 'next-i18next';
-
-const apiKey: string = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
+import '/styles/mainPage.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Suspense fallback="loading">
             <Wrapper
-                apiKey={apiKey}
+                apiKey={process.env.NEXT_PUBLIC_GOOGLEMAP_API_KEY}
                 libraries={['places', 'geometry']}
                 language={'en'}
             >
