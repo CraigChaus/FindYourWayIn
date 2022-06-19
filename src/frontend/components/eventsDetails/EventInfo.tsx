@@ -1,43 +1,27 @@
 import React from 'react';
+import Website from '../../public/icons/website.svg'
+
 
 export const EventInfo = ({
     description,
-    timeStart,
-    timeEnd,
-    housenr,
-    street,
-    city,
-    zipcode,
     website,
 }: any) => {
     return (
         <>
             <div>
-                <p
-                    className="text-center border-t-2 border-b-2 border-black pb-4"
+               
+                <div className="mt-4 space-y-2  ">
+                    <p
+                    className="text-left text-sm"
                     dangerouslySetInnerHTML={{ __html: description }}
-                ></p>
-                <div className="mt-8 space-y-2 border-b-2 border-black ">
-                    <div className="flex space-x-2">
-                        <label className="font-bold">Time:</label>
-                        <p>
-                            {timeStart} - {timeEnd}
-                        </p>
-                    </div>
-                    <div className="flex space-x-2">
-                        <label className="font-bold">Venue:</label>
-                        <p>
-                            {street} , {housenr}, {zipcode}, {city}
-                        </p>
-                    </div>
-                    <div className="flex space-x-2">
-                        {/* TODO:Add ticket here when link is caught */}
-                        <label className="font-bold">Ticket:</label>
-                        <p>ticket</p>
-                    </div>
-                    <div className="flex space-x-2">
-                        <label className="font-bold">Website:</label>
-                        <a href={website}>Tap me!</a>
+                    ></p>
+                    <div className='flex pb-4'>
+                        <Website/>
+                        {website ? 
+                        <a href={website}><p>{website}</p></a>
+                        :
+                        <a href={website}><p>www.no-website-available.com</p></a>
+                        }
                     </div>
                 </div>
             </div>
