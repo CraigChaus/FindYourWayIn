@@ -1,23 +1,29 @@
-import AgendaInfo from '@components/events/AgendaInfo';
-import { UpcomingInfo } from '@components/events/UpcomingInfo';
+import { Card } from '@components/events/Card';
+import { useTranslation } from 'react-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
+import DefaultNavbar from '../components/global/DefaultNavbar';
+import broken from '../public/images/broken.png';
+import NoDataCard from '@components/events/NoDataCard';
 
 type EventProp = {
     id: any;
     eventName: any;
     day: any;
+    eventImage: any;
 };
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-export async function getStaticProps() {
-    const res = await fetch(`${apiUrl}/events`, {
+export async function getStaticProps({ locale }: any) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
     const data = await res.json();
@@ -25,12 +31,14 @@ export async function getStaticProps() {
     return {
         props: {
             data: data,
+            ...(await serverSideTranslations(locale, ['common'])),
         },
     };
 }
 
 export const Agenda = ({ data }: any): JSX.Element => {
     const router = useRouter();
+    const { t } = useTranslation('common');
     //creating an instance of the event name and day as usestates (FOR CURRENT EVENTS)
     const [currentEvents, setCurrentEvents] = React.useState<
         EventProp[] | null
@@ -41,6 +49,9 @@ export const Agenda = ({ data }: any): JSX.Element => {
         EventProp[] | null
     >(null);
 
+    const [toggleState, setToggleState] = React.useState(1);
+
+    console.log(data);
     React.useEffect(() => {
         const resultCurrent = [];
         const resultUpcoming = [];
@@ -78,11 +89,21 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 dayNumberInstance >= todayDateNumber &&
                 thisMonthNumber == monthNumberNoZero
             ) {
-                resultCurrent.push({
-                    id: data.results[i].id,
-                    eventName: data.results[i].location.label,
-                    day: dayNumberInstance,
-                });
+                if (data.results[i]?.files[0]?.hlink == null) {
+                    resultCurrent.push({
+                        id: data.results[i].id,
+                        eventName: data.results[i].trcItemDetails[0].title,
+                        day: dayNumberInstance,
+                        eventImage: broken,
+                    });
+                } else {
+                    resultCurrent.push({
+                        id: data.results[i].id,
+                        eventName: data.results[i].trcItemDetails[0].title,
+                        day: dayNumberInstance,
+                        eventImage: data.results[i]?.files[0]?.hlink,
+                    });
+                }
 
                 // console.log(resultCurrent)
 
@@ -95,12 +116,21 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 //(YYYY/MM/DD)
                 const fullDayNumber = dayNumber.substring(0, 10);
 
-                resultUpcoming.push({
-                    id: data.results[i].id,
-                    eventName: data.results[i].location.label,
-                    day: fullDayNumber,
-                });
-
+                if (data.results[i]?.files[0]?.hlink == null) {
+                    resultUpcoming.push({
+                        id: data.results[i].id,
+                        eventName: data.results[i].trcItemDetails[0].title,
+                        day: fullDayNumber,
+                        eventImage: broken,
+                    });
+                } else {
+                    resultUpcoming.push({
+                        id: data.results[i].id,
+                        eventName: data.results[i].trcItemDetails[0].title,
+                        day: fullDayNumber,
+                        eventImage: data.results[i]?.files[0]?.hlink,
+                    });
+                }
                 // console.log(resultUpcoming);
 
                 // //the name of the event that is upcoming
@@ -113,52 +143,113 @@ export const Agenda = ({ data }: any): JSX.Element => {
         setUpComingEvents(resultUpcoming);
         setCurrentEvents(resultCurrent);
     }, [data]);
-    console.log(data);
-    // console.log(upComingEvents);
-    // console.log(currentEvents);
+
+    const toggleTab = (tabIndex: any) => {
+        setToggleState(tabIndex);
+    };
 
     return (
         <>
+            <Head>
+                <title>Events</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
+            <DefaultNavbar />
+
             <div>
-                <div>
-                    <h1 className="p-4 font-bold text-center">
-                        Events & Agenda
-                    </h1>
-
-                    <h2 className="font-bold text-center">Current</h2>
-                    {currentEvents &&
-                        currentEvents.map((currentEvent, index) => {
-                            console.log(currentEvent);
-                            return (
-                                <AgendaInfo
-                                    onClick={() =>
-                                        router.push(`events/${currentEvent.id}`)
-                                    }
-                                    key={index}
-                                    date={currentEvent.day}
-                                    event={currentEvent.eventName}
-                                />
-                            );
-                        })}
+                <h1 className="p-4 pt-20 text-4xl font-bold text-center">
+                    {t('events')}
+                </h1>
+                <div className="px-5">
+                    <div className="flex w-full border-b-4 border-white ">
+                        <div className="flex justify-center w-1/2 h-full p-3 ">
+                            <div
+                                className={
+                                    toggleState === 1
+                                        ? ' flex justify-center w-full h-30 mx-2 rounded   font-bold text-white  bg-green-800'
+                                        : 'flex justify-center w-full h-30 mx-2 rounded hover:bg-zinc-300  font-bold text-black'
+                                }
+                                onClick={() => toggleTab(1)}
+                            >
+                                {t('thisMonth')}
+                            </div>
+                        </div>
+                        <div className="flex justify-center w-1/2 h-full p-3">
+                            <button
+                                className={
+                                    toggleState === 2
+                                        ? 'flex justify-center w-full h-15 mx-2 rounded  font-bold text-white  bg-green-800 '
+                                        : 'flex justify-center w-full h-30 mx-2 rounded hover:bg-zinc-300  font-bold text-black'
+                                }
+                                onClick={() => toggleTab(2)}
+                            >
+                                {t('upcoming')}
+                            </button>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
+            <div>
+                {currentEvents == null ? (
+                    <div
+                        className={
+                            toggleState === 1
+                                ? 'mt-8 overflow-y-auto'
+                                : 'invisible h-0'
+                        }
+                    >
+                        <NoDataCard />
+                    </div>
+                ) : (
+                    <div
+                        className={
+                            toggleState === 1
+                                ? 'mt-8 overflow-y-auto '
+                                : ' h-0 '
+                        }
+                    >
+                        {currentEvents &&
+                            currentEvents.map((currentEvent, index) => {
+                                return (
+                                    <Card
+                                        onClick={() =>
+                                            router.push(
+                                                `events/${currentEvent.id}`,
+                                            )
+                                        }
+                                        key={index}
+                                        date={currentEvent.day}
+                                        event={currentEvent.eventName}
+                                        imageSrc={currentEvent.eventImage}
+                                    />
+                                );
+                            })}
+                    </div>
+                )}
 
                 <div>
-                    <h2 className="font-bold text-center">Upcoming Events</h2>
-                    {upComingEvents &&
-                        upComingEvents.map((upcomingEvent, index) => {
-                            return (
-                                <UpcomingInfo
-                                    onClick={() =>
-                                        router.push(
-                                            `events/${upcomingEvent.id}`,
-                                        )
-                                    }
-                                    key={index}
-                                    upDate={upcomingEvent.day}
-                                    upEvent={upcomingEvent.eventName}
-                                />
-                            );
-                        })}
+                    <div className={toggleState === 2 ? 'mt-8' : 'invisible'}>
+                        {upComingEvents &&
+                            upComingEvents.map((upcomingEvent, index) => {
+                                return (
+                                    <Card
+                                        onClick={() =>
+                                            router.push(
+                                                `events/${upcomingEvent.id}`,
+                                            )
+                                        }
+                                        key={index}
+                                        date={upcomingEvent.day}
+                                        event={upcomingEvent.eventName}
+                                        imageSrc={upcomingEvent.eventImage}
+                                    />
+                                );
+                            })}
+                    </div>
                 </div>
             </div>
         </>

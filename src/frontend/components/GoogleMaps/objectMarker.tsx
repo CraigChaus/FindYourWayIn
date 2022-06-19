@@ -2,6 +2,8 @@ import { type } from 'os';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import * as icons from 'public/markerIcons';
+import { categoriesRes } from '@utils/filter';
+import categories from '../../CategorizationOntology-TheFeedFactory.json';
 
 interface MarkerProp extends google.maps.MarkerOptions {
     options?: google.maps.MarkerOptions | null;
@@ -9,7 +11,17 @@ interface MarkerProp extends google.maps.MarkerOptions {
     id: string;
 }
 
+export const categoryList = new Set();
 export const ObjectMarker = ({ category, id, ...options }: MarkerProp) => {
+    console.log('object marker rendered');
+    categoriesRes.forEach((catID: any) => {
+        const cat = categories.categorizations.find(
+            (cat: any) => cat.cnetID === catID,
+        );
+        if (cat) {
+            categoryList.add(cat);
+        }
+    });
     const router = useRouter();
     const [marker, setMarker] = useState<google.maps.Marker>();
     const [locationId, setLocationId] = useState<string>('');
@@ -20,33 +32,43 @@ export const ObjectMarker = ({ category, id, ...options }: MarkerProp) => {
 
     let objectIcon = '';
     let icon_color = '';
+    let categoryName = '';
 
-    switch (category) {
-        case 'Shop':
-            objectIcon = icons.shop;
-            icon_color = 'red';
-            break;
+    categoryList.forEach((cat: any) => {
+        cat.child.forEach((child: any) => {
+            if (child.cnetID === category) {
+                categoryName = cat.categorization;
+            }
+        });
+    });
 
-        case 'Eat/Drink':
+    const getIcon = (category: string) => {
+        if (category === 'Kleine horeca' || category === 'Restaurants') {
             objectIcon = icons.eat_drink;
             icon_color = 'yellow';
-            break;
-
-        case 'Culture':
-            objectIcon = icons.culture;
-            icon_color = 'purple';
-            break;
-
-        case 'Sport':
-            objectIcon = icons.sports;
+        } else if (category === 'Winkels') {
+            objectIcon = icons.shop;
+            icon_color = 'red';
+        } else if (category === 'Attracties') {
+            objectIcon = icons.attraction;
+            icon_color = 'blue';
+        } else if (
+            category === 'Groepsarrangementen en activiteiten' ||
+            category === 'Evenementen'
+        ) {
+            objectIcon = icons.activity;
             icon_color = 'orange';
-            break;
-
-        default:
-            objectIcon = '';
-    }
+        } else if (category === 'Bezienswaardigheden') {
+            objectIcon = icons.landscape;
+            icon_color = 'green';
+        } else if (category === 'Uitgaan') {
+            objectIcon = icons.comedy;
+            icon_color = 'purple';
+        }
+    };
 
     React.useEffect(() => {
+        getIcon(categoryName);
         const svgMarker = {
             path: objectIcon,
             fillColor: icon_color,
@@ -66,7 +88,7 @@ export const ObjectMarker = ({ category, id, ...options }: MarkerProp) => {
                 marker.setMap(null);
             }
         };
-    }, [icon_color, marker, objectIcon, options]);
+    }, [categoryName, icon_color, marker, objectIcon, options]);
 
     React.useEffect(() => {
         options && marker?.setOptions(options);
@@ -77,5 +99,3 @@ export const ObjectMarker = ({ category, id, ...options }: MarkerProp) => {
     });
     return null;
 };
-
-//M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.11 0 2-.9 2-2V5c0-1.11-.89-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z

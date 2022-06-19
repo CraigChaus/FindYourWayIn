@@ -1,35 +1,55 @@
-import type {
-    GetServerSideProps,
-    InferGetServerSidePropsType,
-    NextPage,
-} from 'next';
+import type { GetServerSideProps, NextPage } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 
-import Navbar from '../components/map-navbar/MapNavbar';
 import HomePage from '../components/homepage/HomePage';
-import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
+// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
-export const getServerSideProps = async () => {
-    const res = await fetch(`${apiUrl}/locations`, {
+export const getServerSideProps = async ({ locale }: any) => {
+    const res1 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${apiKey}`,
+            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
         },
     });
-    const data = await res.json();
-    const locations = data.results;
+    const data1 = await res1.json();
+    const hits = data1.hits;
 
-    return { props: { data: locations } };
+    const res2 = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/locations?size=${hits}`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+            },
+        },
+    );
+
+    const data = await res2.json();
+
+    return {
+        props: {
+            data: data.results,
+            ...(await serverSideTranslations(locale, ['common'])),
+        },
+    };
 };
 
 const Home: NextPage = ({ data }: any) => {
     return (
         <div className="flex flex-col h-screen">
+            <Head>
+                <title>Home</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1.0, width=device-width"
+                />
+            </Head>
             <HomePage locations={data} />
-            {/* <BottomSlider/> */}
         </div>
     );
 };

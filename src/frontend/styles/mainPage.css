@@ -1,0 +1,7 @@
+#slideSearchBar{
+    overflow-y:auto;
+    max-height: 220px;
+    scrollbar-width: auto; /* Firefox */
+    -ms-overflow-style: scrollbar; /* for Internet Explorer, Edge */
+
+}

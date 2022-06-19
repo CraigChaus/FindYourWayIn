@@ -1,58 +1,103 @@
-import SideBar from '../global/Sidebar';
-import UserDropdown from '../global/user/Dropdown';
 import LocationData from './LocationData';
+import { useRouter } from 'next/router';
+import CategoriesButtons from './CategoriesButtons';
+import Image from 'next/image';
+import Navbar from '../global/DefaultNavbar';
 
-const DiscoveryComponent = () => {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+import {
+    faBicycle,
+    faBuildingColumns,
+    faSquareParking,
+    faRestroom,
+    faUtensils,
+    faBagShopping,
+} from '@fortawesome/free-solid-svg-icons';
+import { useTranslation } from 'react-i18next';
+
+export const DiscoveryComponent = ({
+    locationData,
+    spotID,
+    spotName,
+    spotImage,
+    spotImageAlt,
+}: any) => {
+    const router = useRouter();
+    const { t } = useTranslation('common');
+
+    const categories = [
+        { iconName: faBagShopping, nameOfCategory: 'Shop' },
+        { iconName: faUtensils, nameOfCategory: 'Eat/Drink' },
+        { iconName: faBicycle, nameOfCategory: 'Sport' },
+        { iconName: faBuildingColumns, nameOfCategory: 'Culture' },
+        { iconName: faSquareParking, nameOfCategory: 'Bicycle P' },
+        { iconName: faRestroom, nameOfCategory: 'Restroom' },
+    ];
+
     return (
-        <div className=" h-screen  absolute w-full  text-gray-900 bg-cover bg-no-repeat bg-center bg-[url('../public/images/imageWalstraat.jpg')]  ">
-            {/*// this block I took from  component MapNavbar,*/}
-            <div className="z-10 flex flex-col w-full bg-transparent">
-                <div
-                    id="header"
-                    className="z-10 flex items-center justify-between bg-green-500 h-18"
-                >
-                    <SideBar />
-                    <div className="flex justify-end">
-                        <UserDropdown />
+        <>
+            <Navbar />
+            <div className="w-full h-screen text-black bg-white ">
+                <div className="flex flex-col justify-center w-full h-1/2 ">
+                    <div className="flex justify-center h-1/7">
+                        <h1 className="text-2xl font-bold text-black ">
+                            {t('spotlight')}
+                        </h1>
+                    </div>
+
+                    <div className="relative flex flex-col justify-center w-full px-5 h-4/5">
+                        {spotImage && spotImageAlt && (
+                            <Image
+                                className="hover:brightness-125 "
+                                src={spotImage}
+                                alt={spotImageAlt}
+                                width={300}
+                                height={300}
+                            />
+                        )}
+                        <span className="absolute flex flex-col justify-center mx-auto text-gray-300 inset-x-32 top-30 justify-items-center">
+                            <span className="w-full text-lg font-bold text-center ">
+                                {spotName}
+                            </span>
+                            <button
+                                onClick={() =>
+                                    router.push(`description/${spotID}`)
+                                }
+                                className="h-8 p-1 mt-2 text-sm text-white bg-green-700 rounded w-30 hover:bg-green-900"
+                            >
+                                {t('clickForMore')}
+                            </button>
+                        </span>
                     </div>
                 </div>
-            </div>
-            {/*//*/}
 
-            <div className="px-5">
-                <div className="flex   flex-raw border-white border-b-4 h-20 w-full ">
-                    <div className=" flex  justify-center  h-full w-1/2 p-3">
-                        <button className="flex justify-center w-full h-15 mx-2 rounded hover:bg-zinc-300 pt-5 font-bold text-white">
-                            Suggestions
-                        </button>
-                    </div>
-                    <div className="flex justify-center   h-full w-1/2 p-3">
-                        <button className="flex justify-center w-full h-15 mx-2 rounded hover:bg-zinc-300 pt-5 font-bold text-white ">
-                            Favorite
-                        </button>
+                <div className="relative flex justify-center w-full pb-3 font-bold text-black h-30 ">
+                    <h1 className="text-xl">{t('location_other')}</h1>
+                </div>
+
+                <div className="relative px-5 ">
+                    <div className="flex w-full h-16 overflow-y-auto border-t-2 border-black flex-raw scrollbar-hide ">
+                        <CategoriesButtons categories={categories} />
                     </div>
                 </div>
-            </div>
-            <div className="flex w-full h-10  font-bold text-white justify-center pt-3">
-                <h1>SHOPS</h1>
-            </div>
 
-            <div className="flex  flex-raw  h-1/5 w-full">
-                <LocationData />
-                <LocationData />
-
-                <LocationData />
-            </div>
-
-            <div className=" flex flex-col justify-center border-orange-700 flex    h-1/3 w-full  ">
-                <div className="  flex justify-center h-1/5 pt-5">
-                    <h1 className="   font-bold  text-white">Name BIG</h1>
-                </div>
-                <div className="flex justify-center h-4/5 p-5">
-                    <div className="   bg-cyan-300 flex justify-center w-full h-full rounded-3xl mx-20"></div>
+                <div className="relative flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide bottom-5">
+                    {locationData &&
+                        locationData.map((location: any, index: number) => {
+                            return (
+                                <LocationData
+                                    key={index}
+                                    locationName={location.locationName}
+                                    srcImage={location.imageSRC}
+                                    srcAlt={location.imageAlt}
+                                    locationID={location.id}
+                                />
+                            );
+                        })}
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 
