@@ -140,7 +140,7 @@ const HomePage = ({ locations }: any) => {
                             setDirections={setDirections}
                             currentUserLocation={{ lat, lng }}
                             id={bottomSlider?.id}
-                            header={bottomSlider?.location?.label}
+                            header={bottomSlider?.trcItemDetails[0]?.title}
                             description={
                                 bottomSlider.trcItemDetails[0]?.shortdescription
                             }
