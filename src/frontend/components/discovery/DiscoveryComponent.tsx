@@ -26,7 +26,6 @@ export const DiscoveryComponent = ({
     const router = useRouter();
     const { t } = useTranslation('common');
 
-
     const categories = [
         { iconName: faBagShopping, nameOfCategory: 'Shop' },
         { iconName: faUtensils, nameOfCategory: 'Eat/Drink' },
