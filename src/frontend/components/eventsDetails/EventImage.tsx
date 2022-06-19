@@ -6,15 +6,22 @@ export const EventImage = ({ idImageSrc }: any) => {
     console.log(idImageSrc);
     return (
         <>
-            <div className="h-auto p-2 mt-6 inline align-middle">
+            <div className=" w-full h-1/2 mt-6 inline align-middle">
                 {idImageSrc === '' ? (
-                    <Image src={broken} alt={'alt'} width={300} height={300} />
+                    <Image
+                        className="rounded-xl container"
+                        src={broken}
+                        alt={'alt'}
+                        height={280}
+                        width={385}
+                    />
                 ) : (
                     <Image
+                        className="rounded-xl container"
                         src={idImageSrc}
                         alt={'alt'}
-                        width={300}
-                        height={300}
+                        height={280}
+                        width={385}
                     />
                 )}
             </div>

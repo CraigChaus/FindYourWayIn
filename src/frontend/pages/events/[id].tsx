@@ -4,6 +4,7 @@ import EventImage from '@components/eventsDetails/EventImage';
 import EventInfo from '@components/eventsDetails/EventInfo';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import DefaultNavbar from '../../components/global/DefaultNavbar';
 
 // const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 // const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
@@ -64,6 +65,8 @@ export const Events = ({ data }: any): JSX.Element => {
 
     //This is for the day number of the event
     const [dayOfEvent, setDayOfEvent] = React.useState(null);
+    const [monthOfEvent, setMontOfEvent] = React.useState(null);
+    const [yearOfEvent, setYearOfEvent] = React.useState(null);
 
     //This is for the event name, time, venue, ticket info and website
 
@@ -90,11 +93,15 @@ export const Events = ({ data }: any): JSX.Element => {
         }
 
         //this is for setting up the day
-        const dayNumber = data.calendar.singleDates[0].date;
+        const date = data.calendar.singleDates[0].date;
 
         //here the date string is split into the day number and the month number
-        const dayNumberInstance = dayNumber.substring(8, 10);
-        setDayOfEvent(dayNumberInstance);
+        const dayNumber = date.substring(8, 10);
+        const monthNumber = date.substring(5, 7);
+        const yearNumber = date.substring(0, 4);
+        setDayOfEvent(dayNumber);
+        setMontOfEvent(monthNumber);
+        setYearOfEvent(yearNumber);
 
         setEventName(data.trcItemDetails[0].title);
 
@@ -119,8 +126,6 @@ export const Events = ({ data }: any): JSX.Element => {
         setWebsite(data.contactinfo.urls[0]?.url);
     }, [data]);
 
-    console.log(eventImage);
-
     return (
         <>
             <Head>
@@ -130,26 +135,39 @@ export const Events = ({ data }: any): JSX.Element => {
                     content="initial-scale=1.0, width=device-width"
                 />
             </Head>
-            <div className="m-4 text-2xl font-bold text-center">
-                <h1>{eventName}</h1>
+            <DefaultNavbar />
+
+            <div className="w-full">
+                <div className=" m-4">
+                    <EventImage idImageSrc={eventImage} />
+                </div>
             </div>
-            <div className="flex w-full h-full mt-8">
-                <div className="p-4 m-4">
-                    <DayInfo eventday={dayOfEvent} />
+
+            <div className="w-full h-full mt-4">
+                <div className="px-4 text-3xl font-black text-left">
+                    <h1>{eventName}</h1>
                 </div>
                 <div>
-                    <EventImage idImageSrc={eventImage} />
-                    <EventInfo
-                        description={eventDescription}
+                    <DayInfo
+                        eventday={dayOfEvent}
+                        eventMonth={monthOfEvent}
+                        eventYear={yearOfEvent}
                         timeStart={eventStartTime}
                         timeEnd={eventendTime}
                         housenr={eventHouseNumVenue}
                         street={eventStreetVenue}
                         city={eventCityVenue}
                         zipcode={eventZipCodeVenue}
-                        website={eventWebSite}
                     />
                 </div>
+            </div>
+
+            <div className="px-4">
+                <h1 className="text-2xl font-bold">Description</h1>
+                <EventInfo
+                    description={eventDescription}
+                    website={eventWebSite}
+                />
             </div>
         </>
     );
