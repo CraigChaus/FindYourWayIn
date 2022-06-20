@@ -1,5 +1,5 @@
 import { Menu, Transition } from '@headlessui/react';
-import { useAuth } from 'contexts/AuthContext';
+import { useAuth } from '../../../contexts/AuthContext';
 import { auth } from 'firebase_config';
 import { Router, useRouter } from 'next/router';
 import { Fragment } from 'react';

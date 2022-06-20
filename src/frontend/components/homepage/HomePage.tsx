@@ -1,10 +1,10 @@
-import UserLocationMarker from '@components/GoogleMaps/userLocationMarker';
-import Navbar from '@components/map-navbar/MapNavbar';
+import UserLocationMarker from '../../components/GoogleMaps/userLocationMarker';
+import Navbar from '../../components/map-navbar/MapNavbar';
 import React, { useContext, useState } from 'react';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 import Router, { useRouter } from 'next/router';
-import BottomSlider from '@components/global/bottom-slider/BottomSlider';
-import { ObjectMarker } from '@components/GoogleMaps/objectMarker';
+import BottomSlider from '../../components/global/bottom-slider/BottomSlider';
+import { ObjectMarker } from '../../components/GoogleMaps/objectMarker';
 import { FilterContext } from 'contexts/FilterContext';
 import { DirectionsRenderer } from '@react-google-maps/api';
 import { categoryList } from '../GoogleMaps/objectMarker';
