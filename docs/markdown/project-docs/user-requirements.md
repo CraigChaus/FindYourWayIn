@@ -85,3 +85,21 @@ Most business and user requirements were acquired during the first meeting with 
 | Bu03         | Business wants web application to be used by consumers of any age.                         |       *        |
 | Bu04         | Business wants web application to help reduce the use of paper travel documents.           |       *        |
 | Bu05         | Business wants web application to mainly help tourists and local entrepreneurs.            |       *        |
+
+
+
+| Referance ID | Requirement Description                                                                                            | Source Details                                                     | Attendants                                          |
+|--------------|--------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|-----------------------------------------------------|
+| Cu01         | The user wants to be able to view the navigation map.                                                              |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu02         | The user wants to be able to read a description of the destination.                                                |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu03         | The user wants to be able to see a list of destinations with promotions and discounts they can visit in Walstraat. |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu04         | The user wants to be able to get a route to the selected destination.                                              |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu05         | The user wants to be able to see promotions offered by the shop or restaurant.                                     |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu06         | The user wants to view the overall agenda of Walstraat with all upcoming events.                                   |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu07         | The user wants the web application to let them discover events and locations within Walstraat.                     |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu08         | The user wants to be able to change the language to their preferences.                                             |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu09         | The user wants to be able to search for a specific place according to their preferences.                           |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu10         | The user wants to be able to see an organization in the spotlight                                                  | May 2, Client & Smart Solutions Students Meeting, Saxion, Deventer | Nils, Smart Solutions Students, HBO-ICT Group       |
+| Cu11         | The user wants to be able to get a personalized route based on their preferences.                                  | May 2, Client & Smart Solutions Students Meeting, Saxion, Deventer | Nils, Smart Solutions Students, HBO-ICT Group       |
+| Cu12         | The user wants to be able to contact the organization using their contact details.                                 |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| Cu13         | User wants to be able to filter locations based on category                                                        |                                     *                              | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
