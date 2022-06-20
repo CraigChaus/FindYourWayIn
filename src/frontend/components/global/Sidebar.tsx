@@ -16,6 +16,7 @@ export default function Sidebar() {
     const icons = [
         { iconName: faHome, content: 'home', href: '/home' },
         { iconName: faCalendar, content: 'events', href: '/events' },
+        { iconName: faHome, content: 'my favourites', href: '/favourites'},
         {
             iconName: faMagnifyingGlassLocation,
             content: 'discovery',

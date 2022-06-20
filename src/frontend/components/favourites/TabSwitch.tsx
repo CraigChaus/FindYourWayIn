@@ -1,6 +1,12 @@
+import LocationData from "@components/discovery/LocationData";
 import React from "react";
 
-const Tabs = ({color} : any) : JSX.Element => {
+const Tabs = ({color, locations} : any) : JSX.Element => {
+
+
+
+  
+
   const [openTab, setOpenTab] = React.useState(1);
   return (
     <>
@@ -26,7 +32,7 @@ const Tabs = ({color} : any) : JSX.Element => {
                 href="#link1"
                 role="tablist"
               >
-                option 1
+                Locations
               </a>
             </li>
             <li className="-mb-px mr-2 last:mr-0 flex-auto text-center">
@@ -45,7 +51,7 @@ const Tabs = ({color} : any) : JSX.Element => {
                 href="#link2"
                 role="tablist"
               >
-                 option 2
+                 Events
               </a>
             </li>
           </ul>
@@ -53,14 +59,11 @@ const Tabs = ({color} : any) : JSX.Element => {
             <div className="px-4 py-5 flex-auto">
               <div className="tab-content tab-space">
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
-                  <p>
-                    Collaboratively administrate empowered markets via
-                    plug-and-play networks. Dynamically procrastinate B2C users
-                    after installed base benefits.
-                    <br />
-                    <br /> Dramatically visualize customer directed convergence
-                    without revolutionary ROI.
-                  </p>
+                  <div className="flex w-full h-auto overflow-x-auto flex-raw scrollbar-hide relative bottom-5">
+                      
+                    {/* {locations } */}
+                        
+                  </div>
                 </div>
                 <div className={openTab === 2 ? "block" : "hidden"} id="link2">
                   <p>
@@ -82,10 +85,8 @@ const Tabs = ({color} : any) : JSX.Element => {
   );
 };
 
-export default function TabSwitch() {
+export default function TabSwitch({locations}: any) {
   return (
-    <div className="z-10 absolute top-16">
-      <Tabs color={"green"} />
-    </div>
+    <Tabs color="green" locations={locations}></Tabs>
   );
 }
