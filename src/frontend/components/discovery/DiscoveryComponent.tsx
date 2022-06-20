@@ -4,8 +4,6 @@ import CategoriesButtons from './CategoriesButtons';
 import Image from 'next/image';
 import Navbar from '../global/DefaultNavbar';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import {
     faBicycle,
     faBuildingColumns,

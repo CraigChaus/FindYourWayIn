@@ -1,15 +1,12 @@
 import UserLocationMarker from '@components/GoogleMaps/userLocationMarker';
-// import LocationMarker from '@components/homepage/LocationMarker';
 import Navbar from '@components/map-navbar/MapNavbar';
 import React, { useContext, useState } from 'react';
-import GoogleAutocomplete from '../GoogleMaps/GoogleAutocomplete';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 import Router, { useRouter } from 'next/router';
 import BottomSlider from '@components/global/bottom-slider/BottomSlider';
 import { ObjectMarker } from '@components/GoogleMaps/objectMarker';
 import { FilterContext } from 'contexts/FilterContext';
 import { DirectionsRenderer } from '@react-google-maps/api';
-import { categoriesRes, iconMap, filterByCategory } from '@utils/filter';
 import { categoryList } from '../GoogleMaps/objectMarker';
 
 const HomePage = ({ locations }: any) => {
@@ -57,12 +54,13 @@ const HomePage = ({ locations }: any) => {
     React.useEffect(() => {
         if (!mounted) return;
         geocoder.geocode({ location: { lat, lng } });
-    }, [geocoder, lat, lng, mounted]);
+    }, [lat, lng, mounted]);
 
     React.useEffect(() => {
         setDataLocation(locations);
     }, [locations, dataLocation, filterContext.filter]);
 
+    // populate bottom slider when there is a query
     React.useEffect(() => {
         if (query.id) {
             for (const location of dataLocation) {

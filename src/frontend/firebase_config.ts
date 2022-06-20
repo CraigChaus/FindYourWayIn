@@ -7,7 +7,6 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 
-// const firebaseApiKey = process.env.NEXT_PUBLIC_FIREBASE_API_KEY;
 //Config object for initializing
 const firebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
