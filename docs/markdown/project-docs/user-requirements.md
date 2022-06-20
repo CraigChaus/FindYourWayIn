@@ -78,13 +78,13 @@ Most business and user requirements were acquired during the first meeting with 
 
  “*” = 25 April First Client Meeting, TheFeedFactory Company, Walstraat-Deventer 
  
-| Referance ID | Requirement Description                                                                    | Source Details |
-|--------------|--------------------------------------------------------------------------------------------|----------------|
-| Bu01         | Business wants the web application to provide the same information a tourist leaflet would |       *        |
-| Bu02         | Business wants the web application to be easily usable in other cities.                    |       *        |
-| Bu03         | Business wants web application to be used by consumers of any age.                         |       *        |
-| Bu04         | Business wants web application to help reduce the use of paper travel documents.           |       *        |
-| Bu05         | Business wants web application to mainly help tourists and local entrepreneurs.            |       *        |
+| Referance ID | Requirement Description                                                                    | Source Details |      Attendants     |  
+|--------------|--------------------------------------------------------------------------------------------|----------------|---------------------|
+| Bu01         | Business wants the web application to provide the same information a tourist leaflet would |       *        |  Nils, Arne, Smart Solutions Students, HBO-ICT Group                   |           
+| Bu02         | Business wants the web application to be easily usable in other cities.                    |       *        |   Nils, Arne, Smart Solutions Students, HBO-ICT Group                  |
+| Bu03         | Business wants web application to be used by consumers of any age.                         |       *        |  Nils, Arne, Smart Solutions Students, HBO-ICT Group                   |
+| Bu04         | Business wants web application to help reduce the use of paper travel documents.           |       *        | Nils, Arne, Smart Solutions Students, HBO-ICT Group                    |
+| Bu05         | Business wants web application to mainly help tourists and local entrepreneurs.            |       *        |  Nils, Arne, Smart Solutions Students, HBO-ICT Group                   |
 
 
 
