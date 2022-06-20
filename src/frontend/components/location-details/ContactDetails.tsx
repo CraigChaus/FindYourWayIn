@@ -10,18 +10,23 @@ import {
     getDoc,
 } from 'firebase/firestore';
 import { useTranslation } from 'react-i18next';
-import console from 'console';
 
 export const ContactDetails = ({ phoneNumber, email, id }: any) => {
+    console.log(id);
     const { user } = useAuth();
     const { t } = useTranslation('common');
+
+    // When add to favorites button is clicked, first checks if the user has 
+    // "favorite_locations" field in the db. 
+    // If does: adds the location 
+    // if not: creates the field
     const addToFavorites = async () => {
         if (user) {
             // The "userRef" is a reference to the user document in the database
-            const userRef = doc(db, 'users', user.uid);
+            const userRef = doc(db  , 'users', user.uid);
             const docSnap = await getDoc(userRef);
             if (docSnap.exists()) {
-                console.log(id)
+               
                 await updateDoc(userRef, {
                     favorite_locations: arrayUnion(id),
                 });
