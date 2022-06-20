@@ -16,17 +16,16 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
     const { user } = useAuth();
     const { t } = useTranslation('common');
 
-    // When add to favorites button is clicked, first checks if the user has 
-    // "favorite_locations" field in the db. 
-    // If does: adds the location 
+    // When add to favorites button is clicked, first checks if the user has
+    // "favorite_locations" field in the db.
+    // If does: adds the location
     // if not: creates the field
     const addToFavorites = async () => {
         if (user) {
             // The "userRef" is a reference to the user document in the database
-            const userRef = doc(db  , 'users', user.uid);
+            const userRef = doc(db, 'users', user.uid);
             const docSnap = await getDoc(userRef);
             if (docSnap.exists()) {
-               
                 await updateDoc(userRef, {
                     favorite_locations: arrayUnion(id),
                 });
