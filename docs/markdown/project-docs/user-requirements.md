@@ -70,3 +70,18 @@ _In this section you can see the requirements. To see when/where or how each req
    |    SNF05     | System has a minimum uptime of 99%                                                                            |    Analysis    |      Reliability       |
    |    SNF06     | System is easy to naviagate through and is aesthetic with its consistent color scheme                         |    Analysis    |       Usability        |
    |    SNF07     | System can be handed over to a third party (Such as a new developer team)  with source code and documentation |    Analysis    |    Maintainability     |
+
+
+## Requirement Source and Details
+
+Most business and user requirements were acquired during the first meeting with the client. In the first meeting, the client explained what they wanted to accomplish with the future product and how they wanted it to be.  
+
+ “*” = 25 April First Client Meeting, TheFeedFactory Company, Walstraat-Deventer 
+ 
+| Referance ID | Requirement Description                                                                    | Source Details |
+|--------------|--------------------------------------------------------------------------------------------|----------------|
+| Bu01         | Business wants the web application to provide the same information a tourist leaflet would |       *        |
+| Bu02         | Business wants the web application to be easily usable in other cities.                    |       *        |
+| Bu03         | Business wants web application to be used by consumers of any age.                         |       *        |
+| Bu04         | Business wants web application to help reduce the use of paper travel documents.           |       *        |
+| Bu05         | Business wants web application to mainly help tourists and local entrepreneurs.            |       *        |
