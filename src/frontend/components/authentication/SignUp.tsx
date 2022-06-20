@@ -1,16 +1,15 @@
-import { useRef, useState, useEffect, SetStateAction } from 'react';
+import { useState, SetStateAction } from 'react';
 import AuthLayout from './AuthLayout';
 import HeaderAuthForm from './HeaderAuthForm';
 import Input from './Input';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from 'firebase_config';
 import AuthButton from './AuthButton';
 import NavigationLink from './NavigationLink';
 import { useAuth } from '../../contexts/AuthContext';
 import Warning from '../../public/icons/warning.svg';
 import Router from 'next/router';
-import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
+import Verify from '../../public/icons/verify.svg';
+
 
 /**
  * Authentication form for sign up
@@ -24,6 +23,7 @@ export default function SignUp() {
     const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState('');
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const [signupSuccess, setSignupSuccess] = useState('');
 
     const { user, signup } = useAuth();
 
@@ -39,14 +39,13 @@ export default function SignUp() {
             setLoading(true);
             await signup(registerEmail, registerPassword)
                 .then(() => {
-                    // Router.push('/home');
-                    //  console.log(user)
+                    setSignupSuccess(t('signupSuccess'));
+                    Router.replace('/auth/login');
                 })
                 .catch((error: { message: SetStateAction<string> }) => {
                     setError(error.message);
                     setLoading(false);
                 });
-            // history.push("/")
         } catch (error: any) {
             console.log(error.message);
             setError(t('errorSignup'));
@@ -54,8 +53,6 @@ export default function SignUp() {
 
         setLoading(false);
     }
-
-    console.log(t('signup'));
 
     return (
         <AuthLayout isSignUp={true}>
@@ -77,6 +74,23 @@ export default function SignUp() {
                         </div>
                     </div>
                 )}
+                {signupSuccess && (
+                        <div
+                            className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-l-4 border-green-500 shadow-md"
+                            role="alert"
+                        >
+                            <div className="flex items-center">
+                                <div className="py-1">
+                                    <Verify className="w-6 h-6 mr-4 text-green-500 fill-current" />
+                                </div>
+                                <div>
+                                    <p className="text-sm text-center">
+                                        {signupSuccess}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 <Input
                     name="signup-email"
                     placeholder={t('email')}

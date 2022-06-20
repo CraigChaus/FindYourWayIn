@@ -26,7 +26,7 @@ install:
     paths:
       - src/frontend/node_modules
     untracked: false
-    expire_in: 7 days
+    expire_in: 1 day
 
 eslint:
   stage: lint
@@ -45,7 +45,7 @@ test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   variables:
     NEXT_PUBLIC_GOOGLEMAP_API_KEY: $NEXT_PUBLIC_GOOGLEMAP_API_KEY
-    NEXT_PUBLIC_FIREBASE_API_KEY: NEXT_PUBLIC_FIREBASE_API_KEY
+    NEXT_PUBLIC_FIREBASE_API_KEY: $NEXT_PUBLIC_FIREBASE_API_KEY
     NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL
     NEXT_PUBLIC_FEEDFACTORY_API_KEY: $NEXT_PUBLIC_FEEDFACTORY_API_KEY
   stage: test

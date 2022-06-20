@@ -2,6 +2,7 @@ import React from 'react';
 import DiscoveryComponent from '../components/discovery/DiscoveryComponent';
 import broken from '../public/images/broken.png';
 import Head from 'next/head';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 type DiscoveryProp = {
     id: any;
@@ -17,7 +18,7 @@ type DiscoveryProp = {
 let locImage: any = '';
 let locName: any = ' ';
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }: any) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations`, {
         method: 'GET',
         headers: {
@@ -30,6 +31,7 @@ export async function getStaticProps() {
     return {
         props: {
             data: data,
+            ...(await serverSideTranslations(locale, ['common'])),
         },
     };
 }
