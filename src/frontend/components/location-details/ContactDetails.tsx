@@ -10,6 +10,7 @@ import {
     getDoc,
 } from 'firebase/firestore';
 import { useTranslation } from 'react-i18next';
+import console from 'console';
 
 export const ContactDetails = ({ phoneNumber, email, id }: any) => {
     const { user } = useAuth();
@@ -20,6 +21,7 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
             const userRef = doc(db, 'users', user.uid);
             const docSnap = await getDoc(userRef);
             if (docSnap.exists()) {
+                console.log(id)
                 await updateDoc(userRef, {
                     favorite_locations: arrayUnion(id),
                 });
