@@ -9,9 +9,17 @@ import {
     arrayRemove,
     getDoc,
 } from 'firebase/firestore';
+import { useTranslation } from 'react-i18next';
 
 export const ContactDetails = ({ phoneNumber, email, id }: any) => {
+    console.log(id);
     const { user } = useAuth();
+    const { t } = useTranslation('common');
+
+    // When add to favorites button is clicked, first checks if the user has
+    // "favorite_locations" field in the db.
+    // If does: adds the location
+    // if not: creates the field
     const addToFavorites = async () => {
         if (user) {
             // The "userRef" is a reference to the user document in the database
@@ -42,7 +50,7 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
     return (
         <div className="flex flex-col w-full pl-2 text-left">
             <h2 className="font-bold text-center underline underline-offset-8">
-                Contact details
+                {t('contact')}
             </h2>
             <a href={`tel:${phoneNumber}`}>
                 Tel: {phoneNumber ? phoneNumber : 'No phone number provided'}
@@ -54,7 +62,7 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
                 className="border-2 border-blue-800"
                 onClick={addToFavorites}
             >
-                Add to favourites
+                {t('addToFavorite')}
             </button>
         </div>
     );

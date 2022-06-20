@@ -63,7 +63,7 @@ export async function getStaticProps(context: {
 }
 
 export const Details = ({ data }: any): JSX.Element => {
-    console.log(data);
+    console.log('DATA ID:', data.id);
     const [locationName, setLocationName] = React.useState(null);
     const [description, setDescription] = React.useState(null);
     const [calendar, setCalendar] = React.useState(null);
@@ -114,13 +114,18 @@ export const Details = ({ data }: any): JSX.Element => {
 
                         {calendar && <Schedule calendar={calendar} />}
 
-                        {phoneNumber && email ? (
+                        {phoneNumber && email && data.id ? (
                             <ContactDetails
                                 phoneNumber={phoneNumber}
                                 email={email}
+                                id={data.id}
                             />
                         ) : (
-                            <ContactDetails phoneNumber="" email="" />
+                            <ContactDetails
+                                phoneNumber=""
+                                email=""
+                                id={data.id}
+                            />
                         )}
                     </>
                 </div>

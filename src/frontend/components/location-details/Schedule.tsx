@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Schedule = (props: any) => {
+    const { t } = useTranslation('common');
     const { calendar: calendarProp } = props;
     const [schedule, setSchedule] = React.useState<any[]>([]);
     const [calendar, setCalendar] = React.useState(calendarProp ?? []);
@@ -15,7 +17,7 @@ export const Schedule = (props: any) => {
             switch (calendar[i].day) {
                 case 1:
                     result.push({
-                        date: 'Sunday',
+                        date: t('sunday'),
                         time: {
                             start: calendar[i].whens[0].timestart,
                             end: calendar[i].whens[0].timeend,
@@ -24,7 +26,7 @@ export const Schedule = (props: any) => {
                     break;
                 case 2:
                     result.push({
-                        date: 'Monday',
+                        date: t('monday'),
                         time: {
                             start: calendar[i].whens[0].timestart,
                             end: calendar[i].whens[0].timeend,
@@ -33,7 +35,7 @@ export const Schedule = (props: any) => {
                     break;
                 case 3:
                     result.push({
-                        date: 'Tuesday',
+                        date: t('tuesday'),
                         time: {
                             start: calendar[i].whens[0].timestart,
                             end: calendar[i].whens[0].timeend,
@@ -42,7 +44,7 @@ export const Schedule = (props: any) => {
                     break;
                 case 4:
                     result.push({
-                        date: 'Wednesday',
+                        date: t('wednesday'),
                         time: {
                             start: calendar[i].whens[0].timestart,
                             end: calendar[i].whens[0].timeend,
@@ -51,7 +53,7 @@ export const Schedule = (props: any) => {
                     break;
                 case 5:
                     result.push({
-                        date: 'Thursday',
+                        date: t('thursday'),
                         time: {
                             start: calendar[i].whens[0].timestart,
                             end: calendar[i].whens[0].timeend,
@@ -60,7 +62,7 @@ export const Schedule = (props: any) => {
                     break;
                 case 6:
                     result.push({
-                        date: 'Friday',
+                        date: t('friday'),
                         time: {
                             start: calendar[i].whens[0].timestart,
                             end: calendar[i].whens[0].timeend,
@@ -69,7 +71,7 @@ export const Schedule = (props: any) => {
                     break;
                 case 7:
                     result.push({
-                        date: 'Saturday',
+                        date: t('saturday'),
                         time: {
                             start: calendar[i].whens[0].timestart,
                             end: calendar[i].whens[0].timeend,
@@ -85,13 +87,13 @@ export const Schedule = (props: any) => {
         <>
             <div className="w-full">
                 <h2 className="font-bold text-center underline underline-offset-8">
-                    Schedule
+                    {t('schedule')}
                 </h2>
                 <table className="w-full h-auto ml-2 text-sm text-center table-auto">
                     <thead>
                         <tr>
-                            <th>Day</th>
-                            <th>Time</th>
+                            <th>{t('day')}</th>
+                            <th>{t('time')}</th>
                         </tr>
                     </thead>
                     <tbody>
