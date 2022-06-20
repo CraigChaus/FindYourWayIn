@@ -26,7 +26,7 @@ install:
     paths:
       - src/frontend/node_modules
     untracked: false
-    expire_in: 7 days
+    expire_in: 1 day
 
 eslint:
   stage: lint
