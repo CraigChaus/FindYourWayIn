@@ -38,7 +38,9 @@ const GoogleMap = ({
         setFilteredLocations(
             filterByCategory(filterContext.filter, enhancedCategories),
         );
-    }, [locations, dataLocation, filterContext.filter]);
+    }, [locations, filterContext.filter, enhancedCategories]);
+
+    console.log(filteredLocations);
 
     React.useEffect(() => {
         if (mapRef.current && !map) {
@@ -49,7 +51,6 @@ const GoogleMap = ({
     React.useEffect(() => {
         if (map) {
             map.setOptions(options);
-            console.log('update option');
         }
     }, [map]);
 
@@ -61,27 +62,28 @@ const GoogleMap = ({
 
     React.useEffect(() => {
         clearMarkers();
+        if (filteredLocations.length === locations.length - 1) {
+            setMarkers([]);
+        }
 
-        if (filteredLocations.length) {
+        else if (filteredLocations.length) {
             const googleMarkers = [];
             for (let i = 0; i < filteredLocations.length; i++) {
-                for (const el of filteredLocations[i].items) {
+            
                     const marker = new google.maps.Marker({
                         position: {
                             lat: parseFloat(
-                                el.location.address.gisCoordinates[0]
+                                filteredLocations[i].location.address.gisCoordinates[0]
                                     ?.xcoordinate,
                             ),
                             lng: parseFloat(
-                                el.location.address.gisCoordinates[0]
+                                filteredLocations[i].location.address.gisCoordinates[0]
                                     ?.ycoordinate,
                             ),
                         },
                     });
                     googleMarkers.push(marker);
                 }
-            }
-
             setMarkers(googleMarkers);
         }
     }, [dataLocation, filteredLocations]);
