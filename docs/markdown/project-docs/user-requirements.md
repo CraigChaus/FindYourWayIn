@@ -76,13 +76,13 @@ These emphasise the priority of the user requirement: MUST being the greatest fo
 
 Most business and user requirements were acquired during the first meeting with the client. In the first meeting, the client explained what they wanted to accomplish with the future product and how they wanted it to be.  
 
- “*” = 25 April First Client Meeting, TheFeedFactory Company, Walstraat-Deventer 
+ The source details marked with asterisk (*) represents the first meeting, 25 April First Client Meeting, TheFeedFactory Company, Walstraat-Deventer 
 
  ### Business Requirement Source Details
  
 | Referance ID | Requirement Description                                                                    | Source Details |      Attendants     |  
 |--------------|--------------------------------------------------------------------------------------------|----------------|---------------------|
-| Bu01         | Business wants the web application to provide the same information a tourist leaflet would |       *        |  Nils, Arne, Smart Solutions Students, HBO-ICT Group                   |           
+| Bu01         | Business wants the web application to provide the same information a tourist leaflet would |       *        |  Nils, Arne, Smart Solutions Students, HBO-ICT Group                   |                       
 | Bu02         | Business wants the web application to be easily usable in other cities.                    |       *        |   Nils, Arne, Smart Solutions Students, HBO-ICT Group                  |
 | Bu03         | Business wants web application to be used by consumers of any age.                         |       *        |  Nils, Arne, Smart Solutions Students, HBO-ICT Group                   |
 | Bu04         | Business wants web application to help reduce the use of paper travel documents.           |       *        | Nils, Arne, Smart Solutions Students, HBO-ICT Group                    |
@@ -110,14 +110,14 @@ Most business and user requirements were acquired during the first meeting with 
 
 ### Non Functional Requirement Details
 
-| Referance ID | Requirement Description                                                                                      | Source Details                                                                              |
-|--------------|--------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|
-| SNF01        | System can work on mobile devices                                                                            |  *                                                                                          |
-| SNF02        | System can support Dutch, English, German                                                                    | 9 May, Client and 3S Students Meeting, Saxion, Deventer                                     |
-| SNF03        | System can support multiple users connected at once                                                          | *                                                                                           |
-| SNF04        | System can securely encrypt user data and log in a user with authentication                                  | 6 May, Client Meeting, Saxion, Deventer + EU GDPR                                           |
-| SNF05        | System has an uptime of 99%                                                                                  | Analysis: *(See SF07)* Events can occur at any time, which means the system shouldn’t have much downtime |
-| SNF06        | System is easy to navigate through and is aesthetic with its consistent colour scheme                        | Analysis: Based on wireframes from the Smart Solution Students                              |
-| SNF07        | System can be handed over to a third party (Such as a new developer team) with source code and documentation | Analysis: Client said they want to expand the app in the future in the first meeting        |
+| Referance ID | Requirement Description                                                                                      | Source Details                                                                              | Attendants                                          |
+|--------------|--------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------|-----------------------------------------------------|
+| SNF01        | System can work on mobile devices                                                                            |  *                                                                                          | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| SNF02        | System can support Dutch, English, German                                                                    | 9 May, Client and 3S Students Meeting, Saxion, Deventer                                     | Nils, Smart Solution Students, HBO-ICT Group        |
+| SNF03        | System can support multiple users connected at once                                                          | *                                                                                           | Nils, Arne, Smart Solutions Students, HBO-ICT Group |
+| SNF04        | System can securely encrypt user data and log in a user with authentication                                  | 6 May, Client Meeting, Saxion, Deventer + EU GDPR                                           | Nils, HBO-ICT Group                                 |
+| SNF05        | System has an uptime of 99%                                                                                  | Analysis: Events can occur at any time, which means the system shouldn’t have much downtime | -                                                   |
+| SNF06        | System is easy to navigate through and is aesthetic with its consistent colour scheme                        | Analysis: Based on wireframes from the Smart Solution Students                              | -                                                   |
+| SNF07        | System can be handed over to a third party (Such as a new developer team) with source code and documentation | Analysis: Client said they want to expand the app in the future in the first meeting        | -                                                   |
 
 
