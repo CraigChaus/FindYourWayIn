@@ -9,7 +9,7 @@ The abbreviation MSCW means (MUST(M),SHOULD(S), COULD(C) and WOULD(W) ).
 These emphasise the priority of the user requirement: MUST being the greatest followed by SHOULD, COULD and WOULD are of the same priority.
 
 ## Requirements 
-_In this section you can see the requirements. To see when/where or how each requirement was acquired please go to docs/pdf/project-docs/functional design_.
+
 ### Business requirements
 
  | Reference ID | Description                                                                                | MSCW | Source         |
