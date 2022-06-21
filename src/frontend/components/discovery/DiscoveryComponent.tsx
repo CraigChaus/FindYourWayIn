@@ -45,7 +45,7 @@ export const DiscoveryComponent = ({
             value: {
                 iconName: 'shop',
                 icon: (
-                    <Shop className="flex justify-center fill-green-800 mr-2" />
+                    <Shop className="flex justify-center mr-2 fill-green-800" />
                 ),
             },
         },
@@ -54,7 +54,7 @@ export const DiscoveryComponent = ({
             value: {
                 iconName: 'eat',
                 icon: (
-                    <Restaurant className="flex justify-center fill-green-800 mr-2" />
+                    <Restaurant className="flex justify-center mr-2 fill-green-800" />
                 ),
             },
         },
@@ -63,7 +63,7 @@ export const DiscoveryComponent = ({
             value: {
                 iconName: 'activity',
                 icon: (
-                    <ActivityZone className="flex justify-center fill-green-800 mr-3" />
+                    <ActivityZone className="flex justify-center mr-3 fill-green-800" />
                 ),
             },
         },
@@ -72,7 +72,7 @@ export const DiscoveryComponent = ({
             value: {
                 iconName: 'entertainment',
                 icon: (
-                    <Entertainment className="flex justify-center fill-green-800 mr-2" />
+                    <Entertainment className="flex justify-center mr-2 fill-green-800" />
                 ),
             },
         },
@@ -81,7 +81,7 @@ export const DiscoveryComponent = ({
             value: {
                 iconName: 'landscape',
                 icon: (
-                    <Landscape className="flex justify-center fill-green-800 mr-2" />
+                    <Landscape className="flex justify-center mr-2 fill-green-800" />
                 ),
             },
         },
@@ -90,7 +90,7 @@ export const DiscoveryComponent = ({
             value: {
                 iconName: 'attraction',
                 icon: (
-                    <Attraction className="flex justify-center fill-green-800 mr-2" />
+                    <Attraction className="flex justify-center mr-2 fill-green-800" />
                 ),
             },
         },
