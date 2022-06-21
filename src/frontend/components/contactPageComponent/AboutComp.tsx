@@ -30,7 +30,7 @@ const AboutComp = () => {
                                     Thanks to this application, user will be able to see special offers, discounts and upcoming events in your city. Data on discounts and special offers are updated every day so that no one misses the opportunity to take advantage of them. The user of the application can build a route to destinations, as well as save their preferences to make it easier to find them in the future.
 
                                 </p>
-                                <p className="text-base text-body-color leading-relaxed px-2 mb-2">
+                                <p className="text-base text-body-color leading-relaxed px-2 mb-3">
                                     If you want your location to be displayed on our WebApp, please contact us.
 
                                 </p>
@@ -63,14 +63,14 @@ const AboutComp = () => {
                                         </svg>
                                     </div>
                                     <div className="w-full">
-                                        <h4 className="font-bold text-dark text-lg mt-1 ">Our Location</h4>
-                                        <p className="text-base font-bold text-body-color">
+                                        <p className="text-dark text-base mt-1 ">Our Location</p>
+                                        <p className="text-base font-bold text-sky-900 ">
                                             Assenstraat 8,
                                             7411JT Deventer
                                         </p>
                                     </div>
                                 </div>
-                                <div className="flex mb-4 max-w-[370px] w-full">
+                                <div className="flex mb-2 max-w-[370px] w-full ">
                                     <div
                                         className="max-w-[60px]
                      sm:max-w-[70px]
@@ -104,9 +104,9 @@ const AboutComp = () => {
                                         </svg>
                                     </div>
                                     <div className="w-full">
-                                        <h4 className=" text-dark text-lg mt-2 ">Phone Number</h4>
+                                        <h5 className=" text-dark text-base mt-2 ">Phone Number</h5>
 
-                                        <a href="tel:+310851307550" className="Blondie text-base font-bold text-dark">+31 (0)85 130 75 50</a>
+                                        <a href="tel:+310851307550" className="Blondie text-base font-bold text-sky-900">+31 (0)85 130 75 50</a>
                                     </div>
                                 </div>
                                 <div className="flex  max-w-[370px] w-full">
@@ -134,10 +134,10 @@ const AboutComp = () => {
                                         </svg>
                                     </div>
                                     <div className="w-full ">
-                                        <h4 className="font-bold text-dark text-lg">
+                                        <h5 className=" text-dark text-base">
                                             Email Address
-                                        </h4>
-                                        <a  className="text-base font-bold text-dark text-body-color" href = "mailto:support@thefeedfactory.nl?subject = Feedback&body = Message">support@thefeedfactory.nl</a>
+                                        </h5>
+                                        <a  className="text-base font-bold text-dark text-sky-900" href = "mailto:support@thefeedfactory.nl?subject = Feedback&body = Message">support@thefeedfactory.nl</a>
                                     </div>
                                 </div>
                             </div>
