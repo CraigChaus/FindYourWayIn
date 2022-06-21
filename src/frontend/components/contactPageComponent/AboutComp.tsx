@@ -26,7 +26,7 @@ const AboutComp = () => {
                                 >
                                     Let us grow your wealth
                                 </h2>
-                                <p   className="text-base text-body-color  px-2 w-full">
+                                <p   className=" indent-4 text-base text-body-color  px-2 w-full text-justify mb-2">
                                     Thanks to this application, user will be able to see special offers, discounts and upcoming events in your city. Data on discounts and special offers are updated every day so that no one misses the opportunity to take advantage of them. The user of the application can build a route to destinations, as well as save their preferences to make it easier to find them in the future.
 
                                 </p>
