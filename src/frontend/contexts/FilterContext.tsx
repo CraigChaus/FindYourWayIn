@@ -8,7 +8,7 @@ export const FilterContextProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [filter, setFilter] = useState<any>('');
+    const [filter, setFilter] = useState<any>('all');
 
     const handleSetFilter = (filter: string) => {
         setFilter(filter);
