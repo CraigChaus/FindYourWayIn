@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
     faHome,
@@ -24,7 +23,6 @@ export default function Sidebar() {
             href: '/discovery',
         },
         { iconName: faIdCard, content: 'contacts', href: '/about' },
-
     ];
 
     const [showSidebar, setShowSidebar] = React.useState(false);
@@ -103,7 +101,6 @@ export default function Sidebar() {
                                 </li>
                             );
                         })}
-
                     </ul>
                 </div>
             </div>
