@@ -16,14 +16,14 @@ import logoWithoutText from '../../public/logo_without_text.png';
 export default function Sidebar() {
     const { t } = useTranslation('common');
     const icons = [
-        { iconName: faHome, content: 'Main', href: '/home' },
-        { iconName: faCalendar, content: 'Events', href: '/events' },
+        { iconName: faHome, content: 'home', href: '/home' },
+        { iconName: faCalendar, content: 'events', href: '/events' },
         {
             iconName: faMagnifyingGlassLocation,
-            content: 'Discovery',
+            content: 'discovery',
             href: '/discovery',
         },
-        { iconName: faIdCard, content: 'Contacts', href: '/about' },
+        { iconName: faIdCard, content: 'contacts', href: '/about' },
 
     ];
 
