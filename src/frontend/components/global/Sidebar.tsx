@@ -1,8 +1,10 @@
+
 import React from 'react';
 import {
     faHome,
     faCalendar,
     faMagnifyingGlassLocation,
+    faIdCard,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
@@ -14,13 +16,15 @@ import logoWithoutText from '../../public/logo_without_text.png';
 export default function Sidebar() {
     const { t } = useTranslation('common');
     const icons = [
-        { iconName: faHome, content: 'home', href: '/home' },
-        { iconName: faCalendar, content: 'events', href: '/events' },
+        { iconName: faHome, content: 'Main', href: '/home' },
+        { iconName: faCalendar, content: 'Events', href: '/events' },
         {
             iconName: faMagnifyingGlassLocation,
-            content: 'discovery',
+            content: 'Discovery',
             href: '/discovery',
         },
+        { iconName: faIdCard, content: 'Contacts', href: '/about' },
+
     ];
 
     const [showSidebar, setShowSidebar] = React.useState(false);
@@ -99,6 +103,7 @@ export default function Sidebar() {
                                 </li>
                             );
                         })}
+
                     </ul>
                 </div>
             </div>
