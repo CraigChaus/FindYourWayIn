@@ -116,7 +116,7 @@ Most business and user requirements were acquired during the first meeting with 
 | SNF02        | System can support Dutch, English, German                                                                    | 9 May, Client and 3S Students Meeting, Saxion, Deventer                                     |
 | SNF03        | System can support multiple users connected at once                                                          | *                                                                                           |
 | SNF04        | System can securely encrypt user data and log in a user with authentication                                  | 6 May, Client Meeting, Saxion, Deventer + EU GDPR                                           |
-| SNF05        | System has an uptime of 99%                                                                                  | Analysis: Events can occur at any time, which means the system shouldn’t have much downtime |
+| SNF05        | System has an uptime of 99%                                                                                  | Analysis: *(See SF07)* Events can occur at any time, which means the system shouldn’t have much downtime |
 | SNF06        | System is easy to navigate through and is aesthetic with its consistent colour scheme                        | Analysis: Based on wireframes from the Smart Solution Students                              |
 | SNF07        | System can be handed over to a third party (Such as a new developer team) with source code and documentation | Analysis: Client said they want to expand the app in the future in the first meeting        |
 
