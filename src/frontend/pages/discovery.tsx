@@ -5,20 +5,22 @@ import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { FilterContext } from 'contexts/FilterContext';
 
-
 // const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 // const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 //these variables are for the location image and location name data checking stage
 
 export async function getStaticProps({ locale }: any) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations?size=34`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/locations?size=34`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+            },
         },
-    });
+    );
     const data = await res.json();
 
     return {
@@ -30,9 +32,7 @@ export async function getStaticProps({ locale }: any) {
 }
 
 export const Discovery = ({ data }: any): JSX.Element => {
-    const [locationData, setLocationData] = React.useState<
-        any[]
-    >([]);
+    const [locationData, setLocationData] = React.useState<any[]>([]);
 
     const filterContext = useContext(FilterContext);
 
@@ -43,8 +43,8 @@ export const Discovery = ({ data }: any): JSX.Element => {
 
     React.useEffect(() => {
         const total = data.results.length;
-        console.log(total)
-        
+        console.log(total);
+
         //This is the random index number generator based on total number of array elements
         const spotLightPicker =
             (Math.floor(Math.random() * 10) % (total ?? 0)) + (total ? 0 : 0);

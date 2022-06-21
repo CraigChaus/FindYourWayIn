@@ -13,8 +13,12 @@ export const CategoriesButtons = (props: any) => {
                     key={index + 1}
                     className=" flex justify-center h-14 p-3 mt-1"
                 >
-                    <button 
-                        onClick={() => filterContext.handleSetFilter(category.value.iconName)} 
+                    <button
+                        onClick={() =>
+                            filterContext.handleSetFilter(
+                                category.value.iconName,
+                            )
+                        }
                         className="px-3 drop-shadow-md flex flex-raw pt-1 w-auto h-15 mx-2 rounded bg-green-300 hover:bg-green-500 text-black"
                     >
                         {category.value.icon}

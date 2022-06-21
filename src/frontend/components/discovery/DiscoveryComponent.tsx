@@ -17,7 +17,6 @@ import { FilterContext } from 'contexts/FilterContext';
 import { findLocation } from '@utils/filter';
 import broken from '../../public/images/broken.png';
 
-
 export const DiscoveryComponent = ({
     locationData,
     spotID,
@@ -45,7 +44,9 @@ export const DiscoveryComponent = ({
             key: t('categoryShop'),
             value: {
                 iconName: 'shop',
-                icon: <Shop className="flex justify-center fill-green-800 mr-2" />,
+                icon: (
+                    <Shop className="flex justify-center fill-green-800 mr-2" />
+                ),
             },
         },
         {
@@ -100,7 +101,9 @@ export const DiscoveryComponent = ({
 
     useEffect(() => {
         console.log(locationData);
-        setFilteredData(filterByCategory(filterContext.filter, enhancedCategories));
+        setFilteredData(
+            filterByCategory(filterContext.filter, enhancedCategories),
+        );
     }, [filterContext.filter, locationData]);
 
     useEffect(() => {
@@ -128,14 +131,13 @@ export const DiscoveryComponent = ({
                     id: filteredData[i]?.id,
                     imageSRC: locImage.current,
                     imageAlt: 'alt',
-                    locationName: locName.current,  
+                    locationName: locName.current,
                 });
             }
             setDataArray(resultLocation);
         }
     }, [filteredData]);
-    
-        
+
     return (
         <>
             <Navbar />

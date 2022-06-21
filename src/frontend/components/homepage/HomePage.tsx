@@ -49,7 +49,7 @@ const HomePage = ({ locations }: any) => {
     React.useEffect(() => {
         setDataLocation(locations);
     }, [locations, dataLocation, filterContext.filter]);
- 
+
     // populate bottom slider when there is a query
     React.useEffect(() => {
         if (query.id) {

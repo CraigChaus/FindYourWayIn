@@ -64,26 +64,23 @@ const GoogleMap = ({
         clearMarkers();
         if (filteredLocations.length === locations.length - 1) {
             setMarkers([]);
-        }
-
-        else if (filteredLocations.length) {
+        } else if (filteredLocations.length) {
             const googleMarkers = [];
             for (let i = 0; i < filteredLocations.length; i++) {
-            
-                    const marker = new google.maps.Marker({
-                        position: {
-                            lat: parseFloat(
-                                filteredLocations[i].location.address.gisCoordinates[0]
-                                    ?.xcoordinate,
-                            ),
-                            lng: parseFloat(
-                                filteredLocations[i].location.address.gisCoordinates[0]
-                                    ?.ycoordinate,
-                            ),
-                        },
-                    });
-                    googleMarkers.push(marker);
-                }
+                const marker = new google.maps.Marker({
+                    position: {
+                        lat: parseFloat(
+                            filteredLocations[i].location.address
+                                .gisCoordinates[0]?.xcoordinate,
+                        ),
+                        lng: parseFloat(
+                            filteredLocations[i].location.address
+                                .gisCoordinates[0]?.ycoordinate,
+                        ),
+                    },
+                });
+                googleMarkers.push(marker);
+            }
             setMarkers(googleMarkers);
         }
     }, [dataLocation, filteredLocations]);
