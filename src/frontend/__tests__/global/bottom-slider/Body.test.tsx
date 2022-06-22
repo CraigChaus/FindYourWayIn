@@ -1,6 +1,6 @@
 
 import { render, screen } from '@testing-library/react'
-import Body from '../components/global/bottom-slider/Body'
+import Body from '../../../components/global/bottom-slider/Body'
 import '@testing-library/jest-dom'
 
 describe('ContactDetails', () => {

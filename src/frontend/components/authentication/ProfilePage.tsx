@@ -19,24 +19,24 @@ const ProfilePage = (props: any) => {
                     className="w-full mx-6 bg-white rounded-lg lg:w-3/5 lg:rounded-l-lg lg:rounded-r-none drop-shadow-xl opacity-90 lg:mx-0"
                 >
                     <div className="p-4 text-center md:p-12 lg:text-left">
-                        <div className="block lg:hidden   rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-[url('../public/images/profileCat.png')]"></div>
+                        <div className="block lg:hidden rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-[url('../public/images/boringProfile.png')]"></div>
 
                         <div className="flex justify-center pb-2 mx-4 mt-3 mb-3 border-b-2">
-                            <p className="text-2xl font-bold text-black ">
+                            <h2 className="text-2xl font-bold text-black ">
                                 {t('myProfile')}
-                            </p>
+                            </h2>
                         </div>
 
-                        <div className="flex justify-start mb-1">
+                        <div data-cy="profile-username" className="flex justify-start mb-1">
                             <p className="text-gray-500 text-md">
                                 {t('username')}
                             </p>
                         </div>
-                        <div className="flex justify-start bg-white rounded shadow-lg ">
+                        <div data-cy="profile-email" className="flex justify-start bg-white rounded shadow-lg ">
                             <p className="font-bold text-md ">{user.email}</p>
                         </div>
 
-                        <div className="pt-6 pb-6">
+                        <div data-cy="profile-button" className="pt-6 pb-6">
                             <button className="px-4 py-2 font-bold text-white bg-green-700 rounded-full hover:bg-green-900">
                                 {t('preferences')}
                             </button>
@@ -44,8 +44,8 @@ const ProfilePage = (props: any) => {
                     </div>
                 </div>
 
-                <div className="w-full h-full lg:w-2/5">
-                    <div className="  bg-cover bg-no-repeat h-80 mt-28 hidden  rounded-none lg:rounded-lg shadow-2xl lg:block bg-[url('../public/images/profileCat.png')]"></div>
+                <div data-cy="profile-avatar" className="w-full h-full lg:w-2/5">
+                    <div className="bg-cover bg-no-repeat h-80 mt-28 hidden  rounded-none lg:rounded-lg shadow-2xl lg:block bg-[url('../public/images/profileCat.png')]"></div>
                 </div>
             </div>
             <Footer />
