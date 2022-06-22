@@ -1,31 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import DiscoveryComponent from '../components/discovery/DiscoveryComponent';
 import broken from '../public/images/broken.png';
 import Head from 'next/head';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
-type DiscoveryProp = {
-    id: any;
-    imageSRC: any;
-    imageAlt: any;
-    locationName: any;
-};
+import { FilterContext } from 'contexts/FilterContext';
 
 // const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 // const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 //these variables are for the location image and location name data checking stage
-let locImage: any = '';
-let locName: any = ' ';
 
 export async function getStaticProps({ locale }: any) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/locations?size=34`,
+        {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
+            },
         },
-    });
+    );
     const data = await res.json();
 
     return {
@@ -37,9 +32,9 @@ export async function getStaticProps({ locale }: any) {
 }
 
 export const Discovery = ({ data }: any): JSX.Element => {
-    const [locationData, setLocationData] = React.useState<
-        DiscoveryProp[] | null
-    >(null);
+    const [locationData, setLocationData] = React.useState<any[]>([]);
+
+    const filterContext = useContext(FilterContext);
 
     const [spotLightId, setSpotLightId] = React.useState(null);
     const [spotLightName, setSpotLightName] = React.useState<any>(null);
@@ -47,32 +42,8 @@ export const Discovery = ({ data }: any): JSX.Element => {
     const [spotLightImageAlt, setSpotLightImageAlt] = React.useState<any>(null);
 
     React.useEffect(() => {
-        const resultLocation = [];
-
         const total = data.results.length;
         console.log(total);
-
-        for (let i = 0; i < data.results.length; i++) {
-            //data checking stage
-            if (data.results[i]?.files[0]?.hlink == null) {
-                locImage = broken;
-            } else {
-                locImage = data.results[i]?.files[0]?.hlink;
-            }
-
-            if (data.results[i]?.trcItemDetails[0]?.title == '') {
-                locName = 'Under Construction';
-            } else {
-                locName = data.results[i]?.trcItemDetails[0]?.title;
-            }
-
-            resultLocation.push({
-                id: data.results[i]?.id,
-                imageSRC: locImage,
-                imageAlt: 'alt',
-                locationName: locName,
-            });
-        }
 
         //This is the random index number generator based on total number of array elements
         const spotLightPicker =
@@ -95,7 +66,7 @@ export const Discovery = ({ data }: any): JSX.Element => {
         setSpotLightId(data.results[spotLightPicker].id);
         setSpotLightImageAlt('alt');
 
-        setLocationData(resultLocation);
+        setLocationData(data.results);
     }, [data]);
 
     return (

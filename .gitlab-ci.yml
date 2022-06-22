@@ -21,7 +21,7 @@ install:
   stage: build
   script:
     - cd src/frontend
-    - npm i --force
+    - npm ci --force
   artifacts:
     paths:
       - src/frontend/node_modules

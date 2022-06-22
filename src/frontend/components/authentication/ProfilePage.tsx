@@ -19,7 +19,7 @@ const ProfilePage = (props: any) => {
                     className="w-full mx-6 bg-white rounded-lg lg:w-3/5 lg:rounded-l-lg lg:rounded-r-none drop-shadow-xl opacity-90 lg:mx-0"
                 >
                     <div className="p-4 text-center md:p-12 lg:text-left">
-                        <div className="block lg:hidden   rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-[url('../public/images/profileCat.png')]"></div>
+                        <div className="block lg:hidden   rounded-full shadow-xl mx-auto -mt-16 h-48 w-48 bg-cover bg-center bg-[url('../public/images/boringProfile.png')]"></div>
 
                         <div className="flex justify-center pb-2 mx-4 mt-3 mb-3 border-b-2">
                             <p className="text-2xl font-bold text-black ">
@@ -45,7 +45,7 @@ const ProfilePage = (props: any) => {
                 </div>
 
                 <div className="w-full h-full lg:w-2/5">
-                    <div className="  bg-cover bg-no-repeat h-80 mt-28 hidden  rounded-none lg:rounded-lg shadow-2xl lg:block bg-[url('../public/images/profileCat.png')]"></div>
+                    <div className="  bg-cover bg-no-repeat h-80 mt-36 hidden  rounded-none lg:rounded-lg shadow-2xl lg:block bg-[url('../public/images/boringProfile.png')]"></div>
                 </div>
             </div>
             <Footer />
