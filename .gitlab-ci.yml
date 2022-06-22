@@ -21,7 +21,7 @@ install:
   stage: build
   script:
     - cd src/frontend
-    - npm ci --force
+    - npm ci 
   artifacts:
     paths:
       - src/frontend/node_modules
@@ -49,7 +49,14 @@ test:
     NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL
     NEXT_PUBLIC_FEEDFACTORY_API_KEY: $NEXT_PUBLIC_FEEDFACTORY_API_KEY
   stage: test
+  parallel: 5
   script: 
     - cd src/frontend
-    - npm run test
+    - npm run test:e2e
+    - npm run test:component
+  artifacts:
+    paths:
+      - src/frontend/coverage
+    untracked: false
+    expire_in: 1 days
   
