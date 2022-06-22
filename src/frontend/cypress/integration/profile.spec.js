@@ -3,17 +3,15 @@ describe('Profile page - Good weather', () => {
     beforeEach(() => {
         cy.visit('/auth/login');
         cy.get('input[name="auth-email"]')
-            .should('exist')
+            .should('exist')            
             .type('test@gmail.com');
         cy.get('input[name="auth-password"]').should('exist').type('123456');
         cy.get('button').contains('Login').click();
         cy.url().should('contain', '/home');
         cy.visit('/profile');
+    })
 
-
-    });
-    
-    it('Header exists', () => {
+    it('Header exists', () => {     
         cy.get('h2').should('exist');
     });
 
