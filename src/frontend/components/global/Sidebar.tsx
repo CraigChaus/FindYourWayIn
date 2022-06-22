@@ -23,7 +23,7 @@ export default function Sidebar() {
             content: 'discovery',
             href: '/discovery',
         },
-        { iconName: faIdCard, content: 'contacts', href: '/about' },
+        { iconName: faIdCard, content: 'contact', href: '/about' },
 
     ];
 
