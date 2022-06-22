@@ -1,10 +1,11 @@
-import LocationData from "@components/discovery/LocationData";
+
 import React from "react";
+import FavouriteLocation from "./Favouritelocation";
 
 const Tabs = ({color, locations} : any) : JSX.Element => {
 
 
-
+console.log("locations in tab component", locations)
   
 
   const [openTab, setOpenTab] = React.useState(1);
@@ -61,7 +62,11 @@ const Tabs = ({color, locations} : any) : JSX.Element => {
                 <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                   <div className="flex w-full h-auto overflow-x-auto flex-raw scrollbar-hide relative bottom-5">
                       
-                    {/* {locations } */}
+                    {locations && locations.map((location: any, index: number)=>{
+                      return(
+                        <FavouriteLocation key={index} location={location}/>
+                      )
+                    })}
                         
                   </div>
                 </div>

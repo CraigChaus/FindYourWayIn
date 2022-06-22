@@ -50,18 +50,21 @@ const Favourites : NextPage = () =>{
     useEffect(() => {
         console.log("Your fav locations: ", favLocsIDs)
         async function getLocations(locationIDs : string[]) {
-            let data : string[] = [];
-            for (const location of locationIDs) {
-                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations/` + location, {
+            const data : string[] = [];
+            for (let i = 0; i < locationIDs.length; i++) {
+                console.log("location", location)
+                const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations/` + locationIDs[i], {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY}`,
                     },
                 });
-                data = data + await res.json();
+                data[i] = await res.json();
+                console.log(data)
             }
             setFavLocationsFromApi(data)
+            console.log("DATA SET", data)
         }
 
         if(favLocsIDs){
