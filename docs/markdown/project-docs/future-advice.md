@@ -65,6 +65,14 @@ Figure 5.
 ![Figure 5](./assets/Figure 5.png)
 
 
+## Advice Based On Test Results 
+This section gives advice based on testing done by Smart Solution Students which was conducted on 21 June, 2022. Before reading this section please see [the Testing FYWI PDF. ](../../pdf/project-docs/Testing%20FYWI.pdf)
+
+### App Performance
+
+
+### Personalization of Routes
+
 
 
 ### Referenses:
