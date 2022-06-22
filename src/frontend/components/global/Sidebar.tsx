@@ -3,7 +3,7 @@ import {
     faHome,
     faCalendar,
     faMagnifyingGlassLocation,
-    faHeart
+    faHeart,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
@@ -17,7 +17,7 @@ export default function Sidebar() {
     const icons = [
         { iconName: faHome, content: 'home', href: '/home' },
         { iconName: faCalendar, content: 'events', href: '/events' },
-        { iconName: faHeart, content: 'my favourites', href: '/favourites'},
+        { iconName: faHeart, content: 'my favourites', href: '/favourites' },
         {
             iconName: faMagnifyingGlassLocation,
             content: 'discovery',
