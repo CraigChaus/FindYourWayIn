@@ -8,21 +8,11 @@ import { ObjectMarker } from '@components/GoogleMaps/objectMarker';
 import { FilterContext } from 'contexts/FilterContext';
 import { DirectionsRenderer } from '@react-google-maps/api';
 import { categoryList } from '../GoogleMaps/objectMarker';
+import { findLocation } from '@utils/filter';
 
 const HomePage = ({ locations }: any) => {
-    function findLocation(category: any, locations: any) {
-        const result = [];
-        for (const el of category) {
-            for (const location of locations) {
-                if (el.cnetID === location.trcItemCategories.types[0]?.catid) {
-                    result.push(location);
-                }
-            }
-        }
-        return result;
-    }
-
     const enhancedCategories: any[] = [];
+
     categoryList.forEach((cat: any) => {
         const enhancedCategory = {
             categoryName: cat.categorization,
