@@ -27,12 +27,18 @@ const ProfilePage = (props: any) => {
                             </h2>
                         </div>
 
-                        <div data-cy="profile-username" className="flex justify-start mb-1">
+                        <div
+                            data-cy="profile-username"
+                            className="flex justify-start mb-1"
+                        >
                             <p className="text-gray-500 text-md">
                                 {t('username')}
                             </p>
                         </div>
-                        <div data-cy="profile-email" className="flex justify-start bg-white rounded shadow-lg ">
+                        <div
+                            data-cy="profile-email"
+                            className="flex justify-start bg-white rounded shadow-lg "
+                        >
                             <p className="font-bold text-md ">{user.email}</p>
                         </div>
 
@@ -44,7 +50,10 @@ const ProfilePage = (props: any) => {
                     </div>
                 </div>
 
-                <div data-cy="profile-avatar" className="w-full h-full lg:w-2/5">
+                <div
+                    data-cy="profile-avatar"
+                    className="w-full h-full lg:w-2/5"
+                >
                     <div className="bg-cover bg-no-repeat h-80 mt-28 hidden  rounded-none lg:rounded-lg shadow-2xl lg:block bg-[url('../public/images/profileCat.png')]"></div>
                 </div>
             </div>

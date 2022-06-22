@@ -2,8 +2,8 @@
 describe('Seeing all components in descriptions page', () => {
     beforeEach(() => {
         cy.visit('/description/627e41818b779766af333dad');
-    })
-    
+    });
+
     it('Header exists', () => {
         cy.get('h1').should('exist');
     });

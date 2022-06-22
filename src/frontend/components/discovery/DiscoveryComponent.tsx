@@ -142,9 +142,15 @@ export const DiscoveryComponent = ({
         <>
             <Navbar />
             <div className="w-full h-screen text-black bg-white ">
-                <div data-cy="spotlight" className="flex flex-col justify-center w-full h-1/2 ">
+                <div
+                    data-cy="spotlight"
+                    className="flex flex-col justify-center w-full h-1/2 "
+                >
                     <div className="flex justify-center h-1/7">
-                        <h1 data-cy="spotlight-header" className="text-2xl font-bold text-black ">
+                        <h1
+                            data-cy="spotlight-header"
+                            className="text-2xl font-bold text-black "
+                        >
                             {t('spotlight')}
                         </h1>
                     </div>
@@ -181,12 +187,18 @@ export const DiscoveryComponent = ({
                 </div>
 
                 <div className="relative px-5 ">
-                    <div data-cy="category" className="flex w-full h-16 overflow-y-auto border-t-2 border-black flex-raw scrollbar-hide ">
+                    <div
+                        data-cy="category"
+                        className="flex w-full h-16 overflow-y-auto border-t-2 border-black flex-raw scrollbar-hide "
+                    >
                         <CategoriesButtons categories={categories} />
                     </div>
                 </div>
 
-                <div data-cy="location-items" className="relative flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide bottom-5">
+                <div
+                    data-cy="location-items"
+                    className="relative flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide bottom-5"
+                >
                     {dataArray &&
                         dataArray.map((location: any, index: number) => {
                             return (
