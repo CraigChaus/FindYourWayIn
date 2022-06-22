@@ -16,6 +16,14 @@ describe('type in to search bar', ()=>{
         cy.get('div')
         .contains("Speel je Wijs")
         .should("exist")
+            // .get('div').contains('Walstraat 40')
+            //
+            // .click()
+    })
+
+    it("",()=>{
+    cy.get('div').contains('#testSearch')
+        .click()
     })
 
     // TODO: Click on the element 

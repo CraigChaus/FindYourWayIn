@@ -25,7 +25,7 @@ const LocationComponent = (props: any) => {
                     <div className="w-full h-6 text-green-900 ">
                         <p> {location.title}</p>
                     </div>
-                    <div className="w-full h-5 text-sm text-black ">
+                    <div id="testSearch" className="w-full h-5 text-sm text-black ">
                         <p>
                             {' '}
                             {location.street} {location.houseNumber},{' '}
