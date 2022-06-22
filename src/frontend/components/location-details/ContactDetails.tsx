@@ -42,7 +42,10 @@ export const ContactDetails = ({ phoneNumber, email, id }: any) => {
     };
 
     return (
-        <div id='contact_details' className="flex flex-col w-full pl-2 text-left">
+        <div
+            id="contact_details"
+            className="flex flex-col w-full pl-2 text-left"
+        >
             <h2 className="font-bold text-center underline underline-offset-8">
                 {t('contact')}
             </h2>

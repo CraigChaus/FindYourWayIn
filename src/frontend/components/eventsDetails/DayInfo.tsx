@@ -41,7 +41,7 @@ export const DayInfo = ({
                     <div>
                         <Calendar />
                     </div>
-                    <div id='schedule'>
+                    <div id="schedule">
                         <p>{eventday + '/' + eventMonth + '/' + eventYear}</p>
                     </div>
                 </div>
@@ -51,11 +51,11 @@ export const DayInfo = ({
                     </div>
 
                     {timeStart ? (
-                        <p className='time'>
+                        <p className="time">
                             {timeStart} - {timeEnd}
                         </p>
                     ) : (
-                        <p className='time '>{t('inDesc')}</p>
+                        <p className="time ">{t('inDesc')}</p>
                     )}
                 </div>
             </div>

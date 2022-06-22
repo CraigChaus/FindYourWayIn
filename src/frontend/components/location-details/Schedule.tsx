@@ -85,7 +85,7 @@ export const Schedule = (props: any) => {
 
     return (
         <>
-            <div id='schedule' className="w-full">
+            <div id="schedule" className="w-full">
                 <h2 className="font-bold text-center underline underline-offset-8">
                     {t('schedule')}
                 </h2>

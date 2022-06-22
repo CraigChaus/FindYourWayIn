@@ -166,7 +166,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 <div className="px-5">
                     <div className="flex w-full border-b-4 border-white ">
                         <div className="flex justify-center w-1/2 h-full p-3 ">
-                            <div 
+                            <div
                                 data-cy="toggleTab"
                                 className={
                                     toggleState === 1
@@ -180,7 +180,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                         </div>
                         <div className="flex justify-center w-1/2 h-full p-3">
                             <div
-                                 data-cy="toggleTab"
+                                data-cy="toggleTab"
                                 className={
                                     toggleState === 2
                                         ? 'flex justify-center w-full h-15 mx-2 rounded  font-bold text-white  bg-green-800 '
@@ -199,9 +199,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 {currentEvents == null ? (
                     <div
                         className={
-                            toggleState === 1
-                                ? 'mt-8 overflow-y-auto'
-                                : ' h-0'
+                            toggleState === 1 ? 'mt-8 overflow-y-auto' : ' h-0'
                         }
                     >
                         <NoDataCard />
