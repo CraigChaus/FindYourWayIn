@@ -1,16 +1,17 @@
 import Footer from '@components/global/Footer';
 import Navbar from '@components/global/DefaultNavbar';
+import { useTranslation } from 'react-i18next';
 
 const AboutComp = () => {
-
+    const { t } = useTranslation('common');
     return (
         <>
             <Navbar/>
             <body id="bodyAbout" className=" bg-[url('../public/images/imageWalstraat.jpg')]  h-screen w-full bg-cover">
-            <section  id="section" className="pt-2  px-4  h-full font-bold w-full" >
+            <section  id="section" className="w-full h-full px-4 pt-2 font-bold" >
                 <div className="">
-                    <div  className=" lg:justify-between -mx-4">
-                        <div className="w-full  px-4 ">
+                    <div  className="-mx-4 lg:justify-between">
+                        <div className="w-full px-4 ">
                             <div className="">
                                 <h2
                                     className="text-center
@@ -26,11 +27,11 @@ const AboutComp = () => {
                                 >
                                     Let us grow your wealth
                                 </h2>
-                                <p   className=" indent-4 text-base text-body-color  px-2 w-full text-justify mb-2">
+                                <p   className="w-full px-2 text-base text-body-color">
                                     Thanks to this application, user will be able to see special offers, discounts and upcoming events in your city. Data on discounts and special offers are updated every day so that no one misses the opportunity to take advantage of them. The user of the application can build a route to destinations, as well as save their preferences to make it easier to find them in the future.
 
                                 </p>
-                                <p className="text-base text-body-color leading-relaxed px-2 mb-3">
+                                <p className="px-2 mb-2 text-base leading-relaxed text-body-color">
                                     If you want your location to be displayed on our WebApp, please contact us.
 
                                 </p>
@@ -63,8 +64,8 @@ const AboutComp = () => {
                                         </svg>
                                     </div>
                                     <div className="w-full">
-                                        <p className="text-dark text-base mt-1 ">Our Location</p>
-                                        <p className="text-base font-bold text-sky-900 ">
+                                        <h4 className="mt-1 text-lg font-bold text-dark ">Our Location</h4>
+                                        <p className="text-base font-bold text-body-color">
                                             Assenstraat 8,
                                             7411JT Deventer
                                         </p>
@@ -104,9 +105,9 @@ const AboutComp = () => {
                                         </svg>
                                     </div>
                                     <div className="w-full">
-                                        <h5 className=" text-dark text-base mt-2 ">Phone Number</h5>
+                                        <h4 className="mt-2 text-lg text-dark">Phone Number</h4>
 
-                                        <a href="tel:+310851307550" className="Blondie text-base font-bold text-sky-900">+31 (0)85 130 75 50</a>
+                                        <a href="tel:+310851307550" className="text-base font-bold Blondie text-dark">+31 (0)85 130 75 50</a>
                                     </div>
                                 </div>
                                 <div className="flex  max-w-[370px] w-full">
@@ -134,9 +135,9 @@ const AboutComp = () => {
                                         </svg>
                                     </div>
                                     <div className="w-full ">
-                                        <h5 className=" text-dark text-base">
+                                        <h4 className="text-lg font-bold text-dark">
                                             Email Address
-                                        </h5>
+                                        </h4>
                                         <a  className="text-base font-bold text-dark text-sky-900" href = "mailto:support@thefeedfactory.nl?subject = Feedback&body = Message">support@thefeedfactory.nl</a>
                                     </div>
                                 </div>
