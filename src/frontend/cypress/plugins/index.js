@@ -21,6 +21,5 @@ module.exports = (on, config) => {
   // `config` is the resolved Cypress config
   if (config.testingType === 'component') {
     injectNextDevServer(on, config)
-  }
-  return config
+  } 
 }

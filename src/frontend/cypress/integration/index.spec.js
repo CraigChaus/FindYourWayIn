@@ -30,25 +30,25 @@ context('Index Page', () => {
     it('change to Nederlands', () => {
         cy.get('button').first().click();
         cy.get('a').contains('Dutch').click();
-        cy.url().should('eq', 'http://localhost:3000/nl');
+        cy.url().should('contain', '/nl');
     });
 
     it('change to Chinese', () => {
         cy.get('button').first().click();
         cy.get('a').contains('Chinese').click();
-        cy.url().should('eq', 'http://localhost:3000/zh');
+        cy.url().should('contain', '/zh');
     });
 
     it('change to German', () => {
         cy.get('button').first().click();
         cy.get('a').contains('German').click();
-        cy.url().should('eq', 'http://localhost:3000/de');
+        cy.url().should('contain', '/de');
     });
 
     it('change to English', () => {
         cy.get('button').first().click();
         cy.get('a').contains('English').click();
-        cy.url().should('eq', 'http://localhost:3000/');
+        cy.url().should('contain', '/');
     });
 
     it('check continue without login link', () => {

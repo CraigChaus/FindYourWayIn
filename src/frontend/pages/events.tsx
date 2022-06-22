@@ -161,12 +161,13 @@ export const Agenda = ({ data }: any): JSX.Element => {
 
             <div>
                 <h1 className="p-4 pt-20 text-4xl font-bold text-center">
-                    {t('events')}
+                    Events
                 </h1>
                 <div className="px-5">
                     <div className="flex w-full border-b-4 border-white ">
                         <div className="flex justify-center w-1/2 h-full p-3 ">
                             <div
+                                data-cy="toggleTab"
                                 className={
                                     toggleState === 1
                                         ? ' flex justify-center w-full h-30 mx-2 rounded   font-bold text-white  bg-green-800'
@@ -174,11 +175,12 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                 }
                                 onClick={() => toggleTab(1)}
                             >
-                                {t('thisMonth')}
+                                This month
                             </div>
                         </div>
                         <div className="flex justify-center w-1/2 h-full p-3">
-                            <button
+                            <div
+                                data-cy="toggleTab"
                                 className={
                                     toggleState === 2
                                         ? 'flex justify-center w-full h-15 mx-2 rounded  font-bold text-white  bg-green-800 '
@@ -186,8 +188,8 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                 }
                                 onClick={() => toggleTab(2)}
                             >
-                                {t('upcoming')}
-                            </button>
+                                Upcoming
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,9 +199,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 {currentEvents == null ? (
                     <div
                         className={
-                            toggleState === 1
-                                ? 'mt-8 overflow-y-auto'
-                                : 'invisible h-0'
+                            toggleState === 1 ? 'mt-8 overflow-y-auto' : ' h-0'
                         }
                     >
                         <NoDataCard />

@@ -13,6 +13,8 @@ describe('Authenticaton: Logging in Valid Credentials-Good Weather', () => {
 
     it('click login button', () => {
         cy.get('button').contains('Login').click();
+        cy.url().should('eq', 'http://localhost:3000/home');
+        cy.get('[data-testid="login-success').should('exist');
     });
 
     it('check if auth was valid', () => {
@@ -41,14 +43,11 @@ describe('Authenticaton: Logging in Valid Credentials-Bad Weather', () => {
     });
 
     it('type input for password', () => {
-        cy.get('input[name="auth-password"]').should('exist').type('123456');
+        cy.get('input[name="auth-password"]').should('exist').type('12345678');
     });
 
     it('click login', () => {
         cy.get('button').contains('Login').click();
-    });
-
-    it('check if auth was valid', () => {
-        cy.url().should('eq', 'http://localhost:3000/auth/login');
+        cy.get('[data-testid="login-error').should('exist');
     });
 });
