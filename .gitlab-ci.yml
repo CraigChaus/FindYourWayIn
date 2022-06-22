@@ -43,7 +43,6 @@ prettier:
 e2e-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
-  parallel: 5
   script: 
     - cd src/frontend
     - npm run test:e2e
@@ -56,7 +55,6 @@ e2e-test:
 component-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
-  parallel: 3
   script: 
     - cd src/frontend
     - npm run test:component
