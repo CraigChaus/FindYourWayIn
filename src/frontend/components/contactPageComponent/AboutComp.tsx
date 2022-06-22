@@ -13,11 +13,11 @@ const AboutComp = () => {
             >
                 <section
                     id="section"
-                    className="w-full h-full px-4 pt-2 font-bold"
+                    className="pt-2  px-4  h-full font-bold w-full"
                 >
                     <div className="">
-                        <div className="-mx-4 lg:justify-between">
-                            <div className="w-full px-4 ">
+                        <div className=" lg:justify-between -mx-4">
+                            <div className="w-full  px-4 ">
                                 <div className="">
                                     <h2
                                         className="text-center
@@ -33,7 +33,7 @@ const AboutComp = () => {
                                     >
                                         Let us grow your wealth
                                     </h2>
-                                    <p className="w-full px-2 text-base text-body-color">
+                                    <p className=" indent-4 text-base text-body-color  px-2 w-full text-justify mb-2">
                                         Thanks to this application, user will be
                                         able to see special offers, discounts
                                         and upcoming events in your city. Data
@@ -45,7 +45,7 @@ const AboutComp = () => {
                                         as save their preferences to make it
                                         easier to find them in the future.
                                     </p>
-                                    <p className="px-2 mb-2 text-base leading-relaxed text-body-color">
+                                    <p className="text-base text-body-color leading-relaxed px-2 mb-3">
                                         If you want your location to be
                                         displayed on our WebApp, please contact
                                         us.
@@ -77,10 +77,10 @@ const AboutComp = () => {
                                             </svg>
                                         </div>
                                         <div className="w-full">
-                                            <h4 className="mt-1 text-lg font-bold text-dark ">
+                                            <p className="text-dark text-base mt-1 ">
                                                 Our Location
-                                            </h4>
-                                            <p className="text-base font-bold text-body-color">
+                                            </p>
+                                            <p className="text-base font-bold text-sky-900 ">
                                                 Assenstraat 8, 7411JT Deventer
                                             </p>
                                         </div>
@@ -114,13 +114,13 @@ const AboutComp = () => {
                                             </svg>
                                         </div>
                                         <div className="w-full">
-                                            <h4 className="mt-2 text-lg text-dark">
+                                            <h5 className=" text-dark text-base mt-2 ">
                                                 Phone Number
-                                            </h4>
+                                            </h5>
 
                                             <a
                                                 href="tel:+310851307550"
-                                                className="text-base font-bold Blondie text-dark"
+                                                className="Blondie text-base font-bold text-sky-900"
                                             >
                                                 +31 (0)85 130 75 50
                                             </a>
@@ -149,9 +149,9 @@ const AboutComp = () => {
                                             </svg>
                                         </div>
                                         <div className="w-full ">
-                                            <h4 className="text-lg font-bold text-dark">
+                                            <h5 className=" text-dark text-base">
                                                 Email Address
-                                            </h4>
+                                            </h5>
                                             <a
                                                 className="text-base font-bold text-dark text-sky-900"
                                                 href="mailto:support@thefeedfactory.nl?subject = Feedback&body = Message"

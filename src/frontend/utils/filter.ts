@@ -87,11 +87,21 @@ getCategories().then(data => {
 
 function filterByCategory(filter: any, enhancedCategories: any): any[]  {
     const result: any[] = [];
+    if (filter === 'all') {
+        for (const el of enhancedCategories) {
+            for (const chlidEl of el.items) {
+                result.push(chlidEl);
+            }
+        }
+        return result;
+    }
     iconMap.forEach((icon: any) => {
         if (icon.iconName === filter) {
             for (const el of enhancedCategories) {
                 if (icon.category.includes(el.categoryName)) {
-                    result.push(el);
+                    for (const childEl of el.items) {
+                        result.push(childEl);
+                    }
                 }
             }
         }
@@ -99,4 +109,16 @@ function filterByCategory(filter: any, enhancedCategories: any): any[]  {
     return result;
 }
 
-export { iconMap, categoriesRes, filterByCategory, createNewLocation };
+function findLocation(category: any, locations: any) {
+    const result = [];
+    for (const el of category) {
+        for (const location of locations) {
+            if (el.cnetID === location.trcItemCategories.types[0]?.catid) {
+                result.push(location);
+            }
+        }
+    }
+    return result;
+}
+
+export { iconMap, categoriesRes, filterByCategory, createNewLocation, findLocation };

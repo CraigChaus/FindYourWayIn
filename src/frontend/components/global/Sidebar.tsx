@@ -3,6 +3,7 @@ import {
     faHome,
     faCalendar,
     faMagnifyingGlassLocation,
+    faHeart,
     faIdCard,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -17,6 +18,7 @@ export default function Sidebar() {
     const icons = [
         { iconName: faHome, content: 'home', href: '/home' },
         { iconName: faCalendar, content: 'events', href: '/events' },
+        { iconName: faHeart, content: 'my favourites', href: '/favourites' },
         {
             iconName: faMagnifyingGlassLocation,
             content: 'discovery',
@@ -32,7 +34,7 @@ export default function Sidebar() {
     }
 
     return (
-        <>
+        <div>
             <button
                 data-cy="sidebar-button"
                 onClick={handleShowSidebar}
@@ -104,6 +106,6 @@ export default function Sidebar() {
                     </ul>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
