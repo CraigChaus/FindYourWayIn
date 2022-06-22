@@ -11,9 +11,9 @@ import {
 } from 'firebase/firestore';
 import { useTranslation } from 'react-i18next';
 import Call from '../../public/icons/call.svg';
-import Mail from  '../../public/icons/mail.svg';
-import Add from  '../../public/icons/add.svg';
-import Website from  '../../public/icons/largerWebsite.svg'
+import Mail from '../../public/icons/mail.svg';
+import Add from '../../public/icons/add.svg';
+import Website from '../../public/icons/largerWebsite.svg';
 
 export const ContactDetails = ({ phoneNumber, email, id, website }: any) => {
     console.log(id);
@@ -53,27 +53,22 @@ export const ContactDetails = ({ phoneNumber, email, id, website }: any) => {
 
     return (
         <div className="flex flex-col w-full  pt-4 space-y-2 text-left">
-            <div className='flex text-lg font-medium'>
-            <Call 
-                className = 'mr-4'
-                />
+            <div className="flex text-lg font-medium">
+                <Call className="mr-4" />
                 <a href={`tel:${phoneNumber}`}>
-                     {phoneNumber ? phoneNumber : 'No phone number provided'}
-                </a>            </div>
+                    {phoneNumber ? phoneNumber : 'No phone number provided'}
+                </a>{' '}
+            </div>
 
-            <div className='flex text-lg font-medium'>
-                <Mail
-                className = 'mr-4'
-                />
+            <div className="flex text-lg font-medium">
+                <Mail className="mr-4" />
                 <a href={`mailto:${email}`}>
                     {email ? email : 'No email provided'}
                 </a>
             </div>
-            <div className='flex text-lg font-medium' >
-                <Website
-                className = 'mr-4'
-                />
-                 <a href={website}>
+            <div className="flex text-lg font-medium">
+                <Website className="mr-4" />
+                <a href={website}>
                     {website ? website : 'No website provided'}
                 </a>
             </div>
@@ -81,9 +76,7 @@ export const ContactDetails = ({ phoneNumber, email, id, website }: any) => {
                 className="flex border-2 border-green-800 rounded-lg text-white bg-green-800 items-center justify-center text-xl font-semibold"
                 onClick={addToFavorites}
             >
-                <Add
-                className='fill-white'
-                />
+                <Add className="fill-white" />
                 {t('addToFavorite')}
             </button>
         </div>

@@ -73,7 +73,6 @@ export const Details = ({ data }: any): JSX.Element => {
     const [email, setEmail] = React.useState(null);
     const [website, setWebsite] = React.useState(null);
 
-
     React.useEffect(() => {
         if (data.calendar.patternDates[0]) {
             setCalendar(data.calendar.patternDates[0].opens);
@@ -112,14 +111,13 @@ export const Details = ({ data }: any): JSX.Element => {
                                 phoneNumber={phoneNumber}
                                 email={email}
                                 id={data.id}
-                                website ={website}
+                                website={website}
                             />
                         ) : (
                             <ContactDetails
                                 phoneNumber=""
                                 email=""
                                 id={data.id}
-
                             />
                         )}
                     </>
