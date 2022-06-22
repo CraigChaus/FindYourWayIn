@@ -26,11 +26,6 @@ install:
   script:
     - cd src/frontend
     - npm ci --force
-  artifacts:
-    paths:
-      - src/frontend/node_modules
-    untracked: false
-    expire_in: 1 day
 
 eslint:
   stage: lint
