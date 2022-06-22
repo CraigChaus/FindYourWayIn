@@ -69,7 +69,7 @@ Figure 5.
 This section gives advice based on testing done by Smart Solution Students which was conducted on 21 June, 2022. Before reading this section please see [the Testing FYWI PDF. ](../../pdf/project-docs/Testing%20FYWI.pdf)
 
 ### App Performance
-
+One constructive feedback mentioned about the app is the performance regarding speed. The issue causing this is simply how the app uses data from many external sources like the FeedFactory. One of the technologies that we used is called "Next.js". Next.js is used for rendering data and improved the performance of the application. However, we have not used it to its full potential due to time limitation. The next developer team that works on the application can make more use of this technology to improve the load times.
 
 ### Personalization of Routes
 
