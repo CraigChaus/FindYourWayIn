@@ -9,9 +9,7 @@ export const getStaticProps = async ({ locale }: any) => ({
 });
 
 const About = () => {
-    return (
-        <AboutComp/>
-    );
+    return <AboutComp />;
 };
 
 export default About;

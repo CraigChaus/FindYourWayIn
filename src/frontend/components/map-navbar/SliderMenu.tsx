@@ -20,7 +20,9 @@ export default function SliderMenu() {
             key: t('categoryShop'),
             value: {
                 iconName: 'shop',
-                icon: <Shop className="flex justify-center fill-green-800 stroke-green-800" />,
+                icon: (
+                    <Shop className="flex justify-center fill-green-800 stroke-green-800" />
+                ),
             },
         },
         {
