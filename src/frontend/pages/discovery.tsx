@@ -101,7 +101,7 @@ export const Discovery = ({ data }: any): JSX.Element => {
     return (
         <>
             <Head>
-                <title>Find Your Way In</title>
+                <title>Discovery</title>
                 <meta
                     name="viewport"
                     content="initial-scale=1.0, width=device-width"
