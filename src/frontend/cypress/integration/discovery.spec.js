@@ -21,7 +21,6 @@ describe('Discovery page', () => {
 
     it('should contain location items', () => {
         cy.get('[data-cy="location-items"]').should('exist');
-        cy.get('[data-cy="location-items"]').children().should('exist');
-
+        cy.get('[data-cy="location-items"]').should('have.length', 1);
     })
 })

@@ -186,7 +186,7 @@ export const DiscoveryComponent = ({
                     </div>
                 </div>
 
-                <div className="relative flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide bottom-5">
+                <div data-cy="location-items" className="relative flex w-full h-auto overflow-y-auto flex-raw scrollbar-hide bottom-5">
                     {dataArray &&
                         dataArray.map((location: any, index: number) => {
                             return (
