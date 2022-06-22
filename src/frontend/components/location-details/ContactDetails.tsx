@@ -52,7 +52,10 @@ export const ContactDetails = ({ phoneNumber, email, id, website }: any) => {
     };
 
     return (
-        <div id="contact_details" className="flex flex-col w-full pt-4 space-y-2 text-left">
+        <div
+            id="contact_details"
+            className="flex flex-col w-full pt-4 space-y-2 text-left"
+        >
             <div className="flex text-lg font-medium">
                 <Call className="mr-4" />
                 <a href={`tel:${phoneNumber}`}>
