@@ -120,7 +120,7 @@ The test plan is seperated into user stories in the order of their SPRINT priori
 
 | **Item to Test**    |                                 **Test Description**                                  |**Test environment/manner**|
 |---------------------|:-------------------------------------------------------------------------------------:|---------------------------|
-| Spotlight component | Merged with User Story 7 test plan because they are on the same page( Discovery page) | Manually, Cypress         |
+| Spotlight component | Merged with User Story 3 test plan because they are on the same page( Discovery page) | Manually, Cypress         |
 
 ### 2.2.12 User Story 11
 
