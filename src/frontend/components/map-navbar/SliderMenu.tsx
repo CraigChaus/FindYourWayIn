@@ -20,7 +20,9 @@ export default function SliderMenu() {
             key: t('categoryShop'),
             value: {
                 iconName: 'shop',
-                icon: <Shop className="flex justify-center fill-green-800" />,
+                icon: (
+                    <Shop className="flex justify-center fill-green-800 stroke-green-800" />
+                ),
             },
         },
         {
@@ -28,7 +30,7 @@ export default function SliderMenu() {
             value: {
                 iconName: 'eat',
                 icon: (
-                    <Restaurant className="flex justify-center fill-green-800" />
+                    <Restaurant className="flex justify-center fill-green-800 stroke-green-800" />
                 ),
             },
         },
@@ -37,7 +39,7 @@ export default function SliderMenu() {
             value: {
                 iconName: 'activity',
                 icon: (
-                    <ActivityZone className="flex justify-center fill-green-800" />
+                    <ActivityZone className="flex justify-center fill-green-800 stroke-green-800" />
                 ),
             },
         },
@@ -46,7 +48,7 @@ export default function SliderMenu() {
             value: {
                 iconName: 'entertainment',
                 icon: (
-                    <Entertainment className="flex justify-center fill-green-800" />
+                    <Entertainment className="flex justify-center fill-green-800 stroke-green-800" />
                 ),
             },
         },
@@ -55,7 +57,7 @@ export default function SliderMenu() {
             value: {
                 iconName: 'landscape',
                 icon: (
-                    <Landscape className="flex justify-center fill-green-800" />
+                    <Landscape className="flex justify-center fill-green-800 stroke-green-800" />
                 ),
             },
         },
@@ -64,7 +66,7 @@ export default function SliderMenu() {
             value: {
                 iconName: 'attraction',
                 icon: (
-                    <Attraction className="flex justify-center fill-green-800" />
+                    <Attraction className="flex justify-center fill-green-800 stroke-green-800" />
                 ),
             },
         },
