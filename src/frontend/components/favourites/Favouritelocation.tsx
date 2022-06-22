@@ -1,39 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import broken from '/public/images/broken.png';
 import Image from 'next/image';
 import router from "next/router";
 
 let locImage
-let locID : string
 
 export default function FavouriteLocation(location : any) {
+    const [locID, setLocID] = React.useState()
     console.log("card", location)
     if (location.location?.files[0]?.hlink == null) {
             locImage = broken;
         } else {
             locImage = location.location?.files[0]?.hlink;
-        }
+    }
 
-    if(location) {
+    useEffect(()=>{
+        if(location) {
         console.log("favou", location, location.location.trcItemDetails[0].title)
         
-        locID = location.location?.id
-    }
+        setLocID(location.location?.id)
+}
+    }, [location])
+    
 
 
     return(
-        <div className="flex flex-col">
+        <div className="flex rounded-xl my-1 outline-offset-2 flex-col bg-white border-0.5 border-indigo-900 drop-shadow-md">
             <Image
-                className=" rounded "
+                className="rounded-t-xl w-full"
                 onClick={() =>
                     router.push(`description/${locID}`)
                 }
                 src={locImage}
                 alt={"Location Image"}
-                width={400}
-                height={400}
+                width={350}
+                height={250}
             />
-            <div> {location.location.trcItemDetails[0].title} </div>
+            <div className="p-1 font-semibold"> {location.location.trcItemDetails[0].title} </div>
+            <div className="px-1 pb-1"> {location.location.location.address.street} {location.location.location.address.housenr}, {location.location.location.address.city}</div>
+           
         </div>
     )
 

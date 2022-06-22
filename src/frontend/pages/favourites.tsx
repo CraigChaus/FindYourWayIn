@@ -82,12 +82,14 @@ const Favourites : NextPage = () =>{
 
     return <>
         
-        <div className="h-screen bg-landing-page bg-cover">
-            <div className="flex flex-col h-screen bg-gray-600 bg-opacity-70">
-                <Navbar />
-                
-                
-                <TabSwitch locations={favLocationsFromApi}/>
+        <div className="h-screen bg-cover">
+            <div className="flex w-full flex-col h-screen  bg-opacity-70">
+                <div className='z-20'>
+                    <Navbar />
+                </div>
+                <div className=" overflow-y-auto" >
+                    <TabSwitch locations={favLocationsFromApi}/>
+                </div>
                 
 
             </div>
