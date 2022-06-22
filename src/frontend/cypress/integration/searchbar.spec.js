@@ -18,9 +18,9 @@ describe('type in to search bar', () => {
         // .click()
     });
 
-    it('', () => {
-        cy.get('div').contains('#testSearch').click();
-    });
+    // it('', () => {
+    //     cy.get('div').contains('#testSearch').click();
+    // });
 
     // TODO: Click on the element
 
