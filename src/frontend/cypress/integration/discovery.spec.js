@@ -4,11 +4,11 @@ describe('Discovery page', () => {
         cy.visit('/discovery');
     });
 
-    it('should display Spotlight'), () => {
+    it('should display Spotlight', () => {
         cy.get('[data-cy="spotlight"]').should('exist');
         cy.get('[data-cy="spotlight-header"]').should('contain', 'Spotlight');
-        cy.get('img').should('have.attr', 'alt', 'alt');
-    };
+        cy.get('img').should('have.attr', 'alt');
+    });
 
     it('click on spotlight button', () => {
         cy.get('[data-cy="spotlight-button"]').click();
