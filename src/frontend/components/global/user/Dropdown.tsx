@@ -22,7 +22,7 @@ export default function UserDropdown() {
     return (
         <div>
             <Menu as="div" className="relative inline-block text-center">
-                <div>
+                <div data-cy="user-dropdown">
                     <Menu.Button>
                         <UserButton />
                     </Menu.Button>
@@ -63,6 +63,7 @@ export default function UserDropdown() {
                                 <Menu.Item>
                                     {({ active }) => (
                                         <button
+                                            data-cy="logout-button"
                                             className={`${
                                                 active
                                                     ? 'bg-green-800 text-white'

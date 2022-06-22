@@ -26,6 +26,12 @@ describe('Profile page - Good weather', () => {
 });
 
 describe('Profile page - Bad weather', () => {
+    before(() => {
+        cy.visit('/home');
+        cy.get('[data-cy="user-dropdown"]').click();
+        cy.get('[data-cy="logout-button"]').click();
+    });
+    
     it('Link to login', () => {
         cy.visit('/profile');
         cy.get('h1').should('eq', 'You are not logged in');
