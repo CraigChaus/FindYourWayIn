@@ -24,12 +24,12 @@ cache:
 install:
   stage: build
   cache:
-    policy: push
     paths: 
     - .npm/
     - node_modules/
     - cache/Cypress
     - cache/*
+    policy: push
   script:
     - cd src/frontend
     - npm ci --force
@@ -37,12 +37,12 @@ install:
 eslint:
   stage: lint
   cache:
-    policy: pull
     paths: 
     - .npm/
     - node_modules/
     - cache/Cypress
     - cache/*
+    policy: pull
   script:
     - cd src/frontend
     - npm run lint
@@ -51,12 +51,12 @@ eslint:
 prettier:
   stage: lint
   cache:
-    policy: pull
     paths: 
     - .npm/
     - node_modules/
     - cache/Cypress
     - cache/*
+    policy: pull
   script:
     - cd src/frontend  
     - npm run prettier
@@ -65,12 +65,12 @@ e2e-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
   cache: 
-    policy: pull
     paths: 
     - .npm/
     - node_modules/
     - cache/Cypress
     - cache/*
+    policy: pull
   script: 
     - cd src/frontend
     - npm run test:e2e
@@ -84,12 +84,12 @@ component-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
   cache: 
-    policy: pull
     paths: 
     - .npm/
     - node_modules/
     - cache/Cypress
     - cache/*
+    policy: pull
   script: 
     - cd src/frontend
     - npm run test:component
