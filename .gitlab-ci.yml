@@ -17,7 +17,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG} 
   paths: 
     - .npm/
-    - src/frontend/node_modules/
+    - src/frontend/node_modules
     - cache/Cypress
     - cache/*
 
@@ -26,7 +26,7 @@ install:
   cache: 
     paths: 
       - .npm/
-      - src/frontend/node_modules/
+      - src/frontend/node_modules
       - cache/*
     policy: push
   script:
@@ -38,7 +38,7 @@ prettier:
   cache: 
     paths: 
       - .npm/
-      - node_modules/
+      - src/frontend/node_modules
       - cache/*
     policy: pull
   script:
@@ -50,7 +50,7 @@ eslint:
   cache: 
     paths: 
       - .npm/
-      - node_modules/
+      - src/frontend/node_modules
       - cache/Cypress
       - cache/*
     policy: pull
@@ -64,7 +64,7 @@ e2e-test:
   cache: 
     paths: 
     - .npm/
-    - node_modules/
+    - src/frontend/node_modules
     - cache/Cypress
     - cache/*
     policy: pull
@@ -83,7 +83,7 @@ component-test:
   cache: 
     paths: 
     - .npm/
-    - node_modules/
+    - src/frontend/node_modules
     - cache/Cypress
     - cache/*
     policy: pull
