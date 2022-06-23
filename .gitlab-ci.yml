@@ -25,6 +25,11 @@ install:
   stage: build
   cache:
     policy: push
+    paths: 
+    - .npm/
+    - node_modules/
+    - cache/Cypress
+    - cache/*
   script:
     - cd src/frontend
     - npm ci --force
@@ -33,6 +38,11 @@ eslint:
   stage: lint
   cache:
     policy: pull
+    paths: 
+    - .npm/
+    - node_modules/
+    - cache/Cypress
+    - cache/*
   script:
     - cd src/frontend
     - npm run lint
@@ -42,6 +52,11 @@ prettier:
   stage: lint
   cache:
     policy: pull
+    paths: 
+    - .npm/
+    - node_modules/
+    - cache/Cypress
+    - cache/*
   script:
     - cd src/frontend  
     - npm run prettier
@@ -51,6 +66,11 @@ e2e-test:
   stage: test
   cache: 
     policy: pull
+    paths: 
+    - .npm/
+    - node_modules/
+    - cache/Cypress
+    - cache/*
   script: 
     - cd src/frontend
     - npm run test:e2e
@@ -65,6 +85,11 @@ component-test:
   stage: test
   cache: 
     policy: pull
+    paths: 
+    - .npm/
+    - node_modules/
+    - cache/Cypress
+    - cache/*
   script: 
     - cd src/frontend
     - npm run test:component
