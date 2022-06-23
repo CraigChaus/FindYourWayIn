@@ -19,7 +19,7 @@ cache:
     - .npm/
     - src/frontend/node_modules/
     - cache/Cypress
-    - .cache/*
+    - cache/*
 
 install:
   stage: build
@@ -29,8 +29,8 @@ install:
 
 eslint:
   stage: lint
-  cache:
-    policy: pull
+  # cache:
+  #   policy: pull
   script:
     - cd src/frontend
     - npm run lint
