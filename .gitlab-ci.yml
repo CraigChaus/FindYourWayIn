@@ -23,18 +23,37 @@ cache:
 
 install:
   stage: build
+  cache: 
+    paths: 
+      - .npm/
+      - node_modules/
+      - cache/*
+    policy: pull
   script:
     - cd src/frontend
     - npm ci --force
 
 prettier:
   stage: lint
+  cache: 
+    paths: 
+      - .npm/
+      - node_modules/
+      - cache/*
+    policy: pull
   script:
     - cd src/frontend  
     - npm run prettier
 
 eslint:
   stage: lint
+  cache: 
+    paths: 
+      - .npm/
+      - node_modules/
+      - cache/Cypress
+      - cache/*
+    policy: push
   script:
     - cd src/frontend
     - npm run lint
