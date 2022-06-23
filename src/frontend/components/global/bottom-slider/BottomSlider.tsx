@@ -52,7 +52,7 @@ const BottomSlider = ({
     return (
         <div
             data-cy="bottomSlider"
-            className="bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-gray-50 sticky top-[100vh]"
+            className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-gray-50"
         >
             <ImageContainer
                 src={image ? image : brokenImage}
