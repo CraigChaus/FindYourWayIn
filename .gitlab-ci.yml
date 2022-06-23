@@ -27,18 +27,17 @@ install:
     - cd src/frontend
     - npm ci --force
 
-eslint:
-  stage: lint
-  script:
-    - cd src/frontend
-    - npm run lint
-    
-
 prettier:
   stage: lint
   script:
     - cd src/frontend  
     - npm run prettier
+
+eslint:
+  stage: lint
+  script:
+    - cd src/frontend
+    - npm run lint
 
 e2e-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
