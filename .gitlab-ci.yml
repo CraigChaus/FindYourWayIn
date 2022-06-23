@@ -17,20 +17,22 @@ cache:
   key: ${CI_COMMIT_REF_SLUG}
   paths: 
     - .npm/
-    - src/frontend/node_modules/
+    - node_modules/
     - cache/Cypress
     - cache/*
 
 install:
   stage: build
+  cache:
+    policy: push
   script:
     - cd src/frontend
     - npm ci --force
 
 eslint:
   stage: lint
-  # cache:
-  #   policy: pull
+  cache:
+    policy: pull
   script:
     - cd src/frontend
     - npm run lint
