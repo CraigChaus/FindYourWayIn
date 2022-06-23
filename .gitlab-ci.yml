@@ -40,7 +40,6 @@ eslint:
     paths: 
     - .npm/
     - node_modules/
-    - cache/Cypress
     - cache/*
     policy: pull
   script:
@@ -54,7 +53,6 @@ prettier:
     paths: 
     - .npm/
     - node_modules/
-    - cache/Cypress
     - cache/*
     policy: pull
   script:
