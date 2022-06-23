@@ -28,7 +28,7 @@ install:
       - .npm/
       - node_modules/
       - cache/*
-    policy: pull
+    policy: push
   script:
     - cd src/frontend
     - npm ci --force
@@ -53,7 +53,7 @@ eslint:
       - node_modules/
       - cache/Cypress
       - cache/*
-    policy: push
+    policy: pull
   script:
     - cd src/frontend
     - npm run lint
