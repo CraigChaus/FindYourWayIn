@@ -33,7 +33,7 @@ describe('Seeing all components in event details page', () => {
     beforeEach(() => {
         cy.visit('/events/620bc8cf17632a654027749d');
     });
-    
+
     it('Image should be present', () => {
         cy.get('img').should('exist');
     });

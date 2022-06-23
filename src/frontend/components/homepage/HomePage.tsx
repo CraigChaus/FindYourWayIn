@@ -73,7 +73,11 @@ const HomePage = ({ locations }: any) => {
                     enhancedCategories={enhancedCategories}
                     center={{ lat, lng }}
                     zoom={zoom}
-                    style={{ width: '100%', height: '100%', position: 'absolute' }}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                    }}
                     clickableIcons={false}
                     mapId="9c7cb3e171b411ff"
                     gestureHandling={'greedy'}
