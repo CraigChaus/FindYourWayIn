@@ -23,12 +23,16 @@ cache:
 
 install:
   stage: build
+  cache:
+    policy: push
   script:
     - cd src/frontend
     - npm ci --force
 
 eslint:
   stage: lint
+  cache:
+    policy: pull
   script:
     - cd src/frontend
     - npm run lint
@@ -36,6 +40,8 @@ eslint:
 
 prettier:
   stage: lint
+  cache:
+    policy: pull
   script:
     - cd src/frontend  
     - npm run prettier
@@ -43,6 +49,8 @@ prettier:
 e2e-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
+  cache: 
+    policy: pull
   script: 
     - cd src/frontend
     - npm run test:e2e
@@ -55,6 +63,8 @@ e2e-test:
 component-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
+  cache: 
+    policy: pull
   script: 
     - cd src/frontend
     - npm run test:component
