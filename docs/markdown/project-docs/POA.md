@@ -258,11 +258,18 @@ The team has agreed upon the definition of done for the project. The following i
 - All the backlog items belonging to the user story are reviewed and tested according to the test plan.
 - All the backlog items belonging to the user story are merged to the "main" codebase.
 
-#### 8.8.2 Testing plan
+#### 8.8.2. Code quality
+##### 8.8.2.1 Testing plan
 
 The testing plan is a document that outlines the testing activities that are required to be performed on the backlog item. Each backlog item will have a different set of testing activities to be conducted. 
 
+We combine manual testing by writing test cases report and automated testing which are the test files that are created inside the codebase.
+
 Detailed information about the testing activities can be found in the [Test Plan](test-plan.md) document.
+
+##### 8.8.2.2. Linting rules and code conventions
+
+The linting rules and code conventions are a set of rules that are used to ensure that the code is written in a consistent manner and format. We are going to utilize linting tools such as ESLint and Prettier to enforce the rules and code style, which will be explained in the [Linting rules](linting-rules.md) document.
 
 #### 8.8.3. Reviewing plan
 
@@ -271,6 +278,9 @@ For every backlog item, a team member will be assigned to review the work of the
 - Testing the backlog item by following the test activities in the testing plan
 - Approve the issue if the backlog item is done according to the definition of done. The backlog issue must go through the approval of the assigned reviewer before it can be merged to the target branch.
 - Merge the issue to the target branch after the issue is approved
+
+
+
 
 
 ## 9. Timeline

@@ -15,16 +15,13 @@ const UserLocationMarker: React.FC<MarkerProps> = ({
 
     React.useEffect(() => {
         if (userMarker && navigator.geolocation) {
-            console.log('NAVIGATOR CALLED');
             navigator.geolocation.getCurrentPosition((pos) => {
                 const position = pos.coords;
                 if (position) {
-                    console.log(position.latitude, 'states updated');
                     setLat(position.latitude);
                     setLng(position.longitude);
                 }
             });
-            console.log('NAVIGATOR geolocation received');
             navigator.geolocation.watchPosition((pos) => {
                 const position = pos.coords;
                 if (position) {

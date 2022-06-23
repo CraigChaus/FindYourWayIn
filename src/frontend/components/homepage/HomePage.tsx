@@ -1,31 +1,18 @@
-import UserLocationMarker from '@components/GoogleMaps/userLocationMarker';
-// import LocationMarker from '@components/homepage/LocationMarker';
-import Navbar from '@components/map-navbar/MapNavbar';
+import UserLocationMarker from '../../components/GoogleMaps/userLocationMarker';
+import Navbar from '../../components/map-navbar/MapNavbar';
 import React, { useContext, useState } from 'react';
-import GoogleAutocomplete from '../GoogleMaps/GoogleAutocomplete';
 import GoogleMap from '../GoogleMaps/GoogleMap';
 import Router, { useRouter } from 'next/router';
-import BottomSlider from '@components/global/bottom-slider/BottomSlider';
-import { ObjectMarker } from '@components/GoogleMaps/objectMarker';
+import BottomSlider from '../../components/global/bottom-slider/BottomSlider';
+import { ObjectMarker } from '../../components/GoogleMaps/objectMarker';
 import { FilterContext } from 'contexts/FilterContext';
 import { DirectionsRenderer } from '@react-google-maps/api';
-import { categoriesRes, iconMap, filterByCategory } from '@utils/filter';
 import { categoryList } from '../GoogleMaps/objectMarker';
+import { findLocation } from '@utils/filter';
 
 const HomePage = ({ locations }: any) => {
-    function findLocation(category: any, locations: any) {
-        const result = [];
-        for (const el of category) {
-            for (const location of locations) {
-                if (el.cnetID === location.trcItemCategories.types[0]?.catid) {
-                    result.push(location);
-                }
-            }
-        }
-        return result;
-    }
-
     const enhancedCategories: any[] = [];
+
     categoryList.forEach((cat: any) => {
         const enhancedCategory = {
             categoryName: cat.categorization,
@@ -57,12 +44,13 @@ const HomePage = ({ locations }: any) => {
     React.useEffect(() => {
         if (!mounted) return;
         geocoder.geocode({ location: { lat, lng } });
-    }, [geocoder, lat, lng, mounted]);
+    }, [lat, lng, mounted]);
 
     React.useEffect(() => {
         setDataLocation(locations);
     }, [locations, dataLocation, filterContext.filter]);
 
+    // populate bottom slider when there is a query
     React.useEffect(() => {
         if (query.id) {
             for (const location of dataLocation) {
@@ -75,7 +63,7 @@ const HomePage = ({ locations }: any) => {
 
     return (
         <>
-            <div className="flex flex-col w-full h-full overflow-hidden">
+            <div className="relative flex flex-col w-full h-full">
                 <Navbar
                     setBottomSlider={setBottomSlider}
                     dataLocation={dataLocation}
@@ -85,7 +73,11 @@ const HomePage = ({ locations }: any) => {
                     enhancedCategories={enhancedCategories}
                     center={{ lat, lng }}
                     zoom={zoom}
-                    style={{ width: '100%', height: '100%' }}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                    }}
                     clickableIcons={false}
                     mapId="9c7cb3e171b411ff"
                     gestureHandling={'greedy'}

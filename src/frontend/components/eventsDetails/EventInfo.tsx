@@ -7,10 +7,11 @@ export const EventInfo = ({ description, website }: any) => {
             <div>
                 <div className="mt-4 space-y-2  ">
                     <p
+                        id="description_content"
                         className="text-left text-sm"
                         dangerouslySetInnerHTML={{ __html: description }}
                     ></p>
-                    <div className="flex pb-4">
+                    <div className="flex pb-4" id="website">
                         <Website />
                         {website ? (
                             <a href={website}>
