@@ -23,35 +23,40 @@ cache:
 
 install:
   stage: build
-  cache:
+  cache: 
     paths: 
-    - .npm/
-    - node_modules/
-    - cache/Cypress
-    - cache/*
+      - .npm/
+      - node_modules/
+      - cache/*
     policy: push
   script:
     - cd src/frontend
     - npm ci --force
 
-eslint:
-  stage: lint
-  script:
-    - cd src/frontend
-    - npm run lint
-    
-
 prettier:
   stage: lint
-  cache:
+  cache: 
     paths: 
-    - .npm/
-    - node_modules/
-    - cache/*
+      - .npm/
+      - node_modules/
+      - cache/*
     policy: pull
   script:
     - cd src/frontend  
     - npm run prettier
+
+eslint:
+  stage: lint
+  cache: 
+    paths: 
+      - .npm/
+      - node_modules/
+      - cache/Cypress
+      - cache/*
+    policy: pull
+  script:
+    - cd src/frontend
+    - npm run lint
 
 e2e-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
