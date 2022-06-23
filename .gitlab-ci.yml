@@ -17,7 +17,7 @@ cache:
   key: ${CI_COMMIT_REF_SLUG} 
   paths: 
     - .npm/
-    - node_modules/
+    - src/frontend/node_modules/
     - cache/Cypress
     - cache/*
 
