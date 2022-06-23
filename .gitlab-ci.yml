@@ -14,7 +14,7 @@ variables:
   NEXT_PUBLIC_FEEDFACTORY_API_KEY: $NEXT_PUBLIC_FEEDFACTORY_API_KEY
 
 cache: 
-  key: ${CI_COMMIT_REF_SLUG}
+  key: ${CI_COMMIT_REF_SLUG} 
   paths: 
     - .npm/
     - node_modules/
@@ -37,6 +37,7 @@ install:
 eslint:
   stage: lint
   cache:
+    key: ${CI_COMMIT_REF_SLUG} 
     paths: 
     - .npm/
     - node_modules/
