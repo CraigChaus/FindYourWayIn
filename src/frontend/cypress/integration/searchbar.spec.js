@@ -21,10 +21,22 @@ describe('type in to search bar', ()=>{
             // .click()
     })
 
-    it("",()=>{
-    cy.get('div').contains('#testSearch')
-        .click()
+    it("dropdown menu is exist",()=>{
+    cy.get('#testSearch').should('exist');
+
     })
+
+    it("Clicked on dropdown menu",()=>{
+        cy.get('#testSearch').click();
+
+    })
+
+    it("bottom Slider appeared",()=>{
+        cy.get('#bottomSlider').should('exist');
+
+    })
+
+
 
     // TODO: Click on the element 
 
