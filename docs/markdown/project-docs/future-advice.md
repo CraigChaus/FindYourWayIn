@@ -4,16 +4,20 @@
 This paper outlines the main motivations behind the choice of tools, libraries, frameworks, and user interface design that were used in the development of this application. As well as recommendations for future use, optimization and development of this project.
 
 ## Advice to Client for Future
-### App Platform
+
+### ISO Standart: Performance/Efficiency
+#### App Platform
 Although the client requested for a web application, after doing research we have realised that this project is most suitable to be a native application that uses Google Maps Andriod or Google Maps IOS API's. These API's not only have all functionality the JavaScript API has, but also has more tools for the map such as 3D camera, map rotation, real time location sharing, more zoom and pan control etc. Also native apps run faster which makes the user experience better.
 
-### Timing for Building The Project
+#### App Performance
+One constructive feedback mentioned about the app is the performance regarding speed. The issue causing this is simply how the app uses data from many external sources like the FeedFactory. One of the technologies that we used is called "Next.js". Next.js is used for rendering data and improved the performance of the application. However, we have not used it to its full potential due to time limitation. The next developer team that works on the application can make more use of this technology to improve the load times.
 
-Excluding the inital 2 weeks of preperation and research, our team has a total of 3 sprints or 6 weeks to build the application. Although that is enough time to build the application with required basic functionality, it is adviced to spend more time for this application. The reason behind this is due to the app being so relied on the map and that Google Maps has much to offer. Customizing the map visiually in the map editor, heatmapping, map tilting, adding info windows to markers etc. are just a few things the API is capable of. These are all tools that have potential to improve the user experince and quality of the application. However, in a time frame of 6 weeks it is not possible to have this level of functionality.
+### ISO Standart: Security
+#### SSO Authentication
 
-### SSO Authentication
+In this project authentication is done by Firebase, a backend multi-tool from Google. For signing up email/password is used. This is a common way for signing up to an application. However, Firebase has many options for authentication. These include signing up by SMS/Phone or Anonymous login which allows guest users to login temporarily. There are also options for external providers for sign in, such as signing in with Twitter, Google, Facebook, Microsoft etc. These are authentication systems provided by major companies which make them reliable.
 
-In this project authentication is done by Firebase, a backend multi-tool from Google. For signing up email/password is used. This is a common way for signing up to an application. However, Firebase has many options for authentication. These include signing up by SMS/Phone or Anonymous login which allows guest users to login temporarily. There are also options for external providers for sign in, such as signing in with Twitter, Google, Facebook, Microsoft etc. Thesedays, many people make use of these SSO options. Although we did not implement these features, these are viable options that can be done in the future.
+Thesedays, many people make use of these SSO options. Although we did not implement these features, these are viable options that can be done in the future.
 
 ### Intention of Replacing a Tourist Leaflet
 
@@ -63,15 +67,6 @@ Figure 4.
 Figure 5.
 
 ![Figure 5](./assets/Figure 5.png)
-
-
-## Advice Based On Test Results 
-This section gives advice based on testing done by Smart Solution Students which was conducted on 21 June, 2022. Before reading this section please see [the Testing FYWI PDF. ](../../pdf/project-docs/Testing%20FYWI.pdf)
-
-### App Performance
-One constructive feedback mentioned about the app is the performance regarding speed. The issue causing this is simply how the app uses data from many external sources like the FeedFactory. One of the technologies that we used is called "Next.js". Next.js is used for rendering data and improved the performance of the application. However, we have not used it to its full potential due to time limitation. The next developer team that works on the application can make more use of this technology to improve the load times.
-
-### Personalization of Routes
 
 
 
