@@ -71,36 +71,29 @@ export const Details = ({ data }: any): JSX.Element => {
     const [imgAlt, setImgAlt] = React.useState<any>(null);
     const [phoneNumber, setPhoneNumber] = React.useState(null);
     const [email, setEmail] = React.useState(null);
+    const [website, setWebsite] = React.useState(null);
 
     React.useEffect(() => {
         if (data.calendar.patternDates[0]) {
             setCalendar(data.calendar.patternDates[0].opens);
         }
 
-        //api data for name of the location
         setLocationName(data.trcItemDetails[0].title);
-
-        //api data for the description of the place
         setDescription(data.trcItemDetails[0].longdescription);
 
-        //image of the place is caught here
         if (data.files[0]) {
             setImgSrc(data.files[0].hlink);
         }
 
         setImgAlt('alt');
-
-        //phone number of the place is put here
         setPhoneNumber(data.contactinfo.phones[0].number);
-
-        //email address for the place is put here
         setEmail(data.contactinfo.mails[0].email);
+        setWebsite(data.contactinfo.urls[0].url);
     }, [data]);
-
     return (
         <Layout>
-            <div className="flex flex-col justify-center w-full h-full mb-1 space-y-4">
-                <div className="w-auto p-2 mt-20 space-y-3">
+            <div className="flex flex-col justify-center w-full h-full space-y-4">
+                <div className="w-auto p-2  space-y-3">
                     <>
                         {imgSrc && imgAlt && (
                             <Header
@@ -109,16 +102,16 @@ export const Details = ({ data }: any): JSX.Element => {
                                 alt={imgAlt}
                             />
                         )}
-
                         <Paragraph content={description} />
 
                         {calendar && <Schedule calendar={calendar} />}
 
-                        {phoneNumber && email && data.id ? (
+                        {phoneNumber || email || website || data.id ? (
                             <ContactDetails
                                 phoneNumber={phoneNumber}
                                 email={email}
                                 id={data.id}
+                                website={website}
                             />
                         ) : (
                             <ContactDetails

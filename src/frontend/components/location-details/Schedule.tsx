@@ -85,15 +85,16 @@ export const Schedule = (props: any) => {
 
     return (
         <>
-            <div id="schedule" className="w-full">
-                <h2 className="font-bold text-center underline underline-offset-8">
-                    {t('schedule')}
-                </h2>
-                <table className="w-full h-auto ml-2 text-sm text-center table-auto">
+            <div id="schedule" className="w-full p-2 text-center table-auto">
+                <table className="w-full h-auto text-sm border-1 border-black">
                     <thead>
-                        <tr>
-                            <th>{t('day')}</th>
-                            <th>{t('time')}</th>
+                        <tr className=" text-lg">
+                            <th className="border-1 border-gray-400 bg-gray-200 p-2">
+                                {t('day')}
+                            </th>
+                            <th className="border-1 border-gray-400 bg-gray-200 p-2">
+                                {t('Opening hours')}
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -101,8 +102,10 @@ export const Schedule = (props: any) => {
                             schedule.map((day, index) => {
                                 return (
                                     <tr key={index}>
-                                        <td>{day.date}</td>
-                                        <td>
+                                        <td className="border-1 border-gray-400 bg-gray-100 w-1/2 p-2">
+                                            {day.date}
+                                        </td>
+                                        <td className="border-1 border-gray-400 bg-gray-100 w-1/2 p-2">
                                             {day.time.start} - {day.time.end}
                                         </td>
                                     </tr>

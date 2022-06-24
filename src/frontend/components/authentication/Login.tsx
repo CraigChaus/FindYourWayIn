@@ -48,6 +48,7 @@ export default function Login() {
                 <div className="flex flex-col items-center w-5/6">
                     {error && (
                         <div
+                            data-testid="login-error"
                             className="w-full px-4 py-2 mt-4 mb-8 text-red-900 bg-red-100 border-l-4 border-red-500 shadow-md"
                             role="alert"
                         >
@@ -66,6 +67,7 @@ export default function Login() {
                         <div
                             className="w-full px-4 py-2 mt-4 mb-8 text-green-900 bg-green-100 border-l-4 border-green-500 shadow-md"
                             role="alert"
+                            data-testid="login-success"
                         >
                             <div className="flex items-center">
                                 <div className="py-1">

@@ -8,6 +8,10 @@ stages:
 variables:
   npm_config_cache: "$CI_PROJECT_DIR/.npm"
   CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  NEXT_PUBLIC_GOOGLEMAP_API_KEY: $NEXT_PUBLIC_GOOGLEMAP_API_KEY
+  NEXT_PUBLIC_FIREBASE_API_KEY: $NEXT_PUBLIC_FIREBASE_API_KEY
+  NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL
+  NEXT_PUBLIC_FEEDFACTORY_API_KEY: $NEXT_PUBLIC_FEEDFACTORY_API_KEY
 
 cache: 
   key: ${CI_COMMIT_REF_SLUG}
@@ -41,15 +45,31 @@ prettier:
     - cd src/frontend  
     - npm run prettier
 
-test:
+e2e-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
-  variables:
-    NEXT_PUBLIC_GOOGLEMAP_API_KEY: $NEXT_PUBLIC_GOOGLEMAP_API_KEY
-    NEXT_PUBLIC_FIREBASE_API_KEY: $NEXT_PUBLIC_FIREBASE_API_KEY
-    NEXT_PUBLIC_API_URL: $NEXT_PUBLIC_API_URL
-    NEXT_PUBLIC_FEEDFACTORY_API_KEY: $NEXT_PUBLIC_FEEDFACTORY_API_KEY
   stage: test
+  parallel: 5
   script: 
     - cd src/frontend
-    - npm run test
+    - npm run test:e2e
+  artifacts:
+    paths:
+      - src/frontend/coverage
+    untracked: false
+    expire_in: 1 days
+
+component-test:
+  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+  stage: test
+  parallel: 3
+  script: 
+    - cd src/frontend
+    - npm run test:component
+  artifacts:
+    paths:
+      - src/frontend/coverage
+    untracked: false
+    expire_in: 1 days
+
+
   
