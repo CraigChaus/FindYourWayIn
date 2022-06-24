@@ -63,7 +63,7 @@ const HomePage = ({ locations }: any) => {
 
     return (
         <>
-            <div className="flex flex-col w-full h-full overflow-hidden">
+            <div className="relative flex flex-col w-full h-full">
                 <Navbar
                     setBottomSlider={setBottomSlider}
                     dataLocation={dataLocation}
@@ -73,7 +73,11 @@ const HomePage = ({ locations }: any) => {
                     enhancedCategories={enhancedCategories}
                     center={{ lat, lng }}
                     zoom={zoom}
-                    style={{ width: '100%', height: '100%' }}
+                    style={{
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                    }}
                     clickableIcons={false}
                     mapId="9c7cb3e171b411ff"
                     gestureHandling={'greedy'}

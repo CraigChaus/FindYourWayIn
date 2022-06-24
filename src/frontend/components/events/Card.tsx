@@ -20,26 +20,26 @@ export const Card = ({ date, event, onClick, imageSrc }: any) => {
                     {/* change text color based on image color */}
 
                     {imageSrc == broken ? (
-                        <div className="relative flex flex-col bottom-40">
+                        <div className="relative flex flex-col items-center bottom-40">
                             <span className="pr-2 font-bold text-center text-black text-l ">
                                 {date}
                             </span>
                             <span className="w-full pl-2 text-xl font-bold text-center text-black ">
                                 {event}{' '}
                             </span>
-                            <button className="mx-24 mt-4 font-normal text-white bg-green-800 rounded-md">
+                            <button className="w-auto px-10 py-1 mt-4 font-normal text-white bg-green-800 rounded-md">
                                 {t('clickForMore')}
                             </button>
                         </div>
                     ) : (
-                        <div className="relative flex flex-col bottom-40">
+                        <div className="relative flex flex-col items-center bottom-40">
                             <span className="pr-2 font-bold text-center text-white text-l ">
                                 {date}
                             </span>
                             <span className="w-full pl-2 text-xl font-bold text-center text-white ">
                                 {event}{' '}
                             </span>
-                            <button className="mx-24 mt-4 font-normal text-white bg-green-800 rounded-md">
+                            <button className="w-auto px-10 py-1 mt-4 font-normal text-white bg-green-800 rounded-md">
                                 {t('clickForMore')}
                             </button>
                         </div>

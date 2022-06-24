@@ -5,7 +5,7 @@ describe('Seeing all components in descriptions page', () => {
     });
 
     it('Header exists', () => {
-        cy.get('h1').should('exist');
+        cy.get('div > h1').should('exist');
     });
 
     it('Image exists', () => {
