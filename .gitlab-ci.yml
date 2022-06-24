@@ -14,41 +14,60 @@ variables:
   NEXT_PUBLIC_FEEDFACTORY_API_KEY: $NEXT_PUBLIC_FEEDFACTORY_API_KEY
 
 cache: 
-  key: ${CI_COMMIT_REF_SLUG}
+  key: ${CI_COMMIT_REF_SLUG} 
   paths: 
     - .npm/
-    - src/frontend/node_modules/
+    - src/frontend/node_modules
     - cache/Cypress
-    - .cache/*
+    - cache/*
 
 install:
   stage: build
+  cache: 
+    paths: 
+      - .npm/
+      - src/frontend/node_modules
+      - cache/*
+    policy: push
   script:
     - cd src/frontend
     - npm ci --force
-  artifacts:
-    paths:
-      - src/frontend/node_modules
-    untracked: false
-    expire_in: 1 day
-
-eslint:
-  stage: lint
-  script:
-    - cd src/frontend
-    - npm run lint
-    
 
 prettier:
   stage: lint
+  cache: 
+    paths: 
+      - .npm/
+      - src/frontend/node_modules
+      - cache/*
+    policy: pull
   script:
     - cd src/frontend  
     - npm run prettier
 
+eslint:
+  stage: lint
+  cache: 
+    paths: 
+      - .npm/
+      - src/frontend/node_modules
+      - cache/Cypress
+      - cache/*
+    policy: pull
+  script:
+    - cd src/frontend
+    - npm run lint
+
 e2e-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
-  parallel: 5
+  cache: 
+    paths: 
+    - .npm/
+    - src/frontend/node_modules
+    - cache/Cypress
+    - cache/*
+    policy: pull
   script: 
     - cd src/frontend
     - npm run test:e2e
@@ -61,7 +80,13 @@ e2e-test:
 component-test:
   image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
-  parallel: 3
+  cache: 
+    paths: 
+    - .npm/
+    - src/frontend/node_modules
+    - cache/Cypress
+    - cache/*
+    policy: pull
   script: 
     - cd src/frontend
     - npm run test:component

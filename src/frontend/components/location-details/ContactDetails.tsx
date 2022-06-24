@@ -52,7 +52,10 @@ export const ContactDetails = ({ phoneNumber, email, id, website }: any) => {
     };
 
     return (
-        <div className="flex flex-col w-full  pt-4 space-y-2 text-left">
+        <div
+            id="contact_details"
+            className="flex flex-col w-full pt-4 space-y-2 text-left"
+        >
             <div className="flex text-lg font-medium">
                 <Call className="mr-4" />
                 <a href={`tel:${phoneNumber}`}>
@@ -73,7 +76,7 @@ export const ContactDetails = ({ phoneNumber, email, id, website }: any) => {
                 </a>
             </div>
             <button
-                className="flex border-2 border-green-800 rounded-lg text-white bg-green-800 items-center justify-center text-xl font-semibold"
+                className="flex items-center justify-center text-xl font-semibold text-white bg-green-800 border-2 border-green-800 rounded-lg"
                 onClick={addToFavorites}
             >
                 <Add className="fill-white" />

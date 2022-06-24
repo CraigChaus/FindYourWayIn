@@ -88,12 +88,12 @@ export const Details = ({ data }: any): JSX.Element => {
         setImgAlt('alt');
         setPhoneNumber(data.contactinfo.phones[0].number);
         setEmail(data.contactinfo.mails[0].email);
-        setWebsite(data.contactinfo.urls[0].url);
+        setWebsite(data.contactinfo.urls[0]?.url);
     }, [data]);
     return (
         <Layout>
             <div className="flex flex-col justify-center w-full h-full space-y-4">
-                <div className="w-auto p-2  space-y-3">
+                <div className="w-auto p-2 space-y-3">
                     <>
                         {imgSrc && imgAlt && (
                             <Header

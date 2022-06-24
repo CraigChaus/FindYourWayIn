@@ -18,13 +18,13 @@ export default function Sidebar() {
     const icons = [
         { iconName: faHome, content: 'home', href: '/home' },
         { iconName: faCalendar, content: 'events', href: '/events' },
-        { iconName: faHeart, content: 'my favourites', href: '/favourites' },
+        { iconName: faHeart, content: 'favorite', href: '/favourites' },
         {
             iconName: faMagnifyingGlassLocation,
             content: 'discovery',
             href: '/discovery',
         },
-        { iconName: faIdCard, content: 'contacts', href: '/about' },
+        { iconName: faIdCard, content: 'contact', href: '/about' },
     ];
 
     const [showSidebar, setShowSidebar] = React.useState(false);

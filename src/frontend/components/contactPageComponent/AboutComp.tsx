@@ -1,7 +1,9 @@
 import Footer from '@components/global/Footer';
 import Navbar from '@components/global/DefaultNavbar';
+import { useTranslation } from 'react-i18next';
 
 const AboutComp = () => {
+    const { t } = useTranslation('common');
     return (
         <>
             <Navbar />
