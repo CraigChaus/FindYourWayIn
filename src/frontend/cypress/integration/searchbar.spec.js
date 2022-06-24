@@ -61,17 +61,4 @@ describe('type in to search bar', () => {
     });
 
 
-
-    // it('check if after deleting we do not have dropdown element', () => {
-    //     cy.get('#slideSearchBar').should('not.exist');
-    // });
-
-    // CypressTools.getByName(inputFieldName)
-    //     //     .should('be.visible')              // check the DOM element, passes it on as subject
-    //     //     .invoke('val')                     // changes subject to the text of the input
-    //     //     .should('not.be.empty');           // check the text is not empty
-
-    // TODO: Click on the element
-
-    // Check if the div with the location description paragraph exists
 });
