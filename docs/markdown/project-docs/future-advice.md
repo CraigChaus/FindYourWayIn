@@ -1,5 +1,11 @@
 # Advice To Client
 
+## Table of content
+  - [1. Introduction](#introduction)
+  - [2. Advice to Client for Future](#-Advice-to-Client-for-Future)
+   - [3. References](#references)
+
+
 ## Introduction
 This paper outlines the main motivations behind the choice of tools, libraries, frameworks, and user interface design that were used in the development of this application. As well as recommendations for future use, optimization and development of this project.
 
@@ -19,9 +25,10 @@ In this project authentication is done by Firebase, a backend multi-tool from Go
 
 Thesedays, many people make use of these SSO options. Although we did not implement these features, these are viable options that can be done in the future.
 
-### Intention of Replacing a Tourist Leaflet
+### ISO Standart: Functional Suitability
+#### Intention of Replacing a Tourist Leaflet
 
- The client emphasized that the application intends to help people discover Deventer.  [Click here to see the project description in the POA. ](../project-docs/POA.md) The data that gets displayed on the application is manually input in the system via TheFeedFactory. Currently, some of the location descriptions are a bit generic such "place to get a drink". If the intention is to promote "discovering" then it is important to always have some unique facts about each location. Such as e.g "this building was built in 1861 by person xyz and was later converted into a pub".
+ The client emphasized that the application intends to help people discover Deventer. *(to see the project description, please go to POA)*   The data that gets displayed on the application is manually input in the system via TheFeedFactory. Currently, some of the location descriptions are a bit generic such "place to get a drink". If the intention is to promote "discovering" then it is important to always have some unique facts about each location. Such as e.g "this building was built in 1861 by person xyz and was later converted into a pub".
 
  This will keep the users more interested and the app will fulfill its intention more. 
 
@@ -70,7 +77,8 @@ Figure 5.
 
 
 
-### Referenses:
+
+### References
 
 1. Gerkules, M.(2022, June 08)."Website Header Design in 2022: Examples & Best Practices": onElementor Team WritesWeb Design.
       Retrieved from: https://elementor.com/blog/website-header-design/

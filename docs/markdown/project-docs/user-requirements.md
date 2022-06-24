@@ -8,6 +8,9 @@ All the requirements stated here were acquired through analysing the problem (So
 The abbreviation MSCW means (MUST(M),SHOULD(S), COULD(C) and WOULD(W) ). 
 These emphasise the priority of the user requirement: MUST being the greatest followed by SHOULD, COULD and WOULD are of the same priority.
 
+These requirements were approved by the client on 17 May, 2022 by confirming the POA which has an overview of all requirements. The requirements that were realised after this date, were acquired during client meetings where the client approved on the spot.
+
+To see when, where, which requirement was realised, see the "requirement sources" section.
 ## Requirements 
 
 ### Business requirements
