@@ -10,39 +10,39 @@ In the src/frontend folder, you should have a file called .env. This file contai
 Create a new file called .env.local and copy the content of the env.txt file to it.
 ## Running the project
 Before you can build the project, make sure you are in the src/frontend folder. Then run the following command:
-\`\`\`
+```
 npm install
-\`\`\`
+```
 
 To build the project, run the following command:
-\`\`\`
+```
 npm run build
-\`\`\`
+```
 
 To run the development server, run the following command:
-\`\`\`
+```
 npm run dev
-\`\`\`
+```
 
 ## Linting
 To lint the code, run the following command:
-\`\`\` 
+``` 
 npm run lint (ESLint)
 npm run prettier (Prettier)
-\`\`\`
+```
 
 To fix the linting errors, run the following command:
-\`\`\`
+```
 npm run lint:fix (ESLint)
-npm run prettier:fix (Prettier)
-\`\`\`
+npm run prettier:fix (Prettier)\
+```
 
 ## Testing
 To test the project, run the following command:
-\`\`\`
+```
 npm run test:e2e (E2E testing)
 npm run test:component (Component testing)
-\`\`\`
+```
 
 
 
