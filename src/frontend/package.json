@@ -17,8 +17,7 @@
         "cypress:run:components": "npx cypress run --component --browser chrome",
         "cypress:ci:run": "npx cypress run --record --parallel --browser chrome --key 5c10f67f-3133-44ee-a970-b3da9fecde17",
         "cypress:ci:run:components": "npx cypress run --component --record --parallel --browser chrome --key 5c10f67f-3133-44ee-a970-b3da9fecde17",
-        "cypress:open:test": "start-server-and-test dev 3000 cypress:open",
-        "test:jest": "jest --watch"
+        "cypress:open:test": "start-server-and-test dev 3000 cypress:open"
     },
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^6.1.1",
