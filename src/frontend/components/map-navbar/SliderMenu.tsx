@@ -76,7 +76,7 @@ export default function SliderMenu() {
         <>
             {!isOpen ? (
                 <div className="flex justify-center bg-transparent ">
-                    <button
+                    <button id="buttonForSliderMenu"
                         onClick={() => setIsOpen(!isOpen)}
                         className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700"
                     >
@@ -91,7 +91,7 @@ export default function SliderMenu() {
             ) : (
                 <>
                     {' '}
-                    <div
+                    <div id="categoriesMenu"
                         className={`drop-shadow-md   ${
                             isOpen ? 'translate-y-0' : 'translate-y-full'
                         } transition-transform duration-600`}
@@ -104,7 +104,7 @@ export default function SliderMenu() {
                         </div>
 
                         <div className="flex justify-center ">
-                            <button
+                            <button id="buttonForSliderMenuToClose"
                                 onClick={() => setIsOpen(!isOpen)}
                                 className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700 drop-shadow-md"
                             >

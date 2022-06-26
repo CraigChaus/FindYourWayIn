@@ -187,7 +187,7 @@ export const DiscoveryComponent = ({
                 </div>
 
                 <div className="relative px-5 ">
-                    <div
+                    <div id="categoryButDiscovery"
                         data-cy="category"
                         className="flex w-full h-16 overflow-y-auto border-t-2 border-black flex-raw scrollbar-hide "
                     >

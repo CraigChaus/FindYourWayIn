@@ -51,6 +51,7 @@ const BottomSlider = ({
 
     return (
         <div
+            id="bottomSlider"
             data-cy="bottomSlider"
             className="absolute bottom-0 left-0 right-0 w-full rounded-t-lg shadow-bottom-slider bg-gray-50"
         >
