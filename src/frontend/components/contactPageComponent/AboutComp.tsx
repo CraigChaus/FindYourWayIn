@@ -18,7 +18,7 @@ const AboutComp = () => {
                     <div className="">
                         <div className=" lg:justify-between -mx-4">
                             <div className="w-full  px-4 ">
-                                <div className="">
+                                <div  id="main" className="">
                                     <h2
                                         className="text-center
                   text-dark
@@ -33,7 +33,7 @@ const AboutComp = () => {
                                     >
                                         Let us grow your wealth
                                     </h2>
-                                    <p className=" indent-4 text-base text-body-color  px-2 w-full text-justify mb-2">
+                                    <p id="firstParagraph" className=" indent-4 text-base text-body-color  px-2 w-full text-justify mb-2">
                                         Thanks to this application, user will be
                                         able to see special offers, discounts
                                         and upcoming events in your city. Data
