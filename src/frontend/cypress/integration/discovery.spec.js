@@ -22,4 +22,17 @@ describe('Discovery page', () => {
         cy.get('[data-cy="location-items"]').should('exist');
         cy.get('[data-cy="location-items"]').should('have.length', 1);
     });
+
+//////checking HTML part:
+    it('Nab-bar exists', () => {
+        cy.get('#defaultNavBar').should('exist');
+    });
+
+
+    it('buttons for categories are exist', () => {
+        cy.get('#categoryButDiscovery>div>button').should('exist');
+
+    });
+
+
 });

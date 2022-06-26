@@ -15,12 +15,23 @@ context('Home Page', () => {
         cy.title().should('equal', 'Home');
     });
 
+
+    it('should have a map-navbar', () => {
+    cy.get('#mapNavBar').should('exist');
+    });
+
+
+
     it('check sidebar components', () => {
         cy.get('#header').get('button').first().click();
         cy.get('div').contains('Home');
         cy.get('div').contains('Discovery');
         cy.get('div').contains('Events');
         cy.get('img');
+    });
+
+    it('check language switcher', () => {
+        cy.get('[data-cy="language-switcher"]').should('exist')
     });
 
     it('check home sidebar item', () => {
@@ -39,5 +50,15 @@ context('Home Page', () => {
         cy.get('[data-cy=sidebar-button]').click();
         cy.get('div').contains('Events').click();
         cy.url().should('include', '/events');
+    });
+    it('check favorite sidebar item', () => {
+        cy.get('[data-cy=sidebar-button]').click();
+        cy.get('div').contains('Favorite').click();
+        cy.url().should('include', '/favourites');
+    });
+    it('check contact sidebar item', () => {
+        cy.get('[data-cy=sidebar-button]').click();
+        cy.get('div').contains('Contact').click();
+        cy.url().should('include', '/about');
     });
 });

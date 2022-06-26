@@ -1,7 +1,9 @@
 # Plan of Approach
 
 *Version Number: 0.1* 
-## Table of content
+## Table of contents
+- [Plan of Approach](#plan-of-approach)
+  - [Table of contents](#table-of-contents)
   - [1. Introduction](#1-introduction)
   - [2. Stakeholders](#2-stakeholders)
   - [3. Project objectives](#3-project-objectives)
@@ -23,27 +25,29 @@
       - [8.5.3. Client meeting (client + ICT students)](#853-client-meeting-client--ict-students)
     - [8.6 Sprint deliverables](#86-sprint-deliverables)
     - [8.7. Communication between the meetings](#87-communication-between-the-meetings)
-    - [8.8 Quality management](#88-quality-management)
-      - [8.8.1. Definition of done](#881-definition-of-done)
-      - [8.8.2 Testing plan](#882-testing-plan)
-      - [8.8.3. Reviewing plan](#883-reviewing-plan)
-  - [9. Timeline](#9-timeline)
-    - [9.1. Deliverables timeline](#91-deliverables-timeline)
-    - [9.2. Global timeline](#92-global-timeline)
-  - [10. Sprint objectives](#10-sprint-objectives)
-    - [10.1 Sprint 0](#101-sprint-0)
-    - [10.2. Sprint 1](#102-sprint-1)
-    - [10.3. Sprint 2](#103-sprint-2)
+  - [9. Quality management](#9-quality-management)
+    - [9.1. Definition of done](#91-definition-of-done)
+    - [9.2. Code quality](#92-code-quality)
+      - [9.2.1 Testing plan](#921-testing-plan)
+      - [9.2.2. Linting rules and code conventions](#922-linting-rules-and-code-conventions)
+    - [9.3. Reviewing plan](#93-reviewing-plan)
+  - [10. Timeline](#10-timeline)
+    - [10.1. Deliverables timeline](#101-deliverables-timeline)
+    - [10.2. Global timeline](#102-global-timeline)
+  - [11. Sprint objectives](#11-sprint-objectives)
+    - [11.1 Sprint 0](#111-sprint-0)
+    - [11.2. Sprint 1](#112-sprint-1)
+    - [11.3. Sprint 2](#113-sprint-2)
     - [10.4. Sprint 3](#104-sprint-3)
-  - [11. Risk analysis](#11-risk-analysis)
-    - [11.1. Communication](#111-communication)
-    - [11.2. Technology](#112-technology)
-    - [11.3. Budget](#113-budget)
-    - [11.4. Health issue](#114-health-issue)
-  - [12. HBO-i competence levels](#12-hbo-i-competence-levels)
-    - [12.1. Selected competence levels](#121-selected-competence-levels)
-  - [13. Project Deliverables](#13-project-deliverables)
-  - [14. Appendix & References](#14-appendix--references)
+  - [12. Risk analysis](#12-risk-analysis)
+    - [12.1. Communication](#121-communication)
+    - [12.2. Technology](#122-technology)
+    - [12.3. Budget](#123-budget)
+    - [12.4. Health issue](#124-health-issue)
+  - [13. HBO-i competence levels](#13-hbo-i-competence-levels)
+    - [13.1. Selected competence levels](#131-selected-competence-levels)
+  - [14. Project Deliverables](#14-project-deliverables)
+  - [15. Appendix & References](#15-appendix--references)
 
  
 ## 1. Introduction 
@@ -168,7 +172,7 @@ The table below shows the usual times we agreed to meet:
 |  Thursday  |   10:30 am    |     5:00 pm     |         Onsite          |
 |   Friday   |   10:30 am    |     4:30 pm     |         Online          |
 
-
+    
 ### 8.2. Special meeting days
 
 There are days when the team meets up for special meetings such as client meetings scrum sprint planning etc. 
@@ -245,11 +249,11 @@ In the end of every sprint (last Friday) we will deliver the client a current bu
 We are able to contact the client outside of the meeting time as well, we will use that opportunity to inform the client about major changes of the plan, manage the expectations of what we are going to deliver in the end, ask questions and discuss important decisions regarding the sprint delivery. 
 
 
-### 8.8 Quality management
+## 9. Quality management
 
 To ensure the quality of work is maintained, a testing plan and reviewing plan are created to ensure that the backlog item is done in a manner that is consistent with the definition of done.
 
-#### 8.8.1. Definition of done
+### 9.1. Definition of done
 
 The Definition of Done is an agreed-upon set of items that must be completed before a project or user story can be considered complete. It is applied consistently and serves as an official gate separating things from being “in progress” to “done.”
 
@@ -258,8 +262,8 @@ The team has agreed upon the definition of done for the project. The following i
 - All the backlog items belonging to the user story are reviewed and tested according to the test plan.
 - All the backlog items belonging to the user story are merged to the "main" codebase.
 
-#### 8.8.2. Code quality
-##### 8.8.2.1 Testing plan
+### 9.2. Code quality
+#### 9.2.1 Testing plan
 
 The testing plan is a document that outlines the testing activities that are required to be performed on the backlog item. Each backlog item will have a different set of testing activities to be conducted. 
 
@@ -267,11 +271,11 @@ We combine manual testing by writing test cases report and automated testing whi
 
 Detailed information about the testing activities can be found in the [Test Plan](test-plan.md) document.
 
-##### 8.8.2.2. Linting rules and code conventions
+#### 9.2.2. Linting rules and code conventions
 
 The linting rules and code conventions are a set of rules that are used to ensure that the code is written in a consistent manner and format. We are going to utilize linting tools such as ESLint and Prettier to enforce the rules and code style, which will be explained in the [Linting rules](linting-rules.md) document.
 
-#### 8.8.3. Reviewing plan
+### 9.3. Reviewing plan
 
 For every backlog item, a team member will be assigned to review the work of the author by following the testing plan for that backlog item. The reviewer has the following responsibilities:
 - Review the definition of done for the backlog item
@@ -283,9 +287,9 @@ For every backlog item, a team member will be assigned to review the work of the
 
 
 
-## 9. Timeline
+## 10. Timeline
 
-### 9.1. Deliverables timeline
+### 10.1. Deliverables timeline
 
 | Date           | Deadlines     | Deliverables                                                                                                                                                                              |
 |----------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -294,7 +298,7 @@ For every backlog item, a team member will be assigned to review the work of the
 | **12-06-2022** | **Sprint 2**  | **<ul><li>Retrospective report Sprint 2</li><li>All produced material</li><li>Timesheet version 2</li><li>Account of individual contribution version 2</li><li>Sprint 3 plan</li></ul>**  |
 | **26-06-2022** | **Sprint 3**  | **<ul><li>Retrospective report Sprint 3</li><li>All produced material</li><li>Timesheet version 3</li><li>Account of individual contribution version 3</li></ul>**                        |
 
-### 9.2. Global timeline 
+### 10.2. Global timeline 
 | Date | Event |
 |------|-------|
 | **25-04-2022** | **Project kickoff** |
@@ -302,20 +306,20 @@ For every backlog item, a team member will be assigned to review the work of the
 | **09-05-2022** | **Meeting with project team for updating progress** |
 | **13-05-2022** | **Meeting with Nils for updating progress, sprint 1 planning** |
 
-## 10. Sprint objectives 
+## 11. Sprint objectives 
 
-### 10.1 Sprint 0
+### 11.1 Sprint 0
 
 For sprint 0, our team focuses on writing the Plan of Approach and forming requirements for the project. We will define the project's scope, goals, the global timeline and deliverables, as well as the objectives for each sprint of the project.
 
-### 10.2. Sprint 1
+### 11.2. Sprint 1
 
 For sprint 1, we will focus on making the core functionalities related to navigation system of the application. 
 We plan to finish those user stories in this sprint:
 - **Cu01**: As a consumer user, I want to see the map of Walstraat so that I can be able to navigate around the area. 
 - **Cu02**: As a consumer user, I want to read a brief description about the selected location so that I know a bit more about the location of interest. 
 - **Cu04**: As a consumer user, I want to see a direct route to my location of interest so that I can navigate towards it. 
-### 10.3. Sprint 2
+### 11.3. Sprint 2
 
 For sprint 2, we finalize the core functionalities of the application, which are the user authentication, personal account management, and information provision on different events and locations.
 The user stories we are planning to implement in this sprint are:
@@ -338,32 +342,32 @@ The user stories we are planning to implement in this sprint are:
 - **Cu11**: As a consumer user, I want the web application to plan a route for me based on my preferences so that I do not have to worry about where to go next from one location. 
 - **Cu12**: As a consumer user, I want the web application to give me contact details about a specific organisation/location so that I can call the organisation/location. 
 
-## 11. Risk analysis
+## 12. Risk analysis
 
 For this project, we have identified the following risks that could be faced by the team, and certain actions that could be taken to mitigate them.
 
-### 11.1. Communication
+### 12.1. Communication
 
 To communicate with the stakeholders of the project, it was decided to appoint a responsible person representing the interests of the client (Nils). The development team also appointed a person (Vedat) responsible for contact with the client representative in order to avoid misunderstandings or doubling requests from clients.
 
 In order to quickly fix all the current problems that arise during the development of the application, the development team decided to meet 3 days out of 5 per week on campus and 2 days per week online to study together.
 
-### 11.2. Technology
+### 12.2. Technology
 
 In order to prevent the risk of using technologies (software frameworks, tools) that are incompatible, inefficient or conflicting with each other, it was decided to make a research-comparison of frameworks which could be used in future WebApp , to explain choice of tools. In addition, there was decision to create a mini-prototype with proof of concept,to prove that chosen tools were taken reasonably. 
 
-### 11.3. Budget
+### 12.3. Budget
 
 This project has a limited budget announced by the client, 3000 euros. In order to avoid the risk of exceeding the cost of funds, it was decided in the process of planning the choice of the use of tools (libraries, frameworks) to first carry out a study-comparison of these tools, taking into account, among other things, their costs, if required. It is also necessary to coordinate all costs with the client representative.
 
-### 11.4. Health issue
+### 12.4. Health issue
 Due to the current global pandemic, every member of the development team at any time during the project may be at risk of becoming infected, and in this case, the performance of the sick member may drop significantly, which can potentially lead to non-fulfillment of planned tasks or the failure of the entire project. To prevent this, the team made a decision in case of illness or withdrawal of one or more project team members to inform the client representative (Nils) in advance and take preventive steps to solve such a problem. The solution in this situation may be to simplify the main task of the project, taking into account the coordination of the new plan with the client representative.
 
-## 12. HBO-i competence levels 
+## 13. HBO-i competence levels 
 
 This project is also served as an indication for the competence levels of the team member. This section will outline the selected criteria that each member has chosen and explanation on how different competence levels are achieved through this project.
 
-### 12.1. Selected competence levels
+### 13.1. Selected competence levels
 
 | **Name**        | **Competence criterion**              |
 |-----------------|---------------------------------------|
@@ -373,7 +377,7 @@ This project is also served as an indication for the competence levels of the te
 | Minh Pham       | Design, Realisation, Manage + Control |
 | Daria Grigoruk  | Realisation, Design, Advise           |
 
-## 13. Project Deliverables
+## 14. Project Deliverables
 At the end of the project the following is planned to be delivered:
 
 A how-to-use document that guides the reader through the application
@@ -381,7 +385,7 @@ Source code
 Documentation of the system and the project that includes test logs
 Admin credentials will given to the client
 
-## 14. Appendix & References
+## 15. Appendix & References
 
 Schwaber, K. and Sutherland, J. (2020). The 2020 Scrum GuideTM.
 Retrieved from: https://scrumguides.org/scrum-guide.html

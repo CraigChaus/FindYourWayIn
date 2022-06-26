@@ -8,7 +8,7 @@ export default function UserButton() {
             data-testid="user-button"
             className="flex items-center justify-center w-12 m-3 text-white bg-green-400 rounded-full h-11 hover:bg-green-600 "
         >
-            <FontAwesomeIcon icon={faUser} size="lg" />
+            <FontAwesomeIcon id="userButton" icon={faUser} size="lg" />
         </div>
     );
 }

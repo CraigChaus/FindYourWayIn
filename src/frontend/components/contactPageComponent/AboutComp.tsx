@@ -18,7 +18,7 @@ const AboutComp = () => {
                     <div className="">
                         <div className=" lg:justify-between -mx-4">
                             <div className="w-full  px-4 ">
-                                <div className="">
+                                <div  id="main" className="">
                                     <h2
                                         className="text-center
                   text-dark
@@ -33,7 +33,7 @@ const AboutComp = () => {
                                     >
                                         Let us grow your wealth
                                     </h2>
-                                    <p className=" indent-4 text-base text-body-color  px-2 w-full text-justify mb-2">
+                                    <p id="firstParagraph" className=" indent-4 text-base text-body-color  px-2 w-full text-justify mb-2">
                                         Thanks to this application, user will be
                                         able to see special offers, discounts
                                         and upcoming events in your city. Data
@@ -118,7 +118,7 @@ const AboutComp = () => {
                                                 Phone Number
                                             </h5>
 
-                                            <a
+                                            <a id="phoneNumber"
                                                 href="tel:+310851307550"
                                                 className="Blondie text-base font-bold text-sky-900"
                                             >
@@ -152,7 +152,7 @@ const AboutComp = () => {
                                             <h5 className=" text-dark text-base">
                                                 Email Address
                                             </h5>
-                                            <a
+                                            <a  id="email"
                                                 className="text-base font-bold text-dark text-sky-900"
                                                 href="mailto:support@thefeedfactory.nl?subject = Feedback&body = Message"
                                             >

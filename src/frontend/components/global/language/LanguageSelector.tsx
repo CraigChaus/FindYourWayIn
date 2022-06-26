@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment, useContext } from 'react';
+import { Fragment } from 'react';
 import { Menu, Transition } from '@headlessui/react';
 import ChevronDownIcon from '../../../public/icons/chevron-down.svg';
 import React from 'react';
@@ -33,7 +33,7 @@ export default function LanguageSelector() {
     };
 
     return (
-        <div className="absolute top-5 right-5">
+        <div data-cy="language-switcher" className="absolute top-5 right-5">
             <Menu as="div" className="relative inline-block text-left z-10">
                 <div>
                     <Menu.Button className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-800 border border-gray-300 rounded-md shadow-sm hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
