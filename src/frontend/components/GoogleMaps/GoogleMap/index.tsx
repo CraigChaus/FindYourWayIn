@@ -39,7 +39,6 @@ const GoogleMap = ({
         );
     }, [locations, filterContext.filter, enhancedCategories]);
 
-
     React.useEffect(() => {
         if (mapRef.current && !map) {
             setMap(new window.google.maps.Map(mapRef.current, {}));

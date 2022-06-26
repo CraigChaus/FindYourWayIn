@@ -17,9 +17,7 @@ const AboutComp = () => {
                         <div className="-mx-4 lg:justify-between">
                             <div className="w-full px-4 ">
                                 <div id="main" className="">
-                                    <h2
-                                        className="text-center text-dark mb-2 uppercase font-bold text-[18px] sm:text-[40px] lg:text-[36px] xl:text-[40px]"
-                                    >
+                                    <h2 className="text-center text-dark mb-2 uppercase font-bold text-[18px] sm:text-[40px] lg:text-[36px] xl:text-[40px]">
                                         Let us grow your wealth
                                     </h2>
                                     <p
@@ -44,9 +42,7 @@ const AboutComp = () => {
                                     </p>
 
                                     <div className="flex w-full">
-                                        <div
-                                            className=" max-w-[60px] sm:max-w-[70px] w-full flex items-center justify-center mr-6 overflow-hidden bg-primary bg-opacity-5 text-primary rounded"
-                                        >
+                                        <div className=" max-w-[60px] sm:max-w-[70px] w-full flex items-center justify-center mr-6 overflow-hidden bg-primary bg-opacity-5 text-primary rounded">
                                             <svg
                                                 width="24"
                                                 height="24"
@@ -66,9 +62,7 @@ const AboutComp = () => {
                                         </div>
                                     </div>
                                     <div className="flex mb-2 max-w-[370px] w-full ">
-                                        <div
-                                            className="max-w-[60px] sm:max-w-[70p w-full h-[60px] sm:h-[70px] flex items-center justify-cente mr-6 overflow-hidden bg-primary bg-opacity-5 text-primary"
-                                        >
+                                        <div className="max-w-[60px] sm:max-w-[70p w-full h-[60px] sm:h-[70px] flex items-center justify-cente mr-6 overflow-hidden bg-primary bg-opacity-5 text-primary">
                                             <svg
                                                 id="jump"
                                                 width="24"
@@ -96,9 +90,7 @@ const AboutComp = () => {
                                         </div>
                                     </div>
                                     <div className="flex  max-w-[370px] w-full">
-                                        <div
-                                            className=" max-w-[60px] sm:max-w-[70px] w-full flex items-center justify-center mr-6"
-                                        >
+                                        <div className=" max-w-[60px] sm:max-w-[70px] w-full flex items-center justify-center mr-6">
                                             <svg
                                                 width="28"
                                                 height="19"

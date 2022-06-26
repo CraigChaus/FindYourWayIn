@@ -223,8 +223,7 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                         imageSrc={upcomingEvent.eventImage}
                                     />
                                 );
-                            })
-                        }
+                            })}
                     </div>
                 </div>
             </div>

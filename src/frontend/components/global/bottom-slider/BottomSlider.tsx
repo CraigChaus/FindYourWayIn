@@ -27,7 +27,6 @@ const BottomSlider = ({
     const fetchDirections = (destinationCoords: any) => {
         if (!destinationCoords) return;
 
-
         const service = new google.maps.DirectionsService();
 
         service.route(
@@ -43,7 +42,6 @@ const BottomSlider = ({
             },
         );
     };
-
 
     return (
         <div

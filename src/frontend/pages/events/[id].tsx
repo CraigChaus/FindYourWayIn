@@ -96,7 +96,7 @@ export const Events = ({ data }: any): JSX.Element => {
         if (data.calendar.singleDates[0]?.when[0]?.timeend) {
             setEventEndTime(data.calendar.singleDates[0]?.when[0].timeend);
         }
-        
+
         setEventHouseNumVenue(data.location.address?.housenr);
         setEventStreetVenue(data.location.address?.street);
         setEventZipCodeVenue(data.location.address?.zipcode);
