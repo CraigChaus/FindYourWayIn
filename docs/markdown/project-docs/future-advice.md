@@ -3,7 +3,7 @@
 ## Table of content
   - [1. Introduction](#introduction)
   - [2. Advice to Client for Future](#-Advice-to-Client-for-Future)
-   - [3. References](#references)
+  - [3. References](#references)
 
 
 ## Introduction
@@ -11,21 +11,21 @@ This paper outlines the main motivations behind the choice of tools, libraries, 
 
 ## Advice to Client for Future
 
-### ISO Standart: Performance/Efficiency
+### ISO Standard: Performance/Efficiency
 #### App Platform
 Although the client requested for a web application, after doing research we have realised that this project is most suitable to be a native application that uses Google Maps Andriod or Google Maps IOS API's. These API's not only have all functionality the JavaScript API has, but also has more tools for the map such as 3D camera, map rotation, real time location sharing, more zoom and pan control etc. Also native apps run faster which makes the user experience better.
 
 #### App Performance
 One constructive feedback mentioned about the app is the performance regarding speed. The issue causing this is simply how the app uses data from many external sources like the FeedFactory. One of the technologies that we used is called "Next.js". Next.js is used for rendering data and improved the performance of the application. However, we have not used it to its full potential due to time limitation. The next developer team that works on the application can make more use of this technology to improve the load times.
 
-### ISO Standart: Security
+### ISO Standard: Security
 #### SSO Authentication
 
 In this project authentication is done by Firebase, a backend multi-tool from Google. For signing up email/password is used. This is a common way for signing up to an application. However, Firebase has many options for authentication. These include signing up by SMS/Phone or Anonymous login which allows guest users to login temporarily. There are also options for external providers for sign in, such as signing in with Twitter, Google, Facebook, Microsoft etc. These are authentication systems provided by major companies which make them reliable.
 
 Thesedays, many people make use of these SSO options. Although we did not implement these features, these are viable options that can be done in the future.
 
-### ISO Standart: Functional Suitability
+### ISO Standard: Functional Suitability
 #### Intention of Replacing a Tourist Leaflet
 
  The client emphasized that the application intends to help people discover Deventer. *(to see the project description, please go to POA)*   The data that gets displayed on the application is manually input in the system via TheFeedFactory. Currently, some of the location descriptions are a bit generic such "place to get a drink". If the intention is to promote "discovering" then it is important to always have some unique facts about each location. Such as e.g "this building was built in 1861 by person xyz and was later converted into a pub".

@@ -64,7 +64,7 @@ To see when, where, which requirement was realised, see the "requirement sources
 
 ### Non-Functional requirements
 
-   | Reference ID | Description                                                                                                   |     Source     |  ISO 25010  Standart   |
+   | Reference ID | Description                                                                                                   |     Source     |  ISO 25010  Standard   |
    |:------------:|---------------------------------------------------------------------------------------------------------------|:--------------:|:----------------------:|
    |    SNF01     | System can work on mobile devices                                                                             | Client meeting |      Portability       |
    |    SNF02     | System can support Dutch, English and German                                                                  |      Cu08      |       Usability        |
