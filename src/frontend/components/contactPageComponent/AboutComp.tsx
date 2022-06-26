@@ -118,7 +118,7 @@ const AboutComp = () => {
                                                 Phone Number
                                             </h5>
 
-                                            <a
+                                            <a id="phoneNumber"
                                                 href="tel:+310851307550"
                                                 className="Blondie text-base font-bold text-sky-900"
                                             >
@@ -152,7 +152,7 @@ const AboutComp = () => {
                                             <h5 className=" text-dark text-base">
                                                 Email Address
                                             </h5>
-                                            <a
+                                            <a  id="email"
                                                 className="text-base font-bold text-dark text-sky-900"
                                                 href="mailto:support@thefeedfactory.nl?subject = Feedback&body = Message"
                                             >

@@ -28,8 +28,9 @@ describe('Discovery page', () => {
         cy.get('#defaultNavBar').should('exist');
     });
 
-    it('buttons are exist', () => {
-        cy.get('[data-cy="spotlight-button"]').should('exist');
+
+    it('buttons for categories are exist', () => {
+        cy.get('#categoryButDiscovery>div>button').should('exist');
 
     });
 

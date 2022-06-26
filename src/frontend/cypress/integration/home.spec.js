@@ -15,6 +15,13 @@ context('Home Page', () => {
         cy.title().should('equal', 'Home');
     });
 
+
+    it('should have a map-navbar', () => {
+    cy.get('#mapNavBar').should('exist');
+    });
+
+
+
     it('check sidebar components', () => {
         cy.get('#header').get('button').first().click();
         cy.get('div').contains('Home');

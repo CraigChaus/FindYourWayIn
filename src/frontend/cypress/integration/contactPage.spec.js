@@ -23,7 +23,15 @@ describe('type in to search bar', () => {
             ', please contact us.')
     });
 
+    it('Checking teg "a" for phone ', () => {
+        cy.get('#phoneNumber').should('exist');
 
+    });
+
+    it('Checking teg "a" for email ', () => {
+        cy.get('#email').should('exist');
+
+    });
 
 
     it('should have a footer', () => {
