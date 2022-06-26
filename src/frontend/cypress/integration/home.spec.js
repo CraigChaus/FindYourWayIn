@@ -23,6 +23,10 @@ context('Home Page', () => {
         cy.get('img');
     });
 
+    it('check language switcher', () => {
+        cy.get('[data-cy="language-switcher"]').should('exist')
+    });
+
     it('check home sidebar item', () => {
         cy.get('[data-cy=sidebar-button]').click();
         cy.get('div').contains('Home').click();
@@ -39,5 +43,15 @@ context('Home Page', () => {
         cy.get('[data-cy=sidebar-button]').click();
         cy.get('div').contains('Events').click();
         cy.url().should('include', '/events');
+    });
+    it('check favorite sidebar item', () => {
+        cy.get('[data-cy=sidebar-button]').click();
+        cy.get('div').contains('Favorite').click();
+        cy.url().should('include', '/favourites');
+    });
+    it('check contact sidebar item', () => {
+        cy.get('[data-cy=sidebar-button]').click();
+        cy.get('div').contains('Contact').click();
+        cy.url().should('include', '/about');
     });
 });
