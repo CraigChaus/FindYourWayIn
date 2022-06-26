@@ -7,9 +7,6 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import DefaultNavbar from '../../components/global/DefaultNavbar';
 import { useTranslation } from 'react-i18next';
 
-// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
-
 export async function getStaticPaths({ locales }: any) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/events`, {
         method: 'GET',
@@ -58,34 +55,22 @@ export async function getStaticProps(context: {
 }
 
 export const Events = ({ data }: any): JSX.Element => {
-    //These are for the image of the event
-    // const [imgSrc, setImgSrc] = React.useState(null);
-    // const [imgAlt, setImgAlt] = React.useState<any>(null);
-
-    //TODO: uncomment code line above me
-
     //This is for the day number of the event
     const [dayOfEvent, setDayOfEvent] = React.useState(null);
     const [monthOfEvent, setMontOfEvent] = React.useState(null);
     const [yearOfEvent, setYearOfEvent] = React.useState(null);
-
     //This is for the event name, time, venue, ticket info and website
-
     const [eventName, setEventName] = React.useState(null);
     const [eventStartTime, setEventStartTime] = React.useState(null);
     const [eventendTime, setEventEndTime] = React.useState(null);
     const [eventImage, setEventImage] = React.useState<any>('');
-
     //this is for the event description
     const [eventDescription, setEventDescription] = React.useState(null);
-
     //this is for the venue
     const [eventStreetVenue, setEventStreetVenue] = React.useState(null);
     const [eventHouseNumVenue, setEventHouseNumVenue] = React.useState(null);
     const [eventZipCodeVenue, setEventZipCodeVenue] = React.useState(null);
     const [eventCityVenue, setEventCityVenue] = React.useState(null);
-
-    // const [ticket, setTicket] = React.useState(null);
     const [eventWebSite, setWebsite] = React.useState(null);
     const { t } = useTranslation('common');
 
@@ -93,10 +78,8 @@ export const Events = ({ data }: any): JSX.Element => {
         if (data.files[0]?.hlink) {
             setEventImage(data?.files[0]?.hlink);
         }
-
         //this is for setting up the day
         const date = data.calendar.singleDates[0].date;
-
         //here the date string is split into the day number and the month number
         const dayNumber = date.substring(8, 10);
         const monthNumber = date.substring(5, 7);
@@ -104,7 +87,6 @@ export const Events = ({ data }: any): JSX.Element => {
         setDayOfEvent(dayNumber);
         setMontOfEvent(monthNumber);
         setYearOfEvent(yearNumber);
-
         setEventName(data.trcItemDetails[0].title);
 
         if (data.calendar.singleDates[0]?.when[0]?.timestart) {
@@ -114,17 +96,12 @@ export const Events = ({ data }: any): JSX.Element => {
         if (data.calendar.singleDates[0]?.when[0]?.timeend) {
             setEventEndTime(data.calendar.singleDates[0]?.when[0].timeend);
         }
-
+        
         setEventHouseNumVenue(data.location.address?.housenr);
         setEventStreetVenue(data.location.address?.street);
         setEventZipCodeVenue(data.location.address?.zipcode);
         setEventCityVenue(data.location.address?.city);
-
         setEventDescription(data.trcItemDetails[0]?.longdescription);
-
-        //this is for the ticket info for the event
-        // setTicket();
-
         setWebsite(data.contactinfo.urls[0]?.url);
     }, [data]);
 

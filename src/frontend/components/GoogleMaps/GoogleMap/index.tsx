@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Router, { useRouter } from 'next/router';
+import Router from 'next/router';
 import LocationMarker from '@components/homepage/LocationMarker';
 import { filterByCategory } from '@utils/filter';
 import { FilterContext } from 'contexts/FilterContext';
@@ -28,7 +28,6 @@ const GoogleMap = ({
     const [map, setMap] = React.useState<google.maps.Map>();
     const [filteredLocations, setFilteredLocations] = React.useState<any[]>([]);
     const [dataLocation, setDataLocation] = React.useState<any[]>([]);
-    // const [bottomSlider, setBottomSlider] = React.useState<any>(null);
     const [markers, setMarkers] = React.useState<any[]>([]);
 
     const filterContext = useContext(FilterContext);
@@ -40,7 +39,6 @@ const GoogleMap = ({
         );
     }, [locations, filterContext.filter, enhancedCategories]);
 
-    console.log(filteredLocations);
 
     React.useEffect(() => {
         if (mapRef.current && !map) {

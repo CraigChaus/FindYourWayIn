@@ -1,7 +1,7 @@
 import { Menu, Transition } from '@headlessui/react';
 import { useAuth } from '../../../contexts/AuthContext';
 import { auth } from 'firebase_config';
-import { Router, useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 import { useTranslation } from 'react-i18next';
 import AccountSetting from '../../../public/icons/account_settings.svg';

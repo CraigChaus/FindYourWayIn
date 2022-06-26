@@ -3,13 +3,12 @@ import Image from 'next/image';
 import broken from '../../public/images/broken.png';
 
 export const EventImage = ({ idImageSrc }: any) => {
-    console.log(idImageSrc);
     return (
         <>
-            <div className=" w-full h-1/2 mt-6 inline align-middle">
+            <div className="inline w-full mt-6 align-middle  h-1/2">
                 {idImageSrc === '' ? (
                     <Image
-                        className="rounded-xl container"
+                        className="container rounded-xl"
                         src={broken}
                         alt={'alt'}
                         height={280}
@@ -17,7 +16,7 @@ export const EventImage = ({ idImageSrc }: any) => {
                     />
                 ) : (
                     <Image
-                        className="rounded-xl container"
+                        className="container rounded-xl"
                         src={idImageSrc}
                         alt={'alt'}
                         height={280}

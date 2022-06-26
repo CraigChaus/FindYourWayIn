@@ -1,9 +1,7 @@
 import Footer from '@components/global/Footer';
 import Navbar from '@components/global/DefaultNavbar';
-import { useTranslation } from 'react-i18next';
 
 const AboutComp = () => {
-    const { t } = useTranslation('common');
     return (
         <>
             <Navbar />
@@ -13,27 +11,21 @@ const AboutComp = () => {
             >
                 <section
                     id="section"
-                    className="pt-2  px-4  h-full font-bold w-full"
+                    className="w-full h-full px-4 pt-2 font-bold"
                 >
                     <div className="">
-                        <div className=" lg:justify-between -mx-4">
-                            <div className="w-full  px-4 ">
-                                <div  id="main" className="">
+                        <div className="-mx-4 lg:justify-between">
+                            <div className="w-full px-4 ">
+                                <div id="main" className="">
                                     <h2
-                                        className="text-center
-                  text-dark
-                  mb-2
-                  uppercase
-                  font-bold
-                  text-[18px]
-                  sm:text-[40px]
-                  lg:text-[36px]
-                  xl:text-[40px]
-                  "
+                                        className="text-center text-dark mb-2 uppercase font-bold text-[18px] sm:text-[40px] lg:text-[36px] xl:text-[40px]"
                                     >
                                         Let us grow your wealth
                                     </h2>
-                                    <p id="firstParagraph" className=" indent-4 text-base text-body-color  px-2 w-full text-justify mb-2">
+                                    <p
+                                        id="firstParagraph"
+                                        className="w-full px-2 mb-2 text-base text-justify indent-4 text-body-color"
+                                    >
                                         Thanks to this application, user will be
                                         able to see special offers, discounts
                                         and upcoming events in your city. Data
@@ -45,7 +37,7 @@ const AboutComp = () => {
                                         as save their preferences to make it
                                         easier to find them in the future.
                                     </p>
-                                    <p className="text-base text-body-color leading-relaxed px-2 mb-3">
+                                    <p className="px-2 mb-3 text-base leading-relaxed text-body-color">
                                         If you want your location to be
                                         displayed on our WebApp, please contact
                                         us.
@@ -53,19 +45,7 @@ const AboutComp = () => {
 
                                     <div className="flex w-full">
                                         <div
-                                            className=" max-w-[60px]
-                     sm:max-w-[70px]
-                     w-full
-
-                     flex
-                     items-center
-                     justify-center
-                     mr-6
-                     overflow-hidden
-                     bg-primary bg-opacity-5
-                     text-primary
-                     rounded
-                     "
+                                            className=" max-w-[60px] sm:max-w-[70px] w-full flex items-center justify-center mr-6 overflow-hidden bg-primary bg-opacity-5 text-primary rounded"
                                         >
                                             <svg
                                                 width="24"
@@ -77,7 +57,7 @@ const AboutComp = () => {
                                             </svg>
                                         </div>
                                         <div className="w-full">
-                                            <p className="text-dark text-base mt-1 ">
+                                            <p className="mt-1 text-base text-dark ">
                                                 Our Location
                                             </p>
                                             <p className="text-base font-bold text-sky-900 ">
@@ -87,19 +67,7 @@ const AboutComp = () => {
                                     </div>
                                     <div className="flex mb-2 max-w-[370px] w-full ">
                                         <div
-                                            className="max-w-[60px]
-                     sm:max-w-[70px]
-                     w-full
-                     h-[60px]
-                     sm:h-[70px]
-                     flex
-                     items-center
-                     justify-center
-                     mr-6
-                     overflow-hidden
-                     bg-primary bg-opacity-5
-                     text-primary
-                     "
+                                            className="max-w-[60px] sm:max-w-[70p w-full h-[60px] sm:h-[70px] flex items-center justify-cente mr-6 overflow-hidden bg-primary bg-opacity-5 text-primary"
                                         >
                                             <svg
                                                 id="jump"
@@ -114,13 +82,14 @@ const AboutComp = () => {
                                             </svg>
                                         </div>
                                         <div className="w-full">
-                                            <h5 className=" text-dark text-base mt-2 ">
+                                            <h5 className="mt-2 text-base text-dark">
                                                 Phone Number
                                             </h5>
 
-                                            <a id="phoneNumber"
+                                            <a
+                                                id="phoneNumber"
                                                 href="tel:+310851307550"
-                                                className="Blondie text-base font-bold text-sky-900"
+                                                className="text-base font-bold Blondie text-sky-900"
                                             >
                                                 +31 (0)85 130 75 50
                                             </a>
@@ -128,16 +97,7 @@ const AboutComp = () => {
                                     </div>
                                     <div className="flex  max-w-[370px] w-full">
                                         <div
-                                            className="
-                     max-w-[60px]
-                     sm:max-w-[70px]
-                     w-full
-
-                     flex
-                     items-center
-                     justify-center
-                     mr-6
-                     "
+                                            className=" max-w-[60px] sm:max-w-[70px] w-full flex items-center justify-center mr-6"
                                         >
                                             <svg
                                                 width="28"
@@ -149,10 +109,11 @@ const AboutComp = () => {
                                             </svg>
                                         </div>
                                         <div className="w-full ">
-                                            <h5 className=" text-dark text-base">
+                                            <h5 className="text-base text-dark">
                                                 Email Address
                                             </h5>
-                                            <a  id="email"
+                                            <a
+                                                id="email"
                                                 className="text-base font-bold text-dark text-sky-900"
                                                 href="mailto:support@thefeedfactory.nl?subject = Feedback&body = Message"
                                             >

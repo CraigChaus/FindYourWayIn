@@ -1,8 +1,5 @@
-import { DirectionsRenderer, Marker } from '@react-google-maps/api';
-import { getSortedRoutes } from 'next/dist/shared/lib/router/utils';
-import { posix } from 'path';
+import { DirectionsRenderer } from '@react-google-maps/api';
 import React, { SetStateAction } from 'react';
-import LocationMarker from '../../homepage/LocationMarker';
 
 interface MarkerProps extends google.maps.MarkerOptions {
     setLat: React.Dispatch<SetStateAction<number>>;
@@ -11,7 +8,6 @@ interface MarkerProps extends google.maps.MarkerOptions {
 }
 
 type DirectionsResult = google.maps.DirectionsResult;
-type latLng = google.maps.LatLng;
 type latLngLiteral = google.maps.LatLngLiteral;
 
 const destination: latLngLiteral = {

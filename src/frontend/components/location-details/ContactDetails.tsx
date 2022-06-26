@@ -16,7 +16,6 @@ import Add from '../../public/icons/add.svg';
 import Website from '../../public/icons/largerWebsite.svg';
 
 export const ContactDetails = ({ phoneNumber, email, id, website }: any) => {
-    console.log(id);
     const { user } = useAuth();
     const { t } = useTranslation('common');
 
@@ -38,7 +37,6 @@ export const ContactDetails = ({ phoneNumber, email, id, website }: any) => {
                 await updateDoc(userRef, {
                     favorite_locations: arrayRemove(''),
                 });
-                console.log('new location added to the users favorites!');
             } else {
                 await setDoc(doc(db, 'users', user.uid), {
                     favorite_locations: [id],

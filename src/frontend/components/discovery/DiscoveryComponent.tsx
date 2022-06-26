@@ -1,7 +1,7 @@
 import LocationData from './LocationData';
 import { useRouter } from 'next/router';
 import CategoriesButtons from './CategoriesButtons';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import Navbar from '../global/DefaultNavbar';
 import ActivityZone from '../../public/icons/activity_zone-20.svg';
 import Entertainment from '../../public/icons/theater-20.svg';
@@ -100,7 +100,6 @@ export const DiscoveryComponent = ({
     const locName = useRef('');
 
     useEffect(() => {
-        console.log(locationData);
         setFilteredData(
             filterByCategory(filterContext.filter, enhancedCategories),
         );
@@ -187,7 +186,8 @@ export const DiscoveryComponent = ({
                 </div>
 
                 <div className="relative px-5 ">
-                    <div id="categoryButDiscovery"
+                    <div
+                        id="categoryButDiscovery"
                         data-cy="category"
                         className="flex w-full h-16 overflow-y-auto border-t-2 border-black flex-raw scrollbar-hide "
                     >

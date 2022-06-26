@@ -1,11 +1,8 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { NextPage } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 
 import HomePage from '../components/homepage/HomePage';
-
-// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 export const getServerSideProps = async ({ locale }: any) => {
     const res1 = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/locations`, {
@@ -28,7 +25,6 @@ export const getServerSideProps = async ({ locale }: any) => {
             },
         },
     );
-
     const data = await res2.json();
 
     return {

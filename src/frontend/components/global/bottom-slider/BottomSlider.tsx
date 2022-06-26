@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import ImageContainer from './ImageContainer';
 import RoutingButton from './RoutingButton';
 import InfoButton from './InfoButton';
@@ -27,7 +27,6 @@ const BottomSlider = ({
     const fetchDirections = (destinationCoords: any) => {
         if (!destinationCoords) return;
 
-        console.log(destinationCoords, currentUserLocation);
 
         const service = new google.maps.DirectionsService();
 
@@ -39,15 +38,12 @@ const BottomSlider = ({
             },
             (result, status) => {
                 if (status === 'OK' && result) {
-                    console.log(status, result);
                     setDirections(result);
                 }
             },
         );
     };
 
-    console.log('XX', destinationCoords.lat);
-    console.log('YY', destinationCoords.lng);
 
     return (
         <div

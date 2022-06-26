@@ -6,9 +6,6 @@ import React from 'react';
 import Layout from '@components/global/Layout';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
-
 export async function getStaticPaths({ locales }: any) {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/locations?size=34`,
@@ -63,7 +60,6 @@ export async function getStaticProps(context: {
 }
 
 export const Details = ({ data }: any): JSX.Element => {
-    console.log('DATA ID:', data.id);
     const [locationName, setLocationName] = React.useState(null);
     const [description, setDescription] = React.useState(null);
     const [calendar, setCalendar] = React.useState(null);
@@ -77,14 +73,11 @@ export const Details = ({ data }: any): JSX.Element => {
         if (data.calendar.patternDates[0]) {
             setCalendar(data.calendar.patternDates[0].opens);
         }
-
         setLocationName(data.trcItemDetails[0].title);
         setDescription(data.trcItemDetails[0].longdescription);
-
         if (data.files[0]) {
             setImgSrc(data.files[0].hlink);
         }
-
         setImgAlt('alt');
         setPhoneNumber(data.contactinfo.phones[0].number);
         setEmail(data.contactinfo.mails[0].email);
@@ -103,9 +96,7 @@ export const Details = ({ data }: any): JSX.Element => {
                             />
                         )}
                         <Paragraph content={description} />
-
                         {calendar && <Schedule calendar={calendar} />}
-
                         {phoneNumber || email || website || data.id ? (
                             <ContactDetails
                                 phoneNumber={phoneNumber}

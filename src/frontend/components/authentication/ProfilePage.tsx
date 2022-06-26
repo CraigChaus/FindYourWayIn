@@ -1,5 +1,3 @@
-import SideBar from '../global/Sidebar';
-import UserDropdown from '../global/user/Dropdown';
 import Footer from '@components/global/Footer';
 import { useTranslation } from 'react-i18next';
 import Navbar from '@components/global/DefaultNavbar';
@@ -8,7 +6,6 @@ const ProfilePage = (props: any) => {
     const user = props.user;
     const { t } = useTranslation('common');
 
-    const categories = props.categories;
     return (
         <div className=" h-screen bg-cover  absolute w-full bg-center  overflow-y-scroll bg-[url('../public/images/image2.jpg')]">
             <Navbar />

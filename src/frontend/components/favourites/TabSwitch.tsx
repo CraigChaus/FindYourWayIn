@@ -1,15 +1,15 @@
 import React from 'react';
 import FavouriteLocation from './Favouritelocation';
 
-const Tabs = ({ color, locations }: any): JSX.Element => {
+const Tabs = ({ locations }: any): JSX.Element => {
     console.log('locations in tab component', locations);
 
     const [openTab, setOpenTab] = React.useState(1);
     return (
         <div>
             <div className="flex flex-col flex-wrap w-full scrollbar-hide">
-                <ul className="flex z-10 flex-row pt-2 px-6 w-full">
-                    <li className=" -mb-px mr-2 w-1/2 last:mr-0 flex-auto text-center ">
+                <ul className="z-10 flex flex-row w-full px-6 pt-2">
+                    <li className="flex-auto w-1/2 mr-2 -mb-px text-center  last:mr-0">
                         <a
                             className={
                                 'text-l text-black uppercase px-4 py-3 shadow-lg block leading-normal ' +
@@ -28,7 +28,7 @@ const Tabs = ({ color, locations }: any): JSX.Element => {
                             Places
                         </a>
                     </li>
-                    <li className="-mb-px mr-2 last:mr-0 w-1/2 flex-auto text-center">
+                    <li className="flex-auto w-1/2 mr-2 -mb-px text-center last:mr-0">
                         <a
                             className={
                                 'text-l text-black uppercase px-4 py-3 shadow-lg block leading-normal ' +
@@ -48,14 +48,14 @@ const Tabs = ({ color, locations }: any): JSX.Element => {
                         </a>
                     </li>
                 </ul>
-                <div className="relative  flex flex-col min-w-0 break-words w-full my-4 shadow-lg rounded">
-                    <div className="px-4 py-5 flex-auto">
+                <div className="relative flex flex-col w-full min-w-0 my-4 break-words rounded shadow-lg">
+                    <div className="flex-auto px-4 py-5">
                         <div className="tab-content tab-space">
                             <div
                                 className={openTab === 1 ? 'block' : 'hidden'}
                                 id="link1"
                             >
-                                <div className="flex flex-col w-full overflow-auto scrollbar-hide relative bottom-5">
+                                <div className="relative flex flex-col w-full overflow-auto scrollbar-hide bottom-5">
                                     {locations &&
                                         locations.map(
                                             (location: any, index: number) => {

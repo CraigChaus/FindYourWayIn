@@ -1,4 +1,3 @@
-import { type } from 'os';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import * as icons from 'public/markerIcons';

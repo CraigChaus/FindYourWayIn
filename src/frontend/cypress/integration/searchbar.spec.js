@@ -9,7 +9,6 @@ describe('type in to search bar', () => {
         cy.get('input[placeholder="Search a place"]').focus();
     });
 
-
     it('type in search bar', () => {
         cy.get('input[placeholder="Search a place"]')
             .type('Speel')
@@ -20,11 +19,9 @@ describe('type in to search bar', () => {
         cy.get('div').contains('Speel je Wijs').should('exist');
     });
 
-
     it('dropdown menu is exist', () => {
         cy.get('#testSearch').should('exist');
     });
-
 
     it('Clicked on dropdown menu', () => {
         cy.get('#testSearch').click();
@@ -36,7 +33,6 @@ describe('type in to search bar', () => {
 
     it('delete text from input', () => {
         cy.get('input[placeholder="Search a place"]').clear();
-
     });
 
     it('check if it is empty', () => {
@@ -47,18 +43,13 @@ describe('type in to search bar', () => {
         cy.get('#slideSearchBar').should('not.exist');
     });
 
-
     it('type in search bar to check after if it is scrollable', () => {
         cy.get('input[placeholder="Search a place"]')
             .type('Deventer')
-            .type('{enter}')
-
+            .type('{enter}');
     });
-
 
     it('scroll to bottom, to check function of scrollability', () => {
-        cy.get('#slideSearchBar').scrollTo("bottom").click()
+        cy.get('#slideSearchBar').scrollTo('bottom').click();
     });
-
-
 });

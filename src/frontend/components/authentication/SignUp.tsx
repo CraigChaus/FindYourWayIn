@@ -24,7 +24,7 @@ export default function SignUp() {
     const [loading, setLoading] = useState(false);
     const [signupSuccess, setSignupSuccess] = useState('');
 
-    const { user, signup } = useAuth();
+    const { signup } = useAuth();
 
     // const history = useHistory()
 
@@ -46,7 +46,6 @@ export default function SignUp() {
                     setLoading(false);
                 });
         } catch (error: any) {
-            console.log(error.message);
             setError(t('errorSignup'));
         }
 

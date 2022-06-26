@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export const FilterContext = createContext<any>({});

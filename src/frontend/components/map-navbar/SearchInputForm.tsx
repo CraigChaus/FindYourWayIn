@@ -1,11 +1,7 @@
-import { t } from 'i18next';
 import React, { FormEvent } from 'react';
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import LocationComponent from './LocationComponent';
-
-// const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-// const apiKey = process.env.NEXT_PUBLIC_FEEDFACTORY_API_KEY;
 
 export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
     const { t } = useTranslation('common');
@@ -43,7 +39,6 @@ export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
     }, [locationSearch]);
 
     const locationRes = [];
-    // console.log(locationFound);
     for (let i = 0; i < locationFound.length; i++) {
         //data checking stage
         let assignedTitle;
@@ -62,10 +57,6 @@ export const SearchInputForm = ({ setBottomSlider, dataLocation }: any) => {
             zipcode: locationFound[i].location.address.zipcode,
             id: locationFound[i].id,
         });
-    }
-
-    for (let i = 0; i < locationRes.length; i++) {
-        console.log(i + ') res: ' + locationRes[i].title);
     }
 
     const [isShown, setIsShown] = useState(true); // this states we needed for slide-bar to show and collapse

@@ -1,5 +1,4 @@
 import LocationImages from './LocationImages';
-import demoImage from '../../public/images/background.jpg';
 
 export const Header = ({ name, src, alt }: any) => {
     return (

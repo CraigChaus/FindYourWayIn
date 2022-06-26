@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { FilterContext } from 'contexts/FilterContext';
 import { useContext } from 'react';
 

@@ -15,12 +15,9 @@ context('Home Page', () => {
         cy.title().should('equal', 'Home');
     });
 
-
     it('should have a map-navbar', () => {
-    cy.get('#mapNavBar').should('exist');
+        cy.get('#mapNavBar').should('exist');
     });
-
-
 
     it('check sidebar components', () => {
         cy.get('#header').get('button').first().click();
@@ -31,7 +28,7 @@ context('Home Page', () => {
     });
 
     it('check language switcher', () => {
-        cy.get('[data-cy="language-switcher"]').should('exist')
+        cy.get('[data-cy="language-switcher"]').should('exist');
     });
 
     it('check home sidebar item', () => {

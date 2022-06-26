@@ -5,10 +5,13 @@ import TabSwitch from '@components/favourites/TabSwitch';
 import { useAuth } from 'contexts/AuthContext';
 import { db } from 'firebase_config';
 import { doc, getDoc } from 'firebase/firestore';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-// export async function getStaticProps() {
-
-// }
+export const getStaticProps = async ({ locale }: any) => ({
+    props: {
+        ...(await serverSideTranslations(locale, ['common'])),
+    },
+});
 
 const Favourites: NextPage = () => {
     const { user } = useAuth();
@@ -16,7 +19,6 @@ const Favourites: NextPage = () => {
     const [favLocsIDs, setFavLocsIDs] = useState<string[]>();
     const [favLocationsFromApi, setFavLocationsFromApi] = useState<any>();
 
-    console.log('user id', user);
     useEffect(() => {
         const getFavouriteLocations = async () => {
             const userRef = doc(db, 'users', user.uid);
@@ -31,16 +33,13 @@ const Favourites: NextPage = () => {
 
         if (user) {
             getFavouriteLocations();
-            console.log('data is requested');
         } else console.log('user is null');
     }, [user]);
 
     useEffect(() => {
-        console.log('Your fav locations: ', favLocsIDs);
         async function getLocations(locationIDs: string[]) {
             const data: string[] = [];
             for (let i = 0; i < locationIDs.length; i++) {
-                console.log('location', location);
                 const res = await fetch(
                     `${process.env.NEXT_PUBLIC_API_URL}/locations/` +
                         locationIDs[i],
@@ -53,30 +52,23 @@ const Favourites: NextPage = () => {
                     },
                 );
                 data[i] = await res.json();
-                console.log(data);
             }
             setFavLocationsFromApi(data);
-            console.log('DATA SET', data);
         }
 
         if (favLocsIDs) {
-            console.log('Setting locations from api');
             getLocations(favLocsIDs);
         }
     }, [favLocsIDs]);
 
-    useEffect(() => {
-        console.log('location objects', favLocationsFromApi);
-    }, [favLocationsFromApi]);
-
     return (
         <>
             <div className="h-screen bg-cover">
-                <div className="flex w-full flex-col h-screen  bg-opacity-70">
+                <div className="flex flex-col w-full h-screen bg-opacity-70">
                     <div className="z-20">
                         <Navbar />
                     </div>
-                    <div className=" overflow-y-auto">
+                    <div className="overflow-y-auto ">
                         <TabSwitch locations={favLocationsFromApi} />
                     </div>
                 </div>

@@ -1,5 +1,3 @@
-// components/layout.js
-
 import Navbar from './DefaultNavbar';
 import Footer from './Footer';
 import type { ReactNode } from 'react';

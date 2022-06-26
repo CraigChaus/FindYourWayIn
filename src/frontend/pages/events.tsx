@@ -51,7 +51,6 @@ export const Agenda = ({ data }: any): JSX.Element => {
 
     const [toggleState, setToggleState] = React.useState(1);
 
-    console.log(data);
     React.useEffect(() => {
         const resultCurrent = [];
         const resultUpcoming = [];
@@ -78,12 +77,6 @@ export const Agenda = ({ data }: any): JSX.Element => {
             //eliminating all leading zeros
             const monthNumberNoZero = parseInt(monthNumberInstance, 10);
 
-            // console.log(dayNumberInstance);
-
-            // console.log(monthNumberInstance);
-
-            // console.log(monthNumberNoZero);
-
             //only show the event date if the day is equal to the devices date and time or ahead of it
             if (
                 dayNumberInstance >= todayDateNumber &&
@@ -104,14 +97,6 @@ export const Agenda = ({ data }: any): JSX.Element => {
                         eventImage: data.results[i]?.files[0]?.hlink,
                     });
                 }
-
-                // console.log(resultCurrent)
-
-                // //api data for name of the event
-                // setEventName(data.results[i].location.label);
-
-                // //The date is being splitted to only show the date number of the event since this will be in the same month
-                // setDay(dayNumberInstance);
             } else if (monthNumberNoZero > thisMonthNumber) {
                 //(YYYY/MM/DD)
                 const fullDayNumber = dayNumber.substring(0, 10);
@@ -131,13 +116,6 @@ export const Agenda = ({ data }: any): JSX.Element => {
                         eventImage: data.results[i]?.files[0]?.hlink,
                     });
                 }
-                // console.log(resultUpcoming);
-
-                // //the name of the event that is upcoming
-                // setUpEventName(data.results[i].location.label);
-
-                // //the day, month and year of the upcoming event
-                // setUpDay(fullDayNumber);
             }
         }
         setUpComingEvents(resultUpcoming);
@@ -158,7 +136,6 @@ export const Agenda = ({ data }: any): JSX.Element => {
                 />
             </Head>
             <DefaultNavbar />
-
             <div>
                 <h1 className="p-4 pt-20 text-4xl font-bold text-center">
                     Events
@@ -194,7 +171,6 @@ export const Agenda = ({ data }: any): JSX.Element => {
                     </div>
                 </div>
             </div>
-
             <div>
                 {currentEvents == null ? (
                     <div
@@ -230,7 +206,6 @@ export const Agenda = ({ data }: any): JSX.Element => {
                             })}
                     </div>
                 )}
-
                 <div>
                     <div className={toggleState === 2 ? 'mt-8' : 'invisible'}>
                         {upComingEvents &&
@@ -248,7 +223,8 @@ export const Agenda = ({ data }: any): JSX.Element => {
                                         imageSrc={upcomingEvent.eventImage}
                                     />
                                 );
-                            })}
+                            })
+                        }
                     </div>
                 </div>
             </div>

@@ -1,4 +1,3 @@
-import { Marker } from '@react-google-maps/api';
 import React, { SetStateAction } from 'react';
 
 interface MarkerProps extends google.maps.MarkerOptions {
@@ -46,7 +45,6 @@ const UserLocationMarker: React.FC<MarkerProps> = ({
                 }),
             );
 
-            //console.log("user marker is set with", lat, lng)
         }
 
         return () => {
@@ -60,12 +58,6 @@ const UserLocationMarker: React.FC<MarkerProps> = ({
         }
     }, [options, userMarker]);
 
-    // React.useEffect(() => {
-    //     if(userMarker){
-    //         console.log("setpos ", userLat, userLng)
-    //         userMarker.setPosition({lat: userLat, lng: userLng})
-    //     }
-    // }, [userMarker, userLat, userLng])
     return null;
 };
 

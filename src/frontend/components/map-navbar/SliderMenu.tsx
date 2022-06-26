@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Categories from './Categories';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import * as icons from 'public/markerIcons';
 import { useTranslation } from 'react-i18next';
 import { faAnglesDown, faAnglesUp } from '@fortawesome/free-solid-svg-icons';
 import ActivityZone from '../../public/icons/activity_zone.svg';
@@ -76,7 +75,8 @@ export default function SliderMenu() {
         <>
             {!isOpen ? (
                 <div className="flex justify-center bg-transparent ">
-                    <button id="buttonForSliderMenu"
+                    <button
+                        id="buttonForSliderMenu"
                         onClick={() => setIsOpen(!isOpen)}
                         className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700"
                     >
@@ -91,7 +91,8 @@ export default function SliderMenu() {
             ) : (
                 <>
                     {' '}
-                    <div id="categoriesMenu"
+                    <div
+                        id="categoriesMenu"
                         className={`drop-shadow-md   ${
                             isOpen ? 'translate-y-0' : 'translate-y-full'
                         } transition-transform duration-600`}
@@ -104,7 +105,8 @@ export default function SliderMenu() {
                         </div>
 
                         <div className="flex justify-center ">
-                            <button id="buttonForSliderMenuToClose"
+                            <button
+                                id="buttonForSliderMenuToClose"
                                 onClick={() => setIsOpen(!isOpen)}
                                 className="flex justify-center w-12 h-5 font-bold text-white bg-green-500 rounded-b-full hover:bg-green-700 drop-shadow-md"
                             >
